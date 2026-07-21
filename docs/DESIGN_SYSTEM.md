@@ -91,15 +91,17 @@ Mobile
 ### Mobile Typography Scale
 
 - 적용 범위: `760px 이하`만 사용하며 Desktop과 Tablet Typography는 변경하지 않는다.
-- Section Label / Auxiliary Text: `13px`
-- Home Hero Title: `28px / 1.24`
-- Main Section Title: `22px / 1.36`
-- Service Detail Page Title: HOME Service Card와 동일한 Desktop `32px / 1.28`, Mobile `16px / 1.5`
-- Insights Detail Page Title: HOME Insights Card와 동일한 Desktop `21px / 1.45`, Mobile `16px / 1.5`
-- Detail CONTACT Title: HOME Contact와 동일한 Mobile `22px / 1.36`
+- Benchmark: LISTING 모바일의 여백 우선 Premium Corporate 밀도를 기준으로 한다.
+- Section Label / Hero Label: `10.5px`
+- Home Hero Title: `20px / 1.28`
+- Main Section Title: `17px / 1.42`
+- Service Detail Page Title: Desktop `32px / 1.28`, Mobile `12.5px / 1.55`
+- Insights Detail Page Title: Desktop `21px / 1.45`, Mobile `12.5px / 1.55`
+- Detail CONTACT Title: HOME Contact와 동일한 Mobile `17px / 1.42`
 - Card Title: `16px / 1.5`
 - Body: `14px / 1.8`
-- Button Text: `14px`; 기존 Touch Target 높이는 유지한다.
+- Hero·Detail Description: `11.25~14.5px`
+- Button Text: `12px`; Mobile Touch Target은 `47px`을 사용한다.
 - Mobile Navigation: `13px`
 - Form Input Text: iOS Safari 자동 확대 방지를 위해 `16px`을 유지한다.
 

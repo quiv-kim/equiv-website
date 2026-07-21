@@ -53,6 +53,7 @@ Phase 5
 - [x] Sprint 9.3 Premium Mobile Typography 최종 조정
 - [x] Sprint 9.4 HOME 기준 사이트 전체 Typography 통일
 - [x] HOME Service·Insights·Contact 실제 CSS 값을 상세페이지에 직접 매핑
+- [x] Sprint 10 LISTING Benchmark 기반 Mobile Typography와 Hero 밀도 최적화
 
 ## Preliminary Valuation Public Release Review
 

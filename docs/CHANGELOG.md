@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 10 - Mobile Typography Benchmark
+
+- LISTING 모바일을 기준으로 `760px 이하` Typography Scale을 여백 우선 Premium Corporate 밀도로 재조정
+- HOME Hero Label `10.5px`, H1 `20px / 1.28`, Hero 높이 `80svh` 적용
+- 공통 Section H2와 상세 CONTACT H1을 `17px / 1.42`로 축소
+- Service·Insights 상세 H1을 `12.5px / 1.55`, Hero·Detail Description을 `11.25~14.5px`로 조정
+- Mobile Button을 `12px / 47px`로 축소하되 Form Input `16px`, Card Title `16px`, Body `14px`은 유지
+- 기존 Section Padding, Desktop·Tablet Layout, Color와 Component 구조는 변경하지 않음
+
 ## Header Wordmark Tracking Rebalance
 
 - EQUIV Wordmark 자간을 `0.18em`에서 `0.10em`으로 축소

@@ -4679,8 +4679,8 @@ button {
   }
 
   .hero {
-    min-height: 88vh;
-    min-height: 88svh;
+    min-height: 80vh;
+    min-height: 80svh;
   }
 
   .hero h1 {
@@ -5463,8 +5463,8 @@ button {
 
   /* Final mobile typography scale */
   .hero h1 {
-    font-size: 28px;
-    line-height: 1.24;
+    font-size: 20px;
+    line-height: 1.28;
   }
 
   .section h2,
@@ -5474,25 +5474,25 @@ button {
   .readiness-check h2,
   .final-cta h2,
   .sub-cta h2 {
-    font-size: 22px;
+    font-size: 17px;
     font-family: var(--font-ko);
     font-weight: 700;
-    line-height: 1.36;
+    line-height: 1.42;
     letter-spacing: 0;
   }
 
   .sub-hero h1,
   .about-hero h1,
   .contact-hero h1 {
-    font-size: 22px;
-    line-height: 1.36;
+    font-size: 17px;
+    line-height: 1.42;
   }
 
   /* Copy the HOME service and insight card title values without rescaling. */
   .expertise-page .sub-hero h1,
   .subpage .insight-article-hero h1 {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 12.5px;
+    line-height: 1.55;
   }
 
   .service-card h3,
@@ -5595,12 +5595,25 @@ button {
     letter-spacing: 0.1em;
   }
 
+  .section-kicker,
+  .eyebrow,
+  .sub-label,
+  .about-page .sub-label,
+  .hero-brand-name,
+  .hero-brand-korean,
+  .hero-brand-role {
+    font-size: 10.5px;
+  }
+
   .btn,
+  .hero .btn,
   .final-cta .btn,
   .consultation-submit,
   .consultation-modal__submit,
   .readiness-option {
-    font-size: 14px;
+    min-height: 47px;
+    padding: 11px 18px;
+    font-size: 12px;
   }
 
   .site-nav > a,
@@ -5620,8 +5633,8 @@ button {
   .consultation-modal__header h2,
   .consultation-modal__success h2,
   .readiness-modal__content h2 {
-    font-size: 22px;
-    line-height: 1.36;
+    font-size: 17px;
+    line-height: 1.42;
   }
 
   .consultation-modal__header strong,
@@ -5634,8 +5647,18 @@ button {
 
   .sub-intro p,
   .service-hero .sub-hero-lead {
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .service-hero .sub-hero-copy,
+  .about-hero .about-hero-copy {
+    font-size: 11.25px;
+    line-height: 1.9;
+  }
+
+  .insight-article-hero .container > p:not(.section-kicker) {
+    font-size: 12px;
   }
 
   .footer-brand .equiv-logo-wordmark {
@@ -5661,7 +5684,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 20px;
   }
 
   .hero-brand-identity {
@@ -5681,7 +5704,7 @@ button {
   }
 
   .sub-intro p {
-    font-size: 18px;
+    font-size: 14.5px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
