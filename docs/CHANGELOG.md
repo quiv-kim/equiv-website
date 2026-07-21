@@ -1,5 +1,21 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 9 - Mobile Experience Optimization
+
+- Desktop Selector와 기존 Navigation breakpoint를 유지하고 760px 이하 Mobile·761~900px Tablet 전용 보정만 적용
+- Mobile Header를 64px로 조정하고 Logo 간격, 48px Hamburger Touch Area와 Navigation 항목 간격 최적화
+- Hero를 88svh, 상단 Content Offset -18px, 29~34px Headline과 52px CTA로 조정해 첫 화면 집중도 개선
+- Mobile 공통 Section Padding을 84px 중심으로 정리하고 Principle·Contact 등 섹션별 높이를 별도 조정
+- Section Title 28~34px, Body 14.5~15.5px, Button 15~17px 범위로 가독성 중심 Typography 조정
+- Principle Card 244px, Expertise·Insight Card 184px의 최소 높이와 통일된 Padding·12px Gap 적용
+- Transaction Process와 About Flow의 번호, 제목, 본문과 세로 간격을 Mobile 흐름에 맞게 축소
+- Contact CTA를 56px Full Width로 조정하고 Footer Padding·Logo 크기·Site Map 간격 최적화
+- Consultation Modal의 좌우 16px 여백, 48px Input, 52px Submit, 44px Close, 자연스러운 내부 Scroll 적용
+- Consultation Success의 Full Viewport 최소 높이를 제거하여 불필요하게 큰 완료 화면 개선
+- Readiness Modal에 44px Close, 52px Option과 `dvh` 기반 내부 Scroll 적용
+- 768px에서 Header Navigation 간격, 104px Section Padding, Card 높이와 Consultation Modal Touch Target 보정
+- 사용되지 않는 Principle Heading Span CSS와 중복 Modal Mobile Selector 제거
+
 ## EQUIV Principle Premium Content Refinement - MASTER CONTENT SPEC v2.0
 
 - Main Title을 `좋은 거래는 올바른 원칙에서 시작됩니다.`로 간결하게 변경

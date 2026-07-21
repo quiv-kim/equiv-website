@@ -42,7 +42,7 @@ Phase 5
 - [ ] 검증 완료 전 `valuation-prototype.html` 공개 링크 추가 금지
 - [ ] 전체 상세페이지 한글 인코딩/표시 상태 점검
 - [x] 전체 공개 페이지 Header/Footer를 The EQUIV Mark 공식 Lockup으로 통일
-- [ ] 모바일 화면에서 HOME과 상세페이지 주요 섹션 간격 검수
+- [x] 360·390·430·768px 기준 HOME·상세페이지·공통 Modal Mobile Experience 최적화
 - [ ] Contact 이메일 주소 확정
 - [ ] `og:url`, `og:image`, 메타 정보 실제 도메인 기준으로 교체
 - [ ] 최종 배포 전 링크 전체 검수

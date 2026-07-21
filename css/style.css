@@ -626,12 +626,6 @@ button {
 }
 
 
-.principle-head h2 span {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 0.84em;
-  line-height: 1.22;
-}
 .principle-head > p:last-child {
   max-width: 560px;
   margin: 44px auto 0;
@@ -4012,23 +4006,26 @@ button {
 @media (max-width: 760px) {
   .consultation-modal {
     align-items: flex-start;
-    padding: 16px;
+    padding: 12px 16px;
   }
 
   .consultation-modal__dialog {
     width: 100%;
-    max-height: calc(100dvh - 32px);
+    max-height: calc(100dvh - 24px);
     border-radius: 16px;
+    overscroll-behavior: contain;
   }
 
   .consultation-modal__header {
-    padding: 30px 24px 26px;
+    padding: 26px 20px 22px;
     border-radius: 15px 15px 0 0;
   }
 
   .consultation-modal__close {
-    top: 16px;
-    right: 16px;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
   }
 
   .consultation-modal__header > p:last-child {
@@ -4037,8 +4034,18 @@ button {
 
   .consultation-modal__header p span {
     display: block;
-    margin-top: 12px;
+    margin-top: 10px;
+    font-size: 12px;
     text-align: left;
+  }
+
+  .consultation-modal__header h2 {
+    padding-right: 42px;
+    font-size: 28px;
+  }
+
+  .consultation-modal__header strong {
+    font-size: 14.5px;
   }
 
   .consultation-modal__body {
@@ -4046,13 +4053,28 @@ button {
   }
 
   .consultation-modal__guide {
-    padding: 28px 24px;
+    padding: 24px 20px;
     border-right: 0;
     border-bottom: 1px solid var(--color-line);
   }
 
+  .consultation-modal__guide h3 {
+    margin-bottom: 18px;
+  }
+
+  .consultation-modal__guide-block + .consultation-modal__guide-block {
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .consultation-modal__confidential {
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
   .consultation-modal__form {
-    padding: 28px 24px 30px;
+    gap: 18px;
+    padding: 24px 20px 26px;
   }
 
   .consultation-modal__field-grid {
@@ -4064,8 +4086,22 @@ button {
   }
 
   .consultation-modal__types label span {
-    min-height: 42px;
+    min-height: 48px;
     font-size: 12px;
+  }
+
+  .consultation-modal__field input {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .consultation-modal__field textarea {
+    min-height: 96px;
+    font-size: 16px;
+  }
+
+  .consultation-modal__submit {
+    min-height: 52px;
   }
 
   .consultation-modal__privacy-row {
@@ -4078,8 +4114,8 @@ button {
   }
 
   .consultation-modal__success {
-    min-height: calc(100dvh - 32px);
-    padding: 96px 24px 54px;
+    min-height: 0;
+    padding: 64px 20px 40px;
   }
 }
 
@@ -4325,13 +4361,124 @@ button {
   }
 }
 
+@media (min-width: 761px) and (max-width: 900px) {
+  .header-inner {
+    gap: 14px;
+  }
+
+  .site-header .equiv-logo,
+  .site-header.is-scrolled .equiv-logo {
+    gap: 9px;
+  }
+
+  .site-header .equiv-logo-mark,
+  .site-header.is-scrolled .equiv-logo-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-header .equiv-logo-divider,
+  .site-header.is-scrolled .equiv-logo-divider {
+    height: 25px;
+  }
+
+  .site-header .equiv-logo-wordmark,
+  .site-header.is-scrolled .equiv-logo-wordmark {
+    font-size: 23px;
+    letter-spacing: 0.14em;
+  }
+
+  .site-nav {
+    gap: 16px;
+    font-size: 12.5px;
+  }
+
+  .nav-dropdown-toggle {
+    width: 20px;
+    margin-left: 1px;
+  }
+
+  .section {
+    padding: 104px 0;
+  }
+
+  .principle-section {
+    padding: 104px 0 96px;
+  }
+
+  .principle-grid {
+    gap: 12px;
+  }
+
+  .principle-card {
+    min-height: 250px;
+    padding: 28px 22px;
+  }
+
+  .principle-card h3 {
+    font-size: 19px;
+  }
+
+  .principle-card:nth-child(3) h3 {
+    font-size: 18px;
+  }
+
+  .service-card,
+  .insight-card {
+    min-height: 210px;
+    padding: 26px 24px;
+  }
+
+  .final-cta {
+    padding: 88px 0;
+  }
+
+  .consultation-modal {
+    padding: 24px;
+  }
+
+  .consultation-modal__dialog {
+    max-height: calc(100dvh - 48px);
+    overscroll-behavior: contain;
+  }
+
+  .consultation-modal__header {
+    padding: 32px 40px 28px;
+  }
+
+  .consultation-modal__guide {
+    padding: 30px 24px;
+  }
+
+  .consultation-modal__form {
+    gap: 20px;
+    padding: 30px 28px;
+  }
+
+  .consultation-modal__field input {
+    min-height: 48px;
+  }
+
+  .consultation-modal__types > div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .consultation-modal__types label span {
+    min-height: 44px;
+  }
+
+  .consultation-modal__submit {
+    min-height: 52px;
+  }
+}
+
 @media (max-width: 760px) {
   :root {
-    --header-height: 66px;
+    --header-height: 64px;
   }
 
   .container {
-    width: min(100% - 28px, var(--container));
+    width: min(100% - 32px, var(--container));
   }
 
   .valuation-public-hero__inner {
@@ -4350,6 +4497,9 @@ button {
 
   .nav-toggle {
     display: grid;
+    width: 48px;
+    height: 48px;
+    margin-right: -8px;
   }
 
   .nav-toggle span {
@@ -4359,7 +4509,7 @@ button {
 
   .site-header .equiv-logo,
   .site-header.is-scrolled .equiv-logo {
-    gap: 10px;
+    gap: 8px;
   }
 
   .site-header .equiv-logo-mark,
@@ -4375,8 +4525,8 @@ button {
 
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
-    font-size: 23px;
-    letter-spacing: 0.16em;
+    font-size: 22px;
+    letter-spacing: 0.14em;
   }
 
   .site-nav {
@@ -4386,7 +4536,7 @@ button {
     right: 0;
     display: grid;
     gap: 0;
-    padding: 18px 22px 28px;
+    padding: 12px 18px 22px;
     color: var(--color-primary);
     background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid var(--color-line);
@@ -4405,7 +4555,7 @@ button {
 
   .site-nav > a,
   .nav-parent-link {
-    padding: 16px 0;
+    padding: 14px 0;
     font-size: 14px;
   }
 
@@ -4460,21 +4610,24 @@ button {
   }
 
   .nav-dropdown a {
-    padding: 11px 0 11px 14px;
+    padding: 13px 0 13px 14px;
     font-size: 13.5px;
   }
 
   .hero {
-    min-height: 92vh;
+    min-height: 88vh;
+    min-height: 88svh;
   }
 
   .hero h1 {
-    font-size: clamp(29px, 8.1vw, 34px);
-    line-height: 1.22;
+    font-size: clamp(29px, 8vw, 34px);
+    line-height: 1.24;
+    word-break: keep-all;
   }
 
   .hero-content {
-    padding-top: calc(var(--header-height) + 5vh);
+    padding-top: calc(var(--header-height) + 3vh);
+    transform: translateY(-18px);
   }
 
   .mobile-only {
@@ -4482,13 +4635,16 @@ button {
   }
 
   .section-kicker {
-    font-size: 12.5px;
+    margin-bottom: 14px;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
   }
 
   .hero-brand-identity {
     gap: 7px 9px;
-    margin-bottom: 14px;
-    transform: translateY(-6px);
+    max-width: 100%;
+    margin-bottom: 12px;
+    transform: none;
   }
 
   .hero-brand-signature {
@@ -4513,31 +4669,38 @@ button {
   }
 
   .hero-actions {
-    width: 100%;
+    width: min(100%, 340px);
     gap: 10px;
-    margin-top: 32px;
+    margin: 28px auto 0;
   }
 
   .hero .btn {
-    min-height: 50px;
+    min-height: 52px;
   }
 
   .btn {
     width: 100%;
-    min-height: 54px;
-    padding: 14px 22px;
+    min-height: 52px;
+    padding: 13px 20px;
+    font-size: 15px;
   }
 
   .section {
-    padding: 88px 0;
+    padding: 84px 0;
   }
 
   .principle-section {
-    padding: 76px 0 70px;
+    padding: 74px 0 70px;
   }
 
   .section-head {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+  }
+
+  .section h2 {
+    font-size: clamp(28px, 8vw, 34px);
+    line-height: 1.28;
+    word-break: keep-all;
   }
 
   .principle-grid,
@@ -4545,17 +4708,31 @@ button {
   .insight-grid,
   .about-card-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .principle-card,
   .service-card {
-    min-height: auto;
-    padding: 22px;
+    padding: 24px 22px;
+  }
+
+  .principle-card {
+    min-height: 244px;
+  }
+
+  .service-card {
+    min-height: 184px;
+  }
+
+  .service-card span {
+    font-size: 18px;
   }
 
   .service-card h3 {
     margin: 12px 0 6px;
-    font-size: 28px;
+    font-size: clamp(25px, 7vw, 28px);
+    line-height: 1.34;
+    word-break: keep-all;
   }
 
   .service-card p {
@@ -4569,8 +4746,27 @@ button {
   }
 
   .service-card em {
-    margin-top: 10px;
+    margin-top: 16px;
     padding-top: 0;
+  }
+
+  .expertise-note {
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .home-readiness-section .readiness-check {
+    padding-top: 20px;
+  }
+
+  .home-readiness-section .readiness-check p {
+    font-size: 15.5px;
+    line-height: 1.78;
+  }
+
+  .readiness-actions {
+    margin-top: 26px;
   }
 
   .process-timeline {
@@ -4584,7 +4780,7 @@ button {
   }
 
   .process-timeline li {
-    padding: 0 0 30px 34px;
+    padding: 0 0 26px 32px;
   }
 
   .process-timeline li::before {
@@ -4603,38 +4799,33 @@ button {
 
   .process-timeline span {
     color: var(--color-gold);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
   }
 
   .process-timeline h3 {
     margin-top: 8px;
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .process-timeline p {
     margin-top: 8px;
-    font-size: 15px;
+    font-size: 14.5px;
+    line-height: 1.72;
   }
 
   .principle-head {
-    margin-bottom: 36px;
-  }
-
-  .principle-head h2 span {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.84em;
-    line-height: 1.22;
+    margin-bottom: 32px;
   }
 
   .principle-head > p:last-child {
-    font-size: 16px;
-    line-height: 1.82;
+    margin-top: 28px;
+    font-size: 15.5px;
+    line-height: 1.78;
   }
 
   .principle-card {
-    padding: 28px 24px;
+    padding: 26px 22px;
   }
 
   .principle-card::before {
@@ -4643,12 +4834,39 @@ button {
   }
 
   .principle-card h3 {
-    margin-top: 42px;
+    margin: 34px 0 10px;
+    font-size: 20px;
+  }
+
+  .principle-card:nth-child(3) h3 {
+    font-size: 19px;
+  }
+
+  .principle-card strong {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .principle-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
   }
 
   .insight-card {
-    min-height: 190px;
-    padding: 26px 24px;
+    min-height: 184px;
+    padding: 24px 22px;
+  }
+
+  .insight-card h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+    line-height: 1.42;
+    word-break: keep-all;
+  }
+
+  .insight-card p {
+    font-size: 14.5px;
+    line-height: 1.72;
   }
 
   .insight-article {
@@ -4671,7 +4889,7 @@ button {
   }
 
   .final-cta {
-    padding: 80px 0;
+    padding: 72px 0;
   }
 
   .final-cta h2 {
@@ -4692,8 +4910,16 @@ button {
 
   .contact-action-row {
     grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 36px;
+    gap: 32px;
+    margin-top: 30px;
+  }
+
+  .final-cta .btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 56px;
+    padding-inline: 22px;
+    font-size: 17px;
   }
 
   .cta-service-list {
@@ -4752,12 +4978,13 @@ button {
   }
 
   .sub-hero {
-    padding: calc(var(--header-height) + 72px) 0 64px;
+    padding: calc(var(--header-height) + 56px) 0 52px;
   }
 
   .sub-hero h1 {
-    font-size: clamp(34px, 9vw, 40px);
-    line-height: 1.18;
+    font-size: clamp(32px, 8.8vw, 38px);
+    line-height: 1.22;
+    word-break: keep-all;
   }
 
   .about-hero h1 {
@@ -4807,12 +5034,13 @@ button {
   }
 
   .service-hero .sub-hero-lead {
-    font-size: clamp(22px, 6.2vw, 26px);
-    line-height: 1.55;
+    font-size: clamp(21px, 6vw, 25px);
+    line-height: 1.5;
   }
 
   .service-hero .sub-hero-copy {
-    font-size: 16px;
+    font-size: 15.5px;
+    line-height: 1.78;
   }
 
   .why-list {
@@ -4883,22 +5111,27 @@ button {
   }
 
   .readiness-modal {
-    padding: 16px;
+    padding: 12px 16px;
   }
 
   .readiness-modal__dialog {
-    max-height: calc(100vh - 32px);
-    padding: 34px 24px 28px;
+    max-height: calc(100dvh - 24px);
+    padding: 32px 20px 26px;
     border-radius: 14px;
+    overscroll-behavior: contain;
   }
 
   .readiness-modal__close {
-    top: 16px;
-    right: 18px;
+    top: 10px;
+    right: 10px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .readiness-option {
-    padding: 16px;
+    min-height: 52px;
+    padding: 14px 16px;
+    font-size: 15px;
   }
 
   .prototype-header-status {
@@ -4971,11 +5204,11 @@ button {
   }
 
   .about-flow li {
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 44px 1fr;
     display: grid;
     gap: 12px;
     min-height: auto;
-    padding: 22px 0;
+    padding: 20px 0;
     border-right: 0;
     border-bottom: 1px solid var(--color-line);
   }
@@ -4986,11 +5219,13 @@ button {
 
   .about-flow h3 {
     margin-top: 0;
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .about-flow p {
     margin-top: 8px;
+    font-size: 14.5px;
+    line-height: 1.72;
   }
 
   .key-list li,
@@ -5026,12 +5261,16 @@ button {
   }
 
   .site-footer {
-    padding: 56px 0;
+    padding: 48px 0;
   }
 
   .footer-brand .equiv-logo-mark {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-brand .equiv-logo-wordmark {
+    font-size: 23px;
   }
 
   .footer-sitemap ul {
@@ -5049,7 +5288,7 @@ button {
 
 @media (max-width: 380px) {
   .container {
-    width: min(100% - 24px, var(--container));
+    width: min(100% - 32px, var(--container));
   }
 
   .hero h1 {

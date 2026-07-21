@@ -78,6 +78,16 @@ Mobile
 
 24px
 
+### Mobile Optimization
+
+- QA widths: `360 / 390 / 430 / 768px`
+- Mobile Header Height: `64px`
+- Mobile Container Side Margin: `16px`
+- Mobile Button: 최소 `52px`, 주요 CTA `56px`
+- Mobile Form Input: 최소 `48px`, Font Size `16px`
+- Mobile Section Padding: 콘텐츠 역할에 따라 약 `70~84px`
+- Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
+
 ## Header
 
 Transparent on Hero

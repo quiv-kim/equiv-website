@@ -516,6 +516,18 @@ Dropdown Toggle에는 `aria-expanded`, `aria-haspopup`와 `aria-controls`를 적
 
 존재하지 않는 페이지, 빈 Link와 `href="#"`는 Dropdown에 노출하지 않는다. 현재 Service Dropdown은 `기업 매각 / 기업 인수 / 기업가치 검토 / 투자유치 / 성장 전략`, Insights Dropdown은 실제 공개 페이지인 `M&A 실무 / 업종별 M&A / 시장분석 / 거래사례`만 사용한다.
 
+## Mobile Experience Principle
+
+Mobile Experience는 Desktop 디자인을 축소 복제하지 않고 읽기와 터치를 기준으로 별도 최적화한다. Desktop의 구조, 색상과 기본 Breakpoint는 변경하지 않는다.
+
+- 우선 검수 폭은 `360px / 390px / 430px / 768px`이다.
+- 760px 이하에서는 Header, Hero, Section, Card, CTA와 Modal을 Mobile 전용 Typography와 Spacing으로 운영한다.
+- 768px은 기존 Desktop Navigation breakpoint를 유지하면서 좁은 Tablet 폭에 필요한 Header 간격, Section Padding과 Modal Touch Target만 보정한다.
+- 모든 주요 Button과 Form Control은 Mobile에서 최소 48px 전후의 터치영역을 확보한다.
+- Mobile Form Input은 16px 글자 크기를 사용하여 iOS Safari의 의도하지 않은 화면 확대를 방지한다.
+- Modal은 `dvh` 기준 최대 높이, 내부 Scroll과 `overscroll-behavior`를 사용해 현재 페이지의 Scroll과 충돌하지 않도록 한다.
+- Desktop Selector의 수치와 구조를 변경하지 않고 Mobile·Tablet Media Query 안에서만 조정한다.
+
 ## Maintenance Rule
 
 기능, 디자인, 문구, 페이지 구조를 수정할 때는 반드시 아래 문서를 함께 확인한다.
