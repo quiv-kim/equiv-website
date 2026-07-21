@@ -1,5 +1,10 @@
 # EQUIV M&A Website Changelog
 
+## Mobile Service Card Title Refinement
+
+- 760px 이하 Featured Expertise 서비스 카드 제목을 `9px`로 통일
+- Desktop·Tablet Typography, Card Layout, Padding과 Touch 영역은 변경하지 않음
+
 ## Website Sprint 9.3 - Premium Mobile Typography Final Tuning
 
 - Desktop와 761px 이상 Tablet Typography를 유지하고 760px 이하 Mobile Scale만 최종 축소
