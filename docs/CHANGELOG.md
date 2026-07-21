@@ -1,5 +1,53 @@
 # EQUIV M&A Website Changelog
 
+## Header Wordmark 18% Tracking
+
+- Header와 Consultation Modal의 EQUIV Wordmark 자간을 `0.10em`에서 `0.18em`으로 확대
+- Inter `600`, 기본 Kerning, Wordmark 크기와 Logo Lockup 비례는 유지
+- Header·Tablet·Mobile·Consultation Modal 선택자에만 범위를 한정하고 HOME Hero 제목 자간은 기존 `0` 유지
+
+## Header Wordmark 10% Tracking
+
+- Header와 Consultation Modal의 EQUIV Wordmark 자간을 `0.03em`에서 `0.10em`으로 확대
+- Inter `600`, 기본 Kerning과 기존 Logo Lockup 비례는 유지
+
+## Header Wordmark Positive Tracking
+
+- 기본 자간 `0`에서 체감 가능한 양수 자간 `0.03em`으로 확대
+- Inter `600`, 기본 Kerning, Wordmark 크기와 Logo Lockup 비례는 유지
+
+## Header Wordmark Navigation Spacing Only
+
+- HOME Navigation의 `EQUIV 소개`에서는 기본 자간 `0`만 Header Wordmark에 적용
+- Logo 고유의 Inter `600`, 기본 Kerning, 크기와 Lockup 비례는 복원·유지
+
+## Header Wordmark Navigation Typography Match
+
+- HOME Navigation의 `EQUIV 소개`에 적용된 Inter `500`, 기본 자간 `0`을 Header Wordmark에 동일 적용
+- Wordmark의 Desktop·Tablet·Mobile 크기와 Mark·Divider Lockup 비례는 유지
+- Header와 공통 Consultation Modal에서 동일한 EQUIV 글자 형태 사용
+
+## Header Wordmark Tracking Expansion — Second 30%
+
+- EQUIV Wordmark 음수 자간을 `-0.048em`에서 `-0.034em`으로 약 30% 추가 완화
+- Inter `600`, 기본 Kerning과 기존 Logo Lockup 비례는 유지
+
+## Header Wordmark Tracking Expansion 30%
+
+- EQUIV Wordmark 음수 자간을 `-0.068em`에서 `-0.048em`으로 약 30% 추가 완화
+- Inter `600`, 기본 Kerning과 기존 Header Logo 비례는 유지
+
+## Header Wordmark Final Tracking Adjustment
+
+- EQUIV Wordmark 자간을 `-0.08em`에서 `-0.068em`으로 정확히 15% 완화
+- Inter `600`, 기본 Kerning, Mark·Divider·Wordmark 비례와 내부 Gap은 유지
+
+## Header Wordmark Reference Typography Match
+
+- 첨부된 최종 시안의 굵고 정돈된 Wordmark 인상을 기준으로 Inter `600` 유지
+- 자간을 `-0.13em`에서 `-0.08em`으로 조정해 글자 사이 여유와 단어 형태의 균형 확보
+- `font-kerning: normal`과 OpenType `kern` 기능을 활성화해 `EQ / QU / UI / IV` 조합의 자연스러운 광학 간격 적용
+
 ## Header Wordmark Optical Spacing Balance
 
 - EQUIV Wordmark 자간을 `-0.16em`에서 `-0.13em`으로 약 19% 완화
