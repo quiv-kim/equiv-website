@@ -91,13 +91,14 @@ Mobile
 ### Mobile Typography Scale
 
 - 적용 범위: `760px 이하`만 사용하며 Desktop과 Tablet Typography는 변경하지 않는다.
-- Section Label: `6.25px / 0.08em`
-- Home Hero Title: `16.5px / 1.14`
-- Section Title: `10px / 1.34`
-- Subpage Hero Title: `12~14px / 1.26`
-- Card Title: 카드 내부 영문 제목과 서비스 카드 한글·영문 제목은 모두 `9px`을 사용한다.
-- Body: 기본 `9.5~9.75px`, 긴 설명은 `1.92~2.06` Line Height를 사용한다.
-- Button Text: 기본 `11.25px`, Primary Contact CTA는 `12.5px`; 기존 Touch Target 높이는 유지한다.
+- Section Label / Auxiliary Text: `13px`
+- Home Hero Title: `28px / 1.24`
+- Main Section Title: `22px / 1.36`
+- Detail Page Title: `25px / 1.3`
+- Card Title: `16px / 1.5`
+- Body: `14px / 1.8`
+- Button Text: `14px`; 기존 Touch Target 높이는 유지한다.
+- Mobile Navigation: `13px`
 - Form Input Text: iOS Safari 자동 확대 방지를 위해 `16px`을 유지한다.
 
 ## Header

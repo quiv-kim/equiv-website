@@ -5421,6 +5421,177 @@ button {
     line-height: 1.82;
   }
 
+  /* Final mobile typography scale */
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.24;
+  }
+
+  .section h2,
+  .about-copy h2,
+  .about-section-head h2,
+  .expertise-copy h2,
+  .readiness-check h2,
+  .final-cta h2,
+  .sub-cta h2 {
+    font-size: 22px;
+    line-height: 1.36;
+  }
+
+  .sub-hero h1,
+  .about-hero h1,
+  .contact-hero h1 {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+
+  .service-card h3,
+  .principle-card h3,
+  .principle-card:nth-child(3) h3,
+  .insight-card h3,
+  .expertise-card h3,
+  .process-timeline h3,
+  .consultation-process h3,
+  .consultation-process li strong,
+  .about-flow h3,
+  .faq-list h3,
+  .valuation-entry-card h2,
+  .service-key-list strong,
+  .detail-process strong,
+  .readiness-question h3,
+  .readiness-result h3,
+  .readiness-modal-cta h4,
+  .valuation-step h3,
+  .valuation-result > h3,
+  .valuation-loading h3,
+  .valuation-input-section > h4,
+  .valuation-factor-grid h4,
+  .valuation-confidence__header h4,
+  .valuation-insight h4,
+  .valuation-consultation h4 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .principle-head > p:last-child,
+  .service-card p,
+  .insight-card p,
+  .expertise-note,
+  .home-readiness-section .readiness-check p,
+  .process-timeline p,
+  .insight-article-body p,
+  .final-cta p:not(.section-kicker):not(.cta-response-note),
+  .consultation-process li p,
+  .confidential-notice p,
+  .about-hero .about-hero-copy,
+  .about-copy p,
+  .valuation-entry-card__description,
+  .service-hero .sub-hero-copy,
+  .why-list li,
+  .key-list li,
+  .content-list li,
+  .readiness-list li,
+  .expertise-copy p,
+  .readiness-check p,
+  .expertise-card p,
+  .faq-list p,
+  .service-key-list p,
+  .content-list p,
+  .readiness-modal__intro,
+  .readiness-result p,
+  .about-flow p,
+  .philosophy-copy,
+  .sub-cta-copy,
+  .consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice) {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .section-kicker,
+  .eyebrow,
+  .sub-label,
+  .about-page .sub-label,
+  .hero-brand-name,
+  .hero-brand-korean,
+  .hero-brand-role,
+  .service-card span,
+  .service-card strong,
+  .service-card em,
+  .principle-card span,
+  .principle-card strong,
+  .insight-card span,
+  .insight-card em,
+  .process-timeline span,
+  .final-cta .cta-response-note,
+  .consultation-process li span,
+  .valuation-entry-card__time span,
+  .valuation-entry-card__time strong,
+  .expertise-card span,
+  .expertise-card-subtitle,
+  .form-field label,
+  .consultation-type-fieldset legend,
+  .consultation-type-options span,
+  .valuation-field > span,
+  .valuation-checkbox-group legend,
+  .site-footer p,
+  .footer-sitemap-title,
+  .footer-sitemap a {
+    font-size: 13px;
+  }
+
+  .section-kicker,
+  .eyebrow,
+  .sub-label {
+    letter-spacing: 0.1em;
+  }
+
+  .btn,
+  .final-cta .btn,
+  .consultation-submit,
+  .consultation-modal__submit,
+  .readiness-option {
+    font-size: 14px;
+  }
+
+  .site-nav > a,
+  .nav-parent-link,
+  .nav-dropdown a {
+    font-size: 13px;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder,
+  .valuation-field input::placeholder,
+  .consultation-modal__field input::placeholder,
+  .consultation-modal__field textarea::placeholder {
+    font-size: 13px;
+  }
+
+  .consultation-modal__header h2,
+  .consultation-modal__success h2,
+  .readiness-modal__content h2 {
+    font-size: 22px;
+    line-height: 1.36;
+  }
+
+  .consultation-modal__header strong,
+  .consultation-modal__guide h3,
+  .consultation-modal__field label,
+  .consultation-modal__types legend,
+  .consultation-modal__types label span {
+    font-size: 13px;
+  }
+
+  .sub-intro p,
+  .service-hero .sub-hero-lead {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .footer-brand .equiv-logo-wordmark {
+    font-size: 20px;
+  }
+
   .footer-sitemap ul {
     gap: 12px;
     margin-top: 18px;
@@ -5440,7 +5611,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 16.5px;
+    font-size: 28px;
   }
 
   .hero-brand-identity {
@@ -5456,11 +5627,11 @@ button {
   }
 
   .service-card h3 {
-    font-size: 9px;
+    font-size: 16px;
   }
 
   .sub-intro p {
-    font-size: 8.75px;
+    font-size: 18px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

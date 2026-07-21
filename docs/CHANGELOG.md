@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## Mobile Typography Scale Reset
+
+- 760px 이하 Mobile Typography를 단일 최종 Scale로 재정렬
+- HOME Hero Title `28px`, Main Section Title `22px`, Detail Page Title `25px` 적용
+- Card Title `16px`, Body `14px`, Auxiliary Text `13px`로 통일
+- Button Text `14px`, Mobile Navigation `13px` 적용
+- Form Input은 iOS 자동 확대 방지를 위해 기존 `16px`을 유지하고 Label·Placeholder는 `13px` 적용
+- 380px 이하에서도 동일한 Hero·Card Scale을 유지하고 Desktop·Tablet은 변경하지 않음
+
 ## HOME Mobile Hero Title Scale Adjustment
 
 - 760px 이하 HOME Hero의 `기업을 연결하고, 성공적인 M&A를 만듭니다.` 제목을 `11px`에서 `16.5px`로 1.5배 확대
