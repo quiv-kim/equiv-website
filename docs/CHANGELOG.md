@@ -1,5 +1,10 @@
 # EQUIV M&A Website Changelog
 
+## Header Wordmark Tracking Rebalance
+
+- EQUIV Wordmark 자간을 `0.18em`에서 `0.10em`으로 축소
+- Header·Tablet·Mobile·Consultation Modal에만 적용하고 다른 Typography는 유지
+
 ## Header Wordmark 18% Tracking
 
 - Header와 Consultation Modal의 EQUIV Wordmark 자간을 `0.10em`에서 `0.18em`으로 확대

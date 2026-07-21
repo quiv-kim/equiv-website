@@ -165,7 +165,7 @@ button {
   font-weight: 600;
   font-kerning: normal;
   font-feature-settings: "kern" 1;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
 }
 
 .brand-label {
@@ -3606,7 +3606,7 @@ button {
   font-weight: 600;
   font-kerning: normal;
   font-feature-settings: "kern" 1;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
 }
 
 .consultation-modal__header .section-kicker {
@@ -4448,7 +4448,7 @@ button {
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
     font-size: 22px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.1em;
   }
 
   .site-nav {
@@ -4590,7 +4590,7 @@ button {
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
     font-size: 19px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.1em;
   }
 
   .site-nav {
