@@ -1,5 +1,11 @@
 # EQUIV M&A Website Changelog
 
+## HOME Mobile Hero Title Scale Adjustment
+
+- 760px 이하 HOME Hero의 `기업을 연결하고, 성공적인 M&A를 만듭니다.` 제목을 `11px`에서 `16.5px`로 1.5배 확대
+- 380px 이하에서도 동일한 `16.5px`을 유지
+- Desktop·Tablet과 다른 Section·Card Typography는 변경하지 않음
+
 ## Mobile Typography Final Point Alignment
 
 - 760px 이하 HOME Hero Title을 `11px`로 조정

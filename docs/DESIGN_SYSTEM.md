@@ -92,7 +92,7 @@ Mobile
 
 - 적용 범위: `760px 이하`만 사용하며 Desktop과 Tablet Typography는 변경하지 않는다.
 - Section Label: `6.25px / 0.08em`
-- Home Hero Title: `11px / 1.14`
+- Home Hero Title: `16.5px / 1.14`
 - Section Title: `10px / 1.34`
 - Subpage Hero Title: `12~14px / 1.26`
 - Card Title: 카드 내부 영문 제목과 서비스 카드 한글·영문 제목은 모두 `9px`을 사용한다.
