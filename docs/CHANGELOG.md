@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 11 - Desktop Premium Typography Refinement
+
+- `1025px 이상` Desktop 전용 공통 Typography Scale을 추가하고 Tablet·Mobile 값을 분리 보존
+- HOME Hero Label·H1·Brand Description을 약 10~20% 축소
+- 공통 Section Title, Principle, Contact와 CTA 제목을 영역별 기존 비율 안에서 약 15~20% 축소
+- Service·Insights 상세 H1·H2·본문을 공통 Desktop Scale로 정리
+- Principle·Service·Insights·Process·FAQ Card 제목과 본문을 약 10~15% 축소
+- 공통 Button Text와 Footer Typography를 약 10% 축소
+- 기존 Section Padding, Layout, Color와 Component 구조는 변경하지 않음
+
 ## Business Valuation Content Simplification
 
 - `EQUIV Value Framework`와 `Strategic Value Analysis` 섹션 삭제

@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] Sprint 11 Desktop 공통 Typography Scale 정리 및 Service·Insights·Footer 일관성 적용
 - [x] Business Valuation 하단 중복 콘텐츠 제거 및 CTA 이후 Footer 연결 단순화
 - [x] EQUIV Principle 카피 간소화 및 하단 반복 문구 제거
 - [x] About EQUIV The EQUIV Mark 소개 영역에 Mark·Divider 가로 구성 적용

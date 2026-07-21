@@ -78,6 +78,22 @@ Mobile
 
 24px
 
+### Desktop Typography Scale
+
+- 적용 범위: `1025px 이상`; Tablet과 Mobile Typography에는 적용하지 않는다.
+- Benchmark: LISTING, KMX와 모멘트처럼 콘텐츠와 여백이 먼저 보이는 Premium Corporate 밀도를 기준으로 한다.
+- Home Hero Title: `clamp(34px, 4.1vw, 55px)`
+- Main Section Title: `clamp(27px, 3.4vw, 44px)`
+- Principle Title: 최대 `46px`
+- Contact Title: 최대 `58px`
+- Service Detail Page Title: `27px / 1.32`
+- Insights Detail Page Title: `18px / 1.5`
+- Card Title: 역할에 따라 `18~28px`
+- Standard Body: `13.5px / 기존 행간 유지`
+- Button Text: `14px`
+- Footer Text: 역할에 따라 `10~12.5px`
+- Section Padding, Grid, Component 크기와 Color는 기존 Desktop 값을 유지한다.
+
 ### Mobile Optimization
 
 - QA widths: `360 / 390 / 430 / 768px`
@@ -95,8 +111,8 @@ Mobile
 - Section Label / Hero Label: `10.5px`
 - Home Hero Title: `20px / 1.28`
 - Main Section Title: `17px / 1.42`
-- Service Detail Page Title: Desktop `32px / 1.28`, Mobile `12.5px / 1.55`
-- Insights Detail Page Title: Desktop `21px / 1.45`, Mobile `12.5px / 1.55`
+- Service Detail Page Title: Mobile `12.5px / 1.55`
+- Insights Detail Page Title: Mobile `12.5px / 1.55`
 - Detail CONTACT Title: HOME Contact와 동일한 Mobile `17px / 1.42`
 - Card Title: `16px / 1.5`
 - Body: `14px / 1.8`
