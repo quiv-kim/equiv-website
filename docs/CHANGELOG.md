@@ -1,5 +1,16 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 9.4 - Typography Consistency
+
+- HOME Typography를 Master로 사용하여 Service·Insights·Business Valuation·About 상세 H1 Scale 통일
+- Desktop 상세 H1의 별도 `36~68px` Scale을 제거하고 HOME Main Section과 같은 `30~52px / 1.22` 적용
+- Mobile 상세 H1을 별도 `25px`에서 HOME Main Section과 같은 `22px / 1.36`으로 조정
+- 상세페이지 주요 Section Title도 HOME Section과 같은 `30~52px / 1.22` Scale로 통일
+- Insights Article, Service Hero Copy, About Copy와 Expertise 본문을 HOME Card Body 기준인 Desktop `15px`로 정리
+- HOME Contact와 상세 CONTACT는 기존 공통 Mobile `22px` 규칙 유지
+- 공통 Button Component와 Mobile `14px` Button Scale 유지
+- 독립 Contact HTML 페이지는 현재 존재하지 않아 HOME Contact Section과 공통 Consultation Modal을 Conversion 기준으로 유지
+
 ## Mobile Detail CONTACT Title Alignment
 
 - HOME Contact의 `M&A 상담` 제목과 모든 Service·Insights 상세페이지 하단 CONTACT 제목을 동일한 공통 규칙으로 통일

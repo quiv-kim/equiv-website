@@ -50,6 +50,7 @@ Phase 5
 - [x] Sprint 9.1 Mobile 전용 Typography Scale 정제
 - [x] Sprint 9.2 Mobile Typography Scale 전면 재설계
 - [x] Sprint 9.3 Premium Mobile Typography 최종 조정
+- [x] Sprint 9.4 HOME 기준 사이트 전체 Typography 통일
 
 ## Preliminary Valuation Public Release Review
 
