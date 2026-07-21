@@ -1,5 +1,17 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 9.1 - Mobile Typography Refinement
+
+- Desktop와 761px 이상 Tablet 규칙을 변경하지 않고 760px 이하 Mobile Typography만 재설계
+- HOME Hero Headline을 26~30px로 낮추고 Line Height를 1.28로 조정해 두 줄 균형 개선
+- Section Label을 10px, Letter Spacing 0.12em으로 통일해 영문 Label의 시각적 강도 완화
+- 공통 Section Title을 24~29px 범위로 조정하고 한글 가독성을 위해 Line Height를 1.34로 확대
+- Principle·Expertise·Insights·Process Card Title을 약 10~12% 축소하고 본문 행간을 확대
+- 서브페이지 Hero, About, Service Page, FAQ, CTA와 Footer Typography를 동일한 Mobile Scale로 정제
+- Button Text를 1px 축소하되 기존 52~56px Touch Target은 유지
+- Consultation·Readiness·Valuation Modal의 Heading, Label과 보조문구를 축소하고 Input Text는 iOS 확대 방지를 위해 16px 유지
+- 360·390·430px은 Mobile Scale, 768px은 기존 Tablet Scale이 적용되도록 Breakpoint 영향 범위 확인
+
 ## Sprint 9 - Mobile Experience Optimization
 
 - Desktop Selector와 기존 Navigation breakpoint를 유지하고 760px 이하 Mobile·761~900px Tablet 전용 보정만 적용

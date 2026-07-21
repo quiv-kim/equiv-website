@@ -88,6 +88,18 @@ Mobile
 - Mobile Section Padding: 콘텐츠 역할에 따라 약 `70~84px`
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
 
+### Mobile Typography Scale
+
+- 적용 범위: `760px 이하`만 사용하며 Desktop과 Tablet Typography는 변경하지 않는다.
+- Section Label: `10px / 0.12em`
+- Home Hero Title: `26~30px / 1.28`
+- Section Title: `24~29px / 1.34`
+- Subpage Hero Title: `28~33px / 1.28`
+- Card Title: 콘텐츠 성격에 따라 `16~25px`, 같은 Component 안에서는 동일 Scale을 유지한다.
+- Body: 기본 `14~15px`, 긴 설명은 `1.78~1.96` Line Height를 사용한다.
+- Button Text: 기본 `14px`, Primary Contact CTA는 `16px`; 기존 Touch Target 높이는 유지한다.
+- Form Input Text: iOS Safari 자동 확대 방지를 위해 `16px`을 유지한다.
+
 ## Header
 
 Transparent on Hero

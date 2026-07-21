@@ -47,6 +47,8 @@ Phase 5
 - [ ] `og:url`, `og:image`, 메타 정보 실제 도메인 기준으로 교체
 - [ ] 최종 배포 전 링크 전체 검수
 
+- [x] Sprint 9.1 Mobile 전용 Typography Scale 정제
+
 ## Preliminary Valuation Public Release Review
 
 - [ ] 최근 확정 사업연도 선택 기능
