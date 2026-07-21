@@ -5435,7 +5435,10 @@ button {
   .final-cta h2,
   .sub-cta h2 {
     font-size: 22px;
+    font-family: var(--font-ko);
+    font-weight: 700;
     line-height: 1.36;
+    letter-spacing: 0;
   }
 
   .sub-hero h1,

@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## Mobile Detail CONTACT Title Alignment
+
+- HOME Contact의 `M&A 상담` 제목과 모든 Service·Insights 상세페이지 하단 CONTACT 제목을 동일한 공통 규칙으로 통일
+- 두 영역 모두 Mobile `22px`, Pretendard, `700`, Line Height `1.36`, Letter Spacing `0` 적용
+- 상세페이지별 상속 차이로 제목이 더 크게 보일 수 있던 시각적 편차 제거
+- Desktop·Tablet과 CTA Layout·Copy는 변경하지 않음
+
 ## Mobile Typography Scale Reset
 
 - 760px 이하 Mobile Typography를 단일 최종 Scale로 재정렬
