@@ -610,6 +610,7 @@ button {
 .principle-section {
   background: var(--color-white);
   text-align: center;
+  padding-bottom: 112px;
 }
 
 .principle-head {
@@ -699,20 +700,6 @@ button {
   color: var(--color-muted);
   font-size: 15px;
   line-height: 1.75;
-}
-
-.principle-note {
-  margin: 48px 0 0;
-  color: var(--color-primary);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.9;
-}
-.principle-note span {
-  color: var(--color-gold);
-  font-family: var(--font-en);
-  font-size: 12px;
-  letter-spacing: 0.08em;
 }
 
 .expertise-section {
@@ -4546,7 +4533,7 @@ button {
   }
 
   .principle-section {
-    padding: 76px 0;
+    padding: 76px 0 70px;
   }
 
   .section-head {
@@ -4657,14 +4644,6 @@ button {
 
   .principle-card h3 {
     margin-top: 42px;
-  }
-
-  .principle-note {
-    margin: 42px 0 0;
-    color: var(--color-primary);
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 1.9;
   }
 
   .insight-card {

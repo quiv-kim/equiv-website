@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Principle Premium Content Refinement - MASTER CONTENT SPEC v2.0
+
+- Main Title을 `좋은 거래는 올바른 원칙에서 시작됩니다.`로 간결하게 변경
+- Body Copy를 기업가치 이해, 최적의 거래 전략과 성공적인 M&A를 연결하는 두 줄 메시지로 정리
+- Card 01·02의 구조와 문구는 유지하고 Card 03을 `Trusted Brokerage & Advisory / 신뢰기반 중개자문`으로 개선
+- Card 03 설명을 `정확성과 기밀성을 최우선으로 하는 중개 및 자문`으로 변경
+- 하단 한·영문 반복 문구 전체와 사용하지 않는 CSS 제거
+- Section 하단 Padding을 Desktop 112px, Mobile 70px로 소폭 줄여 다음 Expertise Section과의 연결 개선
+
 ## About EQUIV - The EQUIV Mark Story Layout
 
 - About EQUIV의 The EQUIV Mark 소개 영역 왼쪽에 실제 Gold Mark SVG 추가

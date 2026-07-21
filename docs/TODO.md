@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] EQUIV Principle 카피 간소화 및 하단 반복 문구 제거
 - [x] About EQUIV The EQUIV Mark 소개 영역에 Mark·Divider 가로 구성 적용
 - [x] Header Logo SVG Mask 표시 오류 수정 및 HOME Hero 영문 보조 카피 제거
 - [ ] 공통 Consultation Modal Form의 Google Apps Script, Google Sheets 저장과 Gmail 담당자 알림 연동
