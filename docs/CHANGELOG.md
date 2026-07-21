@@ -1,5 +1,11 @@
 # EQUIV M&A Website Changelog
 
+## Header Wordmark Weight & Tight Spacing
+
+- EQUIV Wordmark 자간을 `-0.10em`에서 `-0.16em`으로 추가 압축해 개별 글자가 아닌 하나의 Wordmark로 보이도록 조정
+- Wordmark 굵기를 `500`에서 `600`으로 높여 Header와 Consultation Modal에서 선명도와 브랜드 존재감 강화
+- 폰트 종류, 글자 크기, 심볼과 Header 구조는 변경하지 않음
+
 ## Header Wordmark Aggressive Condensing
 
 - Header와 Consultation Modal의 `EQUIV` 자간을 `-0.01em`에서 `-0.10em`으로 과감하게 축소
