@@ -1,5 +1,11 @@
 # EQUIV M&A Website Changelog
 
+## Header Wordmark Optical Spacing Balance
+
+- EQUIV Wordmark 자간을 `-0.16em`에서 `-0.13em`으로 약 19% 완화
+- `EQ / QU / UI` 사이에 숨 쉴 공간을 확보하면서 하나의 Wordmark로 읽히는 균형으로 조정
+- `font-weight: 600`, 폰트, 심볼 크기와 Header Lockup 비례는 유지
+
 ## Header Wordmark Weight & Tight Spacing
 
 - EQUIV Wordmark 자간을 `-0.10em`에서 `-0.16em`으로 추가 압축해 개별 글자가 아닌 하나의 Wordmark로 보이도록 조정

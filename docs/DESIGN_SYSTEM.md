@@ -187,7 +187,7 @@ Transition
 
 - Primary Lockup: The EQUIV Mark / 1px Vertical Divider / EQUIV Wordmark
 - Header: Desktop은 Mark `30px`, Divider `26px`, Wordmark `23px`, Gap `7px`을 기본으로 사용한다. Tablet은 `28px / 24px / 22px / 7px`, Mobile은 `26px / 22px / 19px / 6px`로 비례 축소한다.
-- Header Wordmark는 하나의 Text Node `EQUIV`로 렌더링하고 `font-weight: 600`, `letter-spacing: -0.16em`을 사용한다. 글자별 공백·개별 Span·Margin으로 자간을 만들지 않는다.
+- Header Wordmark는 하나의 Text Node `EQUIV`로 렌더링하고 `font-weight: 600`, `letter-spacing: -0.13em`을 사용한다. 글자별 공백·개별 Span·Margin으로 자간을 만들지 않는다.
 - Header Divider는 `1px`, `currentColor`, `opacity: 0.62`를 사용해 Mark와 Wordmark보다 낮은 시각적 위계를 유지한다.
 - Web Wordmark는 SVG Mask 대신 실제 Text를 사용해 브라우저별 가시성을 보장한다.
 - Footer: 동일 비율을 유지하며 축소하고 Dark Navy 배경에서는 White Wordmark와 Gold Mark를 사용한다.
