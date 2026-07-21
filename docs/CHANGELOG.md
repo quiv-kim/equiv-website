@@ -1,5 +1,19 @@
 # EQUIV M&A Website Changelog
 
+## Website Sprint 9.2 - Aggressive Mobile Typography Redesign
+
+- Desktop와 761px 이상 Tablet Typography를 유지하고 760px 이하 Mobile Scale을 별도 체계로 전면 재설계
+- HOME Hero Title을 17~19px로 축소하고 Line Height를 1.2로 낮춰 첫 화면의 밀도 완화
+- 공통 Section Title을 15.5~18px, Subpage Hero Title을 18~21px로 축소해 모든 Section의 위계를 통일
+- Section Label을 8px, Letter Spacing 0.1em으로 낮춰 보조 정보 역할 강화
+- Card Title을 Component에 따라 12~16px 범위로 낮추고 Body를 주로 11.5~12px 범위로 정리
+- 기본 Button Text를 12.5px, Contact Primary CTA를 14px로 축소하되 기존 Button Height와 Touch Target 유지
+- Consultation·Readiness·Valuation Form의 Label과 Placeholder를 Compact하게 조정하고 Input Text 16px은 iOS 확대 방지를 위해 유지
+- Footer Wordmark를 17px, Footer 보조정보와 Site Map을 10.5px로 축소
+- Mobile Section Padding을 64~68px 중심으로, Principle·CTA·Footer와 서브페이지 구간을 40~60px 범위로 재조정
+- Principle Card 200px, Expertise·Insights Card 156px로 최소 높이를 낮춰 축소된 Typography와 여백 균형 개선
+- 360·390·430px과 iPhone 15 Pro Max 폭은 Mobile Scale, 768px은 기존 Tablet Scale 적용을 정적으로 확인
+
 ## Sprint 9.1 - Mobile Typography Refinement
 
 - Desktop와 761px 이상 Tablet 규칙을 변경하지 않고 760px 이하 Mobile Typography만 재설계

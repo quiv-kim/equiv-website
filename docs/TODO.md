@@ -48,6 +48,7 @@ Phase 5
 - [ ] 최종 배포 전 링크 전체 검수
 
 - [x] Sprint 9.1 Mobile 전용 Typography Scale 정제
+- [x] Sprint 9.2 Mobile Typography Scale 전면 재설계
 
 ## Preliminary Valuation Public Release Review
 

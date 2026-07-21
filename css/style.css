@@ -4035,19 +4035,19 @@ button {
   .consultation-modal__header p span {
     display: block;
     margin-top: 10px;
-    font-size: 11px;
+    font-size: 9.5px;
     text-align: left;
   }
 
   .consultation-modal__header h2 {
     padding-right: 42px;
-    font-size: 25px;
-    line-height: 1.32;
+    font-size: 17px;
+    line-height: 1.38;
   }
 
   .consultation-modal__header strong {
-    font-size: 13.5px;
-    line-height: 1.65;
+    font-size: 11px;
+    line-height: 1.72;
   }
 
   .consultation-modal__body {
@@ -4062,7 +4062,7 @@ button {
 
   .consultation-modal__guide h3 {
     margin-bottom: 18px;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .consultation-modal__guide-block + .consultation-modal__guide-block {
@@ -4090,12 +4090,17 @@ button {
 
   .consultation-modal__types label span {
     min-height: 48px;
-    font-size: 11.5px;
+    font-size: 10px;
   }
 
   .consultation-modal__field label,
   .consultation-modal__types legend {
-    font-size: 12px;
+    font-size: 10.5px;
+  }
+
+  .consultation-modal__field input::placeholder,
+  .consultation-modal__field textarea::placeholder {
+    font-size: 13px;
   }
 
   .consultation-modal__field input {
@@ -4125,6 +4130,16 @@ button {
   .consultation-modal__success {
     min-height: 0;
     padding: 64px 20px 40px;
+  }
+
+  .consultation-modal__success h2 {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice) {
+    font-size: 11.5px;
+    line-height: 1.9;
   }
 }
 
@@ -4501,7 +4516,7 @@ button {
   }
 
   .valuation-entry-card h2 {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .nav-toggle {
@@ -4565,7 +4580,7 @@ button {
   .site-nav > a,
   .nav-parent-link {
     padding: 14px 0;
-    font-size: 13.5px;
+    font-size: 12px;
   }
 
   .nav-item-dropdown {
@@ -4620,7 +4635,7 @@ button {
 
   .nav-dropdown a {
     padding: 13px 0 13px 14px;
-    font-size: 13px;
+    font-size: 11.5px;
   }
 
   .hero {
@@ -4629,8 +4644,8 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(26px, 7.2vw, 30px);
-    line-height: 1.28;
+    font-size: clamp(17px, 4.6vw, 19px);
+    line-height: 1.2;
     word-break: keep-all;
   }
 
@@ -4644,15 +4659,15 @@ button {
   }
 
   .section-kicker {
-    margin-bottom: 14px;
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+    font-size: 8px;
+    letter-spacing: 0.1em;
   }
 
   .eyebrow,
   .sub-label {
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: 8px;
+    letter-spacing: 0.1em;
   }
 
   .hero-brand-identity {
@@ -4671,12 +4686,12 @@ button {
   }
 
   .hero-brand-name {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .hero-brand-korean,
   .hero-brand-role {
-    font-size: 12px;
+    font-size: 10.5px;
   }
 
   .hero-brand-divider {
@@ -4686,7 +4701,7 @@ button {
   .hero-actions {
     width: min(100%, 340px);
     gap: 10px;
-    margin: 28px auto 0;
+    margin: 22px auto 0;
   }
 
   .hero .btn {
@@ -4697,24 +4712,24 @@ button {
     width: 100%;
     min-height: 52px;
     padding: 13px 20px;
-    font-size: 14px;
+    font-size: 12.5px;
   }
 
   .section {
-    padding: 84px 0;
+    padding: 68px 0;
   }
 
   .principle-section {
-    padding: 74px 0 70px;
+    padding: 60px 0 58px;
   }
 
   .section-head {
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
 
   .section h2 {
-    font-size: clamp(24px, 6.8vw, 29px);
-    line-height: 1.34;
+    font-size: clamp(15.5px, 4.3vw, 18px);
+    line-height: 1.4;
     word-break: keep-all;
   }
 
@@ -4728,31 +4743,31 @@ button {
 
   .principle-card,
   .service-card {
-    padding: 24px 22px;
+    padding: 20px 18px;
   }
 
   .principle-card {
-    min-height: 244px;
+    min-height: 200px;
   }
 
   .service-card {
-    min-height: 184px;
+    min-height: 156px;
   }
 
   .service-card span {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .service-card h3 {
-    margin: 12px 0 6px;
-    font-size: clamp(22px, 6.2vw, 25px);
-    line-height: 1.38;
+    margin: 9px 0 5px;
+    font-size: clamp(14px, 3.9vw, 16px);
+    line-height: 1.42;
     word-break: keep-all;
   }
 
   .service-card p {
-    font-size: 19px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.84;
   }
 
   .service-card em,
@@ -4766,9 +4781,9 @@ button {
   }
 
   .expertise-note {
-    margin-top: 32px;
-    font-size: 15px;
-    line-height: 1.78;
+    margin-top: 26px;
+    font-size: 12px;
+    line-height: 1.84;
   }
 
   .home-readiness-section .readiness-check {
@@ -4776,8 +4791,8 @@ button {
   }
 
   .home-readiness-section .readiness-check p {
-    font-size: 14.5px;
-    line-height: 1.84;
+    font-size: 12px;
+    line-height: 1.9;
   }
 
   .readiness-actions {
@@ -4814,33 +4829,33 @@ button {
 
   .process-timeline span {
     color: var(--color-gold);
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 800;
   }
 
   .process-timeline h3 {
     margin-top: 8px;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .process-timeline p {
-    margin-top: 8px;
-    font-size: 14px;
-    line-height: 1.78;
+    margin-top: 6px;
+    font-size: 11.5px;
+    line-height: 1.84;
   }
 
   .principle-head {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .principle-head > p:last-child {
-    margin-top: 28px;
-    font-size: 14.5px;
-    line-height: 1.86;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.92;
   }
 
   .principle-card {
-    padding: 26px 22px;
+    padding: 22px 18px;
   }
 
   .principle-card::before {
@@ -4849,39 +4864,39 @@ button {
   }
 
   .principle-card h3 {
-    margin: 34px 0 10px;
-    font-size: 18px;
+    margin: 28px 0 8px;
+    font-size: 13px;
   }
 
   .principle-card:nth-child(3) h3 {
-    font-size: 17px;
+    font-size: 12.5px;
   }
 
   .principle-card strong {
-    margin-bottom: 12px;
-    font-size: 15px;
+    margin-bottom: 9px;
+    font-size: 12px;
   }
 
   .principle-card p {
-    font-size: 14px;
-    line-height: 1.76;
+    font-size: 11.5px;
+    line-height: 1.84;
   }
 
   .insight-card {
-    min-height: 184px;
-    padding: 24px 22px;
+    min-height: 156px;
+    padding: 20px 18px;
   }
 
   .insight-card h3 {
-    margin-bottom: 10px;
-    font-size: 17px;
-    line-height: 1.48;
+    margin-bottom: 8px;
+    font-size: 12.5px;
+    line-height: 1.54;
     word-break: keep-all;
   }
 
   .insight-card p {
-    font-size: 14px;
-    line-height: 1.78;
+    font-size: 11.5px;
+    line-height: 1.84;
   }
 
   .insight-article {
@@ -4890,12 +4905,12 @@ button {
 
   .insight-article-body h2 {
     margin-top: 44px;
-    font-size: 20px;
+    font-size: 14px;
   }
 
   .insight-article-body p {
-    font-size: 15px;
-    line-height: 1.96;
+    font-size: 12px;
+    line-height: 2;
   }
 
   .insight-article-body .insight-article-note {
@@ -4904,17 +4919,17 @@ button {
   }
 
   .final-cta {
-    padding: 72px 0;
+    padding: 58px 0;
   }
 
   .final-cta h2 {
-    font-size: clamp(27px, 7.6vw, 34px);
-    line-height: 1.3;
+    font-size: clamp(17px, 4.8vw, 21px);
+    line-height: 1.36;
   }
 
   .final-cta p:not(.section-kicker):not(.cta-response-note) {
-    font-size: 15px;
-    line-height: 1.92;
+    font-size: 12px;
+    line-height: 1.96;
   }
 
   .final-cta .cta-response-note {
@@ -4934,7 +4949,7 @@ button {
     min-width: 0;
     min-height: 56px;
     padding-inline: 22px;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .cta-service-list {
@@ -4949,7 +4964,7 @@ button {
   }
 
   .consultation-process h3 {
-    font-size: 18px;
+    font-size: 13px;
     line-height: 1.45;
   }
 
@@ -4972,15 +4987,15 @@ button {
 
   .consultation-process li span {
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 10.5px;
   }
 
   .consultation-process li strong {
-    font-size: 17px;
+    font-size: 12.5px;
   }
 
   .consultation-process li p {
-    font-size: 14px;
+    font-size: 11.5px;
   }
 
   .confidential-notice {
@@ -4989,45 +5004,45 @@ button {
   }
 
   .confidential-notice p {
-    font-size: 13.5px;
+    font-size: 11px;
   }
 
   .sub-hero {
-    padding: calc(var(--header-height) + 56px) 0 52px;
+    padding: calc(var(--header-height) + 44px) 0 42px;
   }
 
   .sub-hero h1 {
-    font-size: clamp(28px, 7.8vw, 33px);
-    line-height: 1.28;
+    font-size: clamp(18px, 5vw, 21px);
+    line-height: 1.3;
     word-break: keep-all;
   }
 
   .about-hero h1 {
-    font-size: clamp(33px, 8.8vw, 38px);
+    font-size: clamp(21px, 5.8vw, 24px);
   }
 
   .about-hero .about-hero-copy,
   .about-copy p {
-    font-size: 15px;
-    line-height: 1.92;
+    font-size: 12px;
+    line-height: 1.96;
   }
 
   .valuation-entry-card__description {
-    font-size: 14px;
-    line-height: 1.82;
+    font-size: 11.5px;
+    line-height: 1.9;
   }
 
   .valuation-entry-card__time span {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .valuation-entry-card__time strong {
-    font-size: 14px;
+    font-size: 11.5px;
   }
 
   .about-copy h2 {
-    font-size: 27px;
-    line-height: 1.32;
+    font-size: 17px;
+    line-height: 1.4;
   }
 
   .equiv-mark-story {
@@ -5052,25 +5067,25 @@ button {
   }
 
   .about-intro-section {
-    padding: 72px 0;
+    padding: 58px 0;
   }
 
   .about-process-section {
-    padding: 72px 0 76px;
+    padding: 58px 0 62px;
   }
 
   .sub-intro p {
-    font-size: 20px;
+    font-size: 13px;
   }
 
   .service-hero .sub-hero-lead {
-    font-size: clamp(19px, 5.4vw, 22px);
-    line-height: 1.56;
+    font-size: clamp(13px, 3.6vw, 15px);
+    line-height: 1.58;
   }
 
   .service-hero .sub-hero-copy {
-    font-size: 14.5px;
-    line-height: 1.86;
+    font-size: 11.5px;
+    line-height: 1.92;
   }
 
   .why-list {
@@ -5085,7 +5100,7 @@ button {
   .why-list li {
     min-height: auto;
     padding: 20px 0;
-    font-size: 15.5px;
+    font-size: 12px;
   }
 
   .service-why-list li {
@@ -5093,19 +5108,19 @@ button {
   }
 
   .service-key-list strong {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .expertise-copy h2,
   .readiness-check h2 {
-    font-size: 26px;
-    line-height: 1.34;
+    font-size: 17px;
+    line-height: 1.42;
   }
 
   .expertise-copy p,
   .readiness-check p {
-    font-size: 15px;
-    line-height: 1.84;
+    font-size: 12px;
+    line-height: 1.92;
   }
 
   .expertise-card {
@@ -5115,20 +5130,20 @@ button {
 
   .expertise-card h3 {
     margin-top: 40px;
-    font-size: 19px;
-    line-height: 1.42;
+    font-size: 14px;
+    line-height: 1.48;
   }
 
   .expertise-card-subtitle {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .expertise-card p,
   .faq-list p,
   .service-key-list p,
   .content-list p {
-    font-size: 14px;
-    line-height: 1.82;
+    font-size: 11.5px;
+    line-height: 1.9;
   }
 
   .expertise-quote-section {
@@ -5136,8 +5151,8 @@ button {
   }
 
   .expertise-quote {
-    font-size: 23px;
-    line-height: 1.62;
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   .faq-list article {
@@ -5145,13 +5160,13 @@ button {
   }
 
   .faq-list h3 {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 12px;
+    line-height: 1.62;
   }
 
   .readiness-list li {
     padding: 17px 0;
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .readiness-modal {
@@ -5175,36 +5190,36 @@ button {
   .readiness-option {
     min-height: 52px;
     padding: 14px 16px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .readiness-modal__content h2 {
-    font-size: 26px;
+    font-size: 17px;
     line-height: 1.3;
   }
 
   .readiness-modal__intro,
   .readiness-result p {
-    font-size: 15px;
-    line-height: 1.9;
+    font-size: 12px;
+    line-height: 1.96;
   }
 
   .readiness-question h3 {
-    font-size: 21px;
+    font-size: 15px;
     line-height: 1.5;
   }
 
   .readiness-result__status {
-    font-size: 21px;
+    font-size: 15px;
   }
 
   .readiness-result h3 {
-    font-size: 23px;
+    font-size: 16px;
     line-height: 1.42;
   }
 
   .readiness-modal-cta h4 {
-    font-size: 19px;
+    font-size: 14px;
   }
 
   .prototype-header-status {
@@ -5226,28 +5241,48 @@ button {
   .valuation-step h3,
   .valuation-result > h3,
   .valuation-loading h3 {
-    font-size: 22px;
+    font-size: 15px;
     line-height: 1.45;
   }
 
   .valuation-input-section > h4,
   .valuation-factor-grid h4 {
-    font-size: 15.5px;
+    font-size: 12px;
   }
 
   .valuation-field > span,
   .valuation-checkbox-group legend {
+    font-size: 11px;
+  }
+
+  .valuation-field input::placeholder,
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
     font-size: 13px;
+  }
+
+  .form-field label,
+  .consultation-type-fieldset legend {
+    font-size: 11px;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font-size: 16px;
+  }
+
+  .consultation-type-options span {
+    font-size: 11.5px;
   }
 
   .valuation-confidence__header h4,
   .valuation-insight h4,
   .valuation-consultation h4 {
-    font-size: 17px;
+    font-size: 13px;
   }
 
   .valuation-confidence__summary strong {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .valuation-form-actions,
@@ -5291,12 +5326,12 @@ button {
   }
 
   .about-section-head h2 {
-    font-size: 26px;
-    line-height: 1.34;
+    font-size: 17px;
+    line-height: 1.42;
   }
 
   .about-page .sub-label {
-    font-size: 17px;
+    font-size: 13px;
   }
 
   .about-flow {
@@ -5320,18 +5355,18 @@ button {
 
   .about-flow h3 {
     margin-top: 0;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .about-flow p {
     margin-top: 8px;
-    font-size: 14px;
-    line-height: 1.78;
+    font-size: 11.5px;
+    line-height: 1.86;
   }
 
   .key-list li,
   .content-list li {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .numbered-list li,
@@ -5341,21 +5376,21 @@ button {
   }
 
   .detail-process strong {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .philosophy-copy {
-    font-size: 16px;
-    line-height: 1.82;
+    font-size: 12px;
+    line-height: 1.9;
   }
 
   .sub-cta {
-    padding: 76px 0;
+    padding: 60px 0;
   }
 
   .sub-cta-copy {
-    font-size: 16px;
-    line-height: 1.86;
+    font-size: 12px;
+    line-height: 1.92;
   }
 
   .footer-inner {
@@ -5364,7 +5399,7 @@ button {
   }
 
   .site-footer {
-    padding: 48px 0;
+    padding: 40px 0;
   }
 
   .footer-brand .equiv-logo-mark {
@@ -5373,13 +5408,13 @@ button {
   }
 
   .footer-brand .equiv-logo-wordmark {
-    font-size: 21px;
+    font-size: 17px;
   }
 
   .site-footer p,
   .footer-sitemap a {
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 10.5px;
+    line-height: 1.76;
   }
 
   .footer-sitemap ul {
@@ -5401,7 +5436,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 26px;
+    font-size: 17px;
   }
 
   .hero-brand-identity {
@@ -5413,15 +5448,15 @@ button {
   }
 
   .section {
-    padding: 78px 0;
+    padding: 64px 0;
   }
 
   .service-card h3 {
-    font-size: 22px;
+    font-size: 14px;
   }
 
   .sub-intro p {
-    font-size: 19px;
+    font-size: 12.5px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
