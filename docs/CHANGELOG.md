@@ -1,5 +1,11 @@
 # EQUIV M&A Website Changelog
 
+## Header Wordmark Aggressive Condensing
+
+- Header와 Consultation Modal의 `EQUIV` 자간을 `-0.01em`에서 `-0.10em`으로 과감하게 축소
+- Header 내부 Gap을 Desktop·Tablet `7px`, Mobile `6px`로 줄여 Mark·Divider·Wordmark를 하나의 간결한 Lockup으로 정리
+- 폰트, 심볼 형태와 높이는 유지하면서 전체 Header Logo Group의 가로 폭을 약 10~15% 압축
+
 ## Header Logo Final Proportion & Wordmark Spacing
 
 - 전체 공개 페이지 Header의 공통 `The EQUIV Mark | EQUIV` Lockup 비례를 최종 정리

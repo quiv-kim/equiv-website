@@ -146,8 +146,8 @@ button {
 
 /* Header primary logo: The EQUIV Mark | EQUIV */
 .site-header .equiv-logo {
-  gap: 10px;
-  max-width: 220px;
+  gap: 7px;
+  max-width: 195px;
 }
 
 .site-header .equiv-logo-mark {
@@ -163,7 +163,7 @@ button {
 .site-header .equiv-logo-wordmark {
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.1em;
 }
 
 .brand-label {
@@ -205,7 +205,7 @@ button {
 }
 
 .site-header.is-scrolled .equiv-logo {
-  gap: 9px;
+  gap: 7px;
 }
 
 .site-header.is-scrolled .equiv-logo-mark {
@@ -3585,7 +3585,7 @@ button {
 }
 
 .consultation-modal__brand {
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 18px;
   color: var(--color-white);
 }
@@ -3602,7 +3602,7 @@ button {
 .consultation-modal__brand .equiv-logo-wordmark {
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.1em;
 }
 
 .consultation-modal__header .section-kicker {
@@ -4427,7 +4427,7 @@ button {
 
   .site-header .equiv-logo,
   .site-header.is-scrolled .equiv-logo {
-    gap: 9px;
+    gap: 7px;
   }
 
   .site-header .equiv-logo-mark,
@@ -4444,7 +4444,7 @@ button {
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
     font-size: 22px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.1em;
   }
 
   .site-nav {
@@ -4568,7 +4568,7 @@ button {
 
   .site-header .equiv-logo,
   .site-header.is-scrolled .equiv-logo {
-    gap: 8px;
+    gap: 6px;
     max-width: calc(100vw - 96px);
   }
 
@@ -4586,7 +4586,7 @@ button {
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
     font-size: 19px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.1em;
   }
 
   .site-nav {
