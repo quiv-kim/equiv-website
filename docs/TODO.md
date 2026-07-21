@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] Business Valuation 하단 중복 콘텐츠 제거 및 CTA 이후 Footer 연결 단순화
 - [x] EQUIV Principle 카피 간소화 및 하단 반복 문구 제거
 - [x] About EQUIV The EQUIV Mark 소개 영역에 Mark·Divider 가로 구성 적용
 - [x] Header Logo SVG Mask 표시 오류 수정 및 HOME Hero 영문 보조 카피 제거

@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## Business Valuation Content Simplification
+
+- `EQUIV Value Framework`와 `Strategic Value Analysis` 섹션 삭제
+- `기업을 이해하는 것이 좋은 거래의 시작입니다.` 이하 하단 Brand Statement 삭제
+- CTA를 마지막 콘텐츠로 유지하여 Desktop과 Mobile 모두 CTA 이후 Footer로 바로 이어지는 흐름 적용
+- Hero 사전진단 CTA, Modal, 계산 엔진, Calibration, Value Driver와 결과 화면은 변경하지 않음
+
 ## Sprint 10 - Mobile Typography Benchmark
 
 - LISTING 모바일을 기준으로 `760px 이하` Typography Scale을 여백 우선 Premium Corporate 밀도로 재조정
