@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Mobile Typography Point Adjustment
+
+- 760px 이하 HOME Hero Title을 `10px`로 고정
+- Mobile 공통 Section Title을 `9.5px`로 통일
+- Service·Principle·Expertise Card 내부 영문 제목을 `8.6px`로 통일
+- 380px 이하 별도 Hero 보정에서도 동일한 `10px` 유지
+- Desktop·Tablet Typography와 Layout은 변경하지 않음
+
 ## Mobile Service Card Title Refinement
 
 - 760px 이하 Featured Expertise 서비스 카드 제목을 `9px`로 통일
