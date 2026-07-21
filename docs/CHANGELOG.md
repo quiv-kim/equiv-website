@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Header Logo Final Proportion & Wordmark Spacing
+
+- 전체 공개 페이지 Header의 공통 `The EQUIV Mark | EQUIV` Lockup 비례를 최종 정리
+- EQUIV Wordmark를 단일 텍스트로 유지하고 자간을 `-0.01em`, 굵기를 `500`으로 조정해 하나의 단단한 브랜드명으로 표현
+- Desktop `30px / 26px / 23px / 10px`, Tablet `28px / 24px / 22px / 9px`, Mobile `26px / 22px / 19px / 8px` 기준으로 Mark·Divider·Wordmark·Gap을 비례 조정
+- Divider는 `1px`, `opacity: 0.62`를 유지하고 Mobile Logo Group에 최대 폭을 적용해 메뉴 버튼과의 충돌 방지
+- 공통 Consultation Modal Wordmark에도 동일한 자간을 적용하고 Footer와 Header Navigation 구조·기능은 변경하지 않음
+
 ## HOME Typography Reference Mapping
 
 - 새로운 상세페이지 Typography 수치를 만들지 않고 HOME Component의 실제 CSS 값을 직접 매핑

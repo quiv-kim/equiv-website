@@ -186,7 +186,9 @@ Transition
 ## Official Logo Component
 
 - Primary Lockup: The EQUIV Mark / 1px Vertical Divider / EQUIV Wordmark
-- Header: Desktop 로고 높이는 24~32px, Mobile은 22~28px 범위에서 메뉴와 수직 정렬한다.
+- Header: Desktop은 Mark `30px`, Divider `26px`, Wordmark `23px`, Gap `10px`을 기본으로 사용한다. Tablet은 `28px / 24px / 22px / 9px`, Mobile은 `26px / 22px / 19px / 8px`로 비례 축소한다.
+- Header Wordmark는 하나의 Text Node `EQUIV`로 렌더링하고 `font-weight: 500`, `letter-spacing: -0.01em`을 사용한다. 글자별 공백·개별 Span·Margin으로 자간을 만들지 않는다.
+- Header Divider는 `1px`, `currentColor`, `opacity: 0.62`를 사용해 Mark와 Wordmark보다 낮은 시각적 위계를 유지한다.
 - Web Wordmark는 SVG Mask 대신 실제 Text를 사용해 브라우저별 가시성을 보장한다.
 - Footer: 동일 비율을 유지하며 축소하고 Dark Navy 배경에서는 White Wordmark와 Gold Mark를 사용한다.
 - Consultation Modal: 동일 Lockup을 Header 안에 소형으로 사용한다.

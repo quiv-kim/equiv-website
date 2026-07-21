@@ -125,6 +125,7 @@ button {
 }
 
 .equiv-logo-divider {
+  --equiv-logo-final-opacity: 0.62;
   width: 1px;
   height: 28px;
   flex: 0 0 auto;
@@ -141,6 +142,28 @@ button {
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.2em;
+}
+
+/* Header primary logo: The EQUIV Mark | EQUIV */
+.site-header .equiv-logo {
+  gap: 10px;
+  max-width: 220px;
+}
+
+.site-header .equiv-logo-mark {
+  width: 30px;
+  height: 30px;
+}
+
+.site-header .equiv-logo-divider {
+  height: 26px;
+  opacity: 0.62;
+}
+
+.site-header .equiv-logo-wordmark {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .brand-label {
@@ -176,13 +199,13 @@ button {
     transform: translateY(3px);
   }
   to {
-    opacity: 1;
+    opacity: var(--equiv-logo-final-opacity, 1);
     transform: none;
   }
 }
 
 .site-header.is-scrolled .equiv-logo {
-  gap: 13px;
+  gap: 9px;
 }
 
 .site-header.is-scrolled .equiv-logo-mark {
@@ -191,11 +214,11 @@ button {
 }
 
 .site-header.is-scrolled .equiv-logo-divider {
-  height: 25px;
+  height: 24px;
 }
 
 .site-header.is-scrolled .equiv-logo-wordmark {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .site-nav {
@@ -3578,7 +3601,8 @@ button {
 
 .consultation-modal__brand .equiv-logo-wordmark {
   font-size: 18px;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .consultation-modal__header .section-kicker {
@@ -4414,13 +4438,13 @@ button {
 
   .site-header .equiv-logo-divider,
   .site-header.is-scrolled .equiv-logo-divider {
-    height: 25px;
+    height: 24px;
   }
 
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
-    font-size: 23px;
-    letter-spacing: 0.14em;
+    font-size: 22px;
+    letter-spacing: -0.01em;
   }
 
   .site-nav {
@@ -4545,6 +4569,7 @@ button {
   .site-header .equiv-logo,
   .site-header.is-scrolled .equiv-logo {
     gap: 8px;
+    max-width: calc(100vw - 96px);
   }
 
   .site-header .equiv-logo-mark,
@@ -4555,13 +4580,13 @@ button {
 
   .site-header .equiv-logo-divider,
   .site-header.is-scrolled .equiv-logo-divider {
-    height: 23px;
+    height: 22px;
   }
 
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
-    font-size: 22px;
-    letter-spacing: 0.14em;
+    font-size: 19px;
+    letter-spacing: -0.01em;
   }
 
   .site-nav {
