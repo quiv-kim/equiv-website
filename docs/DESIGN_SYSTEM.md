@@ -94,7 +94,9 @@ Mobile
 - Section Label / Auxiliary Text: `13px`
 - Home Hero Title: `28px / 1.24`
 - Main Section Title: `22px / 1.36`
-- Detail Page Title: HOME Main Section과 동일한 `22px / 1.36`
+- Service Detail Page Title: HOME Service Card와 동일한 Desktop `32px / 1.28`, Mobile `16px / 1.5`
+- Insights Detail Page Title: HOME Insights Card와 동일한 Desktop `21px / 1.45`, Mobile `16px / 1.5`
+- Detail CONTACT Title: HOME Contact와 동일한 Mobile `22px / 1.36`
 - Card Title: `16px / 1.5`
 - Body: `14px / 1.8`
 - Button Text: `14px`; 기존 Touch Target 높이는 유지한다.

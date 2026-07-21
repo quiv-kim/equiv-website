@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## HOME Typography Reference Mapping
+
+- 새로운 상세페이지 Typography 수치를 만들지 않고 HOME Component의 실제 CSS 값을 직접 매핑
+- Service·Business Valuation 상세 H1에 HOME Service Card Title의 Desktop `32px / 1.28`, Mobile `16px / 1.5` 적용
+- M&A 실무·업종별 M&A·시장분석·거래사례 H1에 HOME Insights Card Title의 Desktop `21px / 1.45`, Mobile `16px / 1.5` 적용
+- 모든 상세페이지 하단 CONTACT Title은 HOME Contact Title과 공유하는 Mobile `22px / 1.36` 규칙 유지
+- About H1, HOME Hero, HOME Card와 Desktop·Tablet Layout은 변경하지 않음
+
 ## Sprint 9.4 - Typography Consistency
 
 - HOME Typography를 Master로 사용하여 Service·Insights·Business Valuation·About 상세 H1 Scale 통일
