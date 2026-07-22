@@ -24,6 +24,8 @@
   --desktop-body: 15px;
   --desktop-small: 13px;
   --desktop-caption: 11px;
+  --desktop-cta-title: 32px;
+  --desktop-cta-body: 16px;
   --mobile-display: 30px;
   --mobile-h1: 25px;
   --mobile-h2: 22px;
@@ -33,6 +35,8 @@
   --mobile-body: 14px;
   --mobile-small: 12px;
   --mobile-caption: 11px;
+  --mobile-cta-title: 25px;
+  --mobile-cta-body: 15px;
   --type-display: var(--desktop-display);
   --type-h1: var(--desktop-h1);
   --type-h2: var(--desktop-h2);
@@ -42,6 +46,8 @@
   --type-body: var(--desktop-body);
   --type-small: var(--desktop-small);
   --type-caption: var(--desktop-caption);
+  --type-cta-title: var(--desktop-cta-title);
+  --type-cta-body: var(--desktop-cta-body);
   --space-2xs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -80,8 +86,9 @@
   --component-section-padding-md: var(--section-space-md);
   --component-section-padding-sm: var(--section-space-sm);
   --component-hero-padding: var(--section-space-lg);
-  --component-card-padding: 28px;
-  --component-card-padding-compact: var(--space-lg);
+  --component-card-padding: 24px;
+  --component-card-padding-compact: 22px;
+  --component-card-padding-mobile: 20px;
   --component-button-padding-y: var(--space-sm);
   --component-button-padding-x: var(--space-lg);
   --component-input-padding-x: var(--space-md);
@@ -737,7 +744,7 @@ button {
 
 .principle-card {
   position: relative;
-  min-height: 260px;
+  min-height: 230px;
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.12);
   border-radius: var(--radius-sm);
@@ -747,8 +754,8 @@ button {
 .principle-card::before {
   content: "";
   position: absolute;
-  left: 30px;
-  right: 30px;
+  left: var(--space-lg);
+  right: var(--space-lg);
   top: 0;
   height: 1px;
   background: var(--color-gold);
@@ -767,7 +774,7 @@ button {
 }
 
 .principle-card h3 {
-  margin: var(--space-2xl) 0 var(--space-sm);
+  margin: var(--space-md) 0 var(--space-sm);
   color: var(--color-primary);
   font-family: var(--font-en);
   font-size: var(--type-h3);
@@ -801,10 +808,10 @@ button {
 
 .service-card {
   position: relative;
-  min-height: 260px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.08);
   border-radius: var(--radius-sm);
@@ -893,7 +900,7 @@ button {
 }
 
 .service-card em {
-  margin-top: var(--space-xs);
+  margin-top: var(--space-md);
   padding-top: 0;
 }
 
@@ -1006,7 +1013,7 @@ button {
 }
 
 .insight-card {
-  min-height: 220px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(7, 26, 47, 0.1);
@@ -1030,7 +1037,7 @@ button {
 }
 
 .insight-card h3 {
-  margin-bottom: var(--space-sm);
+  margin: var(--space-sm) 0;
   color: var(--color-primary);
   font-size: var(--type-h3);
   line-height: 1.45;
@@ -1041,6 +1048,10 @@ button {
   color: var(--color-muted);
   font-size: var(--type-body);
   line-height: 1.8;
+}
+
+.insight-card em {
+  padding-top: var(--space-md);
 }
 
 .insight-article-hero h1 {
@@ -1390,7 +1401,7 @@ button {
   grid-template-columns: 58px 1fr;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-lg) 0;
+  padding: var(--space-md) 0;
   color: var(--color-primary);
   border-bottom: 1px solid var(--color-line);
 }
@@ -1463,7 +1474,7 @@ button {
 }
 
 .expertise-card {
-  min-height: 230px;
+  min-height: 200px;
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.1);
   transition: transform 0.3s var(--ease), border-color 0.3s ease;
@@ -1483,7 +1494,7 @@ button {
 }
 
 .expertise-card h3 {
-  margin: var(--space-2xl) 0 var(--space-sm);
+  margin: var(--space-md) 0 var(--space-sm);
   color: var(--color-primary);
   font-family: var(--font-en);
   font-size: var(--type-h3);
@@ -1492,7 +1503,7 @@ button {
 
 .expertise-card-subtitle {
   display: block;
-  margin: 0 0 var(--space-md);
+  margin: 0 0 var(--space-sm);
   color: var(--color-primary);
   font-size: var(--type-h4);
   font-weight: 700;
@@ -2582,17 +2593,17 @@ button {
 
 .sub-cta h2 {
   max-width: 760px;
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-md);
   color: var(--color-white);
-  font-size: var(--type-h2);
+  font-size: var(--type-cta-title);
   line-height: 1.3;
 }
 
 .sub-cta-copy {
   max-width: var(--content-width-sm);
-  margin: calc(var(--space-xs) * -1) 0 var(--space-xl);
+  margin: 0 0 var(--space-lg);
   color: rgba(255, 255, 255, 0.74);
-  font-size: var(--type-body-lg);
+  font-size: var(--type-cta-body);
   font-weight: 500;
   line-height: 1.8;
 }
@@ -2725,7 +2736,7 @@ button {
 
 .about-flow li {
   position: relative;
-  min-height: 226px;
+  min-height: 200px;
   padding: var(--space-lg) var(--space-lg) var(--space-xl);
   border-right: 1px solid var(--color-line);
 }
@@ -2772,35 +2783,36 @@ button {
 
 .final-cta h2 {
   max-width: var(--content-width-lg);
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-md);
   color: var(--color-white);
   font-family: var(--font-en);
-  font-size: var(--type-h2);
+  font-size: var(--type-cta-title);
   line-height: 1.05;
 }
 
 .final-cta p:not(.section-kicker):not(.cta-response-note) {
-  margin: 0 0 var(--space-xl);
+  margin: 0;
   color: rgba(255, 255, 255, 0.76);
-  font-size: var(--type-body);
+  font-size: var(--type-cta-body);
   line-height: 1.8;
 }
 
-.final-cta .btn {
+.final-cta .btn,
+.sub-cta .btn {
   min-width: 264px;
-  min-height: 64px;
+  min-height: 52px;
   margin-top: 0;
-  padding-inline: var(--space-2xl);
-  font-size: var(--type-small);
+  padding-inline: var(--space-lg);
+  font-size: var(--type-body);
 }
 
 .contact-action-row {
   display: grid;
   grid-template-columns: minmax(264px, 360px) minmax(0, 1fr);
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   align-items: start;
   max-width: 1040px;
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-lg);
 }
 
 .contact-primary-action {
@@ -4511,7 +4523,7 @@ button {
   }
 
   .principle-card {
-    min-height: 250px;
+    min-height: 230px;
   }
 
   .principle-card h3 {
@@ -4524,7 +4536,7 @@ button {
 
   .service-card,
   .insight-card {
-    min-height: 210px;
+    min-height: 200px;
   }
 
   .consultation-modal {
@@ -4578,6 +4590,8 @@ button {
     --type-body: var(--mobile-body);
     --type-small: var(--mobile-small);
     --type-caption: var(--mobile-caption);
+    --type-cta-title: var(--mobile-cta-title);
+    --type-cta-body: var(--mobile-cta-body);
     --space-2xs: 4px;
     --space-xs: 8px;
     --space-sm: 10px;
@@ -4589,8 +4603,8 @@ button {
     --section-space-md: 52px;
     --section-space-sm: 40px;
     --space-section: var(--section-space-lg);
-    --component-card-padding: 20px;
-    --component-card-padding-compact: 20px;
+    --component-card-padding: var(--component-card-padding-mobile);
+    --component-card-padding-compact: var(--component-card-padding-mobile);
   }
 
   .container {
@@ -4956,12 +4970,12 @@ button {
   }
 
   .final-cta h2 {
-    font-size: var(--type-h2);
+    font-size: var(--type-cta-title);
     line-height: 1.32;
   }
 
   .final-cta p:not(.section-kicker):not(.cta-response-note) {
-    font-size: var(--type-body);
+    font-size: var(--type-cta-body);
     line-height: 2.02;
   }
 
@@ -4977,12 +4991,13 @@ button {
     margin-top: var(--space-xl);
   }
 
-  .final-cta .btn {
+  .final-cta .btn,
+  .sub-cta .btn {
     width: 100%;
     min-width: 0;
-    min-height: 56px;
+    min-height: 48px;
     padding-inline: var(--space-lg);
-    font-size: var(--type-small);
+    font-size: var(--type-body);
   }
 
   .cta-service-list {
@@ -5439,13 +5454,20 @@ button {
   .about-copy h2,
   .about-section-head h2,
   .expertise-copy h2,
-  .readiness-check h2,
-  .final-cta h2,
-  .sub-cta h2 {
+  .readiness-check h2 {
     font-size: var(--type-h2);
     font-family: var(--font-ko);
     font-weight: 700;
     line-height: 1.42;
+    letter-spacing: 0;
+  }
+
+  .final-cta h2,
+  .sub-cta h2 {
+    font-size: var(--type-cta-title);
+    font-family: var(--font-ko);
+    font-weight: 700;
+    line-height: 1.32;
     letter-spacing: 0;
   }
 
@@ -5500,7 +5522,6 @@ button {
 
   .principle-head > p:last-child,
   .expertise-note,
-  .final-cta p:not(.section-kicker):not(.cta-response-note),
   .about-hero .about-hero-copy,
   .about-copy p,
   .valuation-entry-card__description,
@@ -5513,6 +5534,11 @@ button {
   .sub-cta-copy {
     font-size: var(--type-body-lg);
     line-height: 1.8;
+  }
+
+  .final-cta p:not(.section-kicker):not(.cta-response-note),
+  .sub-cta-copy {
+    font-size: var(--type-cta-body);
   }
 
   .service-card p,
@@ -5576,13 +5602,19 @@ button {
 
   .btn,
   .hero .btn,
-  .final-cta .btn,
   .consultation-submit,
   .consultation-modal__submit,
   .readiness-option {
     min-height: 47px;
     padding: var(--space-sm) var(--space-md);
     font-size: var(--type-small);
+  }
+
+  .final-cta .btn,
+  .sub-cta .btn {
+    min-height: 48px;
+    padding-inline: var(--space-lg);
+    font-size: var(--type-body);
   }
 
   .site-nav > a,
@@ -5693,12 +5725,12 @@ button {
   }
 
   .final-cta h2 {
-    font-size: var(--type-h2);
+    font-size: var(--type-cta-title);
     line-height: 1.1;
   }
 
   .sub-cta h2 {
-    font-size: var(--type-h2);
+    font-size: var(--type-cta-title);
     line-height: 1.34;
   }
 
@@ -5792,13 +5824,16 @@ button {
     font-size: var(--type-body);
   }
 
-  .expertise-note,
-  .final-cta p:not(.section-kicker):not(.cta-response-note) {
+  .expertise-note {
     font-size: var(--type-body-lg);
   }
 
+  .final-cta p:not(.section-kicker):not(.cta-response-note) {
+    font-size: var(--type-cta-body);
+  }
+
   .sub-cta-copy {
-    font-size: var(--type-body-lg);
+    font-size: var(--type-cta-body);
   }
 
   .key-list li,
@@ -5814,9 +5849,15 @@ button {
     font-size: var(--type-body);
   }
 
-  .btn,
-  .final-cta .btn {
+  .btn {
     font-size: var(--type-small);
+  }
+
+  .final-cta .btn,
+  .sub-cta .btn {
+    min-height: 52px;
+    padding-inline: var(--space-lg);
+    font-size: var(--type-body);
   }
 
   .footer-brand .equiv-logo-wordmark {

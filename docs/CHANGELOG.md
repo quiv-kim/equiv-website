@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 14 - Premium Layout Polishing
+
+- Desktop Regular / Compact Card Padding을 `24px / 22px`로 보정하고 Mobile Card Padding `20px`은 유지
+- Principle·Service·Insight·Expertise·Process Card의 과도한 `min-height`와 제목 위 간격을 줄여 콘텐츠 중심 밀도로 정리
+- Service Card를 상단 정렬로 전환하고 Insight Link 간격과 Service Process Row 간격을 공통 Spacing Token으로 보정
+- CTA 전용 Typography Token을 Desktop `32/16px`, Mobile `25/15px`로 추가해 일반 Section과 Conversion CTA 위계를 분리
+- HOME Final CTA와 Service·Insights Sub CTA Button을 Desktop `52px/15px`, Mobile `48px/14px` 기준으로 통일
+- HOME Contact CTA의 설명과 Action Row 사이 중복 여백 및 좌우 Column Gap을 축소해 상담 흐름을 강화
+- 페이지 구조, 콘텐츠, 브랜드 컬러, 이미지, 애니메이션, Footer 구조, Modal과 Business Valuation 기능은 변경하지 않음
+
 ## Sprint 13.1 - Design System Calibration & CSS Consolidation
 
 - Desktop Typography를 `48 / 34 / 27 / 20 / 16 / 16 / 15 / 13 / 11px`로 보정하여 큰 제목은 절제하고 본문 가독성은 강화

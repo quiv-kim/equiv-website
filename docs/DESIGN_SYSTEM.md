@@ -96,8 +96,9 @@ Component Rule:
 - Article / Form / Standard Section: `--component-section-padding-md`
 - CTA / Short Closing Section: `--component-section-padding-sm`
 - Hero Padding: `--component-hero-padding`
-- Regular Card Padding: `--component-card-padding` (`28px / Mobile 20px`)
-- Compact Card Padding: `--component-card-padding-compact` (`24px / Mobile 20px`)
+- Regular Card Padding: `--component-card-padding` (`24px / Mobile 20px`)
+- Compact Card Padding: `--component-card-padding-compact` (`22px / Mobile 20px`)
+- Mobile Card Padding Source: `--component-card-padding-mobile` (`20px`)
 - Standard Grid Gap: `--grid-card-gap`
 - Heading Group Margin: `--grid-section-gap`
 - Button Padding: `--component-button-padding-y / --component-button-padding-x`
@@ -160,6 +161,8 @@ Desktop (`761px 이상`):
 - `--desktop-body: 15px`
 - `--desktop-small: 13px`
 - `--desktop-caption: 11px`
+- `--desktop-cta-title: 32px`
+- `--desktop-cta-body: 16px`
 
 Mobile (`760px 이하`):
 
@@ -172,19 +175,30 @@ Mobile (`760px 이하`):
 - `--mobile-body: 14px`
 - `--mobile-small: 12px`
 - `--mobile-caption: 11px`
+- `--mobile-cta-title: 25px`
+- `--mobile-cta-body: 15px`
 
 Semantic Role은 `Display → H1 → H2 → H3 → H4 → Body Large → Body → Small → Caption` 순서를 유지한다. Desktop은 LISTING, KMX와 모멘트, Mobile은 LISTING Mobile, Apple, Stripe와 McKinsey의 절제된 Corporate 밀도를 기준으로 한다.
 
 HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navigation, Card와 Button은 모두 동일한 Token System을 사용한다. Mobile Form Input은 iOS Safari 자동 확대 방지를 위해 `--mobile-h4(16px)`를 사용한다.
 
-Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title = H2 / Card Title = H3 / Small Card Heading = H4 / Lead Paragraph = Body Large / Normal Paragraph = Body / Label = Small / Caption = Caption`으로 고정한다.
+Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title = H2 / Card Title = H3 / Small Card Heading = H4 / Lead Paragraph = Body Large / Normal Paragraph = Body / Label = Small / Caption = Caption`으로 고정한다. Conversion CTA는 일반 Section과 구분되는 `--type-cta-title / --type-cta-body` 역할을 사용한다.
+
+### Card Density & CTA Hierarchy
+
+- 짧은 일반 Card는 Desktop `22~24px`, Mobile `20px` 내부 여백을 기준으로 한다.
+- 동일 Grid의 Card는 정돈된 높이를 유지하되, 콘텐츠보다 빈 공간이 커지는 고정 높이나 과도한 `min-height`를 사용하지 않는다.
+- Card 내부 간격은 `Label → Title 12~16px / Title → Description 10~12px / Description → Link 16~20px` 범위를 공통 Spacing Token으로 표현한다.
+- 일반 Section H2와 Conversion CTA 제목을 같은 역할로 사용하지 않는다. CTA 제목은 Desktop `32px`, Mobile `25px`을 사용한다.
+- CTA 설명은 Desktop `16px`, Mobile `15px`, 주요 CTA Button은 Desktop `52px`, Mobile `48px`의 최소 높이를 기준으로 한다.
+- Form Card, Modal과 입력 Touch Area는 Card Density 조정 대상에서 제외하고 기존 접근성 높이를 유지한다.
 
 ### Mobile Optimization
 
 - QA widths: `360 / 390 / 430 / 768px`
 - Mobile Header Height: `64px`
 - Mobile Container Gutter: `--space-xl(28px)`
-- Mobile Button: 최소 `52px`, 주요 CTA `56px`
+- Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
 - Mobile Section Padding: `64px / 52px / 40px`의 의미 기반 Section Token
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
