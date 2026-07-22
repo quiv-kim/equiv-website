@@ -6108,11 +6108,11 @@ button {
   }
 }
 
-/* Sprint 17: HOME mobile hero refinement */
+/* Sprint 17-18: HOME mobile hero refinement and fine tuning */
 @media (max-width: 760px) {
   .hero {
-    min-height: 72vh;
-    min-height: 72svh;
+    min-height: 70vh;
+    min-height: 70svh;
   }
 
   .hero-content {
@@ -6120,23 +6120,27 @@ button {
   }
 
   .hero h1 {
-    font-size: calc(var(--type-display) - var(--space-2xs));
-    line-height: 1.22;
+    font-size: calc(var(--type-display) - var(--space-2xs) - 2px);
+    line-height: 1.2;
   }
 
   .hero-brand-name,
   .hero-brand-korean,
   .hero-brand-role {
-    font-size: var(--type-caption);
+    font-size: calc(var(--type-caption) - 1px);
+  }
+
+  .hero-brand-identity {
+    margin-bottom: var(--space-2xs);
   }
 
   .hero-actions {
     gap: var(--space-2xs);
-    margin-top: var(--space-md);
+    margin-top: var(--space-xs);
   }
 
   .hero .btn {
-    min-height: 48px;
+    min-height: 44px;
   }
 }
 

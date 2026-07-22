@@ -220,10 +220,11 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 ### HOME Mobile Hero
 
 - 적용 범위는 `760px 이하`의 HOME Hero로 한정하며 Desktop과 Tablet Hero에는 적용하지 않는다.
-- Mobile Hero는 `72svh`를 기준으로 하여 첫 화면에서 다음 Section이 자연스럽게 보이도록 한다. `vh`는 Fallback으로 함께 제공한다.
-- Hero 제목은 공통 Mobile Display Token보다 `--space-2xs`만큼 작게 보정하고 `1.22` 행간을 사용한다. 공통 Typography Token 자체는 변경하지 않는다.
-- Hero Brand Label은 `--type-caption`을 사용하며 기존 Weight와 Letter Spacing은 유지한다.
-- Hero CTA는 기존 폭과 Typography를 유지하고 최소 높이 `48px`, 버튼 사이 간격 `--space-2xs`, 제목 이후 간격 `--space-md`를 사용한다.
+- Mobile Hero는 `70svh`를 기준으로 하여 첫 화면에서 다음 Section이 자연스럽게 보이도록 한다. `vh`는 Fallback으로 함께 제공한다.
+- Hero 제목은 HOME Mobile 전용 계산값 `24px`과 `1.2` 행간으로 미세 조정한다. 공통 Typography Token 자체는 변경하지 않는다.
+- Hero Brand Label은 HOME Mobile 전용 `10px`로 보정하며 기존 Weight와 Letter Spacing은 유지한다.
+- Label과 Title 사이 여백은 `4px`, Title과 CTA 사이 여백은 `8px`을 사용한다. 현재 Hero에는 별도 Description을 추가하지 않는다.
+- Hero CTA는 기존 폭과 Typography를 유지하고 최소 높이 `44px`, 버튼 사이 간격 `--space-2xs`를 사용한다.
 - Mobile Header 높이·Logo·Menu·Padding과 Hero 이미지·색상·Scroll Indicator는 변경하지 않는다.
 
 ### Mobile Typography Scale
