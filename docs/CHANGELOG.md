@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 13 - EQUIV Design System Foundation
+
+- 기존 브랜드 컬러를 유지하면서 `Primary / Secondary / Background / Surface / Border / Text Primary / Text Secondary / Muted` Semantic Color Token으로 통합
+- Desktop Typography Token을 `52 / 36 / 28 / 22 / 17 / 15 / 13.5 / 12 / 10.5px`의 절제된 Premium Corporate Scale로 조정
+- Container에 `Full` Token을 추가하고 12 Column, Column Gap, Card Gap과 Section Gap의 공통 Grid Token 정의
+- Radius 4단계와 함께 Small / Medium / Large Shadow Token 및 Overlay·Float·Focus Semantic Shadow를 구축
+- Section, Card, Grid, Button, Input과 Modal에 공통 Component Token을 연결하여 페이지별 수치 의존도를 축소
+- HOME, About, Service, Business Valuation, Insights, Contact, Footer와 Modal이 동일한 Foundation을 사용하도록 규칙 문서화
+- 페이지 구조, 브랜드 컬러, 콘텐츠, 애니메이션과 반응형 Layout은 변경하지 않음
+
 ## Sprint 12.1 - Layout & Spacing Design System
 
 - Desktop `4/8/12/16/24/32/48/96px`, Mobile `4/8/10/14/20/28/40/72px` 공통 Spacing Token 생성

@@ -536,6 +536,16 @@ Desktop은 `4 / 8 / 12 / 16 / 24 / 32 / 48 / 96px`, Mobile은 `4 / 8 / 10 / 14 /
 
 Section, Card, Grid, Button, Input, Modal, Hero와 Footer는 공통 Spacing Token을 사용한다. 새로운 페이지는 개별 여백 수치를 추가하지 않고 기존 Component Rule과 Token 조합만으로 구성한다.
 
+## EQUIV Design System Foundation Principle
+
+EQUIV의 모든 공개 페이지는 하나의 Design System Foundation을 사용한다. Foundation은 Color, Typography, Spacing, Container, Grid, Radius와 Shadow Token으로 구성하며 Navigation, Hero, Section Header, Card, Button, Form, Modal과 Footer는 이 Token 조합만으로 표현한다.
+
+색상은 `Primary / Secondary / Background / Surface / Border / Text Primary / Text Secondary / Muted`의 Semantic Role로 관리한다. Container는 `Narrow / Default / Wide / Full`, Grid는 공통 Column·Card·Section Gap, Shadow는 `Small / Medium / Large` 계층을 사용한다. 기존 브랜드 컬러와 페이지 구조는 유지한다.
+
+새로운 페이지나 Component를 만들 때 개별 font-size, spacing, radius 또는 shadow 값을 추가하지 않는다. 기존 Token과 Component Rule을 우선 재사용하고, 새로운 규칙이 반드시 필요한 경우 DESIGN_SYSTEM.md에 먼저 정의한 뒤 전체 페이지에 일관되게 적용한다.
+
+Desktop과 Mobile은 각각의 Typography·Spacing Scale을 사용한다. Mobile은 Desktop의 단순 축소판으로 만들지 않으며, 페이지별 예외보다 공통 Token 전환을 우선한다.
+
 ## Mobile Experience Principle
 
 Mobile Experience는 Desktop 디자인을 축소 복제하지 않고 읽기와 터치를 기준으로 별도 최적화한다. Desktop의 구조, 색상과 기본 Breakpoint는 변경하지 않는다.

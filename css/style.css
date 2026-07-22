@@ -1,22 +1,29 @@
 :root {
   --color-primary: #071A2F;
-  --color-gold: #A98235;
-  --color-white: #FFFFFF;
-  --color-gray: #F5F6F8;
-  --color-text: #222222;
+  --color-secondary: #A98235;
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F5F6F8;
+  --color-border: rgba(7, 26, 47, 0.12);
+  --color-text-primary: #222222;
+  --color-text-secondary: #6F7782;
   --color-muted: #6F7782;
-  --color-line: rgba(7, 26, 47, 0.12);
+  --color-gold: var(--color-secondary);
+  --color-white: var(--color-background);
+  --color-gray: var(--color-surface-muted);
+  --color-text: var(--color-text-primary);
+  --color-line: var(--color-border);
   --font-ko: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-en: "Inter", "Pretendard", system-ui, sans-serif;
-  --desktop-display: 55px;
-  --desktop-h1: 40px;
-  --desktop-h2: 32px;
-  --desktop-h3: 24px;
-  --desktop-h4: 18px;
-  --desktop-body-lg: 16px;
-  --desktop-body: 14px;
-  --desktop-small: 12.5px;
-  --desktop-caption: 11px;
+  --desktop-display: 52px;
+  --desktop-h1: 36px;
+  --desktop-h2: 28px;
+  --desktop-h3: 22px;
+  --desktop-h4: 17px;
+  --desktop-body-lg: 15px;
+  --desktop-body: 13.5px;
+  --desktop-small: 12px;
+  --desktop-caption: 10.5px;
   --mobile-display: 20px;
   --mobile-h1: 17px;
   --mobile-h2: 16px;
@@ -43,13 +50,33 @@
   --space-xl: 32px;
   --space-2xl: 48px;
   --space-section: 96px;
-  --container-width: 1180px;
   --container-narrow: 780px;
+  --container-default: 1180px;
   --container-wide: 1280px;
+  --container-full: 100%;
+  --container-width: var(--container-default);
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 20px;
+  --shadow-sm: 0 12px 26px rgba(7, 26, 47, 0.09);
+  --shadow-md: 0 12px 30px rgba(7, 26, 47, 0.12);
+  --shadow-lg: 0 28px 80px rgba(7, 26, 47, 0.18);
+  --shadow-overlay: 0 28px 80px rgba(0, 0, 0, 0.24);
+  --shadow-float: 0 14px 32px rgba(7, 26, 47, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(169, 130, 53, 0.1);
+  --grid-columns: 12;
+  --grid-column-gap: var(--space-md);
+  --grid-card-gap: var(--space-md);
+  --grid-section-gap: var(--space-2xl);
+  --component-section-padding: var(--space-section);
+  --component-hero-padding: var(--space-section);
+  --component-card-padding: var(--space-xl);
+  --component-button-padding-y: var(--space-sm);
+  --component-button-padding-x: var(--space-lg);
+  --component-input-padding-x: var(--space-md);
+  --component-modal-padding: var(--space-xl);
+  --component-footer-padding: var(--space-2xl);
   --header-height: 76px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -100,7 +127,7 @@ button {
 }
 
 .container {
-  width: min(calc(100% - var(--space-xl)), var(--container-width));
+  width: min(calc(var(--container-full) - var(--space-xl)), var(--container-width));
   margin-inline: auto;
 }
 
@@ -378,7 +405,7 @@ button {
   margin: 0;
   background: var(--color-gray);
   border: 1px solid rgba(7, 26, 47, 0.12);
-  box-shadow: 0 12px 26px rgba(7, 26, 47, 0.09);
+  box-shadow: var(--shadow-sm);
   list-style: none;
 }
 
@@ -1086,7 +1113,7 @@ button {
 }
 
 .sub-hero {
-  padding: calc(var(--header-height) + var(--space-section)) 0 var(--space-section);
+  padding: calc(var(--header-height) + var(--component-hero-padding)) 0 var(--component-hero-padding);
   color: var(--color-primary);
   background: var(--color-gray);
   border-bottom: 1px solid var(--color-line);
@@ -1577,7 +1604,7 @@ button {
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.12);
   border-radius: var(--radius-lg);
-  box-shadow: 0 28px 80px rgba(7, 26, 47, 0.18);
+  box-shadow: var(--shadow-lg);
 }
 
 .readiness-modal__close {
@@ -2334,7 +2361,7 @@ button {
   visibility: hidden;
   background: var(--color-white);
   border: 1px solid var(--color-line);
-  box-shadow: 0 12px 30px rgba(7, 26, 47, 0.12);
+  box-shadow: var(--shadow-md);
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
@@ -2964,7 +2991,7 @@ button {
 
 /* Contact & Consultation Page */
 .contact-hero {
-  padding: var(--space-section) 0 var(--space-section);
+  padding: var(--component-hero-padding) 0 var(--component-hero-padding);
 }
 
 .contact-hero h1 {
@@ -3208,7 +3235,7 @@ button {
 .form-field input:focus,
 .form-field textarea:focus {
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(169, 130, 53, 0.1);
+  box-shadow: var(--shadow-focus);
 }
 
 .form-field textarea::placeholder {
@@ -3566,7 +3593,7 @@ button {
   background: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: var(--radius-xl);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+  box-shadow: var(--shadow-overlay);
   opacity: 0;
   transform: scale(0.97);
   transition: opacity 0.27s ease, transform 0.27s var(--ease);
@@ -3705,7 +3732,7 @@ button {
 }
 
 .consultation-modal__guide {
-  padding: var(--space-xl) var(--space-xl);
+  padding: var(--component-modal-padding);
   background: var(--color-gray);
   border-right: 1px solid var(--color-line);
 }
@@ -3856,7 +3883,7 @@ button {
 .consultation-modal__field input:focus,
 .consultation-modal__field textarea:focus {
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(169, 130, 53, 0.1);
+  box-shadow: var(--shadow-focus);
 }
 
 .consultation-modal__types {
@@ -4292,7 +4319,7 @@ button {
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.22);
   border-radius: var(--radius-lg);
-  box-shadow: 0 14px 32px rgba(7, 26, 47, 0.12);
+  box-shadow: var(--shadow-float);
   font-family: var(--font-en);
   font-size: var(--type-small);
   font-weight: 700;
@@ -5964,7 +5991,7 @@ button {
   }
 }
 
-/* Sprint 12.1: shared component spacing and container rules */
+/* EQUIV Design System: shared component, grid and spacing rules */
 .section,
 .about-intro-section,
 .about-process-section,
@@ -5972,30 +5999,30 @@ button {
 .consultation-section,
 .sub-cta,
 .final-cta {
-  padding-block: var(--space-section);
+  padding-block: var(--component-section-padding);
 }
 
 .site-footer {
-  padding-block: var(--space-2xl);
+  padding-block: var(--component-footer-padding);
 }
 
 .principle-card,
 .service-card,
 .insight-card,
 .expertise-card {
-  padding: var(--space-xl);
+  padding: var(--component-card-padding);
 }
 
 .service-grid,
 .insight-grid,
 .principle-grid,
 .expertise-card-grid {
-  gap: var(--space-md);
+  gap: var(--grid-card-gap);
 }
 
 .section-head,
 .principle-head {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--grid-section-gap);
 }
 
 .principle-card h3,
@@ -6009,7 +6036,7 @@ button {
 .consultation-submit,
 .consultation-modal__submit,
 .readiness-option {
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--component-button-padding-y) var(--component-button-padding-x);
 }
 
 .form-field input,
@@ -6018,7 +6045,7 @@ button {
 .valuation-field select,
 .consultation-modal__field input,
 .consultation-modal__field textarea {
-  padding-inline: var(--space-md);
+  padding-inline: var(--component-input-padding-x);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6030,11 +6057,6 @@ button {
     animation-duration: 0.01ms !important;
   }
 }
-
-
-
-
-
 
 
 

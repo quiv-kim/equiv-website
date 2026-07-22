@@ -22,29 +22,19 @@ Keywords
 
 ## Color System
 
-Primary Navy
+색상은 시각값이 아니라 역할을 기준으로 사용한다. 기존 브랜드 컬러는 유지하며 아래 Semantic Token을 공식 기준으로 한다.
 
-`#071A2F`
+- Primary: `--color-primary: #071A2F`
+- Secondary: `--color-secondary: #A98235`
+- Background: `--color-background: #FFFFFF`
+- Surface: `--color-surface: #FFFFFF`
+- Muted Surface: `--color-surface-muted: #F5F6F8`
+- Border: `--color-border: rgba(7, 26, 47, 0.12)`
+- Text Primary: `--color-text-primary: #222222`
+- Text Secondary: `--color-text-secondary: #6F7782`
+- Muted: `--color-muted: #6F7782`
 
-Brand Gold
-
-`#A98235`
-
-White
-
-`#FFFFFF`
-
-Light Gray
-
-`#F5F6F8`
-
-Text
-
-`#222222`
-
-Muted
-
-`#6F7782`
+기존 `--color-gold / white / gray / text / line`은 호환성을 위한 Alias이며 각각 위 Semantic Token을 참조한다. 새로운 Component는 Semantic Token을 우선 사용한다.
 
 ## Typography
 
@@ -96,20 +86,32 @@ Mobile (`760px 이하`):
 
 Component Rule:
 
-- Section Padding: `--space-section`
-- Card Padding: `--space-xl`
-- Standard Grid Gap: `--space-md`
-- Heading Group Margin: `--space-2xl`
-- Button Padding: `--space-sm / --space-lg`
-- Input Inline Padding: `--space-md`
-- Footer Padding: `--space-2xl`
+- Section Padding: `--component-section-padding`
+- Hero Padding: `--component-hero-padding`
+- Card Padding: `--component-card-padding`
+- Standard Grid Gap: `--grid-card-gap`
+- Heading Group Margin: `--grid-section-gap`
+- Button Padding: `--component-button-padding-y / --component-button-padding-x`
+- Input Inline Padding: `--component-input-padding-x`
+- Modal Padding: `--component-modal-padding`
+- Footer Padding: `--component-footer-padding`
 
 ### Container Token System
 
-- `--container-width: 1180px`
 - `--container-narrow: 780px`
+- `--container-default: 1180px`
 - `--container-wide: 1280px`
+- `--container-full: 100%`
+- 기존 `--container-width`는 `--container-default`를 참조하는 호환 Alias이다.
 - 기본 Container의 좌우 Gutter 합계는 `--space-xl`을 사용한다.
+
+### Grid Token System
+
+- Base Grid: `--grid-columns: 12`
+- Column Gap: `--grid-column-gap: --space-md`
+- Card Gap: `--grid-card-gap: --space-md`
+- Section Content Gap: `--grid-section-gap: --space-2xl`
+- Grid의 열 수와 반응형 적층 방식은 콘텐츠 역할에 따라 유지하되, 열 사이 간격은 공통 Grid Token만 사용한다.
 
 ### Radius Token System
 
@@ -119,21 +121,29 @@ Component Rule:
 - `--radius-xl: 20px`
 - 원형 `50%`, 완전한 Pill과 `0`은 형태를 위한 예외로 허용한다.
 
+### Shadow Token System
+
+- Small: `--shadow-sm: 0 12px 26px rgba(7, 26, 47, 0.09)`
+- Medium: `--shadow-md: 0 12px 30px rgba(7, 26, 47, 0.12)`
+- Large: `--shadow-lg: 0 28px 80px rgba(7, 26, 47, 0.18)`
+- Overlay, Floating Action과 Focus Ring은 각각 `--shadow-overlay`, `--shadow-float`, `--shadow-focus` Semantic Token을 사용한다.
+- 새로운 임의 `box-shadow` 수치를 Component 안에 직접 선언하지 않는다.
+
 ### Typography Token System
 
 모든 페이지와 Component는 직접 `font-size` 수치를 선언하지 않는다. 아래 Device Token과 이를 전환하는 공통 `--type-*` Semantic Token만 사용한다. 향후 크기 변경은 Token 값에서만 수행한다.
 
 Desktop (`761px 이상`):
 
-- `--desktop-display: 55px`
-- `--desktop-h1: 40px`
-- `--desktop-h2: 32px`
-- `--desktop-h3: 24px`
-- `--desktop-h4: 18px`
-- `--desktop-body-lg: 16px`
-- `--desktop-body: 14px`
-- `--desktop-small: 12.5px`
-- `--desktop-caption: 11px`
+- `--desktop-display: 52px`
+- `--desktop-h1: 36px`
+- `--desktop-h2: 28px`
+- `--desktop-h3: 22px`
+- `--desktop-h4: 17px`
+- `--desktop-body-lg: 15px`
+- `--desktop-body: 13.5px`
+- `--desktop-small: 12px`
+- `--desktop-caption: 10.5px`
 
 Mobile (`760px 이하`):
 
