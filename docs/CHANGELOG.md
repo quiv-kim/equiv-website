@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 16 - Home Page Layout Balance Refinement
+
+- HOME Featured Expertise Grid를 `1076px`로 소폭 확대해 Desktop 서비스 카드 폭을 약 `12px` 늘리고 기존 3열·마지막 행 중앙 정렬 유지
+- HOME Service Card 최소 높이를 `182px`로 보정해 Padding과 Typography를 바꾸지 않고 약간의 안정감 추가
+- HOME Insights를 서비스와 분리된 `1260px` Grid로 확장하고 `1280px 이상`에서 4열로 배치해 중앙에 작은 위젯처럼 몰리던 인상 개선
+- HOME Insights Card 최소 높이를 `260px`로 복원하고 Grid Gap `24px`, 기존 Card Padding과 콘텐츠 비율 유지
+- HOME Card Action을 Desktop `16px`, Mobile `14px`, `600` 굵기로 보강하고 기존 Hover 이동 유지
+- Principle·Featured Expertise·Insights Section에 공통 Large Section보다 `12px` 넓은 상하 여백을 적용해 HOME 주요 영역의 호흡 복원
+- `1279px 이하` 2열, `760px 이하` 1열 전환과 상세페이지·Typography·CTA·Navigation·Footer·Modal은 변경하지 않음
+
 ## Sprint 15 - Home Service & Insights Card Compact Layout
 
 - HOME Featured Expertise와 Insights Card Grid를 `1040px` 전용 폭 안에서 중앙 정렬하고 상세페이지 Grid는 유지

@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] Sprint 16 HOME 서비스 카드 소폭 확대와 Insights 4열·독립 Grid Width·Section 호흡 복원
 - [x] Sprint 15 HOME Service·Insights Card 폭·높이·Padding·Action Link를 Compact Layout으로 보정
 - [x] Sprint 14 Card Padding·Min-height·내부 Vertical Rhythm과 CTA Typography·Button Hierarchy 보정
 - [x] Sprint 13.1 Typography Calibration·Semantic Section Spacing·Card Padding·Content Width와 CSS Override 통합

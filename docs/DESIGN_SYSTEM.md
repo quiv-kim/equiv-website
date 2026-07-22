@@ -197,12 +197,15 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 
 ### HOME Service & Insights Card
 
-- HOME Featured Expertise와 Insights Card Grid만 `--content-width-home-cards: 1040px` 안에서 중앙 정렬한다. 상세페이지 Card Grid에는 이 폭을 적용하지 않는다.
-- Desktop HOME Service Card는 약 `331px`, Insights Card는 `320px` 폭을 기준으로 하며, `1024px 이하`에서는 `320px` 2열, `760px 이하`에서는 Container 전체 폭 1열로 전환한다.
-- HOME Card Padding은 Desktop `22px 20px`, Mobile `20px 18px`을 사용하고 Card 높이는 콘텐츠 기반 `height:auto / min-height:0`을 원칙으로 한다.
-- HOME Card Action은 `--type-card-link`을 사용해 Desktop `15px`, Mobile `14px`, `600` 굵기로 표시한다.
+- HOME Featured Expertise와 Insights는 섹션 역할과 콘텐츠 수가 다르므로 독립된 Grid Width를 사용한다. 상세페이지 Card Grid에는 HOME 전용 폭을 적용하지 않는다.
+- Featured Expertise는 `--content-width-home-services: 1076px` 안에서 카드 폭을 이전보다 약 `12px` 확대하고, 기존 3열과 마지막 행 중앙 정렬을 유지한다.
+- Insights는 `--content-width-home-insights: 1260px`까지 사용하며 `1280px 이상`에서 4열로 배치한다. `1279px 이하`에서는 `320px` 2열, `760px 이하`에서는 Container 전체 폭 1열로 전환한다.
+- HOME Service Card는 Desktop 최소 높이 `182px`, Insights Card는 `260px`을 사용한다. Mobile에서는 콘텐츠 기반 높이로 전환한다.
+- HOME Card Padding은 Desktop `22px 20px`, Mobile `20px 18px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
+- HOME Card Action은 `--type-card-link`을 사용해 Desktop `16px`, Mobile `14px`, `600` 굵기로 표시한다.
 - Card Action은 최소 높이 `32px`, 텍스트와 Line Arrow 간격 `6px`, Description 이후 간격 `20px / Mobile 18px`을 유지한다.
 - HOME Card에서 Action을 하단으로 강제하는 `margin-top:auto`를 사용하지 않는다. 동일 행의 자연스러운 높이 정렬은 Grid가 콘텐츠 기준으로 처리한다.
+- Principle, Featured Expertise와 Insights의 Desktop Section Padding은 공통 Large Section보다 `12px` 넓게 사용하여 주요 HOME 섹션 사이의 호흡을 확보한다.
 
 ### Mobile Optimization
 
