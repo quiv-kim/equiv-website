@@ -6108,6 +6108,38 @@ button {
   }
 }
 
+/* Sprint 17: HOME mobile hero refinement */
+@media (max-width: 760px) {
+  .hero {
+    min-height: 72vh;
+    min-height: 72svh;
+  }
+
+  .hero-content {
+    padding-top: var(--header-height);
+  }
+
+  .hero h1 {
+    font-size: calc(var(--type-display) - var(--space-2xs));
+    line-height: 1.22;
+  }
+
+  .hero-brand-name,
+  .hero-brand-korean,
+  .hero-brand-role {
+    font-size: var(--type-caption);
+  }
+
+  .hero-actions {
+    gap: var(--space-2xs);
+    margin-top: var(--space-md);
+  }
+
+  .hero .btn {
+    min-height: 48px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

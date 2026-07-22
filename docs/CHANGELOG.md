@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 17 - Mobile UX Refinement
+
+- `760px 이하` HOME Hero만 대상으로 제목을 Mobile Display Token보다 `4px` 작게 보정하고 행간을 `1.22`로 조정
+- Mobile Hero Brand Label을 `--type-caption`으로 한 단계 낮추되 기존 Weight와 Letter Spacing 유지
+- Mobile Hero 높이를 `80svh`에서 `72svh`로 줄이고 Content Top Padding을 Header 높이에 맞춰 약 `20~30px` 축소
+- HOME Hero CTA의 폭과 Typography는 유지하고 높이를 `52px`에서 `48px`, 버튼 간격을 `8px`에서 `4px`로 조정
+- Hero 제목과 CTA 사이 간격을 `20px`에서 `14px`로 줄여 첫 화면의 Vertical Rhythm 개선
+- Scroll Indicator, Header, Desktop·Tablet, 공통 Typography Token, CTA 문구, Navigation, Footer, 색상과 이미지는 변경하지 않음
+
 ## Sprint 16 - Home Page Layout Balance Refinement
 
 - HOME Featured Expertise Grid를 `1076px`로 소폭 확대해 Desktop 서비스 카드 폭을 약 `12px` 늘리고 기존 3열·마지막 행 중앙 정렬 유지
