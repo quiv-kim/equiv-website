@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 15 - Home Service & Insights Card Compact Layout
+
+- HOME Featured Expertise와 Insights Card Grid를 `1040px` 전용 폭 안에서 중앙 정렬하고 상세페이지 Grid는 유지
+- Desktop Service Card를 약 `331px`, Insights Card를 `320px` 폭으로 제한해 Container 전체 폭으로 늘어나던 문제 개선
+- HOME Card의 고정 `min-height`와 하단 Action의 `margin-top:auto`를 해제하여 콘텐츠 기반 높이와 자연스러운 읽기 흐름 적용
+- HOME Card Padding을 Desktop `22px 20px`, Mobile `20px 18px`로 분리하고 Label·Title·Summary·Action 간격 정리
+- Card Action 전용 Typography를 Desktop `15px`, Mobile `14px`, `600` 굵기로 추가하고 최소 `32px` 클릭 높이 확보
+- Desktop 3열 Service의 마지막 두 Card와 Tablet 2열 Service의 마지막 Card를 중앙 정렬해 불규칙한 빈 Column 제거
+- 서비스·인사이트 상세페이지, 본문 Typography, Section Spacing, CTA, Navigation, Footer, Modal과 콘텐츠는 변경하지 않음
+
 ## Sprint 14 - Premium Layout Polishing
 
 - Desktop Regular / Compact Card Padding을 `24px / 22px`로 보정하고 Mobile Card Padding `20px`은 유지

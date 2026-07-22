@@ -163,6 +163,7 @@ Desktop (`761px 이상`):
 - `--desktop-caption: 11px`
 - `--desktop-cta-title: 32px`
 - `--desktop-cta-body: 16px`
+- `--desktop-card-link: 15px`
 
 Mobile (`760px 이하`):
 
@@ -177,6 +178,7 @@ Mobile (`760px 이하`):
 - `--mobile-caption: 11px`
 - `--mobile-cta-title: 25px`
 - `--mobile-cta-body: 15px`
+- `--mobile-card-link: 14px`
 
 Semantic Role은 `Display → H1 → H2 → H3 → H4 → Body Large → Body → Small → Caption` 순서를 유지한다. Desktop은 LISTING, KMX와 모멘트, Mobile은 LISTING Mobile, Apple, Stripe와 McKinsey의 절제된 Corporate 밀도를 기준으로 한다.
 
@@ -192,6 +194,15 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - 일반 Section H2와 Conversion CTA 제목을 같은 역할로 사용하지 않는다. CTA 제목은 Desktop `32px`, Mobile `25px`을 사용한다.
 - CTA 설명은 Desktop `16px`, Mobile `15px`, 주요 CTA Button은 Desktop `52px`, Mobile `48px`의 최소 높이를 기준으로 한다.
 - Form Card, Modal과 입력 Touch Area는 Card Density 조정 대상에서 제외하고 기존 접근성 높이를 유지한다.
+
+### HOME Service & Insights Card
+
+- HOME Featured Expertise와 Insights Card Grid만 `--content-width-home-cards: 1040px` 안에서 중앙 정렬한다. 상세페이지 Card Grid에는 이 폭을 적용하지 않는다.
+- Desktop HOME Service Card는 약 `331px`, Insights Card는 `320px` 폭을 기준으로 하며, `1024px 이하`에서는 `320px` 2열, `760px 이하`에서는 Container 전체 폭 1열로 전환한다.
+- HOME Card Padding은 Desktop `22px 20px`, Mobile `20px 18px`을 사용하고 Card 높이는 콘텐츠 기반 `height:auto / min-height:0`을 원칙으로 한다.
+- HOME Card Action은 `--type-card-link`을 사용해 Desktop `15px`, Mobile `14px`, `600` 굵기로 표시한다.
+- Card Action은 최소 높이 `32px`, 텍스트와 Line Arrow 간격 `6px`, Description 이후 간격 `20px / Mobile 18px`을 유지한다.
+- HOME Card에서 Action을 하단으로 강제하는 `margin-top:auto`를 사용하지 않는다. 동일 행의 자연스러운 높이 정렬은 Grid가 콘텐츠 기준으로 처리한다.
 
 ### Mobile Optimization
 

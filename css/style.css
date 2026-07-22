@@ -26,6 +26,7 @@
   --desktop-caption: 11px;
   --desktop-cta-title: 32px;
   --desktop-cta-body: 16px;
+  --desktop-card-link: 15px;
   --mobile-display: 30px;
   --mobile-h1: 25px;
   --mobile-h2: 22px;
@@ -37,6 +38,7 @@
   --mobile-caption: 11px;
   --mobile-cta-title: 25px;
   --mobile-cta-body: 15px;
+  --mobile-card-link: 14px;
   --type-display: var(--desktop-display);
   --type-h1: var(--desktop-h1);
   --type-h2: var(--desktop-h2);
@@ -48,6 +50,7 @@
   --type-caption: var(--desktop-caption);
   --type-cta-title: var(--desktop-cta-title);
   --type-cta-body: var(--desktop-cta-body);
+  --type-card-link: var(--desktop-card-link);
   --space-2xs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -68,6 +71,7 @@
   --content-width-md: 720px;
   --content-width-lg: 820px;
   --content-width-xl: 860px;
+  --content-width-home-cards: 1040px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
@@ -89,6 +93,13 @@
   --component-card-padding: 24px;
   --component-card-padding-compact: 22px;
   --component-card-padding-mobile: 20px;
+  --component-home-card-padding-block: 22px;
+  --component-home-card-padding-inline: 20px;
+  --component-home-card-action-gap: 20px;
+  --component-home-card-width: 320px;
+  --component-card-link-min-height: 32px;
+  --component-card-link-gap: 6px;
+  --component-card-link-icon-width: 16px;
   --component-button-padding-y: var(--space-sm);
   --component-button-padding-x: var(--space-lg);
   --component-input-padding-x: var(--space-md);
@@ -4592,6 +4603,7 @@ button {
     --type-caption: var(--mobile-caption);
     --type-cta-title: var(--mobile-cta-title);
     --type-cta-body: var(--mobile-cta-body);
+    --type-card-link: var(--mobile-card-link);
     --space-2xs: 4px;
     --space-xs: 8px;
     --space-sm: 10px;
@@ -4605,6 +4617,9 @@ button {
     --space-section: var(--section-space-lg);
     --component-card-padding: var(--component-card-padding-mobile);
     --component-card-padding-compact: var(--component-card-padding-mobile);
+    --component-home-card-padding-block: 20px;
+    --component-home-card-padding-inline: 18px;
+    --component-home-card-action-gap: 18px;
   }
 
   .container {
@@ -5947,6 +5962,112 @@ button {
 .consultation-modal__field input,
 .consultation-modal__field textarea {
   padding-inline: var(--component-input-padding-x);
+}
+
+/* HOME compact service and insights cards */
+.expertise-section .service-grid,
+.insights-preview .insight-grid {
+  width: 100%;
+  max-width: var(--content-width-home-cards);
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-inline: auto;
+}
+
+.expertise-section .service-card,
+.insights-preview .insight-card {
+  min-height: 0;
+  height: auto;
+  padding-block: var(--component-home-card-padding-block);
+  padding-inline: var(--component-home-card-padding-inline);
+}
+
+.expertise-section .service-card h3 {
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.insights-preview .insight-card h3 {
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.expertise-section .service-card em,
+.insights-preview .insight-card em {
+  min-height: var(--component-card-link-min-height);
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--component-card-link-gap);
+  margin-top: var(--component-home-card-action-gap);
+  padding: var(--space-2xs) 0;
+  color: var(--color-primary);
+  font-size: var(--type-card-link);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.expertise-section .service-card em::after,
+.insights-preview .insight-card em::after {
+  width: var(--component-card-link-icon-width);
+  margin-left: 0;
+  transition: transform 0.2s var(--ease);
+}
+
+.expertise-section .service-card:hover em::after,
+.insights-preview .insight-card:hover em::after {
+  transform: translateX(3px);
+}
+
+@media (min-width: 1025px) {
+  .expertise-section .service-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .expertise-section .service-card {
+    grid-column: span 2;
+  }
+
+  .expertise-section .service-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .expertise-section .service-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .insights-preview .insight-grid {
+    grid-template-columns: repeat(2, minmax(0, var(--component-home-card-width)));
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1024px) {
+  .expertise-section .service-grid,
+  .insights-preview .insight-grid {
+    grid-template-columns: repeat(2, minmax(0, var(--component-home-card-width)));
+  }
+
+  .expertise-section .service-card {
+    grid-column: auto;
+  }
+
+  .expertise-section .service-card:last-child:nth-child(odd) {
+    width: var(--component-home-card-width);
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .expertise-section .service-grid,
+  .insights-preview .insight-grid {
+    max-width: none;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .expertise-section .service-card,
+  .expertise-section .service-card:last-child:nth-child(odd) {
+    width: 100%;
+    grid-column: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
