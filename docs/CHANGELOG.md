@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 12 - Typography Design System
+
+- Desktop과 Mobile에 각각 `Display / H1 / H2 / H3 / H4 / Body Large / Body / Small / Caption` 9단계 Device Token 생성
+- Device Token을 페이지 전반에서 사용하는 공통 `--type-*` Semantic Token으로 연결
+- CSS의 381개 `font-size` 선언을 모두 Typography Token 참조로 전환하고 직접 수치 선언 제거
+- HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navigation, Card와 Button에 공통 계층 적용
+- `760px 이하`에서 Semantic Token을 Mobile Token으로 자동 전환하고 Tablet은 Desktop Token 기반으로 유지
+- Mobile Form Input은 iOS Safari 자동 확대 방지를 위해 `--mobile-h2(16px)` Token을 사용
+- Layout, Color, Spacing과 Component 구조는 변경하지 않음
+
 ## Sprint 11 - Desktop Premium Typography Refinement
 
 - `1025px 이상` Desktop 전용 공통 Typography Scale을 추가하고 Tablet·Mobile 값을 분리 보존

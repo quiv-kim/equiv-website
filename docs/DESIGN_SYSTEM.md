@@ -78,21 +78,37 @@ Mobile
 
 24px
 
-### Desktop Typography Scale
+### Typography Token System
 
-- 적용 범위: `1025px 이상`; Tablet과 Mobile Typography에는 적용하지 않는다.
-- Benchmark: LISTING, KMX와 모멘트처럼 콘텐츠와 여백이 먼저 보이는 Premium Corporate 밀도를 기준으로 한다.
-- Home Hero Title: `clamp(34px, 4.1vw, 55px)`
-- Main Section Title: `clamp(27px, 3.4vw, 44px)`
-- Principle Title: 최대 `46px`
-- Contact Title: 최대 `58px`
-- Service Detail Page Title: `27px / 1.32`
-- Insights Detail Page Title: `18px / 1.5`
-- Card Title: 역할에 따라 `18~28px`
-- Standard Body: `13.5px / 기존 행간 유지`
-- Button Text: `14px`
-- Footer Text: 역할에 따라 `10~12.5px`
-- Section Padding, Grid, Component 크기와 Color는 기존 Desktop 값을 유지한다.
+모든 페이지와 Component는 직접 `font-size` 수치를 선언하지 않는다. 아래 Device Token과 이를 전환하는 공통 `--type-*` Semantic Token만 사용한다. 향후 크기 변경은 Token 값에서만 수행한다.
+
+Desktop (`761px 이상`):
+
+- `--desktop-display: 55px`
+- `--desktop-h1: 40px`
+- `--desktop-h2: 32px`
+- `--desktop-h3: 24px`
+- `--desktop-h4: 18px`
+- `--desktop-body-lg: 16px`
+- `--desktop-body: 14px`
+- `--desktop-small: 12.5px`
+- `--desktop-caption: 11px`
+
+Mobile (`760px 이하`):
+
+- `--mobile-display: 20px`
+- `--mobile-h1: 17px`
+- `--mobile-h2: 16px`
+- `--mobile-h3: 15px`
+- `--mobile-h4: 14px`
+- `--mobile-body-lg: 13.5px`
+- `--mobile-body: 13px`
+- `--mobile-small: 12px`
+- `--mobile-caption: 10.5px`
+
+Semantic Role은 `Display → H1 → H2 → H3 → H4 → Body Large → Body → Small → Caption` 순서를 유지한다. Desktop은 LISTING, KMX와 모멘트, Mobile은 LISTING Mobile, Apple, Stripe와 McKinsey의 절제된 Corporate 밀도를 기준으로 한다.
+
+HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navigation, Card와 Button은 모두 동일한 Token System을 사용한다. Mobile Form Input은 iOS Safari 자동 확대 방지를 위해 `--mobile-h2(16px)`를 사용한다.
 
 ### Mobile Optimization
 
@@ -106,20 +122,10 @@ Mobile
 
 ### Mobile Typography Scale
 
-- 적용 범위: `760px 이하`만 사용하며 Desktop과 Tablet Typography는 변경하지 않는다.
-- Benchmark: LISTING 모바일의 여백 우선 Premium Corporate 밀도를 기준으로 한다.
-- Section Label / Hero Label: `10.5px`
-- Home Hero Title: `20px / 1.28`
-- Main Section Title: `17px / 1.42`
-- Service Detail Page Title: Mobile `12.5px / 1.55`
-- Insights Detail Page Title: Mobile `12.5px / 1.55`
-- Detail CONTACT Title: HOME Contact와 동일한 Mobile `17px / 1.42`
-- Card Title: `16px / 1.5`
-- Body: `14px / 1.8`
-- Hero·Detail Description: `11.25~14.5px`
-- Button Text: `12px`; Mobile Touch Target은 `47px`을 사용한다.
-- Mobile Navigation: `13px`
-- Form Input Text: iOS Safari 자동 확대 방지를 위해 `16px`을 유지한다.
+- 적용 범위: `760px 이하`; 공통 Semantic Token이 Mobile Device Token으로 전환된다.
+- Component별 임의 크기나 별도의 Mobile Typography Scale을 추가하지 않는다.
+- Button과 Navigation은 `Small`, Section Label은 `Caption`, 본문은 `Body`, Card Title은 `H3/H4`, Page Title은 `H1`, HOME Hero는 `Display` 역할을 사용한다.
+- Form Input Text는 iOS Safari 자동 확대 방지를 위해 `--mobile-h2(16px)`를 사용한다.
 
 ## Header
 
