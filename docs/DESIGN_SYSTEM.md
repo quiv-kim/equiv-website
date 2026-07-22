@@ -69,7 +69,10 @@ Desktop (`761px 이상`):
 - `--space-lg: 24px`
 - `--space-xl: 32px`
 - `--space-2xl: 48px`
-- `--space-section: 96px`
+- `--section-space-lg: 96px`
+- `--section-space-md: 72px`
+- `--section-space-sm: 56px`
+- `--space-section`은 `--section-space-lg`를 참조하는 호환 Token이다.
 
 Mobile (`760px 이하`):
 
@@ -80,15 +83,21 @@ Mobile (`760px 이하`):
 - `--space-lg: 20px`
 - `--space-xl: 28px`
 - `--space-2xl: 40px`
-- `--space-section: 72px`
+- `--section-space-lg: 64px`
+- `--section-space-md: 52px`
+- `--section-space-sm: 40px`
+- `--space-section`은 Mobile `--section-space-lg`를 참조한다.
 
 1~3px의 접근성 및 광학 보정은 `--space-2xs`를 기준으로 한 `calc()`만 허용한다. `0`, `auto`, 백분율과 Viewport 단위는 구조상 필요한 경우 유지할 수 있다.
 
 Component Rule:
 
-- Section Padding: `--component-section-padding`
+- Main Content Section: `--component-section-padding`
+- Article / Form / Standard Section: `--component-section-padding-md`
+- CTA / Short Closing Section: `--component-section-padding-sm`
 - Hero Padding: `--component-hero-padding`
-- Card Padding: `--component-card-padding`
+- Regular Card Padding: `--component-card-padding` (`28px / Mobile 20px`)
+- Compact Card Padding: `--component-card-padding-compact` (`24px / Mobile 20px`)
 - Standard Grid Gap: `--grid-card-gap`
 - Heading Group Margin: `--grid-section-gap`
 - Button Padding: `--component-button-padding-y / --component-button-padding-x`
@@ -104,6 +113,13 @@ Component Rule:
 - `--container-full: 100%`
 - 기존 `--container-width`는 `--container-default`를 참조하는 호환 Alias이다.
 - 기본 Container의 좌우 Gutter 합계는 `--space-xl`을 사용한다.
+
+반복되는 본문 폭은 아래 Content Width Token으로 관리한다.
+
+- `--content-width-sm: 620px`
+- `--content-width-md: 720px`
+- `--content-width-lg: 820px`
+- `--content-width-xl: 860px`
 
 ### Grid Token System
 
@@ -135,31 +151,33 @@ Component Rule:
 
 Desktop (`761px 이상`):
 
-- `--desktop-display: 52px`
-- `--desktop-h1: 36px`
-- `--desktop-h2: 28px`
-- `--desktop-h3: 22px`
-- `--desktop-h4: 17px`
-- `--desktop-body-lg: 15px`
-- `--desktop-body: 13.5px`
-- `--desktop-small: 12px`
-- `--desktop-caption: 10.5px`
+- `--desktop-display: 48px`
+- `--desktop-h1: 34px`
+- `--desktop-h2: 27px`
+- `--desktop-h3: 20px`
+- `--desktop-h4: 16px`
+- `--desktop-body-lg: 16px`
+- `--desktop-body: 15px`
+- `--desktop-small: 13px`
+- `--desktop-caption: 11px`
 
 Mobile (`760px 이하`):
 
-- `--mobile-display: 20px`
-- `--mobile-h1: 17px`
-- `--mobile-h2: 16px`
-- `--mobile-h3: 15px`
-- `--mobile-h4: 14px`
-- `--mobile-body-lg: 13.5px`
-- `--mobile-body: 13px`
+- `--mobile-display: 30px`
+- `--mobile-h1: 25px`
+- `--mobile-h2: 22px`
+- `--mobile-h3: 18px`
+- `--mobile-h4: 16px`
+- `--mobile-body-lg: 15px`
+- `--mobile-body: 14px`
 - `--mobile-small: 12px`
-- `--mobile-caption: 10.5px`
+- `--mobile-caption: 11px`
 
 Semantic Role은 `Display → H1 → H2 → H3 → H4 → Body Large → Body → Small → Caption` 순서를 유지한다. Desktop은 LISTING, KMX와 모멘트, Mobile은 LISTING Mobile, Apple, Stripe와 McKinsey의 절제된 Corporate 밀도를 기준으로 한다.
 
-HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navigation, Card와 Button은 모두 동일한 Token System을 사용한다. Mobile Form Input은 iOS Safari 자동 확대 방지를 위해 `--mobile-h2(16px)`를 사용한다.
+HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navigation, Card와 Button은 모두 동일한 Token System을 사용한다. Mobile Form Input은 iOS Safari 자동 확대 방지를 위해 `--mobile-h4(16px)`를 사용한다.
+
+Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title = H2 / Card Title = H3 / Small Card Heading = H4 / Lead Paragraph = Body Large / Normal Paragraph = Body / Label = Small / Caption = Caption`으로 고정한다.
 
 ### Mobile Optimization
 
@@ -168,15 +186,15 @@ HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navi
 - Mobile Container Gutter: `--space-xl(28px)`
 - Mobile Button: 최소 `52px`, 주요 CTA `56px`
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
-- Mobile Section Padding: `--space-section(72px)`
+- Mobile Section Padding: `64px / 52px / 40px`의 의미 기반 Section Token
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
 
 ### Mobile Typography Scale
 
 - 적용 범위: `760px 이하`; 공통 Semantic Token이 Mobile Device Token으로 전환된다.
 - Component별 임의 크기나 별도의 Mobile Typography Scale을 추가하지 않는다.
-- Button과 Navigation은 `Small`, Section Label은 `Caption`, 본문은 `Body`, Card Title은 `H3/H4`, Page Title은 `H1`, HOME Hero는 `Display` 역할을 사용한다.
-- Form Input Text는 iOS Safari 자동 확대 방지를 위해 `--mobile-h2(16px)`를 사용한다.
+- Button과 Navigation 및 Section Label은 `Small`, 본문은 `Body`, Card Title은 `H3`, Small Card Heading은 `H4`, Page Title은 `H1`, HOME Hero는 `Display` 역할을 사용한다.
+- Form Input Text는 iOS Safari 자동 확대 방지를 위해 `--mobile-h4(16px)`를 사용한다.
 
 ## Header
 

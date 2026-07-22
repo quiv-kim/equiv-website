@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] Sprint 13.1 Typography Calibration·Semantic Section Spacing·Card Padding·Content Width와 CSS Override 통합
 - [x] Sprint 13 Color·Typography·Spacing·Container·Grid·Radius·Shadow와 공통 Component Design System Foundation 구축
 - [x] Sprint 12.1 전체 Layout·Spacing을 Desktop·Mobile Token System으로 통합
 - [x] Sprint 12 전체 Typography를 Desktop·Mobile 9단계 Token System으로 통합

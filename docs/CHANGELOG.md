@@ -1,5 +1,17 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 13.1 - Design System Calibration & CSS Consolidation
+
+- Desktop Typography를 `48 / 34 / 27 / 20 / 16 / 16 / 15 / 13 / 11px`로 보정하여 큰 제목은 절제하고 본문 가독성은 강화
+- Mobile Typography를 `30 / 25 / 22 / 18 / 16 / 15 / 14 / 12 / 11px`로 보정하고 Display부터 Caption까지 시각적 계층 복원
+- Hero·Page·Section·Card·Small Heading·Lead·Body·Label·Caption 역할을 공통 Component Typography Rule로 재분류
+- Section Spacing을 Desktop `96 / 72 / 56px`, Mobile `64 / 52 / 40px`의 Large / Medium / Small Semantic Token으로 분리
+- Card Padding을 Regular `28px / Mobile 20px`, Compact `24px / Mobile 20px`로 구분
+- 반복되는 본문 폭 `620 / 720 / 820 / 860px`을 Content Width Token으로 통합
+- CSS 후반의 무효화된 380px Override, 중복 Section·Card·Footer Padding과 과도한 Mobile H2 역할 지정 제거
+- `index.html`의 임시 `og:url` 위에 실제 운영 도메인 확정 전 교체해야 하는 SEO TODO 주석 추가
+- 페이지 구조, 콘텐츠, 브랜드 컬러, 이미지, 애니메이션, 상담 Modal과 기업가치 기능은 변경하지 않음
+
 ## Sprint 13 - EQUIV Design System Foundation
 
 - 기존 브랜드 컬러를 유지하면서 `Primary / Secondary / Background / Surface / Border / Text Primary / Text Secondary / Muted` Semantic Color Token으로 통합

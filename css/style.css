@@ -15,24 +15,24 @@
   --color-line: var(--color-border);
   --font-ko: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-en: "Inter", "Pretendard", system-ui, sans-serif;
-  --desktop-display: 52px;
-  --desktop-h1: 36px;
-  --desktop-h2: 28px;
-  --desktop-h3: 22px;
-  --desktop-h4: 17px;
-  --desktop-body-lg: 15px;
-  --desktop-body: 13.5px;
-  --desktop-small: 12px;
-  --desktop-caption: 10.5px;
-  --mobile-display: 20px;
-  --mobile-h1: 17px;
-  --mobile-h2: 16px;
-  --mobile-h3: 15px;
-  --mobile-h4: 14px;
-  --mobile-body-lg: 13.5px;
-  --mobile-body: 13px;
+  --desktop-display: 48px;
+  --desktop-h1: 34px;
+  --desktop-h2: 27px;
+  --desktop-h3: 20px;
+  --desktop-h4: 16px;
+  --desktop-body-lg: 16px;
+  --desktop-body: 15px;
+  --desktop-small: 13px;
+  --desktop-caption: 11px;
+  --mobile-display: 30px;
+  --mobile-h1: 25px;
+  --mobile-h2: 22px;
+  --mobile-h3: 18px;
+  --mobile-h4: 16px;
+  --mobile-body-lg: 15px;
+  --mobile-body: 14px;
   --mobile-small: 12px;
-  --mobile-caption: 10.5px;
+  --mobile-caption: 11px;
   --type-display: var(--desktop-display);
   --type-h1: var(--desktop-h1);
   --type-h2: var(--desktop-h2);
@@ -49,12 +49,19 @@
   --space-lg: 24px;
   --space-xl: 32px;
   --space-2xl: 48px;
-  --space-section: 96px;
+  --section-space-lg: 96px;
+  --section-space-md: 72px;
+  --section-space-sm: 56px;
+  --space-section: var(--section-space-lg);
   --container-narrow: 780px;
   --container-default: 1180px;
   --container-wide: 1280px;
   --container-full: 100%;
   --container-width: var(--container-default);
+  --content-width-sm: 620px;
+  --content-width-md: 720px;
+  --content-width-lg: 820px;
+  --content-width-xl: 860px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
@@ -69,9 +76,12 @@
   --grid-column-gap: var(--space-md);
   --grid-card-gap: var(--space-md);
   --grid-section-gap: var(--space-2xl);
-  --component-section-padding: var(--space-section);
-  --component-hero-padding: var(--space-section);
-  --component-card-padding: var(--space-xl);
+  --component-section-padding: var(--section-space-lg);
+  --component-section-padding-md: var(--section-space-md);
+  --component-section-padding-sm: var(--section-space-sm);
+  --component-hero-padding: var(--section-space-lg);
+  --component-card-padding: 28px;
+  --component-card-padding-compact: var(--space-lg);
   --component-button-padding-y: var(--space-sm);
   --component-button-padding-x: var(--space-lg);
   --component-input-padding-x: var(--space-md);
@@ -523,7 +533,7 @@ button {
   margin: 0 0 var(--space-md);
   color: var(--color-gold);
   font-family: var(--font-en);
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -543,10 +553,6 @@ button {
 
 .mobile-only {
   display: none;
-}
-
-.section-kicker {
-  font-size: var(--type-caption);
 }
 
 .hero-brand-identity {
@@ -671,16 +677,12 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.section {
-  padding: var(--space-section) 0;
-}
-
 .section-muted {
   background: var(--color-gray);
 }
 
 .section-head {
-  max-width: 720px;
+  max-width: var(--content-width-md);
   margin-bottom: var(--space-2xl);
 }
 
@@ -706,7 +708,7 @@ button {
 }
 
 .principle-head {
-  max-width: 860px;
+  max-width: var(--content-width-xl);
   margin: 0 auto var(--space-2xl);
 }
 
@@ -736,7 +738,6 @@ button {
 .principle-card {
   position: relative;
   min-height: 260px;
-  padding: var(--space-xl) var(--space-xl) var(--space-xl);
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.12);
   border-radius: var(--radius-sm);
@@ -804,7 +805,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-lg) var(--space-xl);
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.08);
   border-radius: var(--radius-sm);
@@ -1009,7 +1009,6 @@ button {
   min-height: 220px;
   display: flex;
   flex-direction: column;
-  padding: var(--space-xl);
   border: 1px solid rgba(7, 26, 47, 0.1);
   border-radius: var(--radius-sm);
   background: var(--color-white);
@@ -1049,7 +1048,6 @@ button {
 }
 
 .insight-article {
-  padding: var(--space-2xl) 0 var(--space-2xl);
   background: var(--color-white);
 }
 
@@ -1152,7 +1150,7 @@ button {
 }
 
 .service-hero .sub-hero-copy {
-  max-width: 620px;
+  max-width: var(--content-width-sm);
   margin-top: var(--space-lg);
   color: var(--color-muted);
   font-family: var(--font-ko);
@@ -1197,7 +1195,7 @@ button {
 .valuation-entry-card h2 {
   margin: 0;
   color: var(--color-primary);
-  font-size: var(--type-h2);
+  font-size: var(--type-h3);
   line-height: 1.35;
 }
 
@@ -1251,7 +1249,7 @@ button {
 }
 
 .sub-intro {
-  max-width: 820px;
+  max-width: var(--content-width-lg);
 }
 
 .sub-intro p {
@@ -1273,7 +1271,7 @@ button {
   margin: 0;
   color: var(--color-gold);
   font-family: var(--font-en);
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1447,7 +1445,7 @@ button {
 
 .expertise-copy p,
 .readiness-check p {
-  max-width: 720px;
+  max-width: var(--content-width-md);
   margin: 0;
   color: var(--color-muted);
   font-size: var(--type-body-lg);
@@ -1466,7 +1464,6 @@ button {
 
 .expertise-card {
   min-height: 230px;
-  padding: var(--space-xl) var(--space-lg);
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.1);
   transition: transform 0.3s var(--ease), border-color 0.3s ease;
@@ -1638,7 +1635,7 @@ button {
 }
 
 .readiness-modal__intro {
-  max-width: 620px;
+  max-width: var(--content-width-sm);
   margin: 0 0 var(--space-xl);
   color: var(--color-muted);
   font-size: var(--type-body-lg);
@@ -2011,7 +2008,7 @@ button {
 .valuation-field > span,
 .valuation-checkbox-group legend {
   color: var(--color-primary);
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
   font-weight: 700;
 }
 
@@ -2105,7 +2102,7 @@ button {
 }
 
 .valuation-checkbox-group legend small {
-  max-width: 720px;
+  max-width: var(--content-width-md);
   margin-top: var(--space-xs);
   color: var(--color-muted);
   font-size: var(--type-caption);
@@ -2234,7 +2231,7 @@ button {
 }
 
 .valuation-result-note {
-  max-width: 720px;
+  max-width: var(--content-width-md);
   margin: var(--space-sm) var(--space-2xs) 0;
   color: var(--color-muted);
   font-size: var(--type-small);
@@ -2275,7 +2272,7 @@ button {
 
 .valuation-value-bridge small {
   grid-column: 1 / -1;
-  max-width: 620px;
+  max-width: var(--content-width-sm);
   margin: calc(var(--space-2xs) / -2) auto 0;
   color: var(--color-muted);
   font-size: var(--type-caption);
@@ -2551,12 +2548,11 @@ button {
 }
 
 .expertise-quote-section {
-  padding: var(--space-section) 0;
   text-align: center;
 }
 
 .expertise-quote {
-  max-width: 820px;
+  max-width: var(--content-width-lg);
   margin: 0 auto;
   color: var(--color-primary);
   font-size: var(--type-display);
@@ -2580,7 +2576,6 @@ button {
 }
 
 .sub-cta {
-  padding: var(--space-section) 0;
   color: var(--color-white);
   background: var(--color-primary);
 }
@@ -2594,7 +2589,7 @@ button {
 }
 
 .sub-cta-copy {
-  max-width: 620px;
+  max-width: var(--content-width-sm);
   margin: calc(var(--space-xs) * -1) 0 var(--space-xl);
   color: rgba(255, 255, 255, 0.74);
   font-size: var(--type-body-lg);
@@ -2611,13 +2606,13 @@ button {
 }
 
 .about-hero h1 {
-  max-width: 860px;
+  max-width: var(--content-width-xl);
   font-size: var(--type-h1);
   line-height: 1.22;
 }
 
 .about-hero .about-hero-copy {
-  max-width: 620px;
+  max-width: var(--content-width-sm);
   margin-top: var(--space-lg);
   color: var(--color-muted);
   font-family: var(--font-ko);
@@ -2635,7 +2630,7 @@ button {
 }
 
 .about-copy p {
-  max-width: 720px;
+  max-width: var(--content-width-md);
   margin: 0;
   color: var(--color-muted);
   font-size: var(--type-body-lg);
@@ -2699,17 +2694,8 @@ button {
   margin-top: var(--space-md);
 }
 
-.about-intro-section {
-  padding: var(--space-section) 0;
-}
-
 .about-page .sub-label {
-  font-size: var(--type-caption);
   letter-spacing: 0.04em;
-}
-
-.about-process-section {
-  padding: var(--space-section) 0 var(--space-section);
 }
 
 .about-section-head {
@@ -2775,18 +2761,17 @@ button {
 }
 
 .about-cta h2 {
-  max-width: 820px;
+  max-width: var(--content-width-lg);
   margin-bottom: var(--space-lg);
 }
 
 .final-cta {
-  padding: var(--space-section) 0;
   color: var(--color-white);
   background: var(--color-primary);
 }
 
 .final-cta h2 {
-  max-width: 820px;
+  max-width: var(--content-width-lg);
   margin: 0 0 var(--space-lg);
   color: var(--color-white);
   font-family: var(--font-en);
@@ -3014,7 +2999,6 @@ button {
 }
 
 .consultation-section {
-  padding: var(--space-section) 0 var(--space-section);
   background: var(--color-gray);
 }
 
@@ -3197,7 +3181,7 @@ button {
   display: block;
   margin-bottom: var(--space-xs);
   color: var(--color-primary);
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
   font-weight: 600;
   line-height: 1.5;
 }
@@ -3498,10 +3482,6 @@ button {
 
   .contact-hero .contact-hero-copy {
     font-size: var(--type-body-lg);
-  }
-
-  .consultation-section {
-    padding: var(--space-2xl) 0 var(--space-section);
   }
 
   .consultation-layout {
@@ -3846,7 +3826,7 @@ button {
   display: block;
   margin-bottom: var(--space-xs);
   color: var(--color-primary);
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
   font-weight: 600;
 }
 
@@ -3920,7 +3900,7 @@ button {
   color: var(--color-muted);
   border: 1px solid #cfd5dc;
   border-radius: var(--radius-sm);
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
   text-align: center;
 }
 
@@ -4199,12 +4179,12 @@ button {
 
   .consultation-modal__types label span {
     min-height: 48px;
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .consultation-modal__field label,
   .consultation-modal__types legend {
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .consultation-modal__field input::placeholder,
@@ -4267,7 +4247,6 @@ button {
 }
 
 .site-footer {
-  padding: var(--space-2xl) 0;
   color: rgba(255, 255, 255, 0.76);
   background: #04111f;
 }
@@ -4411,10 +4390,6 @@ button {
 }
 
 @media (max-width: 1024px) {
-  .site-footer {
-    padding: var(--space-2xl) 0;
-  }
-
   .footer-inner {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
@@ -4531,21 +4506,12 @@ button {
     margin-left: calc(var(--space-2xs) / 4);
   }
 
-  .section {
-    padding: var(--space-section) 0;
-  }
-
-  .principle-section {
-    padding: var(--space-section) 0 var(--space-section);
-  }
-
   .principle-grid {
     gap: var(--space-sm);
   }
 
   .principle-card {
     min-height: 250px;
-    padding: var(--space-lg) var(--space-lg);
   }
 
   .principle-card h3 {
@@ -4559,11 +4525,6 @@ button {
   .service-card,
   .insight-card {
     min-height: 210px;
-    padding: var(--space-lg) var(--space-lg);
-  }
-
-  .final-cta {
-    padding: var(--space-section) 0;
   }
 
   .consultation-modal {
@@ -4624,7 +4585,12 @@ button {
     --space-lg: 20px;
     --space-xl: 28px;
     --space-2xl: 40px;
-    --space-section: 72px;
+    --section-space-lg: 64px;
+    --section-space-md: 52px;
+    --section-space-sm: 40px;
+    --space-section: var(--section-space-lg);
+    --component-card-padding: 20px;
+    --component-card-padding-compact: 20px;
   }
 
   .container {
@@ -4639,10 +4605,6 @@ button {
   .valuation-entry-card {
     max-width: 100%;
     transform: none;
-  }
-
-  .valuation-entry-card h2 {
-    font-size: var(--type-h2);
   }
 
   .nav-toggle {
@@ -4771,8 +4733,6 @@ button {
   }
 
   .hero h1 {
-    font-size: var(--type-display);
-    line-height: 1.14;
     word-break: keep-all;
   }
 
@@ -4787,14 +4747,6 @@ button {
 
   .section-kicker {
     margin-bottom: var(--space-xs);
-    font-size: var(--type-caption);
-    letter-spacing: 0.08em;
-  }
-
-  .eyebrow,
-  .sub-label {
-    font-size: var(--type-caption);
-    letter-spacing: 0.08em;
   }
 
   .hero-brand-identity {
@@ -4810,15 +4762,6 @@ button {
 
   .hero-brand-description {
     gap: var(--space-xs);
-  }
-
-  .hero-brand-name {
-    font-size: var(--type-caption);
-  }
-
-  .hero-brand-korean,
-  .hero-brand-role {
-    font-size: var(--type-caption);
   }
 
   .hero-brand-divider {
@@ -4837,17 +4780,6 @@ button {
 
   .btn {
     width: 100%;
-    min-height: 52px;
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--type-small);
-  }
-
-  .section {
-    padding: var(--space-section) 0;
-  }
-
-  .principle-section {
-    padding: var(--space-2xl) 0 var(--space-2xl);
   }
 
   .section-head {
@@ -4855,8 +4787,6 @@ button {
   }
 
   .section h2 {
-    font-size: var(--type-h2);
-    line-height: 1.34;
     word-break: keep-all;
   }
 
@@ -4868,11 +4798,6 @@ button {
     gap: var(--space-sm);
   }
 
-  .principle-card,
-  .service-card {
-    padding: var(--space-md) var(--space-md);
-  }
-
   .principle-card {
     min-height: 200px;
   }
@@ -4881,23 +4806,13 @@ button {
     min-height: 156px;
   }
 
-  .service-card span {
-    font-size: var(--type-caption);
-  }
-
   .service-card h3 {
     margin: var(--space-xs) 0 var(--space-2xs);
-    font-size: var(--type-h3);
     line-height: 1.42;
     word-break: keep-all;
   }
 
-  .service-card strong {
-    font-size: var(--type-h4);
-  }
-
   .service-card p {
-    font-size: var(--type-body);
     line-height: 1.9;
   }
 
@@ -4985,10 +4900,6 @@ button {
     line-height: 2;
   }
 
-  .principle-card {
-    padding: var(--space-lg) var(--space-md);
-  }
-
   .principle-card::before {
     left: 24px;
     right: 24px;
@@ -5015,7 +4926,6 @@ button {
 
   .insight-card {
     min-height: 156px;
-    padding: var(--space-md) var(--space-md);
   }
 
   .insight-card h3 {
@@ -5028,10 +4938,6 @@ button {
   .insight-card p {
     font-size: var(--type-body);
     line-height: 1.92;
-  }
-
-  .insight-article {
-    padding: var(--space-2xl) 0 var(--space-2xl);
   }
 
   .insight-article-body h2 {
@@ -5047,10 +4953,6 @@ button {
   .insight-article-body .insight-article-note {
     padding: var(--space-lg) 0;
     margin-top: var(--space-2xl);
-  }
-
-  .final-cta {
-    padding: var(--space-2xl) 0;
   }
 
   .final-cta h2 {
@@ -5197,14 +5099,6 @@ button {
     min-height: 0;
   }
 
-  .about-intro-section {
-    padding: var(--space-2xl) 0;
-  }
-
-  .about-process-section {
-    padding: var(--space-2xl) 0 var(--space-2xl);
-  }
-
   .sub-intro p {
     font-size: var(--type-body-lg);
   }
@@ -5256,7 +5150,6 @@ button {
 
   .expertise-card {
     min-height: auto;
-    padding: var(--space-lg) var(--space-lg);
   }
 
   .expertise-card h3 {
@@ -5275,10 +5168,6 @@ button {
   .content-list p {
     font-size: var(--type-body);
     line-height: 1.98;
-  }
-
-  .expertise-quote-section {
-    padding: var(--space-section) 0;
   }
 
   .expertise-quote {
@@ -5383,7 +5272,7 @@ button {
 
   .valuation-field > span,
   .valuation-checkbox-group legend {
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .valuation-field input::placeholder,
@@ -5394,7 +5283,7 @@ button {
 
   .form-field label,
   .consultation-type-fieldset legend {
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .form-field input,
@@ -5462,7 +5351,7 @@ button {
   }
 
   .about-page .sub-label {
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .about-flow {
@@ -5515,10 +5404,6 @@ button {
     line-height: 1.98;
   }
 
-  .sub-cta {
-    padding: var(--space-2xl) 0;
-  }
-
   .sub-cta-copy {
     font-size: var(--type-body-lg);
     line-height: 2;
@@ -5527,10 +5412,6 @@ button {
   .footer-inner {
     gap: var(--space-2xl);
     text-align: left;
-  }
-
-  .site-footer {
-    padding: var(--space-2xl) 0;
   }
 
   .footer-brand .equiv-logo-mark {
@@ -5548,7 +5429,7 @@ button {
     line-height: 1.82;
   }
 
-  /* Final mobile typography scale */
+  /* Mobile component typography roles */
   .hero h1 {
     font-size: var(--type-display);
     line-height: 1.28;
@@ -5589,58 +5470,69 @@ button {
   .expertise-card h3,
   .process-timeline h3,
   .consultation-process h3,
-  .consultation-process li strong,
   .about-flow h3,
   .faq-list h3,
   .valuation-entry-card h2,
-  .service-key-list strong,
-  .detail-process strong,
   .readiness-question h3,
   .readiness-result h3,
-  .readiness-modal-cta h4,
   .valuation-step h3,
   .valuation-result > h3,
-  .valuation-loading h3,
+  .valuation-loading h3 {
+    font-size: var(--type-h3);
+    line-height: 1.5;
+  }
+
+  .service-card strong,
+  .principle-card strong,
+  .expertise-card-subtitle,
+  .consultation-process li strong,
+  .service-key-list strong,
+  .detail-process strong,
+  .readiness-modal-cta h4,
   .valuation-input-section > h4,
   .valuation-factor-grid h4,
   .valuation-confidence__header h4,
   .valuation-insight h4,
   .valuation-consultation h4 {
-    font-size: var(--type-h2);
+    font-size: var(--type-h4);
     line-height: 1.5;
   }
 
   .principle-head > p:last-child,
-  .service-card p,
-  .insight-card p,
   .expertise-note,
-  .home-readiness-section .readiness-check p,
-  .process-timeline p,
-  .insight-article-body p,
   .final-cta p:not(.section-kicker):not(.cta-response-note),
-  .consultation-process li p,
-  .confidential-notice p,
   .about-hero .about-hero-copy,
   .about-copy p,
   .valuation-entry-card__description,
   .service-hero .sub-hero-copy,
+  .expertise-copy p,
+  .readiness-check p,
+  .readiness-modal__intro,
+  .readiness-result p,
+  .philosophy-copy,
+  .sub-cta-copy {
+    font-size: var(--type-body-lg);
+    line-height: 1.8;
+  }
+
+  .service-card p,
+  .insight-card p,
+  .home-readiness-section .readiness-check p,
+  .process-timeline p,
+  .insight-article-body p,
+  .consultation-process li p,
+  .confidential-notice p,
   .why-list li,
   .key-list li,
   .content-list li,
   .readiness-list li,
-  .expertise-copy p,
-  .readiness-check p,
   .expertise-card p,
   .faq-list p,
   .service-key-list p,
   .content-list p,
-  .readiness-modal__intro,
-  .readiness-result p,
   .about-flow p,
-  .philosophy-copy,
-  .sub-cta-copy,
   .consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice) {
-    font-size: var(--type-body-lg);
+    font-size: var(--type-body);
     line-height: 1.8;
   }
 
@@ -5651,20 +5543,6 @@ button {
   .hero-brand-name,
   .hero-brand-korean,
   .hero-brand-role,
-  .service-card span,
-  .service-card strong,
-  .service-card em,
-  .principle-card span,
-  .principle-card strong,
-  .insight-card span,
-  .insight-card em,
-  .process-timeline span,
-  .final-cta .cta-response-note,
-  .consultation-process li span,
-  .valuation-entry-card__time span,
-  .valuation-entry-card__time strong,
-  .expertise-card span,
-  .expertise-card-subtitle,
   .form-field label,
   .consultation-type-fieldset legend,
   .consultation-type-options span,
@@ -5676,20 +5554,24 @@ button {
     font-size: var(--type-small);
   }
 
-  .section-kicker,
-  .eyebrow,
-  .sub-label {
-    letter-spacing: 0.1em;
+  .service-card span,
+  .service-card em,
+  .principle-card span,
+  .insight-card span,
+  .insight-card em,
+  .process-timeline span,
+  .final-cta .cta-response-note,
+  .consultation-process li span,
+  .valuation-entry-card__time span,
+  .expertise-card span,
+  .readiness-result__status {
+    font-size: var(--type-caption);
   }
 
   .section-kicker,
   .eyebrow,
-  .sub-label,
-  .about-page .sub-label,
-  .hero-brand-name,
-  .hero-brand-korean,
-  .hero-brand-role {
-    font-size: var(--type-caption);
+  .sub-label {
+    letter-spacing: 0.1em;
   }
 
   .btn,
@@ -5720,7 +5602,7 @@ button {
   .valuation-field input::placeholder,
   .consultation-modal__field input::placeholder,
   .consultation-modal__field textarea::placeholder {
-    font-size: var(--mobile-h2);
+    font-size: var(--mobile-h4);
   }
 
   .consultation-modal__header h2,
@@ -5731,11 +5613,14 @@ button {
   }
 
   .consultation-modal__header strong,
-  .consultation-modal__guide h3,
+  .consultation-modal__guide h3 {
+    font-size: var(--type-h3);
+  }
+
   .consultation-modal__field label,
   .consultation-modal__types legend,
   .consultation-modal__types label span {
-    font-size: var(--type-h3);
+    font-size: var(--type-small);
   }
 
   .sub-intro p,
@@ -5771,7 +5656,7 @@ button {
   }
 }
 
-/* Sprint 12: desktop component roles mapped to the shared typography system */
+/* Desktop component typography roles */
 @media (min-width: 1025px) {
   .hero h1 {
     font-size: var(--type-display);
@@ -5781,7 +5666,7 @@ button {
   .eyebrow,
   .section-kicker,
   .sub-label {
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .hero-brand-name {
@@ -5856,18 +5741,17 @@ button {
   .insight-card h3,
   .expertise-card h3,
   .about-flow h3,
-  .detail-process strong,
-  .service-key-list strong,
   .faq-list h3,
-  .process-timeline h3 {
+  .process-timeline h3,
+  .valuation-entry-card h2 {
     font-size: var(--type-h3);
   }
 
-  .valuation-entry-card h2 {
-    font-size: var(--type-h2);
-  }
-
-  .principle-card strong {
+  .principle-card strong,
+  .service-card strong,
+  .expertise-card-subtitle,
+  .detail-process strong,
+  .service-key-list strong {
     font-size: var(--type-h4);
   }
 
@@ -5875,15 +5759,20 @@ button {
     font-size: var(--type-caption);
   }
 
-  .service-card strong {
-    font-size: var(--type-h4);
-  }
-
   .principle-head > p:last-child {
     font-size: var(--type-body);
   }
 
+  .about-copy p,
+  .expertise-copy p,
+  .readiness-check p,
+  .service-hero .sub-hero-copy,
+  .valuation-entry-card__description {
+    font-size: var(--type-body-lg);
+  }
+
   .principle-card p,
+  .service-card p,
   .insight-card p,
   .expertise-card p,
   .faq-list p,
@@ -5891,16 +5780,7 @@ button {
   .content-list p,
   .process-timeline p,
   .insight-article-body p,
-  .expertise-copy p,
-  .readiness-check p,
-  .about-copy p,
-  .about-flow p,
-  .service-hero .sub-hero-copy,
-  .valuation-entry-card__description {
-    font-size: var(--type-body-lg);
-  }
-
-  .service-card p {
+  .about-flow p {
     font-size: var(--type-body);
   }
 
@@ -5923,11 +5803,11 @@ button {
 
   .key-list li,
   .content-list li {
-    font-size: var(--type-h4);
+    font-size: var(--type-body);
   }
 
   .about-page .sub-label {
-    font-size: var(--type-caption);
+    font-size: var(--type-small);
   }
 
   .equiv-mark-story p {
@@ -5961,45 +5841,22 @@ button {
   }
 }
 
-@media (max-width: 380px) {
-  .container {
-    width: min(100% - 32px, var(--container-width));
-  }
-
-  .hero h1 {
-    font-size: var(--type-display);
-  }
-
-  .hero-brand-identity {
-    column-gap: var(--space-xs);
-  }
-
-  .hero-brand-description {
-    gap: var(--space-xs);
-  }
-
-  .section {
-    padding: var(--space-2xl) 0;
-  }
-
-  .service-card h3 {
-    font-size: var(--type-h3);
-  }
-
-  .sub-intro p {
-    font-size: var(--type-body-lg);
-  }
-}
-
 /* EQUIV Design System: shared component, grid and spacing rules */
 .section,
+.expertise-quote-section {
+  padding-block: var(--component-section-padding);
+}
+
 .about-intro-section,
 .about-process-section,
 .insight-article,
-.consultation-section,
+.consultation-section {
+  padding-block: var(--component-section-padding-md);
+}
+
 .sub-cta,
 .final-cta {
-  padding-block: var(--component-section-padding);
+  padding-block: var(--component-section-padding-sm);
 }
 
 .site-footer {
@@ -6007,10 +5864,13 @@ button {
 }
 
 .principle-card,
-.service-card,
-.insight-card,
 .expertise-card {
   padding: var(--component-card-padding);
+}
+
+.service-card,
+.insight-card {
+  padding: var(--component-card-padding-compact);
 }
 
 .service-grid,
@@ -6057,20 +5917,3 @@ button {
     animation-duration: 0.01ms !important;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
