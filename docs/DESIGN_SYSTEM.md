@@ -66,17 +66,58 @@ Body
 
 ## Layout
 
-Container
+### Spacing Token System
 
-1200px
+모든 페이지와 Component는 `padding`, `margin`, `gap`에 직접 px 값을 선언하지 않는다. 아래 공통 Token만 사용하며 `760px 이하`에서는 동일한 Token 이름이 Mobile Scale로 전환된다.
 
-Section Padding
+Desktop (`761px 이상`):
 
-120px
+- `--space-2xs: 4px`
+- `--space-xs: 8px`
+- `--space-sm: 12px`
+- `--space-md: 16px`
+- `--space-lg: 24px`
+- `--space-xl: 32px`
+- `--space-2xl: 48px`
+- `--space-section: 96px`
 
-Mobile
+Mobile (`760px 이하`):
 
-24px
+- `--space-2xs: 4px`
+- `--space-xs: 8px`
+- `--space-sm: 10px`
+- `--space-md: 14px`
+- `--space-lg: 20px`
+- `--space-xl: 28px`
+- `--space-2xl: 40px`
+- `--space-section: 72px`
+
+1~3px의 접근성 및 광학 보정은 `--space-2xs`를 기준으로 한 `calc()`만 허용한다. `0`, `auto`, 백분율과 Viewport 단위는 구조상 필요한 경우 유지할 수 있다.
+
+Component Rule:
+
+- Section Padding: `--space-section`
+- Card Padding: `--space-xl`
+- Standard Grid Gap: `--space-md`
+- Heading Group Margin: `--space-2xl`
+- Button Padding: `--space-sm / --space-lg`
+- Input Inline Padding: `--space-md`
+- Footer Padding: `--space-2xl`
+
+### Container Token System
+
+- `--container-width: 1180px`
+- `--container-narrow: 780px`
+- `--container-wide: 1280px`
+- 기본 Container의 좌우 Gutter 합계는 `--space-xl`을 사용한다.
+
+### Radius Token System
+
+- `--radius-sm: 4px`
+- `--radius-md: 8px`
+- `--radius-lg: 16px`
+- `--radius-xl: 20px`
+- 원형 `50%`, 완전한 Pill과 `0`은 형태를 위한 예외로 허용한다.
 
 ### Typography Token System
 
@@ -114,10 +155,10 @@ HOME, About, Service, Business Valuation, Insights, Contact, Footer, Modal, Navi
 
 - QA widths: `360 / 390 / 430 / 768px`
 - Mobile Header Height: `64px`
-- Mobile Container Side Margin: `16px`
+- Mobile Container Gutter: `--space-xl(28px)`
 - Mobile Button: 최소 `52px`, 주요 CTA `56px`
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
-- Mobile Section Padding: 콘텐츠 역할에 따라 약 `70~84px`
+- Mobile Section Padding: `--space-section(72px)`
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
 
 ### Mobile Typography Scale
@@ -165,11 +206,11 @@ Mobile
 
 Card
 
-16px
+`--radius-lg`
 
 Button
 
-12px
+`--radius-sm`
 
 ## Button
 

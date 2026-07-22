@@ -526,6 +526,16 @@ CSS 선택자에서 `font-size` 숫자를 직접 선언하지 않는다. 모든 
 
 HOME, About, Service와 상세페이지, Business Valuation, Insights와 상세페이지, Contact, Footer, Modal, Navigation, Card와 Button에 동일한 계층을 적용한다. Desktop과 Mobile은 서로 다른 Device Token을 사용하며 Tablet은 Desktop Token을 기반으로 기존 반응형 흐름을 유지한다.
 
+## Layout & Spacing Design System Principle
+
+EQUIV의 모든 공개 페이지와 공통 Component는 하나의 Spacing, Container와 Radius System을 사용한다. `padding`, `margin`과 `gap`은 `--space-2xs / xs / sm / md / lg / xl / 2xl / section` Token으로만 관리하고 선택자에서 px 값을 직접 선언하지 않는다.
+
+Desktop은 `4 / 8 / 12 / 16 / 24 / 32 / 48 / 96px`, Mobile은 `4 / 8 / 10 / 14 / 20 / 28 / 40 / 72px` Scale을 사용한다. Mobile에서는 동일한 Token 이름의 값만 전환하며 Component별 별도 Scale을 만들지 않는다.
+
+기본 Container는 `1180px`, Narrow는 `780px`, Wide는 `1280px` Token을 사용한다. Radius는 `4 / 8 / 16 / 20px` 네 단계로 관리하며 원형과 완전한 Pill 형태만 예외로 허용한다.
+
+Section, Card, Grid, Button, Input, Modal, Hero와 Footer는 공통 Spacing Token을 사용한다. 새로운 페이지는 개별 여백 수치를 추가하지 않고 기존 Component Rule과 Token 조합만으로 구성한다.
+
 ## Mobile Experience Principle
 
 Mobile Experience는 Desktop 디자인을 축소 복제하지 않고 읽기와 터치를 기준으로 별도 최적화한다. Desktop의 구조, 색상과 기본 Breakpoint는 변경하지 않는다.

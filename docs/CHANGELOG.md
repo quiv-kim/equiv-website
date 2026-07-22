@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 12.1 - Layout & Spacing Design System
+
+- Desktop `4/8/12/16/24/32/48/96px`, Mobile `4/8/10/14/20/28/40/72px` 공통 Spacing Token 생성
+- Container `1180/780/1280px`과 Radius `4/8/16/20px` Token 생성
+- CSS의 571개 개별 px 여백 값을 Token으로 변환하여 `padding / margin / gap` 직접 px 선언 제거
+- Section, Card, Grid, Heading Group, Button, Input과 Footer에 공통 Component Spacing Rule 적용
+- HOME, About, Service, Business Valuation, Insights, Contact, Modal과 Footer가 동일한 Token System을 사용하도록 통합
+- `760px 이하`에서 같은 Token 이름을 Mobile Scale로 자동 전환하고 Tablet은 Desktop Scale 기반으로 유지
+- Layout 구조, Color, Animation과 Component 구조는 변경하지 않음
+
 ## Sprint 12 - Typography Design System
 
 - Desktop과 Mobile에 각각 `Display / H1 / H2 / H3 / H4 / Body Large / Body / Small / Caption` 9단계 Device Token 생성
