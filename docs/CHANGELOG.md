@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## QA-01 - Homepage Section Title Refinement
+
+- HOME Featured Expertise 제목을 `M&A, 그 전략.`에서 `EQUIV(이퀴브) 전문 서비스`로 변경
+- 감성적 표현 대신 EQUIV 브랜드와 전문 서비스 역할을 직접 전달하도록 Section Naming 정리
+- 기존 Section H2 Typography, Font Size, Line Height, Spacing, Layout, Card와 CTA는 변경하지 않음
+- 서비스 Section에는 기존 Subtitle이 없으므로 새로운 설명 문구를 추가하지 않고 현재 간결한 구조 유지
+
 ## Sprint 18 - Mobile Fine Tuning
 
 - `760px 이하` HOME Hero 제목을 `26px`에서 `24px`로 약 7.7% 축소하고 행간을 `1.22`에서 `1.2`로 미세 조정
