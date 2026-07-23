@@ -27,18 +27,22 @@
   --desktop-cta-title: 32px;
   --desktop-cta-body: 16px;
   --desktop-card-link: 16px;
-  --mobile-display: 30px;
-  --mobile-h1: 25px;
-  --mobile-h2: 22px;
-  --mobile-h3: 18px;
-  --mobile-h4: 16px;
-  --mobile-body-lg: 15px;
-  --mobile-body: 14px;
-  --mobile-small: 12px;
-  --mobile-caption: 11px;
+  --mobile-display: 26px;
+  --mobile-h1: 28px;
+  --mobile-h2: 24px;
+  --mobile-h3: 22px;
+  --mobile-h4: 18px;
+  --mobile-body-lg: 20px;
+  --mobile-body: 15px;
+  --mobile-small: 13px;
+  --mobile-caption: 13px;
   --mobile-cta-title: 25px;
   --mobile-cta-body: 15px;
-  --mobile-card-link: 14px;
+  --mobile-card-link: 16px;
+  --mobile-button: 16px;
+  --mobile-form: 16px;
+  --mobile-card-category: 14px;
+  --mobile-card-description: 16px;
   --type-display: var(--desktop-display);
   --type-h1: var(--desktop-h1);
   --type-h2: var(--desktop-h2);
@@ -5652,7 +5656,7 @@ button {
   .valuation-field input::placeholder,
   .consultation-modal__field input::placeholder,
   .consultation-modal__field textarea::placeholder {
-    font-size: var(--mobile-h4);
+    font-size: var(--mobile-form);
   }
 
   .consultation-modal__header h2,
@@ -6108,11 +6112,24 @@ button {
   }
 }
 
-/* Sprint 17-18: HOME mobile hero refinement and fine tuning */
+/* QA-03: mobile typography and content density correction */
 @media (max-width: 760px) {
+  :root {
+    --mobile-card-gap: 16px;
+    --mobile-card-padding-block: 24px;
+    --mobile-card-padding-inline: 20px;
+    --mobile-section-intro: 48px;
+    --mobile-section-content: 56px;
+  }
+
+  .container,
+  .insights-preview .container {
+    width: min(calc(100% - 40px), var(--container-width));
+  }
+
   .hero {
-    min-height: 70vh;
-    min-height: 70svh;
+    min-height: 60vh;
+    min-height: 60svh;
   }
 
   .hero-content {
@@ -6120,30 +6137,160 @@ button {
   }
 
   .hero h1 {
-    font-size: calc(var(--type-display) - var(--space-2xs) - 2px);
-    line-height: 1.2;
+    font-size: var(--type-display);
+    font-weight: 700;
+    line-height: 1.24;
   }
 
   .hero-brand-name,
   .hero-brand-korean,
   .hero-brand-role {
-    font-size: calc(var(--type-caption) - 1px);
+    font-size: var(--type-small);
   }
 
   .hero-brand-identity {
-    margin-bottom: var(--space-2xs);
+    margin-bottom: var(--space-xs);
   }
 
   .hero-actions {
-    gap: var(--space-2xs);
-    margin-top: var(--space-xs);
+    gap: var(--space-xs);
+    margin-top: var(--space-lg);
   }
 
   .hero .btn {
-    min-height: 44px;
+    min-height: 48px;
+    font-size: var(--mobile-button);
+  }
+
+  .section-kicker,
+  .eyebrow,
+  .sub-label {
+    font-size: var(--type-small);
+    line-height: 1.4;
+  }
+
+  .principle-section {
+    padding-block: var(--mobile-section-intro);
+  }
+
+  .expertise-section,
+  .insights-preview {
+    padding-block: var(--mobile-section-content);
+  }
+
+  .principle-head .section-kicker {
+    margin-bottom: var(--space-md);
+  }
+
+  .principle-head h2 {
+    font-size: var(--type-h2);
+    line-height: 1.35;
+  }
+
+  .principle-head > p:last-child {
+    margin-top: var(--space-lg);
+    font-size: var(--type-body);
+    line-height: 1.6;
+  }
+
+  .expertise-section .section-head {
+    margin-bottom: var(--space-xl);
+  }
+
+  .expertise-section .section-head h2 {
+    font-size: var(--type-h1);
+    line-height: 1.3;
+  }
+
+  .insights-preview .section-head {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .insights-preview .section-head > h2 {
+    font-size: var(--type-h1);
+    line-height: 1.3;
+  }
+
+  .insights-preview .section-head > h2 span {
+    margin-top: var(--space-md);
+    font-size: var(--type-body-lg);
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .expertise-section .service-grid,
+  .insights-preview .insight-grid {
+    gap: var(--mobile-card-gap);
+  }
+
+  .expertise-section .service-card,
+  .insights-preview .insight-card,
+  .expertise-section .service-card:last-child:nth-child(odd) {
+    min-height: 0;
+    height: auto;
+    padding: var(--mobile-card-padding-block) var(--mobile-card-padding-inline);
+    justify-content: flex-start;
+  }
+
+  .expertise-section .service-card > span {
+    font-size: var(--type-body);
+  }
+
+  .expertise-section .service-card h3 {
+    margin: var(--space-md) 0 var(--space-sm);
+    font-size: var(--type-h3);
+    line-height: 1.35;
+  }
+
+  .expertise-section .service-card strong {
+    font-size: var(--type-h4);
+    line-height: 1.5;
+  }
+
+  .expertise-section .service-card em {
+    margin-top: var(--space-lg);
+    padding-top: 0;
+    font-size: var(--type-card-link);
+  }
+
+  .insights-preview .insight-card > span {
+    font-size: var(--mobile-card-category);
+    line-height: 1.4;
+  }
+
+  .insights-preview .insight-card h3 {
+    margin: var(--space-md) 0 var(--space-sm);
+    font-size: var(--type-h3);
+    line-height: 1.4;
+  }
+
+  .insights-preview .insight-card p {
+    font-size: var(--mobile-card-description);
+    line-height: 1.65;
+  }
+
+  .insights-preview .insight-card em {
+    margin-top: var(--space-lg);
+    padding-top: 0;
+    font-size: var(--type-card-link);
+  }
+
+  .sub-hero h1,
+  .about-hero h1,
+  .contact-hero h1 {
+    font-size: var(--type-h1);
+    line-height: 1.3;
+  }
+
+  .btn,
+  .final-cta .btn,
+  .sub-cta .btn,
+  .consultation-submit,
+  .consultation-modal__submit,
+  .readiness-option {
+    font-size: var(--mobile-button);
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

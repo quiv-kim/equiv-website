@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## QA-03 - Mobile Typography & Density Correction
+
+- Mobile Typography를 `26 / 28 / 24 / 22 / 18 / 20 / 15 / 13px` 역할별 Scale로 교정하고 Button·Card Link `16px` 적용
+- HOME Hero를 `70svh`에서 `60svh`로 축소하고 제목 `26px / 1.24`, Label `13px`, Button `48px / 16px`, Gap `8px` 적용
+- Mobile Container Gutter를 `20px`로 통일하고 Principle `48px`, Service·Insights `56px`의 역할별 Section Padding 적용
+- HOME Service·Insight Card를 `24px 20px` Padding과 `16px` Gap으로 정리하고 Mobile 최소·고정 높이 및 하단 강제 정렬 제거
+- Service Card는 `15 / 22 / 18 / 16px`, Insight Card는 `14 / 22 / 16 / 16px` 정보 위계 적용
+- HOME Service·Insights 제목은 `28px`, Principle 제목은 `24px`로 구분하고 Insights 소개문은 `20px / 1.45 / 600`으로 조정
+- 모든 변경은 `760px 이하` 최종 Media Query에 한정하고 Desktop·Tablet·색상·콘텐츠·구조·Animation은 변경하지 않음
+
 ## QA-01 - Homepage Section Title Refinement
 
 - HOME Featured Expertise 제목을 `M&A, 그 전략.`에서 `EQUIV(이퀴브) 전문 서비스`로 변경

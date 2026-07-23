@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] QA-03 Mobile Typography·Hero·Service·Insights Card Density Correction
 - [x] QA-01 HOME 서비스 섹션 제목을 `EQUIV(이퀴브) 전문 서비스`로 변경
 - [x] Sprint 18 HOME Mobile Hero Typography·Vertical Rhythm·White Space 5~10% Fine Tuning
 - [x] Sprint 17 Listing.co 밀도 기준 HOME Mobile Hero 제목·높이·CTA·Vertical Rhythm 보정

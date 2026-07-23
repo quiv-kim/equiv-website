@@ -163,22 +163,26 @@ Desktop (`761px 이상`):
 - `--desktop-caption: 11px`
 - `--desktop-cta-title: 32px`
 - `--desktop-cta-body: 16px`
-- `--desktop-card-link: 15px`
+- `--desktop-card-link: 16px`
 
 Mobile (`760px 이하`):
 
-- `--mobile-display: 30px`
-- `--mobile-h1: 25px`
-- `--mobile-h2: 22px`
-- `--mobile-h3: 18px`
-- `--mobile-h4: 16px`
-- `--mobile-body-lg: 15px`
-- `--mobile-body: 14px`
-- `--mobile-small: 12px`
-- `--mobile-caption: 11px`
+- `--mobile-display: 26px`
+- `--mobile-h1: 28px`
+- `--mobile-h2: 24px`
+- `--mobile-h3: 22px`
+- `--mobile-h4: 18px`
+- `--mobile-body-lg: 20px`
+- `--mobile-body: 15px`
+- `--mobile-small: 13px`
+- `--mobile-caption: 13px`
 - `--mobile-cta-title: 25px`
 - `--mobile-cta-body: 15px`
-- `--mobile-card-link: 14px`
+- `--mobile-card-link: 16px`
+- `--mobile-button: 16px`
+- `--mobile-form: 16px`
+- `--mobile-card-category: 14px`
+- `--mobile-card-description: 16px`
 
 Semantic Role은 `Display → H1 → H2 → H3 → H4 → Body Large → Body → Small → Caption` 순서를 유지한다. Desktop은 LISTING, KMX와 모멘트, Mobile은 LISTING Mobile, Apple, Stripe와 McKinsey의 절제된 Corporate 밀도를 기준으로 한다.
 
@@ -201,8 +205,8 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - Featured Expertise는 `--content-width-home-services: 1076px` 안에서 카드 폭을 이전보다 약 `12px` 확대하고, 기존 3열과 마지막 행 중앙 정렬을 유지한다.
 - Insights는 `--content-width-home-insights: 1260px`까지 사용하며 `1280px 이상`에서 4열로 배치한다. `1279px 이하`에서는 `320px` 2열, `760px 이하`에서는 Container 전체 폭 1열로 전환한다.
 - HOME Service Card는 Desktop 최소 높이 `182px`, Insights Card는 `260px`을 사용한다. Mobile에서는 콘텐츠 기반 높이로 전환한다.
-- HOME Card Padding은 Desktop `22px 20px`, Mobile `20px 18px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
-- HOME Card Action은 `--type-card-link`을 사용해 Desktop `16px`, Mobile `14px`, `600` 굵기로 표시한다.
+- HOME Card Padding은 Desktop `22px 20px`, Mobile `24px 20px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
+- HOME Card Action은 `--type-card-link`을 사용해 Desktop·Mobile `16px`, `600` 굵기로 표시한다.
 - Card Action은 최소 높이 `32px`, 텍스트와 Line Arrow 간격 `6px`, Description 이후 간격 `20px / Mobile 18px`을 유지한다.
 - HOME Card에서 Action을 하단으로 강제하는 `margin-top:auto`를 사용하지 않는다. 동일 행의 자연스러운 높이 정렬은 Grid가 콘텐츠 기준으로 처리한다.
 - Principle, Featured Expertise와 Insights의 Desktop Section Padding은 공통 Large Section보다 `12px` 넓게 사용하여 주요 HOME 섹션 사이의 호흡을 확보한다.
@@ -211,7 +215,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 
 - QA widths: `360 / 390 / 430 / 768px`
 - Mobile Header Height: `64px`
-- Mobile Container Gutter: `--space-xl(28px)`
+- Mobile Container Gutter: `20px`
 - Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
 - Mobile Section Padding: `64px / 52px / 40px`의 의미 기반 Section Token
@@ -220,19 +224,28 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 ### HOME Mobile Hero
 
 - 적용 범위는 `760px 이하`의 HOME Hero로 한정하며 Desktop과 Tablet Hero에는 적용하지 않는다.
-- Mobile Hero는 `70svh`를 기준으로 하여 첫 화면에서 다음 Section이 자연스럽게 보이도록 한다. `vh`는 Fallback으로 함께 제공한다.
-- Hero 제목은 HOME Mobile 전용 계산값 `24px`과 `1.2` 행간으로 미세 조정한다. 공통 Typography Token 자체는 변경하지 않는다.
-- Hero Brand Label은 HOME Mobile 전용 `10px`로 보정하며 기존 Weight와 Letter Spacing은 유지한다.
-- Label과 Title 사이 여백은 `4px`, Title과 CTA 사이 여백은 `8px`을 사용한다. 현재 Hero에는 별도 Description을 추가하지 않는다.
-- Hero CTA는 기존 폭과 Typography를 유지하고 최소 높이 `44px`, 버튼 사이 간격 `--space-2xs`를 사용한다.
+- Mobile Hero는 `60svh`를 기준으로 하여 전체 Hero와 다음 Section 시작이 첫 화면에 함께 보이도록 한다. `vh`는 Fallback으로 함께 제공한다.
+- Hero 제목은 `--mobile-display(26px)`과 `1.24` 행간을 사용하며 기존보다 굵게 만들지 않는다.
+- Hero Brand Label은 `--mobile-small(13px)`과 기존 Weight·Letter Spacing을 유지한다.
+- Hero CTA는 기존 폭과 Radius를 유지하고 높이 `48px`, 글자 `16px`, 버튼 간격 `8px`을 사용한다.
+- Mobile Container Gutter `20px`을 Hero에도 적용하며 현재 Hero에는 별도 Description을 추가하지 않는다.
 - Mobile Header 높이·Logo·Menu·Padding과 Hero 이미지·색상·Scroll Indicator는 변경하지 않는다.
+
+### QA-03 Mobile Density
+
+- Mobile Section은 역할별로 Hero 다음 Principle `48px`, Service·Insights 일반 콘텐츠 `56px` 상하 Padding을 사용한다.
+- HOME Service·Insight Grid Gap은 `16px`, Card Padding은 `24px 20px`을 사용한다.
+- HOME Card는 Mobile에서 `min-height:0 / height:auto / justify-content:flex-start`를 적용하고 `margin-top:auto`를 사용하지 않는다.
+- Service Card는 Number `15px`, 한글 Title `22px`, 영문 Title `18px`, Link `16px` 역할을 사용한다.
+- Insight Card는 Category `14px`, Title `22px`, Description `16px`, Link `16px` 역할을 사용한다.
+- HOME Service 제목과 Insights 제목은 Mobile Page Title 역할인 `28px`, Principle 제목은 Section Title 역할인 `24px`을 사용한다.
 
 ### Mobile Typography Scale
 
 - 적용 범위: `760px 이하`; 공통 Semantic Token이 Mobile Device Token으로 전환된다.
 - Component별 임의 크기나 별도의 Mobile Typography Scale을 추가하지 않는다.
 - Button과 Navigation 및 Section Label은 `Small`, 본문은 `Body`, Card Title은 `H3`, Small Card Heading은 `H4`, Page Title은 `H1`, HOME Hero는 `Display` 역할을 사용한다.
-- Form Input Text는 iOS Safari 자동 확대 방지를 위해 `--mobile-h4(16px)`를 사용한다.
+- Form Input Text는 iOS Safari 자동 확대 방지를 위해 `--mobile-form(16px)`을 사용한다.
 
 ## Header
 
