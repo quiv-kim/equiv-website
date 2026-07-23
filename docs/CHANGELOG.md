@@ -1,5 +1,23 @@
 # EQUIV M&A Website Changelog
 
+## QA-04 STEP 13 - CSS Size Optimization
+
+- 전체 HTML·JavaScript 19개 파일을 기준으로 실제 참조되지 않는 CSS 규칙을 정적 감사
+- 모든 선택자 분기가 미사용인 규칙 175개와 동일 Context에서 완전히 대체된 선언 19개를 제거
+- `style.css`를 `128,814 bytes / 6,300 lines`에서 `106,971 bytes / 5,185 lines`로 축소
+- 총 파일 크기 `16.96%` 감소, 단순 Minify 없이 읽을 수 있는 Source 구조 유지
+- 공개·내부 페이지 14개를 1440·768·390px에서 비교한 42개 조합에서 계산 Style·Layout 차이 0건 확인
+- CSS Brace, CSS Variable, Typography Token, JavaScript 문법 및 Consultation Modal 열기·닫기·Focus Return 정상 확인
+
+## QA-04 - CSS Architecture Refactoring
+
+- Desktop·Mobile Primitive Typography Scale을 각각 `Display / H1 / H2 / H3 / Body Large / Body / Small` 7단계로 정리
+- 기존 H4·Caption·CTA·Button·Form·Card 보조 크기는 Core Scale에서 계산되는 Root Semantic Alias로 전환하여 기존 화면값 유지
+- 숫자 `font-size` 직접 선언 0건과 미정의 CSS Variable 0건 유지
+- 중복 Media Query 18개를 9개 고유 조건 블록으로 통합: Mobile `5→1`, Tablet `3→1`, Desktop `2→1`, Reduced Motion `2→1`
+- Base·Component·Responsive의 책임과 CSS 관리 순서를 Architecture 주석으로 명시
+- Home·About·Sell-side·Business Valuation·M&A Practice의 최대 800개 요소를 1440·768·390px에서 신·구 비교하여 계산 스타일 차이 0건 확인
+- HTML, 콘텐츠, 기능, Animation, Color, Navigation, Component 구조는 변경하지 않음
 ## QA-03 - Mobile Typography & Density Correction
 
 - Mobile Typography를 `26 / 28 / 24 / 22 / 18 / 20 / 15 / 13px` 역할별 Scale로 교정하고 Button·Card Link `16px` 적용

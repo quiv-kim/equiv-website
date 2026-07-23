@@ -384,6 +384,52 @@ Gold는 강조에만 사용한다.
 
 사용자가 읽기 쉽게 만든다.
 
+## CSS Architecture
+
+QA-04 이후 `css/style.css`는 다음 책임 순서를 기준으로 관리한다.
+
+1. Root Variables / Color System
+2. Typography System
+3. Spacing System
+4. Layout & Container
+5. Components
+6. Utilities
+7. Consolidated Responsive
+8. Page-specific Layout Policy
+
+### Typography
+
+- Device Primitive Scale은 Desktop과 Mobile 각각 `Display / H1 / H2 / H3 / Body Large / Body / Small` 7단계만 유지한다.
+- Component는 숫자 `font-size`를 선언하지 않고 `--type-*` Semantic Role만 사용한다.
+- H4, Caption, CTA, Button, Form, Card 보조 역할은 Primitive Scale에서 계산되는 Semantic Alias이며 별도의 Device Scale이 아니다.
+- Mobile에서는 Root의 `--type-*` 매핑만 전환하고 Component별 독립적인 숫자 Scale을 만들지 않는다.
+
+### Spacing and Layout
+
+- Padding, Margin, Gap은 `--space-*`, `--component-*`, `--grid-*` Token을 사용한다.
+- Page CSS는 Layout과 배치만 담당하며 독립적인 Typography 값은 정의하지 않는다.
+- 기존 UI를 보존하기 위한 Responsive의 Semantic Role 지정도 반드시 Root Token을 참조한다.
+
+### Responsive
+
+- 동일 조건 Media Query는 한 블록으로 통합한다.
+- 기본 구간은 Desktop / Tablet / Mobile이며, Grid 열 수가 달라지는 1280px·1279px 및 Header 안정성을 위한 900px 구간만 Layout 예외로 유지한다.
+- `prefers-reduced-motion`은 기능 보호를 위한 별도 접근성 조건으로 유지한다.
+- Responsive 규칙에는 직접 숫자 `font-size`를 추가하지 않는다.
+
+### Maintenance Rule
+
+Typography 변경은 Desktop 또는 Mobile Primitive Token에서 시작한다. Component나 Page에서 값을 덮어쓰지 않는다. 새로운 예외가 필요하면 기존 Semantic Role로 해결 가능한지 먼저 확인하고, 동일 Media Query를 새로 추가하지 않는다.
+
+### CSS Size Optimization
+
+- CSS 최적화는 Minify가 아니라 전체 HTML·JavaScript의 실제 참조 여부를 기준으로 수행한다.
+- Selector List의 일부만 미사용이면 해당 Rule을 유지하고, 모든 Selector Branch가 미사용인 Rule만 제거한다.
+- JavaScript가 동적으로 사용하는 Class, Modal State, Hover·Focus·Active 및 접근성 상태는 보호한다.
+- 동일 Context와 Selector에서 뒤 선언이 앞 선언을 완전히 대체하는 경우에만 Shadowed Declaration을 제거한다.
+- 최적화 후에는 모든 페이지의 Desktop·Tablet·Mobile 계산 Style과 실제 Layout을 이전 버전과 비교한다.
+- Source CSS는 사람이 읽고 유지보수할 수 있는 구조를 유지하며, 파일 크기만을 위한 공백 제거 또는 단일 행 압축을 기준으로 삼지 않는다.
+
 ## Project Reference Rule
 
 앞으로 디자인을 수정하거나 새로운 페이지를 만들 때에는 아래 문서를 먼저 참고한 후 코드를 작성하는 것을 프로젝트 원칙으로 적용한다.

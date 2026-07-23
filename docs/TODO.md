@@ -30,6 +30,9 @@ Phase 5
 
 ## High Priority
 
+- [x] QA-04 STEP 13 `style.css` 미사용 규칙 정리 및 파일 크기 16.96% 축소
+- [x] QA-04 CSS Architecture Refactoring · Core Typography Token 및 Responsive Query 통합
+
 - [x] QA-03 Mobile Typography·Hero·Service·Insights Card Density Correction
 - [x] QA-01 HOME 서비스 섹션 제목을 `EQUIV(이퀴브) 전문 서비스`로 변경
 - [x] Sprint 18 HOME Mobile Hero Typography·Vertical Rhythm·White Space 5~10% Fine Tuning
