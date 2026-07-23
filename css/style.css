@@ -59,6 +59,20 @@
   --type-form: var(--desktop-body-lg);
   --type-card-category: var(--desktop-small);
   --type-card-description: var(--desktop-body);
+  --type-insight-card-title: var(--type-h3);
+  /* Shared modal roles: Consultation and Business Valuation */
+  --modal-title-size: var(--type-h2);
+  --modal-description-size: var(--type-body-lg);
+  --modal-supporting-size: var(--type-body);
+  --modal-question-size: var(--type-h3);
+  --modal-section-title-size: var(--type-h4);
+  --modal-label-size: var(--type-small);
+  --modal-input-size: var(--type-form);
+  --modal-help-size: var(--type-caption);
+  --modal-button-size: var(--type-small);
+  --modal-option-title-size: var(--type-h4);
+  --modal-option-description-size: var(--type-small);
+  --modal-close-icon-size: var(--type-h3);
   /* 4. Spacing System */
   --space-2xs: 4px;
   --space-xs: 8px;
@@ -3886,6 +3900,23 @@ button {
     --type-form: calc(var(--mobile-body) + 1px);
     --type-card-category: calc(var(--mobile-small) + 1px);
     --type-card-description: calc(var(--mobile-body) + 1px);
+    --type-insight-card-title: calc(var(--mobile-h3) - 2px);
+    --modal-title-size: calc(var(--mobile-h2) - 2px);
+    --modal-description-size: var(--mobile-body);
+    --modal-supporting-size: var(--mobile-body);
+    --modal-question-size: calc(var(--mobile-h3) - 4px);
+    --modal-section-title-size: calc(var(--mobile-h3) - 6px);
+    --modal-label-size: calc(var(--mobile-small) + 1px);
+    --modal-input-size: calc(var(--mobile-body) + 1px);
+    --modal-help-size: var(--mobile-small);
+    --modal-button-size: calc(var(--mobile-body) + 1px);
+    --modal-option-title-size: calc(var(--mobile-body) + 1px);
+    --modal-option-description-size: var(--mobile-small);
+    --modal-close-icon-size: calc(var(--mobile-h3) - 1px);
+    --modal-padding-inline: var(--space-lg);
+    --modal-padding-block: calc(var(--space-lg) + var(--space-2xs));
+    --modal-field-gap: calc(var(--space-xs) * 2);
+    --modal-group-gap: calc(var(--space-lg) + var(--space-2xs));
   }
 
 .consultation-modal {
@@ -3895,13 +3926,18 @@ button {
 
   .consultation-modal__dialog {
     width: 100%;
+    max-height: calc(100vh - 24px);
     max-height: calc(100dvh - 24px);
     border-radius: var(--radius-lg);
     overscroll-behavior: contain;
   }
 
+  .consultation-modal__overlay {
+    -webkit-backdrop-filter: blur(3px);
+  }
+
   .consultation-modal__header {
-    padding: var(--space-lg) var(--space-md) var(--space-lg);
+    padding: var(--modal-padding-block) var(--modal-padding-inline);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
@@ -3919,19 +3955,17 @@ button {
   .consultation-modal__header p span {
     display: block;
     margin-top: var(--space-xs);
-    font-size: var(--type-body);
+    line-height: 1.6;
     text-align: left;
   }
 
   .consultation-modal__header h2 {
     padding-right: var(--space-2xl);
-    font-size: var(--type-h2);
     line-height: 1.3;
   }
 
   .consultation-modal__header strong {
-    font-size: var(--type-h4);
-    line-height: 1.78;
+    line-height: 1.6;
   }
 
   .consultation-modal__body {
@@ -3939,14 +3973,14 @@ button {
   }
 
   .consultation-modal__guide {
-    padding: var(--space-lg) var(--space-md);
+    order: 2;
+    padding: var(--modal-padding-block) var(--modal-padding-inline);
     border-right: 0;
     border-bottom: 1px solid var(--color-line);
   }
 
   .consultation-modal__guide h3 {
     margin-bottom: var(--space-md);
-    font-size: var(--type-h3);
   }
 
   .consultation-modal__guide-block + .consultation-modal__guide-block {
@@ -3960,46 +3994,37 @@ button {
   }
 
   .consultation-modal__form {
-    gap: var(--space-md);
-    padding: var(--space-lg) var(--space-md) var(--space-lg);
+    order: 1;
+    gap: var(--modal-field-gap);
+    padding: var(--modal-padding-block) var(--modal-padding-inline) max(var(--modal-padding-block), env(safe-area-inset-bottom));
   }
 
   .consultation-modal__field-grid {
     grid-template-columns: 1fr;
+    gap: var(--modal-field-gap);
   }
 
   .consultation-modal__types > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
   }
 
   .consultation-modal__types label span {
     min-height: 48px;
-    font-size: var(--type-small);
-  }
-
-  .consultation-modal__field label,
-  .consultation-modal__types legend {
-    font-size: var(--type-small);
-  }
-
-  .consultation-modal__field input::placeholder,
-  .consultation-modal__field textarea::placeholder {
-    font-size: var(--type-body-lg);
   }
 
   .consultation-modal__field input {
     min-height: 48px;
-    font-size: var(--type-body-lg);
   }
 
   .consultation-modal__field textarea {
-    min-height: 96px;
-    font-size: var(--type-body-lg);
-    line-height: 1.68;
+    min-height: 104px;
+    height: 104px;
+    line-height: 1.6;
   }
 
   .consultation-modal__submit {
-    min-height: 52px;
+    min-height: 48px;
   }
 
   .consultation-modal__privacy-row {
@@ -4017,17 +4042,15 @@ button {
   }
 
   .consultation-modal__success h2 {
-    font-size: var(--type-h2);
     line-height: 1.36;
   }
 
   .consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice) {
-    font-size: var(--type-body);
-    line-height: 1.96;
+    line-height: 1.65;
   }
 
 :root {
-    --header-height: 64px;
+    --header-height: 58px;
     --type-display: var(--mobile-display);
     --type-h1: var(--mobile-h1);
     --type-h2: var(--mobile-h2);
@@ -4563,7 +4586,34 @@ button {
   }
 
   .valuation-modal__dialog {
-    max-height: calc(100vh - 32px);
+    width: 100%;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: var(--modal-padding-block) var(--modal-padding-inline) max(var(--modal-padding-block), env(safe-area-inset-bottom));
+  }
+
+  .valuation-modal .readiness-modal__backdrop {
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .valuation-modal .readiness-modal__close {
+    top: var(--space-sm);
+    right: var(--space-sm);
+  }
+
+  .valuation-modal .readiness-modal__content h2 {
+    padding-right: 48px;
+    margin-bottom: var(--space-sm);
+    line-height: 1.3;
+  }
+
+  .valuation-modal .readiness-modal__intro {
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .valuation-modal .valuation-progress {
+    margin-bottom: var(--space-lg);
   }
 
   .valuation-fields,
@@ -4572,27 +4622,36 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .valuation-fields {
+    gap: var(--modal-field-gap);
+  }
+
+  .valuation-input-section + .valuation-input-section {
+    margin-top: var(--modal-group-gap);
+  }
+
   .valuation-step h3,
   .valuation-result > h3,
   .valuation-loading h3 {
-    font-size: var(--type-h3);
-    line-height: 1.45;
+    line-height: 1.4;
   }
 
-  .valuation-input-section > h4,
-  .valuation-factor-grid h4 {
-    font-size: var(--type-h4);
+  .valuation-field input,
+  .valuation-field select {
+    min-height: 48px;
   }
 
-  .valuation-field > span,
-  .valuation-checkbox-group legend {
-    font-size: var(--type-small);
+  .valuation-field small,
+  .valuation-section-note,
+  .valuation-year-note,
+  .valuation-field-note,
+  .valuation-checkbox-group legend small,
+  .valuation-error {
+    line-height: 1.55;
   }
 
-  .valuation-field input::placeholder,
-  .form-field input::placeholder,
-  .form-field textarea::placeholder {
-    font-size: var(--type-body-lg);
+  .valuation-checkbox-group label {
+    padding: var(--space-md) var(--space-sm) var(--space-md) 0;
   }
 
   .valuation-confidence__header h4,
@@ -4607,12 +4666,14 @@ button {
 
   .valuation-form-actions,
   .valuation-result-actions {
+    gap: var(--space-sm);
     justify-content: stretch;
   }
 
   .valuation-form-actions .btn,
   .valuation-result-actions .btn {
     width: 100%;
+    min-height: 48px;
   }
 
   .valuation-range {
@@ -4834,8 +4895,7 @@ button {
   .faq-list p,
   .service-key-list p,
   .content-list p,
-  .about-flow p,
-  .consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice) {
+  .about-flow p {
     font-size: var(--type-body);
     line-height: 1.8;
   }
@@ -4881,7 +4941,6 @@ button {
   .btn,
   .hero .btn,
   .consultation-submit,
-  .consultation-modal__submit,
   .readiness-option {
     min-height: 47px;
     font-size: var(--type-small);
@@ -4902,34 +4961,99 @@ button {
 
   .form-field input,
   .form-field textarea,
-  .valuation-field input,
-  .valuation-field select,
-  .consultation-modal__field input,
-  .consultation-modal__field textarea,
   .form-field input::placeholder,
-  .form-field textarea::placeholder,
-  .valuation-field input::placeholder,
-  .consultation-modal__field input::placeholder,
-  .consultation-modal__field textarea::placeholder {
+  .form-field textarea::placeholder {
     font-size: var(--type-form);
   }
 
-  .consultation-modal__header h2,
-  .consultation-modal__success h2,
   .readiness-modal__content h2 {
     font-size: var(--type-h2);
     line-height: 1.42;
   }
 
+  /* Shared mobile modal typography and control density */
+  .consultation-modal__header h2,
+  .consultation-modal__success h2,
+  .valuation-modal .readiness-modal__content h2 {
+    font-size: var(--modal-title-size);
+  }
+
   .consultation-modal__header strong,
-  .consultation-modal__guide h3 {
-    font-size: var(--type-h3);
+  .valuation-modal .readiness-modal__intro {
+    font-size: var(--modal-description-size);
+  }
+
+  .consultation-modal__header p span,
+  .consultation-modal__confidential p,
+  .consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice),
+  .valuation-confirm {
+    font-size: var(--modal-supporting-size);
+  }
+
+  .consultation-modal__guide h3,
+  .consultation-modal__privacy-details h3,
+  .valuation-step h3,
+  .valuation-result > h3,
+  .valuation-loading h3 {
+    font-size: var(--modal-question-size);
+  }
+
+  .consultation-modal__guide h4,
+  .valuation-input-section > h4,
+  .valuation-factor-grid h4 {
+    font-size: var(--modal-section-title-size);
   }
 
   .consultation-modal__field label,
   .consultation-modal__types legend,
-  .consultation-modal__types label span {
-    font-size: var(--type-small);
+  .consultation-modal__types label span,
+  .valuation-modal .valuation-public-badge,
+  .valuation-progress p,
+  .valuation-field > span,
+  .valuation-checkbox-group legend {
+    font-size: var(--modal-label-size);
+  }
+
+  .consultation-modal__field input,
+  .consultation-modal__field textarea,
+  .consultation-modal__field input::placeholder,
+  .consultation-modal__field textarea::placeholder,
+  .valuation-field input,
+  .valuation-field select,
+  .valuation-field input::placeholder {
+    font-size: var(--modal-input-size);
+  }
+
+  .consultation-modal__guide ul li,
+  .consultation-modal__guide ol li,
+  .consultation-modal__guide ol span,
+  .consultation-modal__privacy-row > label,
+  .consultation-modal__privacy-row button,
+  .consultation-modal__privacy-details,
+  .consultation-modal__static-notice,
+  .valuation-field small,
+  .valuation-section-note,
+  .valuation-year-note,
+  .valuation-field-note,
+  .valuation-checkbox-group legend small,
+  .valuation-error {
+    font-size: var(--modal-help-size);
+  }
+
+  .valuation-year-group h5,
+  .valuation-checkbox-group label {
+    font-size: var(--modal-option-title-size);
+  }
+
+  .consultation-modal__submit,
+  .valuation-form-actions .btn,
+  .valuation-result-actions .btn {
+    min-height: 48px;
+    font-size: var(--modal-button-size);
+  }
+
+  .consultation-modal__close span {
+    font-size: var(--modal-close-icon-size);
   }
 
   .sub-intro p,
@@ -5088,6 +5212,10 @@ button {
     gap: var(--mobile-card-gap);
   }
 
+  .insights-preview .insight-grid {
+    gap: var(--space-sm);
+  }
+
   .expertise-section .service-card,
   .insights-preview .insight-card,
   .expertise-section .service-card:last-child:nth-child(odd) {
@@ -5125,8 +5253,12 @@ button {
 
   .insights-preview .insight-card h3 {
     margin: var(--space-md) 0 var(--space-sm);
-    font-size: var(--type-h3);
+    font-size: var(--type-insight-card-title);
     line-height: 1.4;
+  }
+
+  .insights-preview .insight-card {
+    padding-block: calc(var(--mobile-card-padding-block) - var(--space-xs)) var(--mobile-card-padding-block);
   }
 
   .insights-preview .insight-card p {

@@ -214,7 +214,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 ### Mobile Optimization
 
 - QA widths: `360 / 390 / 430 / 768px`
-- Mobile Header Height: `64px`
+- Mobile Header Height: `58px`
 - Mobile Container Gutter: `20px`
 - Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
@@ -234,10 +234,11 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 ### QA-03 Mobile Density
 
 - Mobile Section은 역할별로 Hero 다음 Principle `48px`, Service·Insights 일반 콘텐츠 `56px` 상하 Padding을 사용한다.
-- HOME Service·Insight Grid Gap은 `16px`, Card Padding은 `24px 20px`을 사용한다.
+- HOME Service Grid Gap은 `16px`을 유지한다. Insight Grid는 콘텐츠 밀도 보정을 위해 `10px`을 사용한다.
+- HOME Service Card Padding은 Mobile `24px 20px`을 유지한다. Insight Card는 상단 `16px`, 하단 `24px`, 좌우 `20px`을 사용한다.
 - HOME Card는 Mobile에서 `min-height:0 / height:auto / justify-content:flex-start`를 적용하고 `margin-top:auto`를 사용하지 않는다.
 - Service Card는 Number `15px`, 한글 Title `22px`, 영문 Title `18px`, Link `16px` 역할을 사용한다.
-- Insight Card는 Category `14px`, Title `22px`, Description `16px`, Link `16px` 역할을 사용한다.
+- Insight Card는 Category `14px`, Title `20px`, Description `16px`, Link `16px` 역할을 사용한다.
 - HOME Service 제목과 Insights 제목은 Mobile Page Title 역할인 `28px`, Principle 제목은 Section Title 역할인 `24px`을 사용한다.
 
 ### Mobile Typography Scale
@@ -429,6 +430,23 @@ Typography 변경은 Desktop 또는 Mobile Primitive Token에서 시작한다. C
 - 동일 Context와 Selector에서 뒤 선언이 앞 선언을 완전히 대체하는 경우에만 Shadowed Declaration을 제거한다.
 - 최적화 후에는 모든 페이지의 Desktop·Tablet·Mobile 계산 Style과 실제 Layout을 이전 버전과 비교한다.
 - Source CSS는 사람이 읽고 유지보수할 수 있는 구조를 유지하며, 파일 크기만을 위한 공백 제거 또는 단일 행 압축을 기준으로 삼지 않는다.
+
+### Mobile Modal Typography and Density
+
+상담 신청 Modal과 Business Valuation 사전진단 Modal은 동일한 Mobile Modal Semantic Role을 공유한다.
+
+- Modal Title: `--modal-title-size`
+- Modal Description: `--modal-description-size`
+- Question: `--modal-question-size`
+- Section Heading: `--modal-section-title-size`
+- Label: `--modal-label-size`
+- Input / Select / Textarea: `--modal-input-size`
+- Help / Error / Privacy: `--modal-help-size`
+- Primary Action: `--modal-button-size`
+
+Mobile에서 Input Text는 iOS 자동 확대 방지를 위해 항상 `16px` 이상을 유지한다. Input과 Button의 최소 높이는 `48px`, 닫기 버튼의 Touch Area는 `44px` 이상을 사용한다. Modal은 `100vh` Fallback 뒤에 `100dvh` 기준 최대 높이를 선언하고 내부 Scroll을 사용하며, 하단 Padding에는 Safe Area를 반영한다. Overlay Blur는 Safari 계열을 위해 `-webkit-backdrop-filter`를 함께 제공한다.
+
+두 Modal은 별도의 중복 Typography Scale을 만들지 않는다. Desktop과 Tablet의 기존 Component 값은 유지하고, `760px 이하` 구간에서만 공통 Modal Role Token으로 전환한다.
 
 ## Project Reference Rule
 

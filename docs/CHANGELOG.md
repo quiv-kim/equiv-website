@@ -1,5 +1,19 @@
 # EQUIV M&A Website Changelog
 
+## QA-05 - Mobile Modal Typography & Density
+
+- Mobile Header 높이를 `64px`에서 `58px`로 축소하고 기존 Logo·Menu 정렬과 `48px` Touch Area 유지
+- HOME Insights Card의 Mobile 상단 Padding을 `24px`에서 `16px`, Title을 `22px`에서 `20px`, Grid Gap을 `16px`에서 `10px`로 조정
+- 상담 신청 Modal과 Business Valuation 사전진단 Modal에 공통 Mobile Modal Semantic Token 적용
+- Mobile 기준 제목 `22px`, 설명 `15px`, 질문 `18px`, Label `14px`, Input·Button `16px`로 역할별 위계 통일
+- Input과 Button 높이 `48px`, Textarea `104px`, Modal 좌우 여백 `14px`, 내부 Padding `20px / 24px` 기준 적용
+- 상담 Modal은 Mobile에서 Form을 안내 영역보다 먼저 배치하여 첫 화면에 제목·설명과 네 개의 입력항목이 함께 노출되도록 개선
+- Business Valuation Modal은 안내문·단계·질문·Section 제목을 Compact하게 조정하고 선택형 항목의 고정 높이 없이 콘텐츠 기반 높이 유지
+- `100vh` Fallback과 `100dvh`, `-webkit-backdrop-filter`, 내부 `overflow-y: auto`, Safe Area Padding으로 Safari·Chromium·In-App Browser의 짧은 Viewport 대응
+- 375·390·412·430px Computed Style 검수, 375·390px 상태별 화면 캡처와 최종 Header·Insights·두 Modal 시각 검수 완료
+- Desktop 1440px·Tablet 768px의 두 Modal 전체 하위 요소 비교 결과 Style·Layout 차이 0건 확인
+- Form 문구·입력항목·Validation·전송 로직·Modal Event는 변경하지 않음
+
 ## QA-04 STEP 13 - CSS Size Optimization
 
 - 전체 HTML·JavaScript 19개 파일을 기준으로 실제 참조되지 않는 CSS 규칙을 정적 감사
