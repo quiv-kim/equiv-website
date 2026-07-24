@@ -130,3 +130,112 @@ Header의 시각적 무게는 아래 비율을 참고한다.
 - 경쟁 사이트를 복제하지 않으면서 동등한 안정감이 느껴지는가?
 - Header만 보아도 Premium Advisory Brand라는 인상이 드는가?
 
+## Chapter 3. Hero Design System
+
+Version 1.0
+Status: Approved Draft
+
+### 1. Hero의 역할
+
+Hero는 광고나 회사소개 영역이 아니다. 사용자가 `이 회사와 상담해볼 가치가 있다.`고 판단할 수 있는 신뢰의 시작점이다. 제품을 판매하거나 장황하게 회사를 설명하지 않는다.
+
+### 2. Hero의 목표
+
+사용자는 Hero를 본 뒤 3초 안에 아래 내용을 이해할 수 있어야 한다.
+
+1. EQUIV가 무엇을 하는 회사인가
+2. 왜 신뢰할 수 있는가
+3. 무엇을 도와주는가
+4. 어디에서 상담을 시작하는가
+
+이 네 가지 판단에 필요하지 않은 정보는 Hero에 추가하지 않는다.
+
+### 3. 정보 우선순위
+
+Hero의 정보 순서는 아래를 따른다.
+
+1. Brand
+2. Headline
+3. Description
+4. CTA
+5. Supporting Information
+
+Statistics, Service Card, Icon과 Banner가 Headline보다 먼저 보이지 않게 한다.
+
+### 4. 하나의 콘텐츠 블록
+
+Headline, Description, CTA와 Supporting Information은 서로 분리된 장치처럼 보이지 않아야 한다. 각 요소의 간격은 사용자가 위에서 아래로 읽는 흐름을 방해하지 않는 하나의 리듬으로 관리한다.
+
+### 5. Hero Height
+
+Hero는 화면을 채우기 위한 영역이 아니다. 가장 중요한 내용을 빠르게 전달할 수 있는 높이를 사용한다.
+
+- Desktop: Viewport Height의 70~82%
+- Mobile: Viewport Height의 65~75%
+- `100vh`는 사용하지 않는다.
+
+현재 HOME 기준은 Desktop `78svh`, Mobile `70svh`이며 `vh`를 Fallback으로 함께 제공한다.
+
+### 6. Headline Rules
+
+- Hero Headline은 페이지에서 가장 큰 Typography 역할을 사용한다.
+- 권장 줄 수는 2줄이며 최대 3줄을 넘지 않는다.
+- 한 줄은 10~14단어 이하로 유지한다.
+- 크기보다 짧고 명확한 메시지를 우선한다.
+
+### 7. Description Rules
+
+- Description은 Headline을 설명하며 새로운 주제를 추가하지 않는다.
+- 2~3줄, 최대 220자 이내로 제한한다.
+- 의미 없는 보조 문장을 채우기 위해 Description을 추가하지 않는다.
+
+### 8. CTA Rules
+
+- CTA는 Hero 메시지에서 이어지는 행동의 시작점이다.
+- Description과 CTA의 간격은 Headline과 Description 사이보다 조금 넓게 둔다.
+- CTA를 Hero 콘텐츠에서 분리된 배너나 장식처럼 보이게 하지 않는다.
+
+### 9. Statistics Rules
+
+- Statistics는 성과를 과시하는 영역이 아니라 Headline을 보조하는 근거다.
+- Statistics가 없는 Hero에 임의로 수치를 추가하지 않는다.
+- 사용하는 경우 Headline과 CTA보다 시각적 강조를 낮춘다.
+
+### 10. Background Rules
+
+- Background는 Headline의 가독성과 분위기를 지원한다.
+- 이미지의 디테일, 대비와 장식이 텍스트보다 먼저 보이지 않게 한다.
+
+### 11. Visual Balance
+
+사용자의 시선은 `Headline → Description → CTA → Supporting Information` 순서로 이동해야 한다. 중간에 오른쪽이나 위쪽으로 시선을 분산시키는 별도 중심을 만들지 않는다.
+
+### 12. White Space
+
+Premium Hero는 크기가 아니라 호흡으로 완성한다. Headline 위·아래, CTA 아래와 다음 Section 사이의 여백은 하나의 수직 리듬으로 관리한다.
+
+### 13. Benchmark Rule
+
+Bridgecode, LISTING과 MOMENS는 복제 대상이 아니다. Hero의 절제감, Typography 비율, 콘텐츠 폭, White Space와 Header에서 Hero로 이어지는 흐름만 참고한다.
+
+### 14. Do
+
+- Hero를 하나의 콘텐츠 블록으로 보이게 한다.
+- CTA를 Hero 메시지 안에서 자연스럽게 연결한다.
+- Headline이 가장 먼저 읽히게 한다.
+- Hero만으로도 EQUIV를 신뢰할 근거가 느껴지게 한다.
+
+### 15. Don't
+
+- Hero를 광고처럼 만들지 않는다.
+- 장식과 요소 수를 늘리지 않는다.
+- Hero 콘텐츠를 불필요하게 아래로 내리지 않는다.
+- Hero 안에 여러 개의 시각적 중심을 만들지 않는다.
+
+### 16. Final QA
+
+- Hero를 3초 안에 이해할 수 있는가?
+- Headline이 가장 먼저 보이는가?
+- CTA가 자연스럽게 이어지는가?
+- Hero가 절제된 Premium Experience로 보이는가?
+- Hero만 보아도 상담을 검토할 신뢰가 생기는가?

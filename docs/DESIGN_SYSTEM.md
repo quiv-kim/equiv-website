@@ -232,10 +232,12 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - Navigation 그룹은 기존 위치보다 Logo 방향으로 `96px` 추가 이동하며, Logo는 Container 시작점에서 `12px` 왼쪽으로 광학 보정한다.
 - Tablet과 Mobile Header의 크기·간격·반응형 구조는 변경하지 않는다.
 
-### HOME Mobile Hero
+### HOME Hero
 
-- 적용 범위는 `760px 이하`의 HOME Hero로 한정하며 Desktop과 Tablet Hero에는 적용하지 않는다.
-- Mobile Hero는 `60svh`를 기준으로 하여 전체 Hero와 다음 Section 시작이 첫 화면에 함께 보이도록 한다. `vh`는 Fallback으로 함께 제공한다.
+- HOME Hero는 Design Bible Chapter 3의 `Brand → Headline → Description → CTA → Supporting Information` 우선순위를 따른다.
+- Desktop Hero는 `78svh`, Mobile Hero는 `70svh`를 기준으로 하여 다음 Section 시작이 첫 화면에 자연스럽게 이어지게 한다. `vh`는 Fallback으로 함께 제공한다.
+- HOME Hero에서 `100vh`는 사용하지 않는다.
+- 별도 Description이 없는 경우 의미 없는 보조 문장을 추가하지 않고 Brand, Headline과 CTA의 명확성을 우선한다.
 - Hero 제목은 `--mobile-display(26px)`과 `1.24` 행간을 사용하며 기존보다 굵게 만들지 않는다.
 - Hero Brand Label은 `--mobile-small(13px)`과 기존 Weight·Letter Spacing을 유지한다.
 - Hero CTA는 기존 폭과 Radius를 유지하고 높이 `48px`, 글자 `16px`, 버튼 간격 `8px`을 사용한다.

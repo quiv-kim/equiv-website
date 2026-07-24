@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 3 Hero Design System
+
+- Hero의 역할, 정보 우선순위, Height, Headline·Description·CTA·Statistics·Background와 White Space 규칙을 공식화
+- HOME Hero 높이를 Desktop `100vh → 78svh`, Mobile `60svh → 70svh`로 조정하고 `vh` Fallback 추가
+- 기존 Brand, Headline, CTA와 배경 구성은 유지하고 새로운 카피·통계·장식 요소는 추가하지 않음
+- Header, Section, Card, Modal과 Footer는 변경하지 않음
+
 ## EQUIV Design Bible v1.0 - Visual Philosophy & Header System
 
 - `EQUIV_DESIGN_BIBLE.md`를 생성하고 Visual Philosophy와 Header Design System을 공식화
