@@ -471,7 +471,7 @@
       : "예비 기업가치는 현재 입력정보를 바탕으로 산출됩니다. 실제 거래가치는 산업환경, 거래구조, 인수자의 전략, 실사 결과 등에 따라 달라질 수 있습니다.";
     const consultationLead = isOtherIndustry
       ? "EQUIV와 함께 업종별 특성을 반영한 상세 기업가치와 거래 전략을 검토해 보십시오."
-      : "보다 구체적인 기업가치와 거래 전략이 필요하시다면 EQUIV 상담에서 검토할 수 있습니다.";
+      : "기업의 현재 가치를 다양한 관점에서 객관적으로 검토합니다.";
 
     stage.innerHTML = `
       <div class="valuation-result">
@@ -544,7 +544,7 @@
           <p>${escapeHtml(consultationLead)}</p>
           <div class="valuation-result-actions">
             <button class="btn btn-secondary" type="button" data-valuation-reset>초기화 및 다시 계산하기</button>
-            <a class="btn btn-primary" href="index.html#contact" data-consultation-open data-consultation-type="기업가치 검토">EQUIV와 거래전략 상담하기</a>
+            <a class="btn btn-primary" href="index.html#contact" data-consultation-open data-consultation-type="기업가치 검토">상담 신청</a>
           </div>
         </div>
       </div>`;

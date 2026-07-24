@@ -3011,6 +3011,13 @@ button {
   text-align: center;
 }
 
+.consultation-modal__type-copy {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-muted);
+  font-size: var(--type-small);
+  line-height: 1.6;
+}
+
 .consultation-modal__types input:checked + span {
   color: var(--color-primary);
   background: rgba(169, 130, 53, 0.08);

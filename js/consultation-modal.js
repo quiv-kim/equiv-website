@@ -1,4 +1,33 @@
 (() => {
+  const serviceCopies = [
+    {
+      value: "기업 매각",
+      copy: "기업의 특성과 거래 목적에 맞는 매각 전략을 설계합니다.",
+    },
+    {
+      value: "기업 인수",
+      copy: "적합한 인수 대상의 발굴부터 거래 검토까지 함께합니다.",
+    },
+    {
+      value: "기업가치 검토",
+      copy: "기업의 현재 가치를 다양한 관점에서 객관적으로 검토합니다.",
+    },
+    {
+      value: "투자유치",
+      copy: "기업의 성장 단계에 맞는 투자 전략을 설계합니다.",
+    },
+    {
+      value: "성장 전략",
+      copy: "기업의 현재와 미래를 분석하여 실행 가능한 성장 전략을 제안합니다.",
+    },
+  ];
+  const serviceGuideMarkup = serviceCopies
+    .map(({ value }) => `<li>${value}</li>`)
+    .join("");
+  const serviceOptionMarkup = serviceCopies
+    .map(({ value }, index) => `<label><input type="radio" name="consultation_type" value="${value}"${index === 0 ? " required" : ""}><span>${value}</span></label>`)
+    .join("");
+
   const modalMarkup = `
     <div class="consultation-modal" data-consultation-modal data-state="consultation" aria-hidden="true">
       <div class="consultation-modal__overlay" data-consultation-close></div>
@@ -12,7 +41,7 @@
           </div>
           <p class="section-kicker">CONSULTATION</p>
           <h2 id="consultation-modal-title">M&amp;A 상담 신청</h2>
-          <p id="consultation-modal-description"><strong>기업 매각·인수 및 투자유치에 관한<br>내용을 남겨주시면</strong><span>담당자가 검토 후 연락드리겠습니다.</span></p>
+          <p id="consultation-modal-description"><strong>검토 중인 서비스와 기업 현황을<br>남겨주시면</strong><span>담당자가 내용을 확인한 후 연락드리겠습니다.</span></p>
         </header>
 
         <header class="consultation-modal__header consultation-modal__header--success" data-success-header hidden>
@@ -32,10 +61,7 @@
               <h3>M&amp;A 상담 안내</h3>
               <h4>상담 대상</h4>
               <ul>
-                <li>기업 매각</li>
-                <li>기업 인수</li>
-                <li>투자유치</li>
-                <li>기업가치 검토</li>
+                ${serviceGuideMarkup}
               </ul>
             </div>
             <div class="consultation-modal__guide-block">
@@ -77,12 +103,10 @@
             <fieldset class="consultation-modal__types">
               <legend>상담 유형 <span aria-hidden="true">*</span></legend>
               <div>
-                <label><input type="radio" name="consultation_type" value="기업 매각" required><span>기업 매각</span></label>
-                <label><input type="radio" name="consultation_type" value="기업 인수"><span>기업 인수</span></label>
-                <label><input type="radio" name="consultation_type" value="투자유치"><span>투자유치</span></label>
-                <label><input type="radio" name="consultation_type" value="기업가치 검토"><span>기업가치 검토</span></label>
+                ${serviceOptionMarkup}
                 <label><input type="radio" name="consultation_type" value="기타"><span>기타</span></label>
               </div>
+              <p class="consultation-modal__type-copy" data-consultation-type-copy hidden></p>
             </fieldset>
 
             <div class="consultation-modal__field">
@@ -141,11 +165,12 @@
   const successHeader = modal?.querySelector("[data-success-header]");
   const privacyToggle = modal?.querySelector("[data-consultation-privacy-toggle]");
   const privacyDetails = modal?.querySelector("[data-consultation-privacy-details]");
+  const consultationTypeCopy = modal?.querySelector("[data-consultation-type-copy]");
   const developmentNotices = modal?.querySelectorAll("[data-development-notice]") || [];
   let lastFocused = null;
   let stateTransitionTimer = null;
 
-  if (!modal || !dialog || !content || !form || !success || !consultationHeader || !successHeader || !privacyToggle || !privacyDetails) return;
+  if (!modal || !dialog || !content || !form || !success || !consultationHeader || !successHeader || !privacyToggle || !privacyDetails || !consultationTypeCopy) return;
 
   const isDevelopmentEnvironment =
     window.location.protocol === "file:" ||
@@ -184,12 +209,22 @@
     privacyDetails.hidden = true;
     privacyToggle.setAttribute("aria-expanded", "false");
     privacyToggle.textContent = "자세히 보기";
+    consultationTypeCopy.hidden = true;
+    consultationTypeCopy.textContent = "";
+  };
+
+  const updateConsultationTypeCopy = (type) => {
+    const service = serviceCopies.find(({ value }) => value === type);
+    consultationTypeCopy.textContent = service?.copy || "";
+    consultationTypeCopy.hidden = !service;
   };
 
   const selectConsultationType = (type) => {
     if (!type) return;
     const option = form.querySelector(`input[name="consultation_type"][value="${CSS.escape(type)}"]`);
-    if (option) option.checked = true;
+    if (!option) return;
+    option.checked = true;
+    updateConsultationTypeCopy(type);
   };
 
   const openModal = (trigger) => {
@@ -235,6 +270,11 @@
     privacyToggle.setAttribute("aria-expanded", String(!isExpanded));
     privacyToggle.textContent = isExpanded ? "자세히 보기" : "접기";
     privacyDetails.hidden = isExpanded;
+  });
+
+  form.addEventListener("change", (event) => {
+    if (event.target.name !== "consultation_type") return;
+    updateConsultationTypeCopy(event.target.value);
   });
 
   const transitionToSuccess = () => {

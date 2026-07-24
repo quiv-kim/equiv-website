@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## CONTENT QA-02 Bug Fix - Modal & Footer Copy Sync
+
+- 5개 서비스 상세페이지의 최신 Hero 문구를 상담 모달의 단일 `serviceCopies` 데이터로 통합
+- 서비스 CTA에서 상담 모달을 열면 해당 상담 유형이 선택되고 최신 서비스 설명이 실제 출력되도록 연결
+- 상담 유형에 `성장 전략`을 추가하고 성장 전략 상세페이지 CTA의 Trigger 데이터를 연결
+- Business Valuation 사전진단 Modal의 안내와 결과 상담 문구를 기업가치 검토 최신 카피로 통일
+- 기업가치 결과 CTA를 공통 최신 버튼 문구 `상담 신청`으로 정리
+- 13개 공개 페이지 Footer Site Map을 한글 UI 용어로 통일
+- HOME Principle을 제외한 사용자 화면의 `좋은` 계열 반복 문구가 남지 않았음을 재검증
+
 ## Header Micro Polish
 
 - Header 높이를 Desktop `76px → 72px`, Scrolled `68px → 64px`, Mobile `58px → 54px`로 축소

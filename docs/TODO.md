@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] CONTENT QA-02 Bug Fix 서비스 상세·상담 Modal·기업가치 사전진단 Modal·Footer 카피 동기화
 - [x] CONTENT QA-02 5개 Service Detail의 Hero·Overview·How We Work·CTA를 실제 제공 업무 중심으로 정리
 - [x] Header Micro Polish 심볼·Lockup Gap·Wordmark 자간·Desktop/Mobile 높이와 Optical Alignment 조정
 - [x] CONTENT QA-01 사이트·Modal·CTA의 추상적 반복 문구를 역할별 실무 카피로 정리
