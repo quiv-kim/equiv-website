@@ -70,10 +70,12 @@ Desktop (`761px 이상`):
 - `--space-md: 16px`
 - `--space-lg: 24px`
 - `--space-xl: 32px`
-- `--space-2xl: 48px`
-- `--section-space-lg: 96px`
-- `--section-space-md: 72px`
-- `--section-space-sm: 56px`
+- `--space-2xl: 64px`
+- `--section-space-lg: 120px`
+- `--section-space-md: 120px`
+- `--section-space-sm: 120px`
+- `--section-space-first: 140px`
+- `--section-space-footer: 100px`
 - `--space-section`은 `--section-space-lg`를 참조하는 호환 Token이다.
 
 Mobile (`760px 이하`):
@@ -81,13 +83,13 @@ Mobile (`760px 이하`):
 - `--space-2xs: 4px`
 - `--space-xs: 8px`
 - `--space-sm: 10px`
-- `--space-md: 14px`
+- `--space-md: 16px`
 - `--space-lg: 20px`
-- `--space-xl: 28px`
-- `--space-2xl: 40px`
+- `--space-xl: 32px`
+- `--space-2xl: 64px`
 - `--section-space-lg: 64px`
-- `--section-space-md: 52px`
-- `--section-space-sm: 40px`
+- `--section-space-md: 64px`
+- `--section-space-sm: 64px`
 - `--space-section`은 Mobile `--section-space-lg`를 참조한다.
 
 1~3px의 접근성 및 광학 보정은 `--space-2xs`를 기준으로 한 `calc()`만 허용한다. `0`, `auto`, 백분율과 Viewport 단위는 구조상 필요한 경우 유지할 수 있다.
@@ -98,9 +100,9 @@ Component Rule:
 - Article / Form / Standard Section: `--component-section-padding-md`
 - CTA / Short Closing Section: `--component-section-padding-sm`
 - Hero Padding: `--component-hero-padding`
-- Regular Card Padding: `--component-card-padding` (`24px / Mobile 20px`)
-- Compact Card Padding: `--component-card-padding-compact` (`22px / Mobile 20px`)
-- Mobile Card Padding Source: `--component-card-padding-mobile` (`20px`)
+- Regular Card Padding: `--component-card-padding` (`32px`)
+- Compact Card Padding: `--component-card-padding-compact` (`32px`)
+- Mobile Card Padding Source: `--component-card-padding-mobile` (`32px`)
 - Standard Grid Gap: `--grid-card-gap`
 - Heading Group Margin: `--grid-section-gap`
 - Button Padding: `--component-button-padding-y / --component-button-padding-x`
@@ -111,7 +113,7 @@ Component Rule:
 ### Container Token System
 
 - `--container-narrow: 780px`
-- `--container-default: 1180px`
+- `--container-default: 1260px`
 - `--container-wide: 1280px`
 - `--container-full: 100%`
 - 기존 `--container-width`는 `--container-default`를 참조하는 호환 Alias이다.
@@ -127,8 +129,8 @@ Component Rule:
 ### Grid Token System
 
 - Base Grid: `--grid-columns: 12`
-- Column Gap: `--grid-column-gap: --space-md`
-- Card Gap: `--grid-card-gap: --space-md`
+- Column Gap: `--grid-column-gap: --space-xl`
+- Card Gap: Desktop `32px` / Tablet `24px` / Mobile `20px`
 - Section Content Gap: `--grid-section-gap: --space-2xl`
 - Grid의 열 수와 반응형 적층 방식은 콘텐츠 역할에 따라 유지하되, 열 사이 간격은 공통 Grid Token만 사용한다.
 
@@ -189,15 +191,15 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 
 ### HOME Service & Insights Card
 
-- HOME Featured Expertise와 Insights는 섹션 역할과 콘텐츠 수가 다르므로 독립된 Grid Width를 사용한다. 상세페이지 Card Grid에는 HOME 전용 폭을 적용하지 않는다.
-- Featured Expertise는 `--content-width-home-services: 1076px` 안에서 카드 폭을 이전보다 약 `12px` 확대하고, 기존 3열과 마지막 행 중앙 정렬을 유지한다.
-- Insights는 `--content-width-home-insights: 1260px`까지 사용하며 `1280px 이상`에서 4열로 배치한다. `1279px 이하`에서는 `320px` 2열, `760px 이하`에서는 Container 전체 폭 1열로 전환한다.
+- HOME Featured Expertise와 Insights는 공통 `1260px` Container와 동일한 왼쪽 기준선을 사용한다.
+- 모든 Card Grid는 Desktop 3열 / Tablet 2열 / Mobile 1열을 사용한다.
+- Featured Expertise의 마지막 2개 Card와 Insights의 마지막 1개 Card는 공통 Grid 안에서 중앙 정렬하여 수평 균형을 유지한다.
 - HOME Service Card는 Desktop 최소 높이 `182px`, Insights Card는 `260px`을 사용한다. Mobile에서는 콘텐츠 기반 높이로 전환한다.
-- HOME Card Padding은 Desktop `22px 20px`, Mobile `24px 20px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
+- HOME Card Padding은 Desktop·Mobile 모두 공통 Card Level `32px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
 - HOME Card Action은 `--type-card-link`을 사용해 Desktop·Mobile `16px`, `600` 굵기로 표시한다.
 - Card Action은 최소 높이 `32px`, 텍스트와 Line Arrow 간격 `6px`, Description 이후 간격 `20px / Mobile 18px`을 유지한다.
 - HOME Card에서 Action을 하단으로 강제하는 `margin-top:auto`를 사용하지 않는다. 동일 행의 자연스러운 높이 정렬은 Grid가 콘텐츠 기준으로 처리한다.
-- Principle, Featured Expertise와 Insights의 Desktop Section Padding은 공통 Large Section보다 `12px` 넓게 사용하여 주요 HOME 섹션 사이의 호흡을 확보한다.
+- Principle, Featured Expertise와 Insights는 공통 Desktop Section Padding `120px`을 사용한다.
 
 ### Mobile Optimization
 
@@ -207,7 +209,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - Mobile Container Gutter: `20px`
 - Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
-- Mobile Section Padding: `64px / 52px / 40px`의 의미 기반 Section Token
+- Mobile Section Padding: 공통 `64px`
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
 
 ### Desktop Header Balance
@@ -232,9 +234,9 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 
 ### QA-03 Mobile Density
 
-- Mobile Section은 역할별로 Hero 다음 Principle `48px`, Service·Insights 일반 콘텐츠 `56px` 상하 Padding을 사용한다.
-- HOME Service Grid Gap은 `16px`을 유지한다. Insight Grid는 콘텐츠 밀도 보정을 위해 `10px`을 사용한다.
-- HOME Service Card Padding은 Mobile `24px 20px`을 유지한다. Insight Card는 상단 `16px`, 하단 `24px`, 좌우 `20px`을 사용한다.
+- Mobile Section은 공통 `64px` 상하 Padding을 사용한다.
+- HOME Service와 Insight Grid Gap은 공통 Mobile Grid Gap `20px`을 사용한다.
+- HOME Service와 Insight Card Padding은 공통 Card Level `32px`을 사용한다.
 - HOME Card는 Mobile에서 `min-height:0 / height:auto / justify-content:flex-start`를 적용하고 `margin-top:auto`를 사용하지 않는다.
 - Service와 Insight Card Title은 H3, Description은 Body, Category·Number·Link는 Small 또는 Caption 역할을 사용한다.
 - HOME Service·Insights·Principle Section Title은 H2 역할을 공통으로 사용한다.

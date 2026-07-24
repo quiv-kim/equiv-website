@@ -80,14 +80,16 @@
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
-  --space-2xl: 48px;
-  --section-space-lg: 96px;
-  --section-space-md: 72px;
-  --section-space-sm: 56px;
+  --space-2xl: 64px;
+  --section-space-lg: 120px;
+  --section-space-md: 120px;
+  --section-space-sm: 120px;
+  --section-space-first: 140px;
+  --section-space-footer: 100px;
   --space-section: var(--section-space-lg);
   /* 5. Layout & Container Tokens */
   --container-narrow: 780px;
-  --container-default: 1180px;
+  --container-default: 1260px;
   --container-wide: 1280px;
   --container-full: 100%;
   --container-width: var(--container-default);
@@ -95,7 +97,7 @@
   --content-width-md: 720px;
   --content-width-lg: 820px;
   --content-width-xl: 860px;
-  --content-width-home-services: 1076px;
+  --content-width-home-services: 1260px;
   --content-width-home-insights: 1260px;
   /* 6. Component Shape & Elevation Tokens */
   --radius-sm: 4px;
@@ -109,19 +111,22 @@
   --shadow-float: 0 14px 32px rgba(7, 26, 47, 0.12);
   --shadow-focus: 0 0 0 3px rgba(169, 130, 53, 0.1);
   --grid-columns: 12;
-  --grid-column-gap: var(--space-md);
-  --grid-card-gap: var(--space-md);
+  --grid-column-gap: var(--space-xl);
+  --grid-card-gap-desktop: 32px;
+  --grid-card-gap-tablet: 24px;
+  --grid-card-gap-mobile: 20px;
+  --grid-card-gap: var(--grid-card-gap-desktop);
   --grid-section-gap: var(--space-2xl);
   --component-section-padding: var(--section-space-lg);
   --component-section-padding-md: var(--section-space-md);
   --component-section-padding-sm: var(--section-space-sm);
   --component-hero-padding: var(--section-space-lg);
-  --component-card-padding: 24px;
-  --component-card-padding-compact: 22px;
-  --component-card-padding-mobile: 20px;
-  --component-home-card-padding-block: 22px;
-  --component-home-card-padding-inline: 20px;
-  --component-home-card-action-gap: 20px;
+  --component-card-padding: 32px;
+  --component-card-padding-compact: 32px;
+  --component-card-padding-mobile: 32px;
+  --component-home-card-padding-block: 32px;
+  --component-home-card-padding-inline: 32px;
+  --component-home-card-action-gap: 16px;
   --component-home-card-width: 320px;
   --component-home-service-card-min-height: 182px;
   --component-home-insight-card-min-height: 260px;
@@ -755,7 +760,7 @@ button {
 
 .principle-head > p:last-child {
   max-width: 560px;
-  margin: var(--space-2xl) auto 0;
+  margin: var(--space-xl) auto 0;
   color: var(--color-muted);
   font-size: var(--type-body);
   line-height: 2.05;
@@ -957,7 +962,7 @@ button {
 }
 
 .insights-final-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .insight-card {
@@ -1328,7 +1333,7 @@ button {
 
 .expertise-card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
 }
 
@@ -3373,6 +3378,13 @@ button {
   padding-block: var(--component-section-padding);
 }
 
+.hero + .section,
+.sub-hero + .section,
+.sub-hero + .insight-article,
+.valuation-public-hero + .section {
+  padding-top: var(--section-space-first);
+}
+
 .about-intro-section,
 .about-process-section,
 .insight-article,
@@ -3382,7 +3394,8 @@ button {
 
 .sub-cta,
 .final-cta {
-  padding-block: var(--component-section-padding-sm);
+  padding-top: var(--component-section-padding-sm);
+  padding-bottom: var(--section-space-footer);
 }
 
 .site-footer {
@@ -3411,6 +3424,11 @@ button {
   margin-bottom: var(--grid-section-gap);
 }
 
+.principle-head h2 + p,
+.section-head h2 + p {
+  margin-top: var(--space-xl);
+}
+
 .principle-card h3,
 .service-card h3,
 .insight-card h3,
@@ -3434,18 +3452,18 @@ button {
   padding-inline: var(--component-input-padding-x);
 }
 
-/* HOME service and insights layout balance */
+/* Chapter 5: one container, one section rhythm, one card rhythm */
 .principle-section,
 .expertise-section,
 .insights-preview {
-  padding-block: calc(var(--component-section-padding) + var(--space-sm));
+  padding-block: var(--component-section-padding);
 }
 
 .expertise-section .service-grid {
   width: 100%;
   max-width: var(--content-width-home-services);
   justify-content: center;
-  gap: var(--space-lg);
+  gap: var(--grid-card-gap);
   margin-inline: auto;
 }
 
@@ -3457,7 +3475,7 @@ button {
   width: 100%;
   max-width: var(--content-width-home-insights);
   justify-content: stretch;
-  gap: var(--space-lg);
+  gap: var(--grid-card-gap);
   margin-inline: auto;
 }
 
@@ -3773,13 +3791,21 @@ button {
 
 @media (min-width: 1025px) and (max-width: 1279px) {
 .insights-preview .insight-grid {
-    grid-template-columns: repeat(2, minmax(0, var(--component-home-card-width)));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .insights-preview .insight-card:nth-child(4) {
+    grid-column: 2;
   }
 }
 
 @media (min-width: 1280px) {
 .insights-preview .insight-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .insights-preview .insight-card:nth-child(4) {
+    grid-column: 2;
   }
 }
 
@@ -3797,6 +3823,7 @@ button {
 
 .service-grid,
   .insight-grid,
+  .principle-grid,
   .expertise-card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3830,9 +3857,18 @@ button {
 }
 
 @media (min-width: 761px) and (max-width: 1024px) {
+:root {
+    --grid-card-gap: var(--grid-card-gap-tablet);
+  }
+
+  .container,
+  .insights-preview .container {
+    width: 93%;
+  }
+
 .expertise-section .service-grid,
   .insights-preview .insight-grid {
-    grid-template-columns: repeat(2, minmax(0, var(--component-home-card-width)));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .expertise-section .service-card {
@@ -4122,19 +4158,22 @@ button {
   --space-2xs: 4px;
     --space-xs: 8px;
     --space-sm: 10px;
-    --space-md: 14px;
+    --space-md: 16px;
     --space-lg: 20px;
-    --space-xl: 28px;
-    --space-2xl: 40px;
+    --space-xl: 32px;
+    --space-2xl: 64px;
     --section-space-lg: 64px;
-    --section-space-md: 52px;
-    --section-space-sm: 40px;
+    --section-space-md: 64px;
+    --section-space-sm: 64px;
+    --section-space-first: 64px;
+    --section-space-footer: 64px;
     --space-section: var(--section-space-lg);
+    --grid-card-gap: var(--grid-card-gap-mobile);
     --component-card-padding: var(--component-card-padding-mobile);
     --component-card-padding-compact: var(--component-card-padding-mobile);
-    --component-home-card-padding-block: 20px;
-    --component-home-card-padding-inline: 18px;
-    --component-home-card-action-gap: 18px;
+    --component-home-card-padding-block: 32px;
+    --component-home-card-padding-inline: 32px;
+    --component-home-card-action-gap: 16px;
   }
 
   .container {
@@ -5165,11 +5204,11 @@ button {
   }
 
 :root {
-    --mobile-card-gap: 16px;
-    --mobile-card-padding-block: 24px;
-    --mobile-card-padding-inline: 20px;
-    --mobile-section-intro: 48px;
-    --mobile-section-content: 56px;
+    --mobile-card-gap: var(--grid-card-gap-mobile);
+    --mobile-card-padding-block: 32px;
+    --mobile-card-padding-inline: 32px;
+    --mobile-section-intro: 64px;
+    --mobile-section-content: 64px;
   }
 
   .container,
@@ -5274,10 +5313,6 @@ button {
     gap: var(--mobile-card-gap);
   }
 
-  .insights-preview .insight-grid {
-    gap: var(--space-sm);
-  }
-
   .expertise-section .service-card,
   .insights-preview .insight-card,
   .expertise-section .service-card:last-child:nth-child(odd) {
@@ -5320,7 +5355,7 @@ button {
   }
 
   .insights-preview .insight-card {
-    padding-block: calc(var(--mobile-card-padding-block) - var(--space-xs)) var(--mobile-card-padding-block);
+    padding-block: var(--mobile-card-padding-block);
   }
 
   .insights-preview .insight-card p {

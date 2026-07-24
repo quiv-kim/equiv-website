@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 5 Grid & Spacing System
+
+- 공통 Desktop Container를 `1260px`로 통일하고 Tablet은 `93%`, Mobile은 좌우 `20px` Gutter를 적용
+- Desktop Section Rhythm을 `120px`, Hero 이후 첫 Section을 `140px`, Footer 연결 여백을 `100px`로 정리
+- Card Grid를 Desktop 3열 / Tablet 2열 / Mobile 1열로 통일
+- Card Gap을 Desktop `32px` / Tablet `24px` / Mobile `20px`, Card Padding을 공통 `32px`로 적용
+- HOME Service·Insights의 개별 폭과 4열 예외를 제거하고 공통 기준선과 수평 균형 배치로 통합
+
 ## EQUIV Design Bible v1.0 - Chapter 4 Typography System
 
 - `Display / H1 / H2 / H3 / Body / Caption` 6단계 Primary Typography Hierarchy 공식화

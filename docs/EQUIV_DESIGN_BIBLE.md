@@ -328,3 +328,82 @@ Bridgecode의 절제감, LISTING의 Typography 대비와 MOMENS의 가독성을 
 - 본문이 편안하게 읽히는가?
 - 모든 페이지의 Typography Rhythm이 일관적인가?
 - 디자인된 글보다 실제로 읽히는 글이 되었는가?
+
+## Chapter 5. Grid & Spacing System
+
+Version 1.0
+Status: Approved Draft
+
+### 1. Philosophy
+
+EQUIV는 공간을 채우는 디자인보다 공간을 남기는 디자인을 선택한다. Premium Experience는 큰 화면이나 많은 장식이 아니라 일관된 여백과 질서에서 시작한다.
+
+### 2. Grid Principle
+
+모든 페이지는 하나의 Grid를 사용한다. Page마다 Container Width, Padding, Column과 Spacing을 별도로 만들지 않는다.
+
+### 3. Container
+
+- Desktop: `1260px`
+- Ultra Wide: `1400px` 이상으로 확장하지 않는다.
+- Tablet: Viewport의 `93%`
+- Mobile: Full Width와 좌우 `20px` Gutter
+
+Headline, Card, Button과 Supporting Content는 같은 Container의 왼쪽 기준선을 공유한다.
+
+### 4. Section Rhythm
+
+- Desktop Standard Section: 상하 `120px`
+- Hero 이후 첫 Section: 상단 `140px`
+- Footer 연결: `100px`
+- Mobile Section: 상하 `64px`
+
+Section마다 별도의 Padding을 만들지 않고 공통 Section Token을 사용한다.
+
+### 5. Vertical Rhythm
+
+- Section Title → Description: `32px`
+- Description → Content: `48px`
+- Section Level: `120px`
+- Group Level: `64px`
+- Card Level: `32px`
+- Text Level: `16px`
+
+새로운 간격이 필요하면 기존 Level과 Token을 먼저 사용한다.
+
+### 6. Card Grid
+
+- Desktop: 3 Columns
+- Tablet: 2 Columns
+- Mobile: 1 Column
+
+콘텐츠 수가 열 수와 맞지 않는 경우에도 4열 예외를 만들지 않는다. 남은 Card는 공통 Grid 안에서 수평 균형이 유지되도록 중앙 정렬한다.
+
+### 7. Card Gap & Padding
+
+- Desktop Gap: `32px`
+- Tablet Gap: `24px`
+- Mobile Gap: `20px`
+- Card Padding: `32px`
+
+Service, Insight, Feature와 Detail Card는 같은 간격과 Padding Rule을 사용한다.
+
+### 8. Visual Alignment
+
+모든 Section의 왼쪽 기준선은 일치해야 한다. 한쪽에만 시각적 무게가 몰리지 않도록 Grid Width, Column과 빈 공간을 함께 조정한다.
+
+### 9. Empty Space
+
+빈 공간은 남는 공간이 아니라 디자인 요소다. 새로운 Icon이나 Card를 추가하기 전에 기존 정보의 여백과 위계를 먼저 조정한다.
+
+### 10. Benchmark Rule
+
+Bridgecode의 단순한 Grid, LISTING의 일정한 여백과 MOMENS의 안정적인 Section Rhythm을 참고하되 레이아웃을 복제하지 않는다. EQUIV는 이보다 조금 더 절제된 Grid를 목표로 한다.
+
+### 11. Final QA
+
+- 모든 Section이 같은 Rhythm을 사용하는가?
+- 모든 Content의 왼쪽 기준선이 일치하는가?
+- Card 간격이 Desktop·Tablet·Mobile에서 일관적인가?
+- White Space가 정보의 위계를 강화하는가?
+- Section 하나를 제거해도 전체 Grid가 유지되는가?
