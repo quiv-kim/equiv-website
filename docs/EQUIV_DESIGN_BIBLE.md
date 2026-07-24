@@ -239,3 +239,92 @@ Bridgecode, LISTING과 MOMENS는 복제 대상이 아니다. Hero의 절제감, 
 - CTA가 자연스럽게 이어지는가?
 - Hero가 절제된 Premium Experience로 보이는가?
 - Hero만 보아도 상담을 검토할 신뢰가 생기는가?
+
+## Chapter 4. Typography System
+
+Version 1.0
+Status: Approved Draft
+
+### 1. Typography Philosophy
+
+Typography는 글자를 크게 만드는 기술이 아니라 정보의 중요도를 시각적으로 전달하는 시스템이다. 사용자는 문장을 읽기 전에 크기와 대비를 먼저 인식한다.
+
+### 2. Typography Hierarchy
+
+EQUIV는 아래 6개의 Primary Role만 사용한다.
+
+1. Display
+2. H1
+3. H2
+4. H3
+5. Body
+6. Caption
+
+Small Text는 Label과 보조 정보를 위한 Utility Role이다. H4, Body Large, CTA와 Form 같은 기존 Token은 새로운 크기가 아니라 위 역할을 참조하는 호환 Alias로만 유지한다.
+
+### 3. Desktop Scale
+
+- Display: `64px / 700 / 1.15`, HOME Hero 전용
+- H1: `52px / 700`, Page Title
+- H2: `36px / 700`, Section Title
+- H3: `26px / 600`, Card·Service·Subheading
+- Body: `18px / 400 / 1.7`
+- Small: `16px`, Label·Supporting Text
+- Caption: `14px`, Caption·Legal·Help Text
+
+### 4. Mobile Scale
+
+Desktop Scale을 단순 축소하지 않는다.
+
+- Display: `46px`
+- H1: `36px`
+- H2: `30px`
+- H3: `24px`
+- Body: `17px`
+- Small: `15px`
+- Caption: `13px`
+
+### 5. Typography Width
+
+- Body 한 줄은 약 60~75자 범위로 제한한다.
+- Headline은 40자 이하를 권장한다.
+- 긴 문장은 Font Size를 줄이기보다 Content Width와 문장 구조를 먼저 조정한다.
+
+### 6. Bold Rules
+
+Bold는 장식적 강조가 아니라 정보의 우선순위다. 한 문단 안에서 Bold 사용은 두 곳 이하로 제한한다.
+
+### 7. Color Rules
+
+- 본문은 순수 검정 `#000000`을 사용하지 않는다.
+- 기본 본문은 EQUIV Text Primary Token을 사용한다.
+- 보조 설명은 본문보다 한 단계 밝은 Text Secondary 또는 Muted Token을 사용한다.
+
+### 8. Button Typography
+
+- Desktop: `18px / 600`
+- Mobile: `17px / 600`
+- Hover에서 Font Size와 Weight를 바꾸지 않는다.
+- 모든 주요 Button은 동일한 Typography Role을 사용한다.
+
+### 9. Navigation Typography
+
+- Desktop Menu: `18px / 600`
+- Mobile Menu: `17px / 600`
+- Hover에서는 크기를 변경하지 않고 색상과 기존 상태 표시만 사용한다.
+
+### 10. Typography Rhythm
+
+`Heading → Description → Button → Next Section`의 흐름은 페이지 전체에서 같은 위계와 리듬을 유지한다. 크기만으로 정보의 우선순위를 이해할 수 있어야 한다.
+
+### 11. Benchmark Rule
+
+Bridgecode의 절제감, LISTING의 Typography 대비와 MOMENS의 가독성을 참고하되 레이아웃이나 Typography 표현을 복제하지 않는다. 목표는 과장되지 않은 한국형 Premium M&A Advisory Typography다.
+
+### 12. Final QA
+
+- 제목만 읽어도 페이지 구조가 이해되는가?
+- 크기만으로 정보 우선순위가 보이는가?
+- 본문이 편안하게 읽히는가?
+- 모든 페이지의 Typography Rhythm이 일관적인가?
+- 디자인된 글보다 실제로 읽히는 글이 되었는가?

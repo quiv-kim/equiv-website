@@ -27,36 +27,36 @@
   --font-ko: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-en: "Inter", "Pretendard", system-ui, sans-serif;
   /* 3. Typography System: primitive device scales */
-  --desktop-display: 48px;
-  --desktop-h1: 34px;
-  --desktop-h2: 27px;
-  --desktop-h3: 20px;
-  --desktop-body-lg: 16px;
-  --desktop-body: 15px;
-  --desktop-small: 13px;
-  --mobile-display: 26px;
-  --mobile-h1: 28px;
-  --mobile-h2: 24px;
-  --mobile-h3: 22px;
-  --mobile-body-lg: 20px;
-  --mobile-body: 15px;
-  --mobile-small: 13px;
+  --desktop-display: 64px;
+  --desktop-h1: 52px;
+  --desktop-h2: 36px;
+  --desktop-h3: 26px;
+  --desktop-body: 18px;
+  --desktop-small: 16px;
+  --desktop-caption: 14px;
+  --mobile-display: 46px;
+  --mobile-h1: 36px;
+  --mobile-h2: 30px;
+  --mobile-h3: 24px;
+  --mobile-body: 17px;
+  --mobile-small: 15px;
+  --mobile-caption: 13px;
 
   /* Semantic roles derive only from the primitive scale above. */
   --type-display: var(--desktop-display);
   --type-h1: var(--desktop-h1);
   --type-h2: var(--desktop-h2);
   --type-h3: var(--desktop-h3);
-  --type-h4: var(--desktop-body-lg);
-  --type-body-lg: var(--desktop-body-lg);
+  --type-h4: var(--desktop-body);
+  --type-body-lg: var(--desktop-body);
   --type-body: var(--desktop-body);
   --type-small: var(--desktop-small);
-  --type-caption: calc(var(--desktop-small) - 2px);
-  --type-cta-title: calc(var(--desktop-h1) - 2px);
-  --type-cta-body: var(--desktop-body-lg);
-  --type-card-link: var(--desktop-body-lg);
-  --type-button: var(--desktop-small);
-  --type-form: var(--desktop-body-lg);
+  --type-caption: var(--desktop-caption);
+  --type-cta-title: var(--desktop-h2);
+  --type-cta-body: var(--desktop-body);
+  --type-card-link: var(--desktop-small);
+  --type-button: var(--desktop-body);
+  --type-form: var(--desktop-body);
   --type-card-category: var(--desktop-small);
   --type-card-description: var(--desktop-body);
   --type-insight-card-title: var(--type-h3);
@@ -69,7 +69,7 @@
   --modal-label-size: var(--type-small);
   --modal-input-size: var(--type-form);
   --modal-help-size: var(--type-caption);
-  --modal-button-size: var(--type-small);
+  --modal-button-size: var(--type-button);
   --modal-option-title-size: var(--type-h4);
   --modal-option-description-size: var(--type-small);
   --modal-close-icon-size: var(--type-h3);
@@ -156,8 +156,9 @@ body {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-ko);
+  font-size: var(--type-body);
   background: var(--color-white);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 body.modal-open {
@@ -167,6 +168,10 @@ body.modal-open {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h3 {
+  font-weight: 600;
 }
 
 button {
@@ -676,7 +681,8 @@ button {
   justify-content: center;
   padding: var(--space-sm) var(--space-xl);
   border-radius: var(--radius-sm);
-  font-weight: 700;
+  font-size: var(--type-button);
+  font-weight: 600;
   transition: transform 0.2s var(--ease), background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -863,7 +869,7 @@ button {
 }
 
 .service-card-valuation h3 {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .service-card-valuation strong {
@@ -3717,14 +3723,14 @@ button {
   }
 
   .btn {
-    font-size: var(--type-small);
+    font-size: var(--type-button);
   }
 
   .final-cta .btn,
   .sub-cta .btn {
     min-height: 52px;
     padding-inline: var(--space-lg);
-    font-size: var(--type-body);
+    font-size: var(--type-button);
   }
 
   .footer-brand .equiv-logo-wordmark {
@@ -3940,28 +3946,28 @@ button {
 
 @media (max-width: 760px) {
   :root {
-    --type-h4: calc(var(--mobile-h3) - 4px);
-    --type-caption: var(--mobile-small);
-    --type-cta-title: calc(var(--mobile-h1) - 3px);
+    --type-h4: var(--mobile-body);
+    --type-caption: var(--mobile-caption);
+    --type-cta-title: var(--mobile-h2);
     --type-cta-body: var(--mobile-body);
-    --type-card-link: calc(var(--mobile-body) + 1px);
-    --type-button: calc(var(--mobile-body) + 1px);
-    --type-form: calc(var(--mobile-body) + 1px);
-    --type-card-category: calc(var(--mobile-small) + 1px);
-    --type-card-description: calc(var(--mobile-body) + 1px);
-    --type-insight-card-title: calc(var(--mobile-h3) - 2px);
-    --modal-title-size: calc(var(--mobile-h2) - 2px);
+    --type-card-link: var(--mobile-small);
+    --type-button: var(--mobile-body);
+    --type-form: var(--mobile-body);
+    --type-card-category: var(--mobile-small);
+    --type-card-description: var(--mobile-body);
+    --type-insight-card-title: var(--mobile-h3);
+    --modal-title-size: var(--mobile-h2);
     --modal-description-size: var(--mobile-body);
     --modal-supporting-size: var(--mobile-body);
-    --modal-question-size: calc(var(--mobile-h3) - 4px);
-    --modal-section-title-size: calc(var(--mobile-h3) - 6px);
-    --modal-label-size: calc(var(--mobile-small) + 1px);
-    --modal-input-size: calc(var(--mobile-body) + 1px);
-    --modal-help-size: var(--mobile-small);
-    --modal-button-size: calc(var(--mobile-body) + 1px);
-    --modal-option-title-size: calc(var(--mobile-body) + 1px);
+    --modal-question-size: var(--mobile-h3);
+    --modal-section-title-size: var(--mobile-body);
+    --modal-label-size: var(--mobile-small);
+    --modal-input-size: var(--mobile-body);
+    --modal-help-size: var(--mobile-caption);
+    --modal-button-size: var(--mobile-body);
+    --modal-option-title-size: var(--mobile-body);
     --modal-option-description-size: var(--mobile-small);
-    --modal-close-icon-size: calc(var(--mobile-h3) - 1px);
+    --modal-close-icon-size: var(--mobile-h3);
     --modal-padding-inline: var(--space-lg);
     --modal-padding-block: calc(var(--space-lg) + var(--space-2xs));
     --modal-field-gap: calc(var(--space-xs) * 2);
@@ -4109,7 +4115,7 @@ button {
     --type-h1: var(--mobile-h1);
     --type-h2: var(--mobile-h2);
     --type-h3: var(--mobile-h3);
-    --type-body-lg: var(--mobile-body-lg);
+    --type-body-lg: var(--mobile-body);
     --type-body: var(--mobile-body);
     --type-small: var(--mobile-small);
     /* 4. Spacing System */
@@ -4187,6 +4193,8 @@ button {
     right: 0;
     display: grid;
     gap: 0;
+    font-size: var(--type-button);
+    font-weight: 600;
     padding: var(--space-sm) var(--space-md) var(--space-lg);
     color: var(--color-primary);
     background: rgba(255, 255, 255, 0.98);
@@ -4997,14 +5005,14 @@ button {
   .consultation-submit,
   .readiness-option {
     min-height: 47px;
-    font-size: var(--type-small);
+    font-size: var(--type-button);
   }
 
   .final-cta .btn,
   .sub-cta .btn {
     min-height: 48px;
     padding-inline: var(--space-lg);
-    font-size: var(--type-body);
+    font-size: var(--type-button);
   }
 
   .site-nav > a,
@@ -5341,6 +5349,35 @@ button {
   .readiness-option {
     font-size: var(--type-button);
   }
+}
+
+/* Design Bible Chapter 4: shared Body rhythm */
+.principle-head > p:last-child,
+.expertise-note,
+.insight-card p,
+.insight-article-body p,
+.insight-article-body .insight-article-source,
+.readiness-check p,
+.expertise-card p,
+.faq-list p,
+.readiness-modal__intro,
+.readiness-result p,
+.valuation-confidence > p,
+.valuation-consultation p,
+.sub-cta-copy,
+.about-hero .about-hero-copy,
+.about-copy p,
+.equiv-mark-story p,
+.final-cta p:not(.section-kicker):not(.cta-response-note),
+.confidential-notice p,
+.consultation-modal__success > p:not(.section-kicker):not(.consultation-modal__static-notice),
+.service-card p,
+.home-readiness-section .readiness-check p,
+.principle-card p,
+.valuation-entry-card__description,
+.content-list p,
+.about-flow p {
+  line-height: 1.7;
 }
 
 @media (prefers-reduced-motion: reduce) {

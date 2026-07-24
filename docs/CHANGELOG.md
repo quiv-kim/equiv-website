@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 4 Typography System
+
+- `Display / H1 / H2 / H3 / Body / Caption` 6단계 Primary Typography Hierarchy 공식화
+- Desktop Scale을 `64 / 52 / 36 / 26 / 18 / 14px`, Mobile Scale을 `46 / 36 / 30 / 24 / 17 / 13px`로 적용
+- Small Text는 Desktop `16px`, Mobile `15px` Utility Role로 분리
+- 기존 H4·Body Large·CTA·Button·Form Token을 Primary Role의 호환 Alias로 전환
+- Button을 Desktop `18px / 600`, Mobile `17px / 600`, Navigation을 Desktop `18px / 600`으로 통일
+- 본문 기본 행간을 `1.7`로 조정하고 순수 검정이 아닌 기존 Text Primary Color 유지
+
 ## EQUIV Design Bible v1.0 - Chapter 3 Hero Design System
 
 - Hero의 역할, 정보 우선순위, Height, Headline·Description·CTA·Statistics·Background와 White Space 규칙을 공식화
