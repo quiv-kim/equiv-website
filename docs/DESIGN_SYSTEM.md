@@ -214,7 +214,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 ### Mobile Optimization
 
 - QA widths: `360 / 390 / 430 / 768px`
-- Mobile Header Height: `58px`
+- Mobile Header Height: `54px`
 - Mobile Container Gutter: `20px`
 - Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
@@ -256,9 +256,9 @@ White Glass Background on Scroll
 
 Height
 
-76px Default
+72px Default
 
-68px Scrolled Desktop
+64px Scrolled Desktop
 
 Navigation
 
@@ -331,8 +331,9 @@ Transition
 ## Official Logo Component
 
 - Primary Lockup: The EQUIV Mark / 1px Vertical Divider / EQUIV Wordmark
-- Header: Desktop은 Mark `30px`, Divider `26px`, Wordmark `23px`, Gap `7px`을 기본으로 사용한다. Tablet은 `28px / 24px / 22px / 7px`, Mobile은 `26px / 22px / 19px / 6px`로 비례 축소한다.
-- Header Wordmark는 Inter `font-weight: 600`과 기본 Kerning을 유지하고 `letter-spacing: 0.10em`을 사용한다. 글자별 공백·개별 Span·Margin으로 자간을 만들지 않는다.
+- Header: Desktop은 Mark `27px`, Divider `24px`, Gap `5px`을 기본으로 사용한다. Tablet은 `25px / 22px / 5px`, Mobile은 `24px / 20px / 2px`로 비례 축소한다.
+- Header Wordmark는 Inter `font-weight: 600`과 기본 Kerning을 유지하고 `letter-spacing: -0.4px`을 사용한다. 글자별 공백·개별 Span·Margin으로 자간을 만들지 않는다.
+- Header의 Mark·Divider·Gap·Wordmark Tracking은 `--component-header-logo-*` 전용 Token으로 관리한다.
 - Header Divider는 `1px`, `currentColor`, `opacity: 0.62`를 사용해 Mark와 Wordmark보다 낮은 시각적 위계를 유지한다.
 - Web Wordmark는 SVG Mask 대신 실제 Text를 사용해 브라우저별 가시성을 보장한다.
 - Footer: 동일 비율을 유지하며 축소하고 Dark Navy 배경에서는 White Wordmark와 Gold Mark를 사용한다.

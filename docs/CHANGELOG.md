@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Header Micro Polish
+
+- Header 높이를 Desktop `76px → 72px`, Scrolled `68px → 64px`, Mobile `58px → 54px`로 축소
+- The EQUIV Mark를 Desktop `30px → 27px`, Tablet `28px → 25px`, Mobile `26px → 24px`로 약 8~11% 축소
+- Logo Lockup Gap을 Desktop·Tablet `8px → 5px`, Mobile `4px → 2px`로 줄여 전체 폭을 간결하게 조정
+- EQUIV Wordmark의 `font-weight: 600`은 유지하고 `letter-spacing`만 `0.10em`에서 `-0.4px`로 조정
+- Logo와 Navigation의 세로 중앙 정렬, Header 동작, 브랜드 컬러와 Navigation 구조는 유지
+
 ## CONTENT QA-02 - Service Detail Copy Refinement
 
 - 기업 매각·기업 인수·기업가치 검토·투자유치·성장 전략의 Hero를 추상적 슬로건에서 실제 서비스 범위 중심 문장으로 변경

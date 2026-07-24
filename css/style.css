@@ -133,7 +133,13 @@
   --component-input-padding-x: var(--space-md);
   --component-modal-padding: var(--space-xl);
   --component-footer-padding: var(--space-2xl);
-  --header-height: 76px;
+  --component-header-logo-gap: 5px;
+  --component-header-logo-mark-size: 27px;
+  --component-header-logo-divider-height: 24px;
+  --component-header-logo-scrolled-mark-size: 25px;
+  --component-header-logo-scrolled-divider-height: 22px;
+  --component-header-wordmark-tracking: -0.4px;
+  --header-height: 72px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -260,17 +266,17 @@ button {
 
 /* Header primary logo: The EQUIV Mark | EQUIV */
 .site-header .equiv-logo {
-  gap: var(--space-xs);
+  gap: var(--component-header-logo-gap);
   max-width: 195px;
 }
 
 .site-header .equiv-logo-mark {
-  width: 30px;
-  height: 30px;
+  width: var(--component-header-logo-mark-size);
+  height: var(--component-header-logo-mark-size);
 }
 
 .site-header .equiv-logo-divider {
-  height: 26px;
+  height: var(--component-header-logo-divider-height);
   opacity: 0.62;
 }
 
@@ -279,7 +285,7 @@ button {
   font-weight: 600;
   font-kerning: normal;
   font-feature-settings: "kern" 1;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--component-header-wordmark-tracking);
 }
 
 .brand-label {
@@ -321,16 +327,16 @@ button {
 }
 
 .site-header.is-scrolled .equiv-logo {
-  gap: var(--space-xs);
+  gap: var(--component-header-logo-gap);
 }
 
 .site-header.is-scrolled .equiv-logo-mark {
-  width: 28px;
-  height: 28px;
+  width: var(--component-header-logo-scrolled-mark-size);
+  height: var(--component-header-logo-scrolled-mark-size);
 }
 
 .site-header.is-scrolled .equiv-logo-divider {
-  height: 24px;
+  height: var(--component-header-logo-scrolled-divider-height);
 }
 
 .site-header.is-scrolled .equiv-logo-wordmark {
@@ -3499,7 +3505,7 @@ button {
 
 @media (min-width: 761px) {
 .site-header.is-scrolled {
-    height: 68px;
+    height: 64px;
   }
 
 .nav-item-dropdown:hover .nav-dropdown,
@@ -3797,30 +3803,35 @@ button {
 }
 
 @media (min-width: 761px) and (max-width: 900px) {
+:root {
+    --component-header-logo-mark-size: 25px;
+    --component-header-logo-divider-height: 22px;
+  }
+
 .header-inner {
     gap: var(--space-sm);
   }
 
   .site-header .equiv-logo,
   .site-header.is-scrolled .equiv-logo {
-    gap: var(--space-xs);
+    gap: var(--component-header-logo-gap);
   }
 
   .site-header .equiv-logo-mark,
   .site-header.is-scrolled .equiv-logo-mark {
-    width: 28px;
-    height: 28px;
+    width: var(--component-header-logo-scrolled-mark-size);
+    height: var(--component-header-logo-scrolled-mark-size);
   }
 
   .site-header .equiv-logo-divider,
   .site-header.is-scrolled .equiv-logo-divider {
-    height: 24px;
+    height: var(--component-header-logo-scrolled-divider-height);
   }
 
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
     font-size: var(--type-h3);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--component-header-wordmark-tracking);
   }
 
   .site-nav {
@@ -4050,7 +4061,12 @@ button {
   }
 
 :root {
-    --header-height: 58px;
+    --header-height: 54px;
+    --component-header-logo-gap: 2px;
+    --component-header-logo-mark-size: 24px;
+    --component-header-logo-divider-height: 20px;
+    --component-header-logo-scrolled-mark-size: 24px;
+    --component-header-logo-scrolled-divider-height: 20px;
     --type-display: var(--mobile-display);
     --type-h1: var(--mobile-h1);
     --type-h2: var(--mobile-h2);
@@ -4105,25 +4121,25 @@ button {
 
   .site-header .equiv-logo,
   .site-header.is-scrolled .equiv-logo {
-    gap: var(--space-2xs);
+    gap: var(--component-header-logo-gap);
     max-width: calc(100vw - 96px);
   }
 
   .site-header .equiv-logo-mark,
   .site-header.is-scrolled .equiv-logo-mark {
-    width: 26px;
-    height: 26px;
+    width: var(--component-header-logo-mark-size);
+    height: var(--component-header-logo-mark-size);
   }
 
   .site-header .equiv-logo-divider,
   .site-header.is-scrolled .equiv-logo-divider {
-    height: 22px;
+    height: var(--component-header-logo-divider-height);
   }
 
   .site-header .equiv-logo-wordmark,
   .site-header.is-scrolled .equiv-logo-wordmark {
     font-size: var(--type-h3);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--component-header-wordmark-tracking);
   }
 
   .site-nav {
