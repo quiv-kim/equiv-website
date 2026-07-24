@@ -2,6 +2,8 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] Sprint 8.1 Header Premium Polish: Desktop 높이와 Logo–Navigation 광학 간격 조정
+
 ## Current Milestone
 
 Phase 1

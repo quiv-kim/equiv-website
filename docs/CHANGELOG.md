@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 8.1 - Header Premium Polish
+
+- Desktop Header 높이를 `72px → 68px`, Scroll 상태를 `64px → 60px`으로 조정
+- Logo와 Navigation의 연결감을 높이기 위해 Desktop Navigation 그룹을 `32px` 왼쪽으로 광학 보정
+- Logo 크기·Wordmark 자간·메뉴 간격·Dropdown·Tablet·Mobile Header는 기존 상태 유지
+- Header 이외 Hero, Section, Card, Modal과 Footer에는 변경 없음
+
 ## CONTENT QA-02 Bug Fix - Modal & Footer Copy Sync
 
 - 5개 서비스 상세페이지의 최신 Hero 문구를 상담 모달의 단일 `serviceCopies` 데이터로 통합

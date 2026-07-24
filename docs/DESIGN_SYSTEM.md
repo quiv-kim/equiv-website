@@ -214,6 +214,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 ### Mobile Optimization
 
 - QA widths: `360 / 390 / 430 / 768px`
+- Desktop Header Height: 기본 `68px`, Scroll 상태 `60px`
 - Mobile Header Height: `54px`
 - Mobile Container Gutter: `20px`
 - Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이

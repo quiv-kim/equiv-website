@@ -3526,6 +3526,18 @@ button {
 }
 
 @media (min-width: 1025px) {
+:root {
+    --header-height: 68px;
+  }
+
+  .site-header.is-scrolled {
+    height: 60px;
+  }
+
+  .site-nav {
+    margin-right: var(--space-xl);
+  }
+
 .hero h1 {
     font-size: var(--type-display);
     line-height: 1.12;
