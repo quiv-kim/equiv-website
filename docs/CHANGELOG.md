@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## CONTENT QA-01 - Repeated Copy Cleanup
+
+- `좋은 거래는 올바른 원칙에서 시작됩니다.`를 HOME Principle의 고유 문구로 유지하고 다른 페이지·Modal의 반복 표현 제거
+- HOME Principle 본문, Service 안내와 Insights 소개를 `사업·재무구조 / 거래 목적 / M&A 판단과 실행` 중심의 구체적 문구로 정리
+- Consultation Modal을 `M&A 상담 신청`과 상담 범위·담당자 검토 안내 중심으로 변경하고 철학적 소개 문구 제거
+- Business Valuation 사전진단 Modal을 기업가치 검토와 M&A 상담을 위한 기초자료 준비 목적이 명확하도록 수정
+- HOME 공통 CTA와 매각·인수·기업가치 CTA를 사용자의 다음 행동과 지원 범위가 직접 드러나는 문구로 정리
+- 전체 HTML·JavaScript에서 `좋은 거래 / 성공적인 거래 / 기업의 가치 / 함께 만들어갑니다 / 상담을 통해` 반복 문구 정리
+- Hero 핵심 문구, Principle 카드 제목, 서비스명, Layout, Typography, Modal 기능, Form 항목과 JavaScript 동작은 변경하지 않음
+
 ## QA-05 - Mobile Modal Typography & Density
 
 - Mobile Header 높이를 `64px`에서 `58px`로 축소하고 기존 Logo·Menu 정렬과 `48px` Touch Area 유지

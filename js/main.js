@@ -202,7 +202,7 @@ const renderReadinessResult = () => {
       <p class="readiness-result__status">${result.status}</p>
       <h3>${result.title}</h3>
       <p>${result.body}</p>
-      <p class="readiness-result__brand">모든 기업은<br>현재 위치가 다르고,<br>거래 전략도 달라야 합니다.<br><br>EQUIV는<br>현재 상태를 이해하는 것에서부터<br>성공적인 M&A를 함께 설계합니다.</p>
+      <p class="readiness-result__brand">입력 결과는<br>현재 준비 상태를 파악하기 위한 참고자료입니다.<br><br>거래 목적과 재무·사업 자료를 검토하면<br>다음 준비 과제를 구체화할 수 있습니다.</p>
       <div class="readiness-next">
         <h4>Recommended Next Step</h4>
         <ul>${nextItems}</ul>

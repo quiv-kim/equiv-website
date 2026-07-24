@@ -30,6 +30,7 @@ Phase 5
 
 ## High Priority
 
+- [x] CONTENT QA-01 사이트·Modal·CTA의 추상적 반복 문구를 역할별 실무 카피로 정리
 - [x] QA-05 Mobile Header·Insights Card Density 및 상담·기업가치 사전진단 Modal Typography·Safe Area·브라우저 Fallback 통합
 - [x] QA-04 STEP 13 `style.css` 미사용 규칙 정리 및 파일 크기 16.96% 축소
 - [x] QA-04 CSS Architecture Refactoring · Core Typography Token 및 Responsive Query 통합

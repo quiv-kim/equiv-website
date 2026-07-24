@@ -53,7 +53,7 @@
             ${selectField("industry", "업종", Object.entries(config.industries).map(([key, item]) => [key, item.label]))}
           </div>
           <p class="valuation-field-note" data-valuation-industry-note="asset"${values.industry === "asset" ? "" : " hidden"}>자산형 · 임대업·호텔·골프장·물류창고 등 사업용 자산가치가 중요한 기업</p>
-          <p class="valuation-field-note" data-valuation-industry-note="other"${values.industry === "other" ? "" : " hidden"}>기타 업종은 일반적인 예비 평가모델을 적용합니다. 건설업을 포함한 특수 업종은 사업모델, 면허, 인허가, 자산구조와 거래관행 등에 따라 실제 기업가치가 달라질 수 있습니다. 보다 정확한 기업가치는 EQUIV 전문 상담을 통해 확인하시기 바랍니다.</p>
+          <p class="valuation-field-note" data-valuation-industry-note="other"${values.industry === "other" ? "" : " hidden"}>기타 업종은 일반적인 예비 평가모델을 적용합니다. 건설업을 포함한 특수 업종은 사업모델, 면허, 인허가, 자산구조와 거래관행 등에 따라 실제 기업가치가 달라질 수 있습니다. 상세 검토는 EQUIV 전문 상담에서 진행합니다.</p>
         </section>
         <section class="valuation-input-section">
           <h4>최근 실적</h4>
@@ -255,7 +255,7 @@
       return {
         stars: 1,
         label: "참고용 결과",
-        description: "입력자료가 제한되어 참고용 결과로 산출했습니다. 보다 정확한 기업가치는 추가 자료 검토와 상담을 통해 확인하실 수 있습니다.",
+        description: "입력자료가 제한되어 참고용 결과로 산출했습니다. 구체적인 검토에는 추가 자료와 EQUIV 상담이 필요합니다.",
       };
     }
 
@@ -310,7 +310,7 @@
       return {
         stars,
         label: "참고 신뢰도 매우 높음",
-        description: "현재 입력자료를 기준으로 예비 기업가치를 산출했습니다. 입력자료가 충분하여 결과의 참고 신뢰도가 높은 편입니다. 보다 정확한 기업가치는 추가 자료 검토와 상담을 통해 확인하실 수 있습니다.",
+        description: "현재 입력자료를 기준으로 예비 기업가치를 산출했습니다. 입력자료가 충분하여 결과의 참고 신뢰도가 높은 편입니다. 구체적인 검토에는 추가 자료와 EQUIV 상담이 필요합니다.",
       };
     }
     if (stars === 4) {
@@ -337,7 +337,7 @@
     return {
       stars,
       label: "참고용 결과",
-      description: "입력자료가 제한되어 참고용 결과로 산출했습니다. 보다 정확한 기업가치는 추가 자료 검토와 상담을 통해 확인하실 수 있습니다.",
+      description: "입력자료가 제한되어 참고용 결과로 산출했습니다. 구체적인 검토에는 추가 자료와 EQUIV 상담이 필요합니다.",
     };
   };
 
@@ -451,10 +451,10 @@
       ? `<p class="valuation-result-note">※ 본 예비 기업가치는 현재 입력자료를 기준으로 산출한 참고 범위입니다. 실제 거래가치는 거래구조, 성장성, 기술력, 고객구성과 실사 결과 등에 따라 달라질 수 있습니다.</p>`
       : "";
     const technologyIndustryResultNotice = calculationValues.industry === "software" && businessValueResult.range
-      ? `<p class="valuation-result-note">※ IT·소프트웨어 기업은 기술력, 성장성, 반복매출과 고객 기반 등 정량화하기 어려운 요소가 기업가치에 큰 영향을 미칩니다. 본 결과는 일반적인 예비 평가모델을 적용한 참고 범위이며, 실제 거래가치는 사업모델과 기술 경쟁력에 따라 달라질 수 있습니다. 보다 정확한 기업가치와 거래 전략은 EQUIV 전문 상담을 통해 확인하시기 바랍니다.</p>`
+      ? `<p class="valuation-result-note">※ IT·소프트웨어 기업은 기술력, 성장성, 반복매출과 고객 기반 등 정량화하기 어려운 요소가 기업가치에 큰 영향을 미칩니다. 본 결과는 일반적인 예비 평가모델을 적용한 참고 범위이며, 실제 거래가치는 사업모델과 기술 경쟁력에 따라 달라질 수 있습니다. 상세 기업가치와 거래 전략은 EQUIV 전문 상담에서 검토합니다.</p>`
       : "";
     const assetIndustryResultNotice = calculationValues.industry === "asset" && businessValueResult.range
-      ? `<p class="valuation-result-note">※ 자산형 기업은 사업용 자산가치가 기업가치에 큰 영향을 미칩니다. 본 결과는 영업성과와 사업용 자산을 함께 고려한 예비 평가 결과입니다. 실제 거래가치는 부동산, 시설, 입지와 운영현황 등에 따라 달라질 수 있으며, 보다 정확한 기업가치는 EQUIV 전문 상담을 통해 확인하시기 바랍니다.</p>`
+      ? `<p class="valuation-result-note">※ 자산형 기업은 사업용 자산가치가 기업가치에 큰 영향을 미칩니다. 본 결과는 영업성과와 사업용 자산을 함께 고려한 예비 평가 결과입니다. 실제 거래가치는 부동산, 시설, 입지와 운영현황 등에 따라 달라질 수 있으며, 상세 검토는 EQUIV 전문 상담에서 진행합니다.</p>`
       : "";
     const equityDescription = "현재 재무구조를 반영한 예비 지분가치입니다.";
     const equityValueMarkup = result.range
@@ -464,7 +464,7 @@
         : `<strong class="valuation-equity-card__review">추가 검토 필요</strong><p>${businessValueResult.range ? "현재 재무구조의 영향으로 예상 지분가치 산정에는 추가 검토가 필요합니다." : "현재 입력정보만으로는 예상 지분가치 산정에 추가 검토가 필요합니다."}</p>`;
     const reviewFactors = [...result.reviewFactors, ...calculationPreparation.reviewFactors];
     const otherIndustryResultNotice = isOtherIndustry
-      ? `<p class="valuation-result-note">※ 본 결과는 기타 업종에 적용되는 일반 평가모델을 기반으로 산출되었습니다. 건설업을 포함한 특수 업종은 업종별 특성과 거래관행에 따라 실제 기업가치가 달라질 수 있습니다. 업종 특성을 반영한 상세 기업가치와 거래 전략은 EQUIV 전문 상담을 통해 확인하시기 바랍니다.</p>`
+      ? `<p class="valuation-result-note">※ 본 결과는 기타 업종에 적용되는 일반 평가모델을 기반으로 산출되었습니다. 건설업을 포함한 특수 업종은 업종별 특성과 거래관행에 따라 실제 기업가치가 달라질 수 있습니다. 업종 특성을 반영한 상세 기업가치와 거래 전략은 EQUIV 전문 상담에서 검토합니다.</p>`
       : "";
     const consultationIntro = isOtherIndustry
       ? "기타 업종은 일반 평가모델을 기준으로 예비 범위를 산출했습니다. 실제 거래에서는 사업모델, 면허, 인허가, 자산구조와 거래관행에 대한 개별 해석이 중요합니다."

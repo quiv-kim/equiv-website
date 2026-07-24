@@ -11,8 +11,8 @@
             <span class="equiv-logo-wordmark">EQUIV</span>
           </div>
           <p class="section-kicker">CONSULTATION</p>
-          <h2 id="consultation-modal-title">상담 시작하기</h2>
-          <p id="consultation-modal-description"><strong>좋은 거래는<br>충분한 이해에서 시작됩니다.</strong><span>아래 내용을 남겨주시면 담당자가<br>영업일 기준 1~2일 이내 연락드립니다.</span></p>
+          <h2 id="consultation-modal-title">M&amp;A 상담 신청</h2>
+          <p id="consultation-modal-description"><strong>기업 매각·인수 및 투자유치에 관한<br>내용을 남겨주시면</strong><span>담당자가 검토 후 연락드리겠습니다.</span></p>
         </header>
 
         <header class="consultation-modal__header consultation-modal__header--success" data-success-header hidden>
@@ -49,7 +49,7 @@
               </ol>
             </div>
             <div class="consultation-modal__confidential">
-              <p>상담을 통해 제공되는 정보는<br>비밀유지 원칙에 따라 관리됩니다.</p>
+              <p>제출하신 정보와 상담 내용은<br>비밀유지 원칙에 따라 관리됩니다.</p>
               <p>필요한 경우 상담 진행 전에<br>비밀유지계약(NDA)을 체결합니다.</p>
             </div>
           </aside>
