@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## CONTENT QA-02 - Service Detail Copy Refinement
+
+- 기업 매각·기업 인수·기업가치 검토·투자유치·성장 전략의 Hero를 추상적 슬로건에서 실제 서비스 범위 중심 문장으로 변경
+- 각 Overview를 고객 상황, 검토 목적과 지원 범위가 직접 드러나는 두 개의 짧은 문단으로 정리
+- 5개 How We Work를 기업가치 검토, 자료 작성, 후보·투자자 발굴, 협상, 실사, 계약과 실행계획 등 실제 업무가 보이는 네 단계로 개선
+- 각 서비스 CTA를 매각·인수·기업가치·투자유치·성장전략별 다음 행동과 상담 범위가 명확한 문구로 통일
+- 전체 HTML·JavaScript에서 HOME Principle을 제외한 `좋은` 계열의 추상적 서비스·상담 문구 제거
+- Hero 핵심 문구, HOME Principle, 서비스명, Menu, Layout, Typography, Card, CTA 기능, Modal과 Form 동작은 변경하지 않음
+
 ## CONTENT QA-01 - Repeated Copy Cleanup
 
 - `좋은 거래는 올바른 원칙에서 시작됩니다.`를 HOME Principle의 고유 문구로 유지하고 다른 페이지·Modal의 반복 표현 제거
