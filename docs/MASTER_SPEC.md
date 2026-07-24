@@ -1,5 +1,9 @@
 # EQUIV M&A Website Master Specification
 
+## EQUIV Design Bible
+
+모든 시각 디자인 결정은 `EQUIV_DESIGN_BIBLE.md`의 Visual Philosophy를 최상위 기준으로 사용한다. 새로운 화면이나 Component가 Design Bible과 충돌하면 해당 화면이나 Component를 수정하며, 페이지별 편의를 이유로 브랜드 시각 철학을 우회하지 않는다.
+
 ## Project Overview
 
 EQUIV M&A 웹사이트는 단순한 원페이지 소개 사이트가 아니라, M&A 자문 서비스와 인사이트 콘텐츠가 축적되는 Corporate Website 구조를 목표로 한다.

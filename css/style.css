@@ -3528,14 +3528,32 @@ button {
 @media (min-width: 1025px) {
 :root {
     --header-height: 68px;
+    --component-header-logo-mark-size: 30px;
+    --component-header-logo-divider-height: 26px;
+    --component-header-logo-scrolled-mark-size: 28px;
+    --component-header-logo-scrolled-divider-height: 24px;
+    --component-header-wordmark-size: 23px;
+    --component-header-nav-size: 18px;
+    --component-header-nav-offset: 128px;
   }
 
   .site-header.is-scrolled {
     height: 60px;
   }
 
+  .header-inner .brand {
+    margin-left: calc(var(--space-sm) * -1);
+  }
+
+  .site-header .equiv-logo-wordmark,
+  .site-header.is-scrolled .equiv-logo-wordmark {
+    font-size: var(--component-header-wordmark-size);
+  }
+
   .site-nav {
-    margin-right: var(--space-xl);
+    margin-right: var(--component-header-nav-offset);
+    font-size: var(--component-header-nav-size);
+    font-weight: 600;
   }
 
 .hero h1 {

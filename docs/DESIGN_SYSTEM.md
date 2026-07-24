@@ -2,6 +2,8 @@
 
 이 문서는 앞으로 모든 HTML, CSS, UI 수정 시 반드시 참고하는 프로젝트 공식 디자인 기준 문서이다.
 
+상위 시각 철학과 승인 기준은 `EQUIV_DESIGN_BIBLE.md`를 따른다.
+
 새로운 디자인을 만들기 위한 문서가 아니라, 현재까지 완성된 HOME과 Detail Page의 디자인 원칙을 표준화하는 것이 목적이다.
 
 ## Design Philosophy
@@ -221,6 +223,14 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
 - Mobile Section Padding: `64px / 52px / 40px`의 의미 기반 Section Token
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
+
+### Desktop Header Balance
+
+- Desktop Header 높이는 기본 `68px`, Scroll 상태 `60px`을 유지한다.
+- Desktop The EQUIV Mark는 `30px`, Wordmark는 `23px`을 사용한다.
+- Desktop Navigation은 `18px / 600`을 사용하고 Menu 간격은 기존 값을 유지한다.
+- Navigation 그룹은 기존 위치보다 Logo 방향으로 `96px` 추가 이동하며, Logo는 Container 시작점에서 `12px` 왼쪽으로 광학 보정한다.
+- Tablet과 Mobile Header의 크기·간격·반응형 구조는 변경하지 않는다.
 
 ### HOME Mobile Hero
 

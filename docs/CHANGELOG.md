@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Visual Philosophy & Header System
+
+- `EQUIV_DESIGN_BIBLE.md`를 생성하고 Visual Philosophy와 Header Design System을 공식화
+- Desktop The EQUIV Mark를 `27px → 30px`, Wordmark를 `20px → 23px`로 확대
+- Desktop Navigation을 현재 위치에서 Logo 방향으로 `96px` 추가 이동
+- Desktop Navigation Typography를 `18px / 600`으로 조정하고 Menu 간격·Hover·Dropdown 유지
+- Logo 시작 위치를 `12px` 왼쪽으로 광학 보정하고 Header 높이 `68px / 60px` 유지
+- Tablet·Mobile Header와 Header 외 페이지 영역은 변경하지 않음
+
 ## Sprint 8.1 - Header Premium Polish
 
 - Desktop Header 높이를 `72px → 68px`, Scroll 상태를 `64px → 60px`으로 조정
