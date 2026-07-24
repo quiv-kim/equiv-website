@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 6 CTA & Card System
+
+- CTA 우선순위와 Primary·Secondary 역할, 배치·폭·높이·문구 원칙을 공식화
+- Button을 Desktop `52px`, Mobile `50px`, `18px / 600` Typography로 통일
+- Card Padding을 Desktop `32px` / Tablet `28px` / Mobile `24px`로 적용
+- Principle·Service·Insight·Expertise Card의 Radius, 동일 Row 높이와 Hover를 공통 규칙으로 통합
+- Card Hover를 `-3px`, `220ms`, Small Shadow로 절제하고 Primary CTA Hover 강조를 약 5~8% 범위로 조정
+
 ## EQUIV Design Bible v1.0 - Chapter 5 Grid & Spacing System
 
 - 공통 Desktop Container를 `1260px`로 통일하고 Tablet은 `93%`, Mobile은 좌우 `20px` Gutter를 적용

@@ -407,3 +407,103 @@ Bridgecode의 단순한 Grid, LISTING의 일정한 여백과 MOMENS의 안정적
 - Card 간격이 Desktop·Tablet·Mobile에서 일관적인가?
 - White Space가 정보의 위계를 강화하는가?
 - Section 하나를 제거해도 전체 Grid가 유지되는가?
+
+## Chapter 6. CTA & Card System
+
+Version 1.0
+Status: Approved Draft
+
+### 1. Philosophy
+
+CTA는 버튼 자체가 아니라 사용자의 다음 행동을 안내하는 장치다. Card는 정보를 담는 상자가 아니라 사용자가 내용을 비교하고 결정을 쉽게 내리도록 돕는 구조다.
+
+### 2. CTA Priority
+
+페이지의 CTA는 다음 세 단계만 사용한다.
+
+1. Hero Primary CTA
+2. Section Secondary CTA
+3. Footer Final CTA
+
+동일한 행동을 반복하는 CTA를 불필요하게 추가하지 않는다.
+
+### 3. Primary CTA
+
+- 가장 먼저 인식되는 CTA
+- Brand Accent 배경과 White Text
+- Large Size
+- 공통 Radius
+- Hover는 색상과 위치를 약 `5~8%` 범위에서만 강조
+
+### 4. Secondary CTA
+
+Secondary CTA는 Primary보다 한 단계 낮은 위계를 갖는다. Outline 또는 Subtle Fill을 사용하며 Primary와 경쟁하지 않는다.
+
+### 5. CTA Placement
+
+CTA는 `Headline → Description → CTA → Supporting Information` 순서로 정보 바로 아래에 둔다. CTA만 다른 콘텐츠와 분리하여 배치하지 않는다.
+
+### 6. Button Width & Height
+
+- Desktop: 내용 기준 폭, 일반 CTA Full Width 금지
+- Mobile: `100%`
+- Desktop Height: `52px`
+- Mobile Height: `50px`
+- Typography: `18px / 600`
+
+상담과 기업가치 사전진단 Modal의 Form Submit은 Form 구조와 접근성을 위한 Full Width 예외로 유지한다.
+
+### 7. Card Structure
+
+모든 Card는 다음 순서를 사용한다.
+
+1. Icon 또는 Label (Optional)
+2. Title
+3. Description
+4. Link 또는 CTA
+
+새로운 정보 순서를 만들지 않는다.
+
+### 8. Card Height
+
+동일 Row의 Card는 같은 높이를 유지한다. Grid Stretch와 `height: 100%`를 사용하며 콘텐츠보다 빈 공간이 커지는 불필요한 고정 높이는 추가하지 않는다.
+
+### 9. Card Interaction
+
+- Hover Lift: `-3px`
+- Duration: `220ms`
+- Small Shadow
+- 과도한 Scale 효과 금지
+
+Hover는 움직임을 강조하는 것이 아니라 클릭 가능한 반응을 전달한다.
+
+### 10. Card Radius & Padding
+
+- Radius: 모든 Card가 `--component-card-radius` 사용
+- Desktop Padding: `32px`
+- Tablet Padding: `28px`
+- Mobile Padding: `24px`
+
+Section별 Radius와 Padding 예외를 만들지 않는다.
+
+### 11. CTA Copy Consistency
+
+같은 의미의 CTA에는 같은 문구를 사용한다.
+
+- 공통 상담: `상담 신청`
+- 기업가치 업무: `기업가치 검토`
+- 일반 연락: `문의하기`
+
+서비스별 CTA는 행동 목적이 다른 경우에만 `기업 매각 상담`, `기업 인수 상담`처럼 구분한다. `지금 신청`, `바로 시작`과 같은 압박성 표현은 사용하지 않는다.
+
+### 12. Benchmark Rule
+
+Bridgecode의 절제된 CTA, LISTING의 읽기 쉬운 Card와 MOMENS의 자연스러운 Hover를 참고하되 디자인을 복제하지 않는다. EQUIV는 이보다 더 차분한 CTA와 Interaction을 목표로 한다.
+
+### 13. Final QA
+
+- 사용자의 다음 행동이 명확한가?
+- 같은 역할의 Button이 동일한 스타일을 사용하는가?
+- 같은 Row의 Card 높이가 일치하는가?
+- Card Hover가 절제되고 자연스러운가?
+- 사용자가 고민 없이 다음 단계로 이동할 수 있는가?

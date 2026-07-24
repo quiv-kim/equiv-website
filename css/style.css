@@ -123,7 +123,8 @@
   --component-hero-padding: var(--section-space-lg);
   --component-card-padding: 32px;
   --component-card-padding-compact: 32px;
-  --component-card-padding-mobile: 32px;
+  --component-card-padding-tablet: 28px;
+  --component-card-padding-mobile: 24px;
   --component-home-card-padding-block: 32px;
   --component-home-card-padding-inline: 32px;
   --component-home-card-action-gap: 16px;
@@ -135,6 +136,11 @@
   --component-card-link-icon-width: 16px;
   --component-button-padding-y: var(--space-sm);
   --component-button-padding-x: var(--space-lg);
+  --component-button-height: 52px;
+  --component-button-height-mobile: 50px;
+  --component-card-radius: var(--radius-sm);
+  --component-card-hover-lift: -3px;
+  --component-interaction-duration: 220ms;
   --component-input-padding-x: var(--space-md);
   --component-modal-padding: var(--space-xl);
   --component-footer-padding: var(--space-2xl);
@@ -680,7 +686,7 @@ button {
 
 .btn {
   min-width: 176px;
-  min-height: 50px;
+  min-height: var(--component-button-height);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -688,7 +694,7 @@ button {
   border-radius: var(--radius-sm);
   font-size: var(--type-button);
   font-weight: 600;
-  transition: transform 0.2s var(--ease), background 0.2s ease, border-color 0.2s ease;
+  transition: transform var(--component-interaction-duration) var(--ease), background var(--component-interaction-duration) ease, border-color var(--component-interaction-duration) ease;
 }
 
 .btn:hover {
@@ -702,8 +708,8 @@ button {
 }
 
 .btn-primary:hover {
-  background: #87692F;
-  border-color: #87692F;
+  background: #9E7A32;
+  border-color: #9E7A32;
 }
 
 .btn-secondary {
@@ -779,7 +785,6 @@ button {
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.12);
   border-radius: var(--radius-sm);
-  transition: transform 0.25s var(--ease), border-color 0.25s ease;
 }
 
 .principle-card::before {
@@ -793,7 +798,6 @@ button {
 }
 
 .principle-card:hover {
-  transform: translateY(-5px);
   border-color: rgba(169, 130, 53, 0.42);
 }
 
@@ -846,7 +850,6 @@ button {
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.08);
   border-radius: var(--radius-sm);
-  transition: transform 0.25s var(--ease), border-color 0.25s ease;
 }
 
 .service-card::before {
@@ -865,7 +868,6 @@ button {
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(7, 26, 47, 0.16);
 }
 
@@ -972,11 +974,9 @@ button {
   border: 1px solid rgba(7, 26, 47, 0.1);
   border-radius: var(--radius-sm);
   background: var(--color-white);
-  transition: transform 0.25s var(--ease), border-color 0.25s ease;
 }
 
 .insight-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(169, 130, 53, 0.38);
 }
 
@@ -1341,11 +1341,9 @@ button {
   min-height: 200px;
   background: var(--color-white);
   border: 1px solid rgba(7, 26, 47, 0.1);
-  transition: transform 0.3s var(--ease), border-color 0.3s ease;
 }
 
 .expertise-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(169, 130, 53, 0.34);
 }
 
@@ -3412,6 +3410,26 @@ button {
   padding: var(--component-card-padding-compact);
 }
 
+.principle-card,
+.service-card,
+.insight-card,
+.expertise-card {
+  height: 100%;
+  border-radius: var(--component-card-radius);
+  transition:
+    transform var(--component-interaction-duration) var(--ease),
+    border-color var(--component-interaction-duration) ease,
+    box-shadow var(--component-interaction-duration) ease;
+}
+
+.principle-card:hover,
+.service-card:hover,
+.insight-card:hover,
+.expertise-card:hover {
+  transform: translateY(var(--component-card-hover-lift));
+  box-shadow: var(--shadow-sm);
+}
+
 .service-grid,
 .insight-grid,
 .principle-grid,
@@ -3481,7 +3499,7 @@ button {
 
 .expertise-section .service-card,
 .insights-preview .insight-card {
-  height: auto;
+  height: 100%;
   padding-block: var(--component-home-card-padding-block);
   padding-inline: var(--component-home-card-padding-inline);
 }
@@ -3859,6 +3877,10 @@ button {
 @media (min-width: 761px) and (max-width: 1024px) {
 :root {
     --grid-card-gap: var(--grid-card-gap-tablet);
+    --component-card-padding: var(--component-card-padding-tablet);
+    --component-card-padding-compact: var(--component-card-padding-tablet);
+    --component-home-card-padding-block: var(--component-card-padding-tablet);
+    --component-home-card-padding-inline: var(--component-card-padding-tablet);
   }
 
   .container,
@@ -3987,7 +4009,7 @@ button {
     --type-cta-title: var(--mobile-h2);
     --type-cta-body: var(--mobile-body);
     --type-card-link: var(--mobile-small);
-    --type-button: var(--mobile-body);
+    --type-button: var(--desktop-body);
     --type-form: var(--mobile-body);
     --type-card-category: var(--mobile-small);
     --type-card-description: var(--mobile-body);
@@ -4000,7 +4022,7 @@ button {
     --modal-label-size: var(--mobile-small);
     --modal-input-size: var(--mobile-body);
     --modal-help-size: var(--mobile-caption);
-    --modal-button-size: var(--mobile-body);
+    --modal-button-size: var(--type-button);
     --modal-option-title-size: var(--mobile-body);
     --modal-option-description-size: var(--mobile-small);
     --modal-close-icon-size: var(--mobile-h3);
@@ -4171,8 +4193,8 @@ button {
     --grid-card-gap: var(--grid-card-gap-mobile);
     --component-card-padding: var(--component-card-padding-mobile);
     --component-card-padding-compact: var(--component-card-padding-mobile);
-    --component-home-card-padding-block: 32px;
-    --component-home-card-padding-inline: 32px;
+    --component-home-card-padding-block: var(--component-card-padding-mobile);
+    --component-home-card-padding-inline: var(--component-card-padding-mobile);
     --component-home-card-action-gap: 16px;
   }
 
@@ -5043,13 +5065,13 @@ button {
   .hero .btn,
   .consultation-submit,
   .readiness-option {
-    min-height: 47px;
+    min-height: var(--component-button-height-mobile);
     font-size: var(--type-button);
   }
 
   .final-cta .btn,
   .sub-cta .btn {
-    min-height: 48px;
+    min-height: var(--component-button-height-mobile);
     padding-inline: var(--space-lg);
     font-size: var(--type-button);
   }
@@ -5205,8 +5227,8 @@ button {
 
 :root {
     --mobile-card-gap: var(--grid-card-gap-mobile);
-    --mobile-card-padding-block: 32px;
-    --mobile-card-padding-inline: 32px;
+    --mobile-card-padding-block: var(--component-card-padding-mobile);
+    --mobile-card-padding-inline: var(--component-card-padding-mobile);
     --mobile-section-intro: 64px;
     --mobile-section-content: 64px;
   }
@@ -5247,7 +5269,7 @@ button {
   }
 
   .hero .btn {
-    min-height: 48px;
+    min-height: var(--component-button-height-mobile);
     padding-inline: var(--space-md);
     font-size: var(--type-button);
   }

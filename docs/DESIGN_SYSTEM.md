@@ -182,11 +182,13 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 
 ### Card Density & CTA Hierarchy
 
-- 짧은 일반 Card는 Desktop `22~24px`, Mobile `20px` 내부 여백을 기준으로 한다.
-- 동일 Grid의 Card는 정돈된 높이를 유지하되, 콘텐츠보다 빈 공간이 커지는 고정 높이나 과도한 `min-height`를 사용하지 않는다.
+- 일반 Card는 Desktop `32px`, Tablet `28px`, Mobile `24px` 내부 여백을 사용한다.
+- 동일 Row의 Card는 `height: 100%`와 Grid Stretch를 통해 같은 높이를 유지하되, 콘텐츠보다 빈 공간이 커지는 과도한 고정 높이는 사용하지 않는다.
 - Card 내부 간격은 `Label → Title 12~16px / Title → Description 10~12px / Description → Link 16~20px` 범위를 공통 Spacing Token으로 표현한다.
 - Conversion CTA 제목은 H2, 설명은 Body 역할을 사용한다.
-- Button Typography는 Desktop `18px / 600`, Mobile `17px / 600`을 사용하고 주요 CTA Button 높이는 Desktop `52px`, Mobile `48px`을 기준으로 한다.
+- Button Typography는 Desktop·Mobile `18px / 600`을 사용하고 Button 높이는 Desktop `52px`, Mobile `50px`을 기준으로 한다.
+- Desktop Button은 내용 기준 폭을 사용하고 Mobile Button은 `100%` 폭을 사용한다.
+- Card Hover는 `-3px / 220ms`와 Small Shadow를 공통으로 사용한다.
 - Form Card, Modal과 입력 Touch Area는 Card Density 조정 대상에서 제외하고 기존 접근성 높이를 유지한다.
 
 ### HOME Service & Insights Card
@@ -195,7 +197,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - 모든 Card Grid는 Desktop 3열 / Tablet 2열 / Mobile 1열을 사용한다.
 - Featured Expertise의 마지막 2개 Card와 Insights의 마지막 1개 Card는 공통 Grid 안에서 중앙 정렬하여 수평 균형을 유지한다.
 - HOME Service Card는 Desktop 최소 높이 `182px`, Insights Card는 `260px`을 사용한다. Mobile에서는 콘텐츠 기반 높이로 전환한다.
-- HOME Card Padding은 Desktop·Mobile 모두 공통 Card Level `32px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
+- HOME Card Padding은 Desktop `32px`, Tablet `28px`, Mobile `24px`을 사용한다. Desktop의 최소 높이는 시각적 균형만 보정하고 실제 높이는 콘텐츠에 따라 늘어나며, Mobile은 `min-height:0`으로 전환한다.
 - HOME Card Action은 `--type-card-link`을 사용해 Desktop·Mobile `16px`, `600` 굵기로 표시한다.
 - Card Action은 최소 높이 `32px`, 텍스트와 Line Arrow 간격 `6px`, Description 이후 간격 `20px / Mobile 18px`을 유지한다.
 - HOME Card에서 Action을 하단으로 강제하는 `margin-top:auto`를 사용하지 않는다. 동일 행의 자연스러운 높이 정렬은 Grid가 콘텐츠 기준으로 처리한다.
@@ -207,7 +209,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - Desktop Header Height: 기본 `68px`, Scroll 상태 `60px`
 - Mobile Header Height: `54px`
 - Mobile Container Gutter: `20px`
-- Mobile Button: 일반 `47px`, 주요 CTA `48px` 최소 높이
+- Mobile Button: `50px` 최소 높이
 - Mobile Form Input: 최소 `48px`, Font Size `16px`
 - Mobile Section Padding: 공통 `64px`
 - Tablet 768px은 기존 Navigation breakpoint를 변경하지 않고 간격과 터치영역만 보정한다.
@@ -286,7 +288,7 @@ Mobile
 
 Card
 
-`--radius-lg`
+`--component-card-radius` (`--radius-sm`)
 
 Button
 
@@ -320,9 +322,11 @@ Soft Shadow
 
 Hover
 
-TranslateY(-4px)
+TranslateY(-3px)
 
 Transition
+
+220ms
 
 300ms ease
 
