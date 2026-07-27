@@ -76,10 +76,13 @@ Appendices:
 5. `BRAND_GUIDE.md`: Logo, Brand Color와 Photography Tone
 6. `CONTENT_UX_WRITING_SYSTEM.md`: Component에 사용되는 Voice, Tone, Terminology와 State Message
 7. `COPY_GUIDE.md`: 자주 쓰는 UI Copy 규칙의 간략한 요약
+8. `DESIGN_QA_GOVERNANCE.md`: Component Review, Release Gate, Risk, Version과 Cross-system QA
 
 Component가 위 문서와 충돌하면 Component를 수정한다.
 
 Component의 Label, Helper, Error, Success, Empty, Confirmation과 Accessible Name은 `CONTENT_UX_WRITING_SYSTEM.md`를 따른다. Component Library는 문구가 들어가는 위치와 State를 정의하고, 실제 문장의 Voice와 의미를 재정의하지 않는다.
+
+Component의 상세 Specification과 Lifecycle은 이 문서가 관리하고, Release 승인·QA Evidence·Risk Acceptance와 Decision 기록은 `DESIGN_QA_GOVERNANCE.md`를 따른다.
 
 ### 1.3 Normative Language
 

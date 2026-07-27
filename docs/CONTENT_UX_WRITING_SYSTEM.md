@@ -88,6 +88,7 @@ Appendices:
 6. `SERVICE_PAGE_TEMPLATE.md`: Service Page의 정보 순서
 7. `VISUAL_ASSET_GUIDE.md`: Alt Text가 설명하는 Asset의 운영 기준
 8. `MASTER_SPEC.md`: Page Role, 기능과 비즈니스 요구사항
+9. `DESIGN_QA_GOVERNANCE.md`: Content를 포함한 Cross-system QA, Approval와 Release Gate
 
 현재 독립된 `PATTERN_LIBRARY.md`는 없다. Pattern의 Source of Truth는 `COMPONENT_LIBRARY.md`의 Composition·Page Map과 `SERVICE_PAGE_TEMPLATE.md`다. 향후 Pattern Library가 만들어지면 이 문서의 Pattern Writing 계약을 참조해야 한다.
 

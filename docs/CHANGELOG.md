@@ -1,5 +1,17 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 12 Quality Assurance & Design Governance
+
+- `DESIGN_QA_GOVERNANCE.md` 신규 작성 및 최상위 Design Review·Approval·Release Governance 수립
+- Quality를 Brief부터 Monitoring까지 설계하는 8단계 Gate와 PM·Design·Engineering·QA·Content·Accessibility RACI 정의
+- Typography, Spacing, Grid, Visual, Component, Pattern, CTA, Motion, Responsive, Accessibility, Content, Performance와 Documentation을 포함한 215개 Design Review Checklist 작성
+- WCAG 2.2 AA, 360–1920px Responsive Matrix, Browser·Device QA와 Core Web Vitals `LCP / INP / CLS` Release 기준 정의
+- Component·Pattern Proposal, Semantic Version, Backward Compatibility, Migration과 Deprecation 절차 통합
+- D0–D3 Design Debt, Risk Score, Change Management, Release Candidate, Rollback, Monitoring, Incident와 Hotfix 운영 기준 수립
+- `DECISION_LOG.md` 신규 생성 및 `DQ-2026-001` Governance 채택 Decision 기록
+- Design Proposal, QA Record, Decision, Debt, Risk, Release Candidate와 Rollback Template 추가
+- `EQUIV_DESIGN_BIBLE.md` 마지막 Chapter 12 추가 및 AI Rules·Design System·Component·Asset·Content 문서의 Release Gate 연결
+
 ## EQUIV Design Bible v1.0 - Chapter 11 Content & UX Writing System
 
 - `CONTENT_UX_WRITING_SYSTEM.md` 신규 작성

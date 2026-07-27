@@ -2,6 +2,8 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] EQUIV Design Bible v1.0 Chapter 12 및 `DESIGN_QA_GOVERNANCE.md` Review·Approval·Release·Risk·Decision Governance 문서화
+- [x] `DECISION_LOG.md` 생성 및 DQ-2026-001 Design QA Governance 채택 기록
 - [x] EQUIV Design Bible v1.0 Chapter 11 및 `CONTENT_UX_WRITING_SYSTEM.md` Voice·Tone·Terminology·UX Writing·AI Governance 문서화
 - [x] `COMPONENT_LIBRARY.md` v1.0 Component Inventory·Specification·Composition·Lifecycle·QA Governance 전면 문서화
 - [x] `VISUAL_ASSET_GUIDE.md` v1.0 Asset Classification·Optimization·Accessibility·Lifecycle Governance 문서화

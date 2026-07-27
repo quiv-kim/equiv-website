@@ -930,3 +930,130 @@ AI 초안은 Content, Domain, Fact, Terminology, Accessibility와 필요한 Lega
 - 영문 확장을 고려한 String 구조를 사용하는가?
 - AI 문구가 Human·Domain Review를 통과했는가?
 - Brand Guide, Component Library와 충돌하지 않는가?
+
+---
+
+## Chapter 12. Quality Assurance & Design Governance
+
+Version 1.0
+Status: Approved Draft
+
+### 1. Quality Philosophy
+
+품질은 마지막에 검사하는 것이 아니라 모든 단계에서 설계한다.
+
+`Brief → Content → Design → Implementation → QA → Approval → Release → Monitoring`
+
+QA는 Visual Fidelity뿐 아니라 User Task, 기능, 반응형, 접근성, 성능, Content, 재사용성, Documentation과 운영 위험을 함께 검증한다.
+
+### 2. Governance Purpose
+
+Design Governance는 변경을 통제하기 위한 절차가 아니다.
+
+- 브랜드 일관성
+- Component와 Pattern 재사용
+- 확장 가능한 Architecture
+- 접근성과 성능 품질
+- 근거 기반 Decision
+- Design Debt와 Risk 관리
+- Version, Migration과 Documentation 추적
+
+을 통해 더 예측 가능하게 Release하기 위한 체계다.
+
+### 3. Decision Priority
+
+의사결정은 다음 우선순위를 따른다.
+
+1. User Need
+2. Brand Principle
+3. Accessibility
+4. Existing Design System
+5. Technical and Performance Impact
+6. Evidence
+7. Aesthetic Preference
+
+### 4. Official Review Flow
+
+`Design → PM Review → Work Implementation → QA → Approval → Release → Documentation → Monitoring`
+
+필수 Gate:
+
+- Gate 0: Brief, Scope와 Risk
+- Gate 1: Design, State, Responsive와 Accessibility
+- Gate 2: Implementation과 Regression
+- Gate 3: Design·Functional·Responsive·A11y·Performance·Content QA
+- Gate 4: PM Approval
+- Gate 5: Release와 Rollback
+- Gate 6: Documentation
+- Gate 7: Production Monitoring
+
+### 5. Release Blockers
+
+다음은 해결 또는 명시적인 최고 수준 승인 전 Release할 수 없다.
+
+- 주요 User Task 불가
+- 개인정보 또는 법률 위험
+- 계산 결과 오류
+- Critical Brand Logo 훼손
+- Keyboard, Focus와 Screen Reader의 주요 Flow 장애
+- WCAG 2.2 AA Critical Failure
+- Core Web Vitals가 Good에서 Poor로 회귀
+- 문서와 구현의 중대한 불일치
+- Rollback 불가
+
+### 6. Component and Pattern
+
+새 UI는 기존 Component → Composition → Variant → Pattern → 신규 Proposal 순서로 검토한다.
+
+Component와 Pattern은 Version, Dependency, Responsive, Accessibility, Content, Consumer, Migration과 Owner를 가져야 한다. Page 하나의 차이를 Shared Component나 Pattern으로 만들지 않는다.
+
+현재 독립 `PATTERN_LIBRARY.md`가 없으므로 `COMPONENT_LIBRARY.md`의 Composition·Page Map과 `SERVICE_PAGE_TEMPLATE.md`를 Pattern Source로 사용한다.
+
+### 7. Version and Change
+
+Version은 `MAJOR.MINOR.PATCH`를 사용한다.
+
+- Major: Breaking API, Architecture, 필수 Flow 또는 Brand Principle
+- Minor: Backward-compatible Variant, Pattern과 기능
+- Patch: Contract를 유지하는 Bug, 접근성 수정과 문서 명확화
+
+Breaking Change는 Proposal, Decision Log, Consumer Inventory, Migration, Deprecation, Release Note와 Rollback을 필요로 한다.
+
+### 8. Decision, Risk and Debt
+
+주요 System Decision은 `DQ-YYYY-NNN` 형식으로 `DECISION_LOG.md`에 기록한다. 기존 Decision을 삭제하지 않고 새 Decision으로 Supersede한다.
+
+Risk는 Likelihood × Impact로 평가하며 Critical Risk는 Release를 중단한다. Design Debt는 사용자와 System 영향을 기준으로 D0–D3으로 분류하고 Owner와 해결 시점을 지정한다.
+
+### 9. Accessibility and Performance
+
+Accessibility는 WCAG 2.2 Level AA를 기본으로 하며 Keyboard, Focus, ARIA, Screen Reader, Touch Target, 200% Text Zoom과 400% Reflow를 수동 검증한다.
+
+Core Web Vitals Good 기준은 75th Percentile에서 `LCP ≤ 2.5s`, `INP ≤ 200ms`, `CLS ≤ 0.1`이다. 자동 점수는 실제 Field Data와 Task Test를 대체하지 않는다.
+
+### 10. Documentation
+
+Documentation은 Release Scope다. Brand, Token, Component, Pattern, Asset, Content, Responsive, Accessibility, Performance와 Architecture 변경은 해당 전문 문서, `CHANGELOG.md`, 필요한 경우 `DECISION_LOG.md`와 Migration을 함께 업데이트한다.
+
+### 11. Work and PM
+
+Work는 Sprint 종료 시 Design QA → Responsive QA → Accessibility QA → Performance QA → Documentation → Changelog → 승인된 Git Commit → PM Review → Release 순서를 따른다.
+
+PM은 Design Bible, Component/Pattern 재사용, Accessibility, Responsive, Brand, Performance, Content, Documentation, Risk와 Rollback Evidence를 검토한다.
+
+### 12. Detailed Standard
+
+215개 Design Review Checklist, Implementation·Responsive·Accessibility·Performance·Visual·Content·Component·Pattern QA, Release Gate, Version, Design Debt, Decision, Risk, Hotfix와 운영 Template은 `DESIGN_QA_GOVERNANCE.md`를 Single Source of Truth로 사용한다.
+
+### 13. Final QA
+
+- 모든 변경 단계에서 QA를 수행하는가?
+- 승인권자와 Evidence가 명확한가?
+- Component와 Pattern 중복을 예방하는가?
+- 접근성과 성능이 Release Gate에 포함되는가?
+- Version, Migration과 Deprecation이 추적되는가?
+- Decision, Risk와 Design Debt를 관리하는가?
+- Documentation이 Release와 함께 업데이트되는가?
+- AI와 사람이 같은 Criteria를 사용하는가?
+- Production Issue와 Rollback 절차가 있는가?
+- 향후 Product에도 같은 Governance를 적용할 수 있는가?

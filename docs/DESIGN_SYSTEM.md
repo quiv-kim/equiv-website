@@ -578,3 +578,5 @@ Asset Class, Directory 확장, 해상도·비율, Naming, License, Optimization,
 - `COMPONENT_LIBRARY.md`
 - `AI_RULES.md`
 - `VISUAL_ASSET_GUIDE.md`
+- `DESIGN_QA_GOVERNANCE.md`
+- `DECISION_LOG.md`

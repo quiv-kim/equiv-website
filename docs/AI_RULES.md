@@ -282,16 +282,22 @@ EQUIV의 공식 Primary Logo는 `The EQUIV Mark + Vertical Divider + EQUIV`의 �
 
 1. AI_RULES.md
 2. MASTER_SPEC.md
-3. BRAND_GUIDE.md
-4. CONTENT_UX_WRITING_SYSTEM.md
-5. COPY_GUIDE.md
-6. DESIGN_SYSTEM.md
-7. COMPONENT_LIBRARY.md
-8. TODO.md
-9. CHANGELOG.md
+3. EQUIV_DESIGN_BIBLE.md
+4. BRAND_GUIDE.md
+5. CONTENT_UX_WRITING_SYSTEM.md
+6. COPY_GUIDE.md
+7. DESIGN_SYSTEM.md
+8. COMPONENT_LIBRARY.md
+9. VISUAL_ASSET_GUIDE.md
+10. DESIGN_QA_GOVERNANCE.md
+11. DECISION_LOG.md
+12. TODO.md
+13. CHANGELOG.md
 
 이 순서를 EQUIV 프로젝트의 공식 개발 프로세스로 적용한다.
 
 또한 앞으로 기능, 디자인, 카피, 페이지 구조를 수정할 때에는 AI_RULES.md의 원칙을 우선 적용하고, 변경 사항은 CHANGELOG.md와 TODO.md에도 함께 반영한다.
 
 AI가 새로운 문구를 작성하거나 기존 문구를 수정할 때에는 `CONTENT_UX_WRITING_SYSTEM.md`의 Voice, Tone, Terminology, Claims, Accessibility, Localization, AI Writing Rules와 Review Gate를 적용한다. AI 초안은 승인 문구가 아니며 실제 화면 반영 전 Human·Domain Review를 거친다.
+
+모든 Sprint 완료 판단은 `DESIGN_QA_GOVERNANCE.md`의 Risk 기반 Review, QA Evidence, Release Gate와 Documentation Rule을 따른다. AI와 Work는 자동 검사만으로 완료를 선언하지 않으며, Commit과 Production Release는 사용자 권한과 명시적 승인 범위 안에서 수행한다.
