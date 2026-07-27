@@ -576,3 +576,84 @@ EQUIV의 Motion은 장식이 아니라 사용자의 시선을 다음 정보와 �
 - Page, Card, Button, Navigation, Modal의 언어가 일관적인가?
 - 저사양 PC와 모바일에서도 transform과 opacity 중심으로 부드럽게 동작하는가?
 - Reduced Motion 환경에서 모든 기능과 정보가 그대로 유지되는가?
+
+---
+
+## Chapter 8. Responsive Experience System
+
+Version 1.0
+Status: Approved
+
+### 1. Responsive Philosophy
+
+Responsive는 화면을 축소하는 기술이 아니라 기기별 우선순위에 맞춰 같은 EQUIV 브랜드 경험을 제공하는 시스템이다.
+
+- Desktop: Information First
+- Tablet: Reading First
+- Mobile: Action First
+
+### 2. Breakpoint Strategy
+
+EQUIV는 세 개의 경험 구간만 사용한다.
+
+- Mobile: `0–767px`
+- Tablet: `768–1199px`
+- Desktop: `1200px 이상`
+
+가로 회전, Hover Capability와 Reduced Motion은 화면 너비 Breakpoint가 아니라 입력 방식과 접근성을 위한 보조 조건으로만 사용한다.
+
+### 3. Responsive Tokens
+
+Typography, Spacing, Container, Grid, Card, Button과 Motion은 Device Token에서 전환한다. Component 내부에서 기기별 임의 값을 만들지 않는다.
+
+- Desktop Display: `clamp(60px, 4.5vw, 68px)`
+- Tablet Display: `clamp(50px, 5.2vw, 56px)`
+- Mobile Display: `clamp(40px, 10.7vw, 46px)`
+- Desktop Section: `120px`
+- Tablet Section: `96px`
+- Mobile Section: `72px`
+- Desktop Grid: 3 Columns
+- Tablet Grid: 2 Columns
+- Mobile Grid: 1 Column
+- Mobile Card Padding: `24px`
+- Desktop/Tablet Button: `52px`
+- Mobile Button: `54px`
+
+### 4. Component Experience
+
+- Header: Desktop Horizontal Navigation, Tablet과 Mobile Collapsed Navigation
+- Hero: Desktop Visual Impact, Tablet Reading Balance, Mobile CTA Priority
+- Card: Desktop·Tablet Equal Height, Mobile Auto Height
+- CTA: Desktop·Tablet Content Width, Mobile Full Width
+- Form: Mobile 1 Column과 Input 위 Label 유지
+- Modal: Dynamic Viewport, Safe Area와 내부 Scroll 적용
+- Image: Hero의 중심 피사체가 유지되도록 Center Crop을 기본으로 사용
+
+### 5. Mobile Interaction
+
+Mobile Motion은 Desktop보다 20% 짧은 Token을 사용한다. Hover가 없는 Touch Device에서는 Lift를 제거하고 Active 상태의 Border, Shadow와 밝기 변화로 반응을 전달한다. 모든 주요 Touch Target은 최소 `44px`, Mobile CTA는 `54px`를 확보한다.
+
+### 6. Orientation and Browser Stability
+
+- Mobile·Tablet 가로 모드에서 Hero 콘텐츠가 잘리지 않도록 최소 콘텐츠 높이를 보장한다.
+- Navigation과 Modal은 `100dvh`와 `100vh` Fallback을 함께 사용한다.
+- Safari를 위해 `-webkit-backdrop-filter`를 함께 제공한다.
+- 모바일 주소창 변화 중에도 Menu와 Modal은 내부 Scroll을 유지한다.
+- 200% Zoom에서도 Container, Grid와 Form이 고정 폭 때문에 잘리지 않도록 Fluid Width를 우선한다.
+
+### 7. Performance and Accessibility
+
+- 새로운 Responsive Library를 도입하지 않는다.
+- Hero Image는 기존 최적화된 단일 자산을 재사용한다.
+- 불필요한 Script와 장식 요소를 추가하지 않는다.
+- Keyboard Focus, Touch Target, Reduced Motion, Contrast와 Semantic Label을 모든 기기에서 유지한다.
+- Lighthouse 목표는 Performance 90+, Accessibility 95+, Best Practices 95+, SEO 95+다.
+
+### 8. Final QA
+
+- Desktop과 Mobile에서 같은 브랜드 경험이 유지되는가?
+- Hero와 Navigation이 모든 방향에서 자연스럽게 읽히는가?
+- CTA가 손쉽게 눌리고 White Space가 유지되는가?
+- Typography가 Clamp Token으로 자연스럽게 변하는가?
+- Card와 Form 구조가 Device 전환에서 깨지지 않는가?
+- Safari와 Chromium 계열 브라우저에서 동적 뷰포트가 안정적인가?

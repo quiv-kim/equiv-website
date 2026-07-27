@@ -1,5 +1,16 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 8 Responsive Experience System
+
+- Responsive 구간을 `Mobile 0–767 / Tablet 768–1199 / Desktop 1200+`로 통합
+- Desktop, Tablet과 Mobile의 Typography를 Fluid `clamp()` Token으로 전환
+- Section Rhythm을 Desktop `120px`, Tablet `96px`, Mobile `72px`로 체계화
+- Grid를 Desktop 3열, Tablet 2열, Mobile 1열 경험으로 통일
+- Tablet Navigation을 Collapsed 방식으로 전환하고 JavaScript 분기 기준을 CSS Token과 공유
+- Mobile CTA 높이를 `54px`, Card Padding을 `24px`, Touch Target을 최소 `44px`로 보정
+- Mobile Motion을 Desktop 대비 20% 단축하고 Touch Device의 Hover를 Active Feedback으로 대체
+- 동적 Viewport, Safe Area, Safari Backdrop Filter와 가로 회전 Hero 안정성 보강
+
 ## EQUIV Design Bible v1.0 - Chapter 7 Motion & Interaction System
 
 - Hover, Click, Fade, Reveal, Modal, Accordion, Delay, Easing을 공통 `--motion-*` Token으로 통합

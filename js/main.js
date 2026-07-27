@@ -11,6 +11,10 @@ const readinessCloseItems = document.querySelectorAll("[data-readiness-close]");
 let lastFocusedElement = null;
 let readinessIndex = 0;
 let readinessScore = 0;
+const responsiveStyles = getComputedStyle(document.documentElement);
+const desktopNavigationMin =
+  Number.parseInt(responsiveStyles.getPropertyValue("--breakpoint-desktop"), 10) || 1200;
+const usesCollapsedNavigation = () => window.innerWidth < desktopNavigationMin;
 
 const parseMotionTime = (value, fallback) => {
   const normalized = String(value || "").trim();
@@ -47,12 +51,18 @@ const setHeaderState = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
 };
 
+const setNavigationState = (isOpen) => {
+  if (!nav || !navToggle || !header) return;
+  nav.classList.toggle("is-open", isOpen);
+  header.classList.toggle("is-open", isOpen);
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute("aria-label", isOpen ? "메인 메뉴 닫기" : "메인 메뉴 열기");
+};
+
 const closeNavigation = () => {
   if (!nav || !navToggle || !header) return;
   closeDropdowns();
-  nav.classList.remove("is-open");
-  header.classList.remove("is-open");
-  navToggle.setAttribute("aria-expanded", "false");
+  setNavigationState(false);
 };
 
 setHeaderState();
@@ -300,6 +310,8 @@ if (readinessOpen && readinessModal && readinessSteps) {
 }
 
 if (nav && navToggle && header) {
+  setNavigationState(false);
+
   dropdownItems.forEach((item) => {
     const toggle = item.querySelector("[data-dropdown-toggle]");
     if (!toggle) return;
@@ -312,18 +324,18 @@ if (nav && navToggle && header) {
     });
 
     item.addEventListener("mouseenter", () => {
-      if (window.innerWidth <= 760) return;
+      if (usesCollapsedNavigation()) return;
       closeDropdowns(item);
       setDropdownState(item, true);
     });
 
     item.addEventListener("mouseleave", () => {
-      if (window.innerWidth <= 760 || item.contains(document.activeElement)) return;
+      if (usesCollapsedNavigation() || item.contains(document.activeElement)) return;
       setDropdownState(item, false);
     });
 
     item.addEventListener("focusin", () => {
-      if (window.innerWidth <= 760) return;
+      if (usesCollapsedNavigation()) return;
       closeDropdowns(item);
       setDropdownState(item, true);
     });
@@ -336,9 +348,7 @@ if (nav && navToggle && header) {
 
   navToggle.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", String(!isOpen));
-    nav.classList.toggle("is-open", !isOpen);
-    header.classList.toggle("is-open", !isOpen);
+    setNavigationState(!isOpen);
   });
 
   nav.querySelectorAll("a").forEach((link) => {
@@ -356,7 +366,7 @@ if (nav && navToggle && header) {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 760) closeNavigation();
+    if (!usesCollapsedNavigation()) closeNavigation();
   });
 }
 

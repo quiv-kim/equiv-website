@@ -443,6 +443,20 @@ Card는 Shadow와 `-3px` Lift, Button은 최대 `-2px` Lift, Modal은 Backdrop F
 
 JavaScript에서 상태 전환 시간이 필요하면 `window.EQUIVMotion.duration()`으로 CSS Token을 읽는다. CSS와 JavaScript가 서로 다른 Timing 값을 갖지 않도록 한다. `prefers-reduced-motion`에서는 모든 핵심 콘텐츠를 즉시 표시하고, Modal·Navigation·Accordion의 기능은 그대로 유지한다.
 
+### Responsive Experience
+
+Responsive는 `Mobile 0–767px / Tablet 768–1199px / Desktop 1200px 이상`의 세 경험 구간만 사용한다.
+
+- Desktop: Information First, 3 Column, 120px Section Rhythm
+- Tablet: Reading First, 2 Column, 96px Section Rhythm, Collapsed Navigation
+- Mobile: Action First, 1 Column, 72px Section Rhythm, Full Width CTA
+
+Typography는 Device별 `clamp()` Token으로 전환하고, Container는 `--container-gutter`, Grid는 `--grid-card-gap`, Card는 `--component-card-padding-*`, Button은 `--component-button-height*`를 사용한다. Tablet과 Mobile에서 Page별 독립 Breakpoint를 만들지 않는다.
+
+Mobile Touch Device에서는 Hover Lift를 제거하고 Active 상태로 반응을 전달한다. Mobile Button은 `54px`, Navigation과 Close Control은 최소 `44px` Touch Target을 유지한다. Modal과 Collapsed Navigation은 `100vh` Fallback과 `100dvh`, Safe Area, 내부 Scroll을 사용한다.
+
+JavaScript의 Navigation 분기도 CSS의 `--breakpoint-desktop` 값을 읽어 동일한 `1200px` 기준을 공유한다.
+
 ### CSS Size Optimization
 
 - CSS 최적화는 Minify가 아니라 전체 HTML·JavaScript의 실제 참조 여부를 기준으로 수행한다.
