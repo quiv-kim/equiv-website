@@ -761,3 +761,65 @@ JavaScript는 기능별 Component 경계를 사용한다.
 - Responsive가 Component 단위로 작동하는가?
 - JavaScript 기능이 Component별 책임으로 분리되어 있는가?
 - Token 변경 후 모든 공개 페이지와 Modal이 정상 동작하는가?
+
+---
+
+## Chapter 10. Visual Language System
+
+Version 1.0
+Status: Approved
+
+### 1. Visual Language Philosophy
+
+EQUIV의 시각 요소는 콘텐츠보다 먼저 보이지 않는다. 모든 Asset과 Graphic은 `Professional / Premium / Balanced / Strategic / Modern / Minimal / Trustworthy / Global` 기준을 통과해야 하며, 장식보다 정보 전달을 우선한다.
+
+### 2. Iconography
+
+- Outline와 단순한 기하 형태를 기본으로 한다.
+- Icon Size는 `Small / Medium / Large` 세 역할만 사용한다.
+- Stroke 두께, Line Cap과 Line Join은 공통 Visual Token을 사용한다.
+- 기본 색상은 `currentColor`이며 특별한 강조에만 Accent Color를 사용한다.
+- Icon은 텍스트를 대체하지 않으며, 단독 Control에는 접근 가능한 이름을 제공한다.
+
+### 3. Image and Photography
+
+- Meeting, Negotiation, Office, Business City와 Executive Context의 실사 이미지를 우선한다.
+- 과장된 악수, 과도한 미소, 연출된 성공 장면과 AI 오류가 보이는 인물 이미지는 사용하지 않는다.
+- 자연스러운 명암과 낮은 채도를 유지하고 Hero에는 가독성을 위한 Navy Overlay를 적용한다.
+- Section Image는 Overlay를 최소화하며 텍스트와 이미지가 경쟁하지 않게 한다.
+
+### 4. Background, Accent and Shape
+
+- Background는 White, Light Gray와 Brand Navy만 사용한다.
+- Graphic Accent는 Hairline, Divider, Subtle Gradient와 Section Highlight로 제한한다.
+- Glow, Heavy Pattern, Floating Shape, Blob과 장식용 Organic Shape는 사용하지 않는다.
+- Radius와 Shadow는 Design Token을 사용하고 원형은 상태나 핵심 강조에만 제한한다.
+
+### 5. Data, Empty and Loading
+
+- Data Visualization은 평면 2D, 높은 명암, 최소 Grid와 명확한 Label을 사용한다.
+- Empty State는 짧은 설명과 필요한 CTA를 제공하고 색상만으로 상태를 전달하지 않는다.
+- Loading은 Content Shape를 보여주는 Skeleton을 우선하며 300–600ms Motion Token을 사용한다.
+- Reduced Motion 환경에서는 Loading과 Transition을 즉시 상태로 전환한다.
+
+### 6. Asset Organization and Optimization
+
+- `/images/logos`: 공식 Logo와 Favicon
+- `/images/backgrounds`: Hero와 Section Background
+- `/images/icons`, `/images/illustrations`: 실제 Asset이 생길 때만 생성
+- 파일명은 역할과 내용을 나타내는 소문자 Kebab Case를 사용한다.
+- SVG와 WebP를 우선하고, 의미 있는 Image에는 Alt Text를 제공한다.
+- Below-the-fold Image는 Lazy Loading과 Async Decoding을 사용한다.
+
+### 7. Governance
+
+새로운 시각 요소는 기존 Asset 재사용 가능성, Brand Keyword 적합성, 정보 전달 필요성, 접근성과 최적화 상태를 확인한 뒤 추가한다. 새로운 Icon Set이나 Image Policy를 도입하면 `BRAND_GUIDE.md`, `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`와 `CHANGELOG.md`를 함께 갱신한다.
+
+### 8. Final QA
+
+- Icon Style과 Stroke가 일관적인가?
+- Image Tone과 Overlay가 브랜드에 맞는가?
+- Glow와 불필요한 장식이 없는가?
+- Asset 경로와 파일명이 역할별로 관리되는가?
+- SVG와 WebP 등 최적화 형식을 사용하는가?
+- Icon과 Image가 접근 가능한 이름 또는 대체 텍스트를 제공하는가?

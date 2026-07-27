@@ -187,3 +187,34 @@ EQUIV의 문체는 압박하거나 과장하지 않는다. 전문성과 신뢰�
 - Gold는 강조점으로만 사용
 - 카드와 버튼은 과하게 장식하지 않는다.
 - 새로운 디자인 시스템을 만들지 않고 기존 HOME 시스템을 확장한다.
+
+## Visual Language
+
+핵심 키워드는 `Professional / Premium / Balanced / Strategic / Modern / Minimal / Trustworthy / Global`이다.
+
+### Icon
+
+- Outline, Simple Geometry와 일정한 Stroke를 사용한다.
+- Small, Medium과 Large 세 크기만 사용한다.
+- 기본 색상은 Text Color를 따르며 Gold는 핵심 강조에만 사용한다.
+- Icon만으로 의미를 전달하지 않고 필요한 Text 또는 Accessible Name을 함께 제공한다.
+
+### Photography and Image
+
+- 실제 Meeting, Negotiation, Office, Business City와 Executive Context를 우선한다.
+- 과장된 악수, 과도한 미소, 연출된 성공 장면과 AI 오류가 보이는 이미지는 사용하지 않는다.
+- 자연스러운 명암과 절제된 채도를 유지하며 Hero는 Navy Overlay로 Text 가독성을 확보한다.
+- 실사 수준을 충족하지 못하는 AI Image는 사용하지 않는다.
+
+### Background and Graphic
+
+- White, Light Gray와 Brand Navy 배경만 사용한다.
+- Line, Divider, Subtle Gradient와 Section Highlight만 제한적으로 사용한다.
+- Glow, Heavy Pattern, Floating Shape, Blob, Cartoon, Comic과 과도한 3D는 사용하지 않는다.
+
+### Asset Management
+
+- Logo는 `images/logos/`, Background는 `images/backgrounds/`에서 관리한다.
+- Icon과 Illustration 폴더는 승인된 재사용 Asset이 생길 때만 생성한다.
+- SVG와 WebP를 우선하고 파일명은 소문자 Kebab Case를 사용한다.
+- 의미 있는 Image는 Alt Text를 제공하고 아래쪽 Image는 Lazy Loading을 적용한다.

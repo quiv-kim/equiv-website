@@ -181,6 +181,29 @@ ESC, Overlay, Close Control, Focus Trap과 Trigger Focus Return을 지원한다.
 
 Desktop은 2 Column, Tablet·Mobile은 Vertical Flow를 사용한다. Footer는 회사소개가 아니라 Brand Signature 역할만 수행한다.
 
+## Icon
+
+### Canonical Name
+
+- Base: `.icon`
+- Small: `.icon--sm`
+- Medium: `.icon`
+- Large: `.icon--lg`
+
+Outline SVG와 `currentColor`를 사용한다. Stroke, Line Cap과 Line Join은 Visual Token을 공유하며, Icon-only Control은 `aria-label` 또는 화면에 보이는 Label을 제공한다.
+
+## Image
+
+Hero는 `images/backgrounds/hero-city.webp`를 공통 Background Asset으로 사용하고 Navy Overlay로 Text Contrast를 확보한다. Content Image는 의미에 따라 Alt Text를 제공하며 Below-the-fold Image는 Lazy Loading과 Async Decoding을 사용한다.
+
+## Empty State
+
+Base는 `.empty-state`다. 짧은 제목·설명과 필요한 CTA로 구성하며 장식용 Illustration을 기본값으로 추가하지 않는다.
+
+## Skeleton
+
+Base는 `.skeleton`이다. Content Shape를 유지하는 Loading Placeholder로 사용하고 공통 Visual Loading Duration과 Reduced Motion 규칙을 따른다. 진행 상태는 별도로 `role="status"` 또는 `aria-live`로 전달한다.
+
 ## Governance Checklist
 
 새 Component 또는 Variant 추가 전에 확인한다.

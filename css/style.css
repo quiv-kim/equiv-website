@@ -25,7 +25,6 @@
   --foundation-rgb-75: 255 250 240;
   --foundation-rgb-400: 111 119 130;
   --foundation-rgb-500: 169 130 53;
-  --foundation-rgb-525: 185 150 70;
   --foundation-rgb-550: 158 122 50;
   --foundation-rgb-425: 124 135 147;
   --foundation-rgb-700: 34 34 34;
@@ -93,12 +92,30 @@
   --color-accent-border-strong: rgb(var(--foundation-rgb-500) / 42%);
   --color-accent-border-emphasis: rgb(var(--foundation-rgb-500) / 62%);
   --color-accent-border-card: rgb(var(--foundation-rgb-500) / 35%);
-  --color-accent-glow: rgb(var(--foundation-rgb-525) / 5%);
   --color-overlay: rgb(var(--foundation-rgb-overlay) / 50%);
   --color-overlay-primary: rgb(var(--foundation-rgb-900) / 48%);
   --color-success: rgb(var(--foundation-rgb-feedback-success));
   --color-warning: rgb(var(--foundation-rgb-feedback-warning));
   --color-error: rgb(var(--foundation-rgb-feedback-error));
+  --background-default: var(--color-background);
+  --background-muted: var(--color-surface-muted);
+  --background-brand: var(--color-primary);
+  --visual-icon-color: currentColor;
+  --visual-divider-color: var(--color-border);
+  --visual-hero-overlay:
+    linear-gradient(
+      135deg,
+      var(--color-primary-overlay-medium),
+      var(--color-primary-overlay-heavy)
+    );
+  --visual-hero-scrim:
+    linear-gradient(
+      180deg,
+      var(--color-primary-overlay-light),
+      var(--color-primary-overlay-strong)
+    );
+  --visual-skeleton-base: var(--color-surface-muted);
+  --visual-skeleton-highlight: var(--color-background);
 
   /* Legacy semantic aliases: retained for backward compatibility. */
   --color-gold: var(--color-secondary);
@@ -295,6 +312,13 @@
   --component-card-link-min-height: 32px;
   --component-card-link-gap: calc(var(--space-half) + (var(--space-half) / 2));
   --component-card-link-icon-width: 16px;
+  --component-icon-size-sm: 16px;
+  --component-icon-size-md: 22px;
+  --component-icon-size-lg: 28px;
+  --component-icon-stroke-width: 1.5;
+  --component-icon-linecap: round;
+  --component-icon-linejoin: round;
+  --component-visual-loading-duration: var(--motion-reveal);
   --component-button-padding-y: var(--space-sm);
   --component-button-padding-x: var(--space-lg);
   --component-button-height: 52px;
@@ -841,13 +865,13 @@ button {
 
 .hero-media {
   background:
-    linear-gradient(135deg, var(--color-primary-overlay-medium), var(--color-primary-overlay-heavy)),
-    url("../images/hero-city.jpg") center/cover;
+    var(--visual-hero-overlay),
+    url("../images/backgrounds/hero-city.webp") center/cover;
   transform: scale(1.02);
 }
 
 .hero-overlay {
-  background: linear-gradient(180deg, var(--color-primary-overlay-light), var(--color-primary-overlay-strong)), radial-gradient(circle at 50% 58%, var(--color-accent-glow), transparent 32%), var(--color-primary-overlay-soft);
+  background: var(--visual-hero-scrim), var(--color-primary-overlay-soft);
 }
 
 .hero-content {
@@ -2111,15 +2135,43 @@ button {
   text-transform: uppercase;
 }
 
-.valuation-loading__spinner {
-  display: block;
-  width: 36px;
-  height: 36px;
+.valuation-loading__skeleton {
+  display: grid;
+  width: min(100%, var(--content-width-sm));
   margin: var(--space-xl) auto var(--space-lg);
-  border: 2px solid var(--color-border);
-  border-top-color: var(--color-gold);
-  border-radius: 50%;
-  animation: valuation-loading-spin var(--motion-duration-reveal) linear infinite;
+  gap: var(--space-xs);
+}
+
+.valuation-loading__skeleton span,
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  min-height: var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: var(--visual-skeleton-base);
+}
+
+.valuation-loading__skeleton span::after,
+.skeleton::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--visual-skeleton-highlight),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: visual-skeleton-loading var(--component-visual-loading-duration) var(--motion-ease-standard) infinite;
+}
+
+.valuation-loading__skeleton span:nth-child(2) {
+  width: 82%;
+}
+
+.valuation-loading__skeleton span:nth-child(3) {
+  width: 64%;
 }
 
 .valuation-loading h3 {
@@ -2143,9 +2195,9 @@ button {
   font-size: var(--type-caption);
 }
 
-@keyframes valuation-loading-spin {
-  to {
-    transform: rotate(360deg);
+@keyframes visual-skeleton-loading {
+  100% {
+    transform: translateX(100%);
   }
 }
 
@@ -3022,12 +3074,15 @@ button {
 }
 
 .confidential-notice svg {
-  width: 22px;
-  height: 22px;
+  width: var(--component-icon-size-md);
+  height: var(--component-icon-size-md);
   flex: 0 0 auto;
   margin-top: calc(var(--space-2xs) / 2);
-  stroke: var(--color-gold);
-  stroke-width: 1.5;
+  color: var(--color-gold);
+  stroke: var(--visual-icon-color);
+  stroke-width: var(--component-icon-stroke-width);
+  stroke-linecap: var(--component-icon-linecap);
+  stroke-linejoin: var(--component-icon-linejoin);
   fill: none;
 }
 
@@ -3570,13 +3625,46 @@ button {
 }
 
 .consultation-modal__success-icon svg {
-  width: 28px;
-  height: 28px;
+  width: var(--component-icon-size-lg);
+  height: var(--component-icon-size-lg);
   fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke: var(--visual-icon-color);
+  stroke-width: var(--component-icon-stroke-width);
+  stroke-linecap: var(--component-icon-linecap);
+  stroke-linejoin: var(--component-icon-linejoin);
+}
+
+/* Shared visual primitives */
+.icon {
+  width: var(--component-icon-size-md);
+  height: var(--component-icon-size-md);
+  flex: 0 0 auto;
+  color: inherit;
+  fill: none;
+  stroke: var(--visual-icon-color);
+  stroke-width: var(--component-icon-stroke-width);
+  stroke-linecap: var(--component-icon-linecap);
+  stroke-linejoin: var(--component-icon-linejoin);
+}
+
+.icon--sm {
+  width: var(--component-icon-size-sm);
+  height: var(--component-icon-size-sm);
+}
+
+.icon--lg {
+  width: var(--component-icon-size-lg);
+  height: var(--component-icon-size-lg);
+}
+
+.empty-state {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-md);
+  padding: var(--component-card-padding);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--visual-divider-color);
+  background: var(--background-default);
 }
 
 @keyframes consultation-success-in {
@@ -5985,6 +6073,13 @@ button {
   .readiness-modal__dialog,
   .consultation-modal__dialog {
     transform: none;
+  }
+
+  .valuation-loading__skeleton span::after,
+  .skeleton::after {
+    animation: none;
+    transform: none;
+    background: none;
   }
 
   *,

@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 10 Visual Language System
+
+- Icon Size를 Small·Medium·Large 세 역할로 통합하고 공통 Stroke·Line Cap·Line Join Token 적용
+- Hero Background에서 장식용 Radial Glow를 제거하고 Navy Overlay 중심의 Image Treatment로 정리
+- 기업가치 결과 준비 화면을 회전 Spinner에서 Content Skeleton으로 변경
+- Hero 도시 이미지를 JPG에서 WebP로 최적화하고 Logo·Favicon·Background Asset을 역할별 폴더로 정리
+- HOME Confidential Icon과 Consultation Success Icon을 공통 Outline Icon 규칙으로 통합
+- About의 Below-the-fold Mark Image에 Lazy Loading과 Async Decoding 적용
+- `BRAND_GUIDE.md`, `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`에 Visual Language·Asset Governance 기준 추가
+
 ## EQUIV Design Bible v1.0 - Chapter 9 Design Token & Component Library
 
 - CSS Token을 `Foundation → Semantic → Component`의 단방향 계층으로 재구성

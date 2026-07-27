@@ -528,6 +528,31 @@ Foundation은 Semantic Token만 참조한다. Component에서 Foundation Token�
 
 Classic Script 간 전역 변수 충돌을 방지하기 위해 각 Component Script는 독립 Scope를 사용한다. CSS Breakpoint와 Motion 값은 JavaScript에서 복제하지 않고 Root Token을 읽는다.
 
+## Visual Language System
+
+Visual은 콘텐츠를 보조하며 `Professional / Premium / Balanced / Strategic / Modern / Minimal / Trustworthy / Global`의 브랜드 기준을 따른다.
+
+### Visual Tokens
+
+- Background: `--background-default / --background-muted / --background-brand`
+- Hero Treatment: `--visual-hero-overlay / --visual-hero-scrim`
+- Icon: `--component-icon-size-sm / md / lg`, `--component-icon-stroke-width`
+- Divider: `--visual-divider-color`
+- Loading: `--visual-skeleton-base / --visual-skeleton-highlight / --component-visual-loading-duration`
+
+Icon은 공통 `.icon`, `.icon--sm`, `.icon--lg` Primitive를 사용하고 기본 색상은 `currentColor`다. 특수 강조가 필요한 Container에서만 Gold Accent를 상속한다.
+
+Hero Background는 WebP Asset과 Navy Overlay만 사용한다. Glow, Heavy Pattern, 3D Graphic과 Floating Shape는 사용하지 않는다. Empty State는 `.empty-state`, Content Loading은 `.skeleton`을 사용하며 Motion Token과 Reduced Motion 규칙을 공유한다.
+
+### Asset Structure
+
+- `images/logos/`: The EQUIV Mark와 Favicon
+- `images/backgrounds/`: Hero와 Section Background
+- `images/icons/`: 재사용되는 독립 SVG Icon이 생길 때 생성
+- `images/illustrations/`: 승인된 Illustration이 생길 때만 생성
+
+파일은 소문자 Kebab Case를 사용한다. SVG, WebP와 AVIF를 우선하고 아래쪽 Content Image에는 `loading="lazy"`와 `decoding="async"`를 사용한다. 배경 이미지는 CSS의 Visual Token과 Component Rule에서만 참조한다.
+
 ## Project Reference Rule
 
 앞으로 디자인을 수정하거나 새로운 페이지를 만들 때에는 아래 문서를 먼저 참고한 후 코드를 작성하는 것을 프로젝트 원칙으로 적용한다.

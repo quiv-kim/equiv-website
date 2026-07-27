@@ -35,7 +35,7 @@
         <button class="consultation-modal__close" type="button" aria-label="상담 Modal 닫기" data-consultation-close><span aria-hidden="true">×</span></button>
         <header class="consultation-modal__header" data-consultation-header>
           <div class="equiv-logo consultation-modal__brand" role="img" aria-label="The EQUIV Mark, EQUIV">
-            <img class="equiv-logo-mark" src="images/the-equiv-mark.svg" alt="">
+            <img class="equiv-logo-mark" src="images/logos/the-equiv-mark.svg" alt="">
             <span class="equiv-logo-divider"></span>
             <span class="equiv-logo-wordmark">EQUIV</span>
           </div>
@@ -46,7 +46,7 @@
 
         <header class="consultation-modal__header consultation-modal__header--success" data-success-header hidden>
           <div class="equiv-logo consultation-modal__brand" role="img" aria-label="The EQUIV Mark, EQUIV">
-            <img class="equiv-logo-mark" src="images/the-equiv-mark.svg" alt="">
+            <img class="equiv-logo-mark" src="images/logos/the-equiv-mark.svg" alt="">
             <span class="equiv-logo-divider"></span>
             <span class="equiv-logo-wordmark">EQUIV</span>
           </div>
@@ -141,7 +141,7 @@
 
         <div class="consultation-modal__success" tabindex="-1" aria-live="polite" data-consultation-success hidden>
           <div class="consultation-modal__success-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><path d="m7.5 12.4 3 3 6.5-7"></path></svg>
+            <svg class="icon icon--lg" viewBox="0 0 24 24" focusable="false"><path d="m7.5 12.4 3 3 6.5-7"></path></svg>
           </div>
           <p class="section-kicker">SUCCESS</p>
           <h2>상담 신청이 완료되었습니다.</h2>

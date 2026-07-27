@@ -135,7 +135,11 @@
       <div class="valuation-loading" role="status" aria-live="polite">
         <div class="valuation-loading__inner">
           <p class="valuation-loading__brand">EQUIV Business Valuation</p>
-          <span class="valuation-loading__spinner" aria-hidden="true"></span>
+          <div class="valuation-loading__skeleton" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <h3>예비 기업가치를 분석하고 있습니다.</h3>
           <p>입력하신 정보를 바탕으로 결과를 준비하고 있습니다.</p>
           <small>잠시만 기다려 주세요.</small>
