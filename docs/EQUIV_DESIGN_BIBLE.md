@@ -815,6 +815,8 @@ EQUIV의 시각 요소는 콘텐츠보다 먼저 보이지 않는다. 모든 Ass
 
 새로운 시각 요소는 기존 Asset 재사용 가능성, Brand Keyword 적합성, 정보 전달 필요성, 접근성과 최적화 상태를 확인한 뒤 추가한다. 새로운 Icon Set이나 Image Policy를 도입하면 `BRAND_GUIDE.md`, `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`와 `CHANGELOG.md`를 함께 갱신한다.
 
+Asset의 분류, 파일명, 제작 규격, 권리, 최적화, 접근성, Version과 Lifecycle은 `VISUAL_ASSET_GUIDE.md`를 공식 운영 기준으로 사용한다.
+
 ### 8. Final QA
 
 - Icon Style과 Stroke가 일관적인가?

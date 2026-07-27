@@ -553,6 +553,8 @@ Hero Background는 WebP Asset과 Navy Overlay만 사용한다. Glow, Heavy Patte
 
 파일은 소문자 Kebab Case를 사용한다. SVG, WebP와 AVIF를 우선하고 아래쪽 Content Image에는 `loading="lazy"`와 `decoding="async"`를 사용한다. 배경 이미지는 CSS의 Visual Token과 Component Rule에서만 참조한다.
 
+Asset Class, Directory 확장, 해상도·비율, Naming, License, Optimization, Accessibility, QA, Version과 Lifecycle의 상세 운영은 `VISUAL_ASSET_GUIDE.md`를 따른다.
+
 ## Project Reference Rule
 
 앞으로 디자인을 수정하거나 새로운 페이지를 만들 때에는 아래 문서를 먼저 참고한 후 코드를 작성하는 것을 프로젝트 원칙으로 적용한다.
@@ -562,3 +564,4 @@ Hero Background는 WebP Asset과 Navy Overlay만 사용한다. Glow, Heavy Patte
 - `COPY_GUIDE.md`
 - `DESIGN_SYSTEM.md`
 - `AI_RULES.md`
+- `VISUAL_ASSET_GUIDE.md`

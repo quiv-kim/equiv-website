@@ -218,3 +218,5 @@ EQUIV의 문체는 압박하거나 과장하지 않는다. 전문성과 신뢰�
 - Icon과 Illustration 폴더는 승인된 재사용 Asset이 생길 때만 생성한다.
 - SVG와 WebP를 우선하고 파일명은 소문자 Kebab Case를 사용한다.
 - 의미 있는 Image는 Alt Text를 제공하고 아래쪽 Image는 Lazy Loading을 적용한다.
+
+Asset의 제작·검토·승인·배포·교체·폐기와 권리 관리 기준은 `VISUAL_ASSET_GUIDE.md`를 따른다. 이 문서는 Brand Tone만 정의하며 운영 규격을 중복 정의하지 않는다.

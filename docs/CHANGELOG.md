@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Visual Asset Guide v1.0
+
+- `VISUAL_ASSET_GUIDE.md` 신규 작성
+- Logo, Icon, Illustration, Photography, Background, Pattern, Chart, Social, Favicon과 Loading Asset 분류 체계 정의
+- 확장 가능한 Directory, Filename, Image 규격, SVG·Raster 최적화와 Responsive Image 기준 수립
+- Alt Text, Decorative Asset, Icon Control, Contrast와 Complex Image 접근성 기준 수립
+- Create → Review → Approve → Optimize → Deploy → Archive → Replace → Delete Lifecycle와 RACI 정의
+- 66개 Release QA 항목, Asset Registry, Request·Review·Deprecation·Pull Request Template 추가
+- `EQUIV_DESIGN_BIBLE.md`, `DESIGN_SYSTEM.md`, `BRAND_GUIDE.md`에서 상세 Asset 운영 기준을 본 문서로 연결
+
 ## EQUIV Design Bible v1.0 - Chapter 10 Visual Language System
 
 - Icon Size를 Small·Medium·Large 세 역할로 통합하고 공통 Stroke·Line Cap·Line Join Token 적용

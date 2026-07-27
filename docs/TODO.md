@@ -2,6 +2,7 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] `VISUAL_ASSET_GUIDE.md` v1.0 Asset Classification·Optimization·Accessibility·Lifecycle Governance 문서화
 - [x] EQUIV Design Bible v1.0 Chapter 10 Visual Language·Icon·Image·Asset Governance 적용
 - [x] EQUIV Design Bible v1.0 Chapter 9 Design Token 계층·Component Library·JavaScript Component 구조 적용
 - [x] EQUIV Design Bible v1.0 Chapter 6 CTA & Card System 문서화 및 공통 Component Token 적용
