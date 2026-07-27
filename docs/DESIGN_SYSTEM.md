@@ -483,6 +483,51 @@ Mobile에서 Input Text는 iOS 자동 확대 방지를 위해 항상 `16px` 이�
 
 두 Modal은 별도의 중복 Typography Scale을 만들지 않는다. Desktop과 Tablet의 기존 Component 값은 유지하고, `760px 이하` 구간에서만 공통 Modal Role Token으로 전환한다.
 
+## Design Token Architecture
+
+EQUIV Token은 `Foundation → Semantic → Component`의 단방향 구조를 사용한다.
+
+### Foundation
+
+- Color RGB Primitive
+- Font Family, Weight와 Device Scale
+- 8px Spacing Grid와 4px Optical Half-step
+- Radius 4단계
+- Shadow 4단계
+- Motion Duration과 Easing
+
+Foundation은 Semantic Token만 참조한다. Component에서 Foundation Token을 직접 사용하지 않는다.
+
+### Semantic
+
+- Color: Primary, Secondary, Accent, Background, Surface, Border, Text, Success, Warning, Error
+- Typography: Display, H1, H2, H3, Body, Small, Caption, Button, Navigation
+- Layout: Container, Content Width, Grid와 Section Rhythm
+- Layer: Base, Header, Floating Action, Dropdown, Modal, Toast, Debug
+
+### Component
+
+- Button: Background, Text, Border, Radius, Shadow, Focus, Disabled와 Loading
+- Card: Background, Border, Radius, Shadow, Focus, Disabled와 Loading
+- Modal: Background, Backdrop, Border, Radius, Shadow와 Layer
+- Dropdown: Background, Border, Shadow와 Layer
+- Form: Background, Border, Focus Border와 Focus Shadow
+- Header: Background, Logo Lockup, Navigation과 Layer
+
+공식 사용법과 Variant·State 기준은 `COMPONENT_LIBRARY.md`를 따른다.
+
+## JavaScript Component Architecture
+
+- `main.js`: Motion Token Bridge와 Reveal
+- `navigation.js`: Header, Navigation, Dropdown, Back to Top
+- `readiness-modal.js`: Deal Readiness Modal
+- `consultation-modal.js`: Consultation Modal
+- `valuation-modal.js`: Business Valuation Modal
+- `valuation-config.js`: Valuation Configuration
+- `valuation-engine.js`: Valuation Calculation
+
+Classic Script 간 전역 변수 충돌을 방지하기 위해 각 Component Script는 독립 Scope를 사용한다. CSS Breakpoint와 Motion 값은 JavaScript에서 복제하지 않고 Root Token을 읽는다.
+
 ## Project Reference Rule
 
 앞으로 디자인을 수정하거나 새로운 페이지를 만들 때에는 아래 문서를 먼저 참고한 후 코드를 작성하는 것을 프로젝트 원칙으로 적용한다.

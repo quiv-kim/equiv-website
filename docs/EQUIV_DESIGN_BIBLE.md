@@ -657,3 +657,107 @@ Mobile Motion은 Desktop보다 20% 짧은 Token을 사용한다. Hover가 없는
 - Typography가 Clamp Token으로 자연스럽게 변하는가?
 - Card와 Form 구조가 Device 전환에서 깨지지 않는가?
 - Safari와 Chromium 계열 브라우저에서 동적 뷰포트가 안정적인가?
+
+---
+
+## Chapter 9. Design Token & Component Library
+
+Version 1.0
+Status: Approved
+
+### 1. Design System Philosophy
+
+EQUIV는 페이지별로 새로운 디자인을 만드는 대신 검증된 Component를 조합한다. 새로운 화면을 만들기 전 기존 Component와 Variant로 해결할 수 있는지 먼저 확인하며, 재사용하기 어려운 UI는 Library에 추가하지 않는다.
+
+### 2. Token Hierarchy
+
+모든 Token은 다음 단방향 계층을 따른다.
+
+`Foundation Token → Semantic Token → Component Token`
+
+- Foundation: 브랜드의 원시 값. RGB, Font Family, Weight, 8px Grid, Radius, Shadow와 Motion 값
+- Semantic: Primary, Surface, Text, Border, Display, Body, Section Space와 같은 역할
+- Component: Button, Card, Modal, Dropdown, Header와 Form이 실제 사용하는 역할
+
+Component는 Foundation을 직접 참조하지 않는다. 기존 공개 Class와 Alias는 Backward Compatibility를 위해 유지할 수 있지만, 새로운 Component는 Semantic 또는 Component Token만 사용한다.
+
+### 3. Color & Typography
+
+색상은 `Primary / Secondary / Accent / Background / Surface / Border / Text / Feedback` 역할로 사용한다. Component 안에서 Hex, RGB와 색상 이름을 직접 선언하지 않는다.
+
+Typography는 `Display / H1 / H2 / H3 / Body / Caption`의 6단계와 Button·Navigation Semantic Role만 사용한다. Component는 직접 `font-size` 값을 만들지 않는다.
+
+### 4. Spacing, Radius, Shadow & Motion
+
+- Spacing: `--space-1`을 8px 기준으로 사용하며 4px은 Optical Half-step으로만 허용
+- Radius: `SM / MD / LG / XL`
+- Shadow: `SM / MD / LG / XL`
+- Motion: `Fast / Normal / Slow / Hover / Modal / Reveal`
+
+Component 내부 Margin, Padding, Gap, Radius, Shadow와 Duration은 Token을 통해서만 결정한다. 기능상 필요한 1px Hairline과 접근성 최소 높이는 명시적인 Component Token으로 관리한다.
+
+### 5. Layer System
+
+레이어 순서는 다음 Token을 사용한다.
+
+`Base → Content → Sticky Header → Floating Action → Dropdown → Modal Backdrop → Modal → Toast → Debug`
+
+Component에서 임의의 큰 `z-index`를 만들지 않는다.
+
+### 6. Component Architecture
+
+모든 Component는 아래 구조를 따른다.
+
+`Component → Variant → State → Responsive`
+
+공통 State는 `Default / Hover / Active / Focus / Disabled / Loading`이다. Button과 Card는 동일한 Focus, Disabled와 Loading 원칙을 사용하며, Touch Device에서는 Hover 대신 Active Feedback을 제공한다.
+
+### 7. Component Library
+
+공식 Component 목록과 사용 규칙은 `COMPONENT_LIBRARY.md`에서 관리한다.
+
+- Header & Navigation
+- Hero
+- Section Header
+- Button
+- Card
+- Form Control
+- Modal
+- Accordion
+- Footer
+
+새로운 Variant나 Component를 추가하면 `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`와 `CHANGELOG.md`를 함께 갱신한다.
+
+### 8. CSS & JavaScript Architecture
+
+CSS는 하나의 진입 파일 안에서 `Tokens → Reset → Base → Layout → Components → Utilities → Responsive → Page-specific Policy` 순서를 유지한다. 단순히 파일을 나누기 위해 새 CSS 파일을 추가하지 않는다.
+
+JavaScript는 기능별 Component 경계를 사용한다.
+
+- `main.js`: Motion Token과 Reveal
+- `navigation.js`: Header, Navigation, Dropdown과 Back to Top
+- `readiness-modal.js`: Deal Readiness Modal
+- `consultation-modal.js`: Consultation Modal
+- `valuation-modal.js`: Business Valuation Modal
+- `valuation-config.js / valuation-engine.js`: Valuation Configuration과 Calculation
+
+각 스크립트는 필요한 DOM이 없는 페이지에서도 안전하게 종료하고 전역 상태를 불필요하게 만들지 않는다.
+
+### 9. Governance
+
+새 Component를 추가하기 전에 다음을 확인한다.
+
+- 기존 Component로 해결 가능한가?
+- 새로운 Component가 아니라 Variant로 충분한가?
+- 기존 페이지와 Backward Compatibility가 유지되는가?
+- Design Bible의 Premium, Balanced, Calm 원칙과 일치하는가?
+- 코드와 문서가 동시에 갱신되는가?
+
+### 10. Final QA
+
+- Foundation에서 Component까지 Token 흐름이 단방향인가?
+- Component에 임의 색상, Font Size, Shadow와 Z-index가 남지 않았는가?
+- Button과 Card의 State가 일관적인가?
+- Responsive가 Component 단위로 작동하는가?
+- JavaScript 기능이 Component별 책임으로 분리되어 있는가?
+- Token 변경 후 모든 공개 페이지와 Modal이 정상 동작하는가?

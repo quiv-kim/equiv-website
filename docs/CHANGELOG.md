@@ -1,5 +1,17 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 9 Design Token & Component Library
+
+- CSS Token을 `Foundation → Semantic → Component`의 단방향 계층으로 재구성
+- Color Primitive를 RGB Foundation으로 분리하고 공개 UI의 직접 Hex·RGBA 선언을 Semantic Color Token으로 전환
+- 8px Spacing Grid, Radius·Shadow·Motion·Z-index Layer Token을 공식화
+- Button, Card, Modal, Dropdown, Form과 Header에 전용 Component Token을 연결
+- Button과 Card에 공통 Hover·Active·Focus·Disabled·Loading State 추가
+- 기존 `.btn` Class를 호환 유지하면서 공식 `Button` Component Naming과 Variant 기준을 문서화
+- `main.js`의 책임을 Motion·Reveal로 축소하고 `navigation.js`, `readiness-modal.js`로 기능 분리
+- `COMPONENT_LIBRARY.md`를 추가하고 Component 구조, Variant, State, Responsive와 Governance 규칙을 문서화
+- 13개 공개 페이지에 공통 Navigation Component Script를 연결하고 HOME에 Deal Readiness Component Script를 별도 연결
+
 ## EQUIV Design Bible v1.0 - Chapter 8 Responsive Experience System
 
 - Responsive 구간을 `Mobile 0–767 / Tablet 768–1199 / Desktop 1200+`로 통합
