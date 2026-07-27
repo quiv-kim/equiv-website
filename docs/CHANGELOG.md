@@ -1,5 +1,17 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 11 Content & UX Writing System
+
+- `CONTENT_UX_WRITING_SYSTEM.md` 신규 작성
+- Professional, Trustworthy, Confident, Calm, Strategic, Premium, Balanced와 Friendly but Formal의 Brand Voice 정의
+- Homepage, 5개 Service, CTA, Button, Navigation, Form, Error, Success, Empty, Confirmation, Article, SEO, Accessibility와 Localization 작성 기준 수립
+- M&A, 기업가치, 지분가치, 사전진단, 참고 신뢰도, 상담과 거래 실무 용어의 공식 한·영 Glossary 작성
+- Content Brief, UI String, Review, Terminology Proposal, AI Prompt Contract와 Page Copy Inventory Template 추가
+- 생성형 AI의 Fact, Claim, Confidentiality, Valuation, Tone과 Human Review 규칙 수립
+- 76개 Global Content QA와 Release Gate, PM Review Checklist 추가
+- `EQUIV_DESIGN_BIBLE.md` Chapter 11 추가 및 `AI_RULES.md`, `BRAND_GUIDE.md`, `COPY_GUIDE.md`, `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`, `SERVICE_PAGE_TEMPLATE.md` 책임 경계 연결
+- 독립 `PATTERN_LIBRARY.md`가 없는 현재 구조에서는 Component Composition과 Service Page Template을 Pattern Source로 명시
+
 ## EQUIV Component Library v1.0
 
 - `COMPONENT_LIBRARY.md`를 글로벌 Design System 운영 문서 수준으로 전면 재작성

@@ -572,6 +572,7 @@ Asset Class, Directory 확장, 해상도·비율, Naming, License, Optimization,
 
 - `MASTER_SPEC.md`
 - `BRAND_GUIDE.md`
+- `CONTENT_UX_WRITING_SYSTEM.md`
 - `COPY_GUIDE.md`
 - `DESIGN_SYSTEM.md`
 - `COMPONENT_LIBRARY.md`

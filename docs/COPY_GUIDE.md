@@ -1,5 +1,7 @@
 # EQUIV M&A Copy Guide
 
+이 문서는 자주 사용하는 EQUIV Copy 원칙의 간략한 실무 요약이다. Voice, Tone, Component별 UI 문구, 공식 Terminology, Accessibility, Localization, SEO, AI 작성, Review와 Lifecycle의 상세 운영 기준은 `CONTENT_UX_WRITING_SYSTEM.md`를 따른다. 충돌 시 상세 운영 문서를 우선한다.
+
 ## Copy Direction
 
 EQUIV의 카피는 기업 대표, 의사결정자, 투자자에게 신뢰를 주는 문체를 사용한다.
@@ -134,7 +136,7 @@ Button:
 ### Insights
 
 - 뉴스 공간이 아니라 EQUIV의 생각과 전문성을 보여주는 공간이다.
-- 콘텐츠 카테고리는 시장, 가치평가, 거래 사례를 중심으로 구성한다.
+- 콘텐츠 카테고리는 `M&A 실무 / 업종별 M&A / 시장분석 / 거래사례`로 운영한다.
 
 ### Contact
 
@@ -152,7 +154,6 @@ HOME Hero는 한글 중심의 메시지에 집중한다. Eyebrow, 한글 Main He
 
 Recommended:
 
-- Premium M&A Advisory
 - Sell-side Advisory
 - Business Valuation
 - Deal Structuring

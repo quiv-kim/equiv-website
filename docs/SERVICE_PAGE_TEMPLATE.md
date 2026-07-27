@@ -1,5 +1,7 @@
 # EQUIV Service Page Template
 
+Service Page의 문장 구조, 공식 서비스 Lead, CTA, FAQ, Voice, Tone과 금지 표현은 `CONTENT_UX_WRITING_SYSTEM.md`를 따른다. 이 문서는 Page 정보 구조와 Section 책임만 정의한다.
+
 이 문서는 EQUIV 일반 서비스 상세페이지의 공식 템플릿이다.
 
 기업 매각 페이지를 Master Template로 사용한다. 서비스마다 업무 내용은 달라도 사용자는 어느 페이지에서나 같은 정보 흐름과 브랜드 경험을 만나야 한다. `business-valuation-review.html`의 기업가치 검토 상세페이지는 이 템플릿을 따르며, 사전진단 전용 `business-valuation.html`은 별도 기준을 따른다.

@@ -74,9 +74,12 @@ Appendices:
 3. `VISUAL_ASSET_GUIDE.md`: Image, Icon, SVG와 Asset Lifecycle
 4. `COMPONENT_LIBRARY.md`: Component의 구조, State, Composition과 구현 계약
 5. `BRAND_GUIDE.md`: Logo, Brand Color와 Photography Tone
-6. `COPY_GUIDE.md`: UI Copy와 Tone
+6. `CONTENT_UX_WRITING_SYSTEM.md`: Component에 사용되는 Voice, Tone, Terminology와 State Message
+7. `COPY_GUIDE.md`: 자주 쓰는 UI Copy 규칙의 간략한 요약
 
 Component가 위 문서와 충돌하면 Component를 수정한다.
+
+Component의 Label, Helper, Error, Success, Empty, Confirmation과 Accessible Name은 `CONTENT_UX_WRITING_SYSTEM.md`를 따른다. Component Library는 문구가 들어가는 위치와 State를 정의하고, 실제 문장의 Voice와 의미를 재정의하지 않는다.
 
 ### 1.3 Normative Language
 

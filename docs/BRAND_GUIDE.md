@@ -178,6 +178,8 @@ EQUIV의 문체는 압박하거나 과장하지 않는다. 전문성과 신뢰�
 - 자극적인 투자/매각 유도 문구
 - 불필요하게 장황한 설명
 
+Brand Voice, 상황별 Tone, 공식 Terminology, CTA·Form·Error·Success·SEO·Localization과 AI Writing의 상세 운영 기준은 `CONTENT_UX_WRITING_SYSTEM.md`를 따른다. 이 문서는 Brand Personality와 상위 Tone만 정의하며 UI 문구 규칙을 중복 정의하지 않는다.
+
 ## Visual Direction
 
 - 글로벌 투자은행 스타일의 차분한 레이아웃

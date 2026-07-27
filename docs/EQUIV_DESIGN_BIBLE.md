@@ -828,3 +828,105 @@ Asset의 분류, 파일명, 제작 규격, 권리, 최적화, 접근성, Version
 - Asset 경로와 파일명이 역할별로 관리되는가?
 - SVG와 WebP 등 최적화 형식을 사용하는가?
 - Icon과 Image가 접근 가능한 이름 또는 대체 텍스트를 제공하는가?
+
+---
+
+## Chapter 11. Content & UX Writing System
+
+Version 1.0
+Status: Approved Draft
+
+### 1. Writing Philosophy
+
+EQUIV의 문장은 사용자를 설득하기 전에 신뢰를 만든다. 화려한 표현보다 정확한 사실, 판단에 필요한 기준과 다음 행동을 우선한다.
+
+문장의 우선순위는 `사실 → 판단 기준 → 다음 행동 → 브랜드 감도`다. 브랜드 감도를 위해 사실을 흐리거나 거래 결과, 기업가치, 가격, 기간과 성공을 보장하지 않는다.
+
+### 2. Voice
+
+EQUIV는 모든 접점에서 다음 Voice를 유지한다.
+
+- Professional
+- Trustworthy
+- Confident
+- Calm
+- Strategic
+- Premium
+- Balanced
+- Friendly but Formal
+
+Premium은 장식적인 영어와 수식어가 아니라 정보의 밀도, 정확성과 절제에서 만든다.
+
+### 3. Tone
+
+Voice는 일정하지만 Tone은 User State에 맞춘다.
+
+- Homepage: 짧고 자신감 있게
+- Service: 전문적이고 설명 가능하게
+- Consultation: 직접적이고 안심할 수 있게
+- Error: 중립적이고 복구 가능하게
+- Success: 완료와 다음 절차를 확실하게
+- Insight: 경험과 판단 기준 중심으로
+- Email: 구조적이고 예측 가능하게
+
+### 4. Writing Rules
+
+- 존댓말을 사용한다.
+- 결론을 먼저 쓴다.
+- 한 문장에는 핵심 하나만 둔다.
+- 현재형과 능동형을 우선한다.
+- 한글을 기본으로 하고 필요한 공식 용어만 영어를 병기한다.
+- 같은 개념에는 같은 공식 용어를 사용한다.
+- Heading, Label과 Button에는 불필요한 마침표를 사용하지 않는다.
+- 감탄사, 이모지, 유행어와 과도한 수사적 질문을 사용하지 않는다.
+
+### 5. Claims
+
+`국내 최고`, `압도적`, `100% 성공`, `반드시`, `완벽한`, `최고가 보장` 등 근거 없는 최상급과 보장 표현은 금지한다.
+
+`풍부한 경험`, `맞춤형 전략`, `전문적인 검토`, `글로벌 네트워크`는 검증 가능한 근거 또는 구체적인 검토 기준이 같은 Context에 있을 때만 사용한다.
+
+### 6. Action and Feedback
+
+- CTA와 Button은 누른 뒤 발생할 행동을 설명한다.
+- Error는 문제와 해결 방법을 함께 제공한다.
+- Success는 완료된 일, 처리 일정과 다음 단계를 안내한다.
+- Empty State는 현재 상태를 설명하고 Dead End를 만들지 않는다.
+- Confirmation은 되돌릴 수 없는 중요한 Action에만 사용한다.
+
+### 7. Terminology
+
+M&A, 기업 매각, 기업 인수, 투자유치, 기업가치 검토, Business Valuation, 예비 기업가치, 예상 지분가치, 참고 신뢰도, 상담과 비밀유지계약 등 공식 용어는 `CONTENT_UX_WRITING_SYSTEM.md`의 Glossary를 따른다.
+
+새 용어는 Definition, Korean, English, Avoided Synonym, First-use Explanation과 적용 Consumer를 승인한 뒤 사용한다.
+
+### 8. Accessibility and Localization
+
+Link Text는 목적지를 설명하고 Icon-only Action에는 Accessible Name을 제공한다. 방향, 색상과 위치만으로 의미를 전달하지 않는다.
+
+영문 확장 시 한국어를 직역하지 않고 User Task와 의미를 유지한다. String을 조각내지 않으며 날짜, 통화와 숫자는 Locale에 맞게 표현한다.
+
+### 9. AI Writing
+
+생성형 AI는 초안과 일관성 검사에만 사용한다. Source에 없는 실적, 거래 사례, 성공률과 시장 수치를 만들지 않으며 실제 고객정보를 Prompt에 입력하지 않는다.
+
+AI 초안은 Content, Domain, Fact, Terminology, Accessibility와 필요한 Legal·Privacy Review를 통과해야 한다.
+
+### 10. Governance
+
+새 Page와 Component를 만들기 전에 `CONTENT_UX_WRITING_SYSTEM.md`를 확인한다. 기존 Voice, Tone과 Terminology로 해결하고, 반복 String은 공통 Data Source에서 관리한다.
+
+문구의 상세 작성 기준, Service별 공식 Lead, CTA·Button·Form·Error·Success·Empty·Article·SEO·Localization, AI Prompt Contract, QA와 Lifecycle은 `CONTENT_UX_WRITING_SYSTEM.md`를 Single Source of Truth로 사용한다.
+
+### 11. Final QA
+
+- 브랜드 Voice가 모든 Page에서 일관적인가?
+- Tone이 User State와 Task에 맞는가?
+- CTA가 행동과 결과를 설명하는가?
+- Error가 문제와 해결 방법을 제공하는가?
+- 서비스 문구가 구체적이며 과장되지 않았는가?
+- SEO와 접근성을 함께 고려했는가?
+- 공식 용어를 모든 Consumer에서 동일하게 사용하는가?
+- 영문 확장을 고려한 String 구조를 사용하는가?
+- AI 문구가 Human·Domain Review를 통과했는가?
+- Brand Guide, Component Library와 충돌하지 않는가?
