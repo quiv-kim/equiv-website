@@ -14,6 +14,9 @@
   let stepIndex = 0;
   let lastFocused = null;
   let resultLoadingTimer = null;
+  const resultTransitionDuration = window.EQUIVMotion
+    ? window.EQUIVMotion.duration("--motion-duration-fade", 300)
+    : 300;
 
   const escapeHtml = (value) => String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -121,7 +124,8 @@
     const modalTitle = modal.querySelector("#valuation-modal-title");
     if (!modalTitle) return;
     requestAnimationFrame(() => {
-      modalTitle.scrollIntoView({ behavior: "smooth", block: "start" });
+      const behavior = window.EQUIVMotion?.prefersReduced() ? "auto" : "smooth";
+      modalTitle.scrollIntoView({ behavior, block: "start" });
     });
   };
 
@@ -141,7 +145,7 @@
     resultLoadingTimer = window.setTimeout(() => {
       resultLoadingTimer = null;
       renderResult();
-    }, 850);
+    }, resultTransitionDuration);
   };
 
   const collect = (form) => {

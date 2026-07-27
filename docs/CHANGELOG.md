@@ -1,5 +1,15 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Design Bible v1.0 - Chapter 7 Motion & Interaction System
+
+- Hover, Click, Fade, Reveal, Modal, Accordion, Delay, Easing을 공통 `--motion-*` Token으로 통합
+- 상세페이지 진입과 Home Hero 순차 등장, Section Reveal Stagger를 opacity와 transform 중심으로 구현
+- Card, Button, Navigation, Dropdown, Modal, Accordion의 전환 속도와 반응 방식을 하나의 Motion Language로 통일
+- 상담 Modal과 기업가치 사전진단 결과 전환 시간을 CSS Motion Token과 JavaScript가 공유하도록 구성
+- 기존 기업가치 결과 준비 대기 시간을 `850ms`에서 공통 Fade `300ms`로 단축
+- `prefers-reduced-motion` 환경에서 콘텐츠를 즉시 표시하고 핵심 기능과 Focus 흐름을 유지
+- 별도 Animation Library 없이 CSS Transition, IntersectionObserver와 브라우저 기본 기능만 사용
+
 ## EQUIV Design Bible v1.0 - Chapter 6 CTA & Card System
 
 - CTA 우선순위와 Primary·Secondary 역할, 배치·폭·높이·문구 원칙을 공식화

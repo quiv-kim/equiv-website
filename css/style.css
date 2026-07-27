@@ -139,8 +139,26 @@
   --component-button-height: 52px;
   --component-button-height-mobile: 50px;
   --component-card-radius: var(--radius-sm);
-  --component-card-hover-lift: -3px;
-  --component-interaction-duration: 220ms;
+  /* 7. Motion System: one calm interaction language for the whole site */
+  --motion-duration-hover: 200ms;
+  --motion-duration-click: 160ms;
+  --motion-duration-fade: 300ms;
+  --motion-duration-reveal: 600ms;
+  --motion-duration-modal: 280ms;
+  --motion-duration-accordion: 250ms;
+  --motion-delay-step: 100ms;
+  --motion-delay-hero-description: 120ms;
+  --motion-delay-hero-cta: 220ms;
+  --motion-delay-hero-support: 320ms;
+  --motion-ease-standard: ease-out;
+  --motion-ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-distance-page: 10px;
+  --motion-distance-reveal: 24px;
+  --motion-modal-scale: 0.98;
+  --motion-card-lift: -3px;
+  --motion-button-lift: -2px;
+  --component-card-hover-lift: var(--motion-card-lift);
+  --component-interaction-duration: var(--motion-duration-hover);
   --component-input-padding-x: var(--space-md);
   --component-modal-padding: var(--space-xl);
   --component-footer-padding: var(--space-2xl);
@@ -151,7 +169,7 @@
   --component-header-logo-scrolled-divider-height: 22px;
   --component-header-wordmark-tracking: -0.4px;
   --header-height: 72px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease: var(--motion-ease-emphasized);
 }
 
 /* 5-7. Base, Layout, Components & Utilities */
@@ -176,6 +194,21 @@ body.modal-open {
   overflow: hidden;
 }
 
+body.subpage main {
+  animation: equiv-page-enter var(--motion-duration-fade) var(--motion-ease-standard) both;
+}
+
+@keyframes equiv-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-page));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -198,7 +231,7 @@ button {
   color: var(--color-white);
   background: var(--color-primary);
   border-radius: var(--radius-sm);
-  transition: top 0.2s ease;
+  transition: top var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .skip-link:focus {
@@ -216,7 +249,11 @@ button {
   z-index: 50;
   height: var(--header-height);
   color: var(--color-white);
-  transition: height 0.24s ease, background 0.24s ease, color 0.24s ease, border-color 0.24s ease;
+  transition:
+    height var(--motion-duration-hover) var(--motion-ease-standard),
+    background var(--motion-duration-hover) var(--motion-ease-standard),
+    color var(--motion-duration-hover) var(--motion-ease-standard),
+    border-color var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .site-header.is-scrolled,
@@ -320,15 +357,15 @@ button {
 .site-header .equiv-logo-divider,
 .site-header .equiv-logo-wordmark {
   opacity: 0;
-  animation: equiv-logo-segment-in 0.42s ease forwards;
+  animation: equiv-logo-segment-in var(--motion-duration-fade) var(--motion-ease-standard) forwards;
 }
 
 .site-header .equiv-logo-divider {
-  animation-delay: 0.2s;
+  animation-delay: var(--motion-delay-step);
 }
 
 .site-header .equiv-logo-wordmark {
-  animation-delay: 0.4s;
+  animation-delay: calc(var(--motion-delay-step) * 2);
 }
 
 @keyframes equiv-logo-segment-in {
@@ -373,7 +410,7 @@ button {
 .nav-parent-link {
   position: relative;
   opacity: 0.86;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .site-nav > a::after,
@@ -387,7 +424,7 @@ button {
   background: var(--color-gold);
   transform: translateX(-50%) scaleX(0);
   transform-origin: center;
-  transition: transform 0.22s ease;
+  transition: transform var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .site-nav > a:hover,
@@ -445,7 +482,7 @@ button {
   border-right: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
   transform: translateY(-2px) rotate(45deg);
-  transition: transform 0.2s ease;
+  transition: transform var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .nav-item-dropdown.is-dropdown-open .nav-dropdown-toggle::before {
@@ -463,7 +500,10 @@ button {
   visibility: hidden;
   pointer-events: none;
   transform: translate(-50%, 8px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity var(--motion-duration-hover) var(--motion-ease-standard),
+    visibility var(--motion-duration-hover) var(--motion-ease-standard),
+    transform var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .nav-dropdown ul {
@@ -500,7 +540,9 @@ button {
   line-height: 1.4;
   text-transform: none;
   white-space: nowrap;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color var(--motion-duration-hover) var(--motion-ease-standard),
+    background-color var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .nav-dropdown a:hover,
@@ -527,7 +569,9 @@ button {
   display: block;
   background: currentColor;
   border-radius: calc(var(--radius-xl) * 50);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform var(--motion-duration-hover) var(--motion-ease-standard),
+    opacity var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .nav-toggle[aria-expanded="true"] span:nth-child(1) {
@@ -667,6 +711,7 @@ button {
   place-items: start center;
   transform: translateX(-50%);
   opacity: 0.72;
+  --hero-motion-opacity: 0.72;
 }
 
 .scroll-indicator span {
@@ -684,6 +729,43 @@ button {
   flex-wrap: wrap;
 }
 
+.hero h1,
+.hero-actions {
+  opacity: 0;
+  animation: equiv-hero-enter var(--motion-duration-fade) var(--motion-ease-standard) both;
+}
+
+.hero-brand-identity,
+.scroll-indicator {
+  opacity: 0;
+  animation: equiv-hero-fade var(--motion-duration-fade) var(--motion-ease-standard) both;
+}
+
+.hero-actions {
+  animation-delay: var(--motion-delay-hero-cta);
+}
+
+.scroll-indicator {
+  animation-delay: var(--motion-delay-hero-support);
+}
+
+@keyframes equiv-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-page));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes equiv-hero-fade {
+  to {
+    opacity: var(--hero-motion-opacity, 1);
+  }
+}
+
 .btn {
   min-width: 176px;
   min-height: var(--component-button-height);
@@ -694,11 +776,21 @@ button {
   border-radius: var(--radius-sm);
   font-size: var(--type-button);
   font-weight: 600;
-  transition: transform var(--component-interaction-duration) var(--ease), background var(--component-interaction-duration) ease, border-color var(--component-interaction-duration) ease;
+  cursor: pointer;
+  transition:
+    transform var(--component-interaction-duration) var(--motion-ease-emphasized),
+    background var(--component-interaction-duration) var(--motion-ease-standard),
+    border-color var(--component-interaction-duration) var(--motion-ease-standard),
+    box-shadow var(--component-interaction-duration) var(--motion-ease-standard);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--motion-button-lift));
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
@@ -1431,7 +1523,9 @@ button {
   padding: var(--space-lg);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.24s ease, visibility 0.24s ease;
+  transition:
+    opacity var(--motion-duration-modal) var(--motion-ease-standard),
+    visibility var(--motion-duration-modal) var(--motion-ease-standard);
 }
 
 .readiness-modal.is-open {
@@ -1456,6 +1550,16 @@ button {
   border: 1px solid rgba(7, 26, 47, 0.12);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: scale(var(--motion-modal-scale));
+  transition:
+    opacity var(--motion-duration-modal) var(--motion-ease-standard),
+    transform var(--motion-duration-modal) var(--motion-ease-emphasized);
+}
+
+.readiness-modal.is-open .readiness-modal__dialog {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .readiness-modal__close {
@@ -1528,7 +1632,10 @@ button {
   font-weight: 600;
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.24s ease, color 0.24s ease, background 0.24s ease;
+  transition:
+    border-color var(--motion-duration-hover) var(--motion-ease-standard),
+    color var(--motion-duration-hover) var(--motion-ease-standard),
+    background var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .readiness-option:hover {
@@ -1689,7 +1796,7 @@ button {
   display: block;
   height: 100%;
   background: var(--color-gold);
-  transition: width 0.24s ease;
+  transition: width var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .valuation-progress--result {
@@ -1726,7 +1833,7 @@ button {
   border: 2px solid rgba(7, 26, 47, 0.12);
   border-top-color: var(--color-gold);
   border-radius: 50%;
-  animation: valuation-loading-spin 0.9s linear infinite;
+  animation: valuation-loading-spin var(--motion-duration-reveal) linear infinite;
 }
 
 .valuation-loading h3 {
@@ -2189,7 +2296,10 @@ button {
   box-shadow: var(--shadow-md);
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  transition:
+    opacity var(--motion-duration-hover) var(--motion-ease-standard),
+    transform var(--motion-duration-hover) var(--motion-ease-standard),
+    visibility var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .valuation-tooltip__content strong,
@@ -2665,7 +2775,9 @@ button {
   padding: var(--space-lg);
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.27s ease, visibility 0.27s ease;
+  transition:
+    opacity var(--motion-duration-modal) var(--motion-ease-standard),
+    visibility var(--motion-duration-modal) var(--motion-ease-standard);
 }
 
 .consultation-modal.is-open {
@@ -2692,8 +2804,10 @@ button {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-overlay);
   opacity: 0;
-  transform: scale(0.97);
-  transition: opacity 0.27s ease, transform 0.27s var(--ease);
+  transform: scale(var(--motion-modal-scale));
+  transition:
+    opacity var(--motion-duration-modal) var(--motion-ease-standard),
+    transform var(--motion-duration-modal) var(--motion-ease-emphasized);
 }
 
 .consultation-modal.is-open .consultation-modal__dialog {
@@ -2702,7 +2816,7 @@ button {
 }
 
 .consultation-modal.is-open .consultation-modal__dialog.is-state-switching {
-  transition-duration: 0.14s;
+  transition-duration: var(--motion-duration-click);
 }
 
 .consultation-modal.is-open .consultation-modal__dialog.is-state-transitioning {
@@ -2962,7 +3076,9 @@ button {
   font: inherit;
   font-size: var(--type-body-lg);
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color var(--motion-duration-hover) var(--motion-ease-standard),
+    box-shadow var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .consultation-modal__field input {
@@ -3160,11 +3276,11 @@ button {
   border: 1.5px solid var(--color-gold);
   border-radius: 50%;
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(var(--motion-modal-scale));
 }
 
 .consultation-modal__success:not([hidden]) .consultation-modal__success-icon {
-  animation: consultation-success-in 0.28s var(--ease) forwards;
+  animation: consultation-success-in var(--motion-duration-modal) var(--motion-ease-emphasized) forwards;
 }
 
 .consultation-modal__success-icon svg {
@@ -3213,7 +3329,12 @@ button {
 
 .consultation-modal__success .btn {
   min-width: 180px;
-  transition: color 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, transform 0.22s var(--ease);
+  transition:
+    color var(--motion-duration-hover) var(--motion-ease-standard),
+    background-color var(--motion-duration-hover) var(--motion-ease-standard),
+    border-color var(--motion-duration-hover) var(--motion-ease-standard),
+    transform var(--motion-duration-hover) var(--motion-ease-emphasized),
+    box-shadow var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .site-footer {
@@ -3276,7 +3397,12 @@ button {
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition: opacity 0.24s ease, visibility 0.24s ease, transform 0.24s ease, border-color 0.24s ease, color 0.24s ease;
+  transition:
+    opacity var(--motion-duration-fade) var(--motion-ease-standard),
+    visibility var(--motion-duration-fade) var(--motion-ease-standard),
+    transform var(--motion-duration-fade) var(--motion-ease-standard),
+    border-color var(--motion-duration-hover) var(--motion-ease-standard),
+    color var(--motion-duration-hover) var(--motion-ease-standard);
   cursor: pointer;
 }
 
@@ -3347,7 +3473,7 @@ button {
   font-size: var(--type-small);
   font-weight: 500;
   line-height: 1.5;
-  transition: color 0.2s ease;
+  transition: color var(--motion-duration-hover) var(--motion-ease-standard);
 }
 
 .footer-sitemap a:hover {
@@ -3361,8 +3487,11 @@ button {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transform: translateY(var(--motion-distance-reveal));
+  transition:
+    opacity var(--motion-duration-reveal) var(--motion-ease-emphasized),
+    transform var(--motion-duration-reveal) var(--motion-ease-emphasized);
+  transition-delay: calc(var(--motion-order, 0) * var(--motion-delay-step));
 }
 
 [data-reveal].is-visible {
@@ -3417,9 +3546,9 @@ button {
   height: 100%;
   border-radius: var(--component-card-radius);
   transition:
-    transform var(--component-interaction-duration) var(--ease),
-    border-color var(--component-interaction-duration) ease,
-    box-shadow var(--component-interaction-duration) ease;
+    transform var(--component-interaction-duration) var(--motion-ease-emphasized),
+    border-color var(--component-interaction-duration) var(--motion-ease-standard),
+    box-shadow var(--component-interaction-duration) var(--motion-ease-standard);
 }
 
 .principle-card:hover,
@@ -3539,12 +3668,6 @@ button {
 .insights-preview .insight-card em::after {
   width: var(--component-card-link-icon-width);
   margin-left: 0;
-  transition: transform 0.2s var(--ease);
-}
-
-.expertise-section .service-card:hover em::after,
-.insights-preview .insight-card:hover em::after {
-  transform: translateX(3px);
 }
 
 /* ================================================================
@@ -4264,7 +4387,9 @@ button {
     transform: translateY(-16px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.22s ease, transform 0.22s ease;
+    transition:
+      opacity var(--motion-duration-hover) var(--motion-ease-standard),
+      transform var(--motion-duration-hover) var(--motion-ease-standard);
   }
 
   .site-nav.is-open {
@@ -4307,7 +4432,10 @@ button {
     opacity: 0;
     visibility: hidden;
     transform: none;
-    transition: max-height 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
+    transition:
+      max-height var(--motion-duration-accordion) var(--motion-ease-standard),
+      opacity var(--motion-duration-hover) var(--motion-ease-standard),
+      visibility var(--motion-duration-hover) var(--motion-ease-standard);
   }
 
   .nav-item-dropdown.is-dropdown-open .nav-dropdown {
@@ -5438,19 +5566,52 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-.consultation-modal,
+  body.subpage main,
+  .site-header .equiv-logo-mark,
+  .site-header .equiv-logo-divider,
+  .site-header .equiv-logo-wordmark,
+  .hero-brand-identity,
+  .hero h1,
+  .hero-actions,
+  .scroll-indicator,
+  [data-reveal],
+  .consultation-modal,
   .consultation-modal__dialog,
-  .consultation-modal__success-icon {
+  .consultation-modal__success-icon,
+  .readiness-modal,
+  .readiness-modal__dialog {
     transition: none;
     animation: none;
   }
 
+  body.subpage main,
+  .site-header .equiv-logo-mark,
+  .site-header .equiv-logo-divider,
+  .site-header .equiv-logo-wordmark,
+  .hero-brand-identity,
+  .hero h1,
+  .hero-actions,
+  .scroll-indicator,
+  [data-reveal],
   .consultation-modal__success-icon {
     opacity: 1;
     transform: none;
   }
 
-*,
+  .hero-brand-identity {
+    transform: translateY(-10px);
+  }
+
+  .scroll-indicator {
+    transform: translateX(-50%);
+  }
+
+  .readiness-modal__dialog,
+  .consultation-modal__dialog {
+    transform: none;
+  }
+
+  *,
   *::before,
   *::after {
     scroll-behavior: auto !important;

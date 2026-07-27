@@ -507,3 +507,72 @@ Bridgecode의 절제된 CTA, LISTING의 읽기 쉬운 Card와 MOMENS의 자연�
 - 같은 Row의 Card 높이가 일치하는가?
 - Card Hover가 절제되고 자연스러운가?
 - 사용자가 고민 없이 다음 단계로 이동할 수 있는가?
+
+---
+
+## Chapter 7. Motion & Interaction System
+
+Version 1.0
+Status: Approved
+
+### 1. Motion Philosophy
+
+EQUIV의 Motion은 장식이 아니라 사용자의 시선을 다음 정보와 행동으로 안내하는 기능이다. 움직임 자체가 기억되지 않도록 Calm, Smooth, Confident, Professional, Premium을 기준으로 한다.
+
+### 2. Motion Hierarchy
+
+1. Page Entrance
+2. Section Reveal
+3. Card Hover
+4. Button Interaction
+5. Modal Transition
+
+모든 단계는 동일한 Motion Token과 Easing을 사용한다. Bounce, Zoom, 3D Flip, 과도한 Scale, 장식용 Rotate와 좌우 흔들림은 사용하지 않는다.
+
+### 3. Motion Tokens
+
+- Hover: `--motion-duration-hover` / `200ms`
+- Click: `--motion-duration-click` / `160ms`
+- Fade: `--motion-duration-fade` / `300ms`
+- Reveal: `--motion-duration-reveal` / `600ms`
+- Modal: `--motion-duration-modal` / `280ms`
+- Accordion: `--motion-duration-accordion` / `250ms`
+- Stagger: `--motion-delay-step` / `100ms`
+- Standard Easing: `--motion-ease-standard`
+- Emphasized Easing: `--motion-ease-emphasized`
+
+컴포넌트에서 임의의 duration, delay, easing 값을 만들지 않는다.
+
+### 4. Page, Hero and Section Motion
+
+- 상세페이지 진입은 `opacity`와 `translateY(10px)`만 사용한다.
+- Home Hero는 Headline, CTA, Supporting Information 순서로 등장한다.
+- Section Reveal은 `opacity`와 `translateY(24px)`만 사용한다.
+- 동일 그룹의 카드 또는 정보는 최대 4단계까지 `100ms` 간격으로 순차 노출한다.
+- Motion은 콘텐츠를 숨기거나 읽는 순서를 바꾸지 않는다.
+
+### 5. Component Interaction
+
+- Card: 작은 Shadow와 `-3px` Lift만 사용하고 Scale은 사용하지 않는다.
+- Button: Hover 시 최대 `-2px`, Active 시 원위치로 복귀한다.
+- Navigation: 크기와 굵기를 바꾸지 않고 색상과 절제된 Underline만 사용한다.
+- Modal: Backdrop Fade와 `0.98 → 1` Scale을 사용한다.
+- Accordion: 기능상 필요한 높이 전환만 `250ms`로 허용하며 Jump를 방지한다.
+- Loading: 새로운 Spinner를 만들지 않고 가능한 경우 Skeleton을 우선한다. 기존 짧은 상태 표시만 기능적으로 유지한다.
+
+### 6. Performance and Accessibility
+
+- CSS Transition과 브라우저 기본 기능을 우선하며 별도 Animation Library를 도입하지 않는다.
+- 애니메이션은 `transform`과 `opacity` 중심으로 구현한다.
+- `prefers-reduced-motion: reduce` 환경에서는 Page, Hero, Reveal, Modal 전환을 제거하고 모든 콘텐츠를 즉시 표시한다.
+- Motion이 없어도 Focus, Hover, Active, Expanded 상태를 이해할 수 있어야 한다.
+- Anchor와 Top 이동은 기본적으로 Smooth Scroll을 사용하되 Reduced Motion에서는 즉시 이동한다.
+
+### 7. Final QA
+
+- 모든 Hover가 같은 리듬으로 움직이는가?
+- Hero 등장 순서가 자연스러운가?
+- Motion이 콘텐츠를 방해하지 않는가?
+- Page, Card, Button, Navigation, Modal의 언어가 일관적인가?
+- 저사양 PC와 모바일에서도 transform과 opacity 중심으로 부드럽게 동작하는가?
+- Reduced Motion 환경에서 모든 기능과 정보가 그대로 유지되는가?

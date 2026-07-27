@@ -12,6 +12,20 @@ let lastFocusedElement = null;
 let readinessIndex = 0;
 let readinessScore = 0;
 
+const parseMotionTime = (value, fallback) => {
+  const normalized = String(value || "").trim();
+  if (!normalized) return fallback;
+  if (normalized.endsWith("ms")) return Number.parseFloat(normalized);
+  if (normalized.endsWith("s")) return Number.parseFloat(normalized) * 1000;
+  return fallback;
+};
+
+window.EQUIVMotion = Object.freeze({
+  prefersReduced: () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  duration: (token, fallback) =>
+    parseMotionTime(getComputedStyle(document.documentElement).getPropertyValue(token), fallback),
+});
+
 const setDropdownState = (item, isOpen) => {
   if (!item) return;
   const toggle = item.querySelector("[data-dropdown-toggle]");
@@ -56,7 +70,7 @@ if (backToTop) {
   backToTop.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: window.EQUIVMotion.prefersReduced() ? "auto" : "smooth",
     });
   });
 }
@@ -346,7 +360,22 @@ if (nav && navToggle && header) {
   });
 }
 
-if ("IntersectionObserver" in window) {
+const revealGroups = document.querySelectorAll(
+  ".principle-grid, .service-grid, .insight-grid, .expertise-card-grid, .about-flow, .process-timeline, .faq-list"
+);
+
+revealGroups.forEach((group) => {
+  let order = 0;
+  Array.from(group.children).forEach((item) => {
+    if (!item.matches("[data-reveal]")) return;
+    item.style.setProperty("--motion-order", String(Math.min(order, 3)));
+    order += 1;
+  });
+});
+
+if (window.EQUIVMotion.prefersReduced()) {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+} else if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {

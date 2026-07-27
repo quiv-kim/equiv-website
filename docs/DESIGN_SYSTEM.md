@@ -427,6 +427,22 @@ QA-04 이후 `css/style.css`는 다음 책임 순서를 기준으로 관리한�
 
 Typography 변경은 Desktop 또는 Mobile Primitive Token에서 시작한다. Component나 Page에서 값을 덮어쓰지 않는다. 새로운 예외가 필요하면 기존 Semantic Role로 해결 가능한지 먼저 확인하고, 동일 Media Query를 새로 추가하지 않는다.
 
+### Motion and Interaction
+
+Motion은 `--motion-*` Token에서만 관리한다.
+
+- Hover `200ms`
+- Click `160ms`
+- Fade `300ms`
+- Reveal `600ms`
+- Modal `280ms`
+- Accordion `250ms`
+- Sequential Delay `100ms`
+
+Card는 Shadow와 `-3px` Lift, Button은 최대 `-2px` Lift, Modal은 Backdrop Fade와 `0.98 → 1` Scale을 사용한다. Page와 Section은 opacity와 translateY만 사용하며, 개별 Component에서 duration 또는 easing을 직접 선언하지 않는다.
+
+JavaScript에서 상태 전환 시간이 필요하면 `window.EQUIVMotion.duration()`으로 CSS Token을 읽는다. CSS와 JavaScript가 서로 다른 Timing 값을 갖지 않도록 한다. `prefers-reduced-motion`에서는 모든 핵심 콘텐츠를 즉시 표시하고, Modal·Navigation·Accordion의 기능은 그대로 유지한다.
+
 ### CSS Size Optimization
 
 - CSS 최적화는 Minify가 아니라 전체 HTML·JavaScript의 실제 참조 여부를 기준으로 수행한다.

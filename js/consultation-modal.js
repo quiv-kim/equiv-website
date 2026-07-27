@@ -177,6 +177,9 @@
     ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname) ||
     window.location.hostname.endsWith(".local");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const stateTransitionDuration = window.EQUIVMotion
+    ? window.EQUIVMotion.duration("--motion-duration-click", 160)
+    : 160;
 
   developmentNotices.forEach((notice) => {
     notice.hidden = !isDevelopmentEnvironment;
@@ -295,9 +298,9 @@
           dialog.classList.remove("is-state-switching");
           success.focus({ preventScroll: true });
           stateTransitionTimer = null;
-        }, 140);
+        }, stateTransitionDuration);
       });
-    }, 140);
+    }, stateTransitionDuration);
   };
 
   form.addEventListener("submit", (event) => {
