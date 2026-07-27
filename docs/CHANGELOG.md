@@ -1,5 +1,16 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV Component Library v1.0
+
+- `COMPONENT_LIBRARY.md`를 글로벌 Design System 운영 문서 수준으로 전면 재작성
+- Component 상태를 `Active / Limited / Planned / Deprecated / Prohibited`로 구분하고 현재 Production 구현과 향후 계획을 분리
+- Button, Card, Hero, Navigation, Section, Form, Modal, Accordion, Loading, Empty State, Business Valuation, Insight와 Footer의 공통 상세 Specification 작성
+- Table, Generic Badge, Toast·Notification과 Future Product Component의 도입 조건 및 금지된 임시 구현 기준 정의
+- 모든 Component에 Purpose, Usage, Structure, Variant, Size, Spacing, Typography, Color, Motion, Interaction, Responsive, Accessibility, Token, Code, QA, Best Practice, Do·Don't, PM Notes와 Related Components 계약 적용
+- Atomic Design 기반 Library Structure, Naming, Dependency, Composition, Lifecycle, Versioning, Migration과 Deprecation 절차 수립
+- 80개 Global QA, Component Proposal·Review·Deprecation·PR Template, Dependency Matrix와 Page Composition Map 추가
+- `EQUIV_DESIGN_BIBLE.md`, `DESIGN_SYSTEM.md`, `VISUAL_ASSET_GUIDE.md`의 책임 경계를 Component Library와 연결
+
 ## EQUIV Visual Asset Guide v1.0
 
 - `VISUAL_ASSET_GUIDE.md` 신규 작성

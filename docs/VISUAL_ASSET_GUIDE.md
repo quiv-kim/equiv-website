@@ -74,6 +74,8 @@ Appendices:
 
 Copy, 법률 문구와 개인정보 기준은 `COPY_GUIDE.md`, `MASTER_SPEC.md`와 별도 법률 검토를 따른다.
 
+Component가 Asset을 호출하는 위치, Fallback, Loading, Empty State와 Accessible Name은 `COMPONENT_LIBRARY.md`의 해당 Component 계약을 따른다. 이 문서는 Asset 파일 자체의 승인·최적화·배포·폐기만 관리하며 Component의 Variant나 Interaction을 재정의하지 않는다.
+
 ### 0.3 Normative Language
 
 - **MUST / 반드시**: 예외 없이 준수한다.

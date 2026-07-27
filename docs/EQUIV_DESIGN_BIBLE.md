@@ -714,7 +714,7 @@ Component에서 임의의 큰 `z-index`를 만들지 않는다.
 
 ### 7. Component Library
 
-공식 Component 목록과 사용 규칙은 `COMPONENT_LIBRARY.md`에서 관리한다.
+공식 Component 목록과 상세 운영 계약은 `COMPONENT_LIBRARY.md`에서 관리한다. 이 Chapter는 철학과 상위 원칙만 정의하며 Purpose, Usage, Structure, Variant, Size, Spacing, Typography, Color, Motion, Interaction, Responsive, Accessibility, Token, Code, QA와 Lifecycle 규정은 Component Library를 Single Source of Truth로 사용한다.
 
 - Header & Navigation
 - Hero
@@ -724,9 +724,12 @@ Component에서 임의의 큰 `z-index`를 만들지 않는다.
 - Form Control
 - Modal
 - Accordion
+- Loading & Empty State
+- Business Valuation Domain Components
+- Insight Components
 - Footer
 
-새로운 Variant나 Component를 추가하면 `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`와 `CHANGELOG.md`를 함께 갱신한다.
+Production 구현 여부는 `Active / Limited / Planned / Deprecated / Prohibited` 상태로 구분한다. 새로운 Variant나 Component를 추가하면 `DESIGN_SYSTEM.md`, `COMPONENT_LIBRARY.md`와 `CHANGELOG.md`를 함께 갱신한다.
 
 ### 8. CSS & JavaScript Architecture
 

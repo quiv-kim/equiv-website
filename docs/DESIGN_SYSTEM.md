@@ -555,6 +555,17 @@ Hero Background는 WebP Asset과 Navy Overlay만 사용한다. Glow, Heavy Patte
 
 Asset Class, Directory 확장, 해상도·비율, Naming, License, Optimization, Accessibility, QA, Version과 Lifecycle의 상세 운영은 `VISUAL_ASSET_GUIDE.md`를 따른다.
 
+## Component Library Governance
+
+`DESIGN_SYSTEM.md`는 Foundation·Semantic·Component Token과 CSS 구현 원칙의 Single Source of Truth다. 실제 UI Component의 Purpose, Usage, Anatomy, Variant, State, Responsive, Accessibility, Dependency, QA와 Lifecycle은 `COMPONENT_LIBRARY.md`를 따른다.
+
+- Token 값과 계층을 변경할 때는 `DESIGN_SYSTEM.md`를 먼저 수정한다.
+- Component 계약이나 공개 API를 변경할 때는 `COMPONENT_LIBRARY.md`를 먼저 수정한다.
+- Asset 규격과 배포 수명주기는 `VISUAL_ASSET_GUIDE.md`를 따른다.
+- 브랜드 철학과 승인 기준은 `EQUIV_DESIGN_BIBLE.md`를 따른다.
+- 신규 Component는 Library의 Proposal → Review → Approved Draft → Active 절차를 통과해야 한다.
+- Production에 없는 Component는 `Planned`로 표시하며 현재 기능처럼 문서화하지 않는다.
+
 ## Project Reference Rule
 
 앞으로 디자인을 수정하거나 새로운 페이지를 만들 때에는 아래 문서를 먼저 참고한 후 코드를 작성하는 것을 프로젝트 원칙으로 적용한다.
@@ -563,5 +574,6 @@ Asset Class, Directory 확장, 해상도·비율, Naming, License, Optimization,
 - `BRAND_GUIDE.md`
 - `COPY_GUIDE.md`
 - `DESIGN_SYSTEM.md`
+- `COMPONENT_LIBRARY.md`
 - `AI_RULES.md`
 - `VISUAL_ASSET_GUIDE.md`
