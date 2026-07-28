@@ -2,6 +2,7 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] Sprint 7.4.1 About `Why EQUIV` 신뢰 섹션과 3개 Trust Indicator 추가
 - [x] Sprint 7.4 About 신뢰 문구를 확인 가능한 거래 지원 범위로 구체화
 - [x] HOME SEO·Open Graph 문구 동기화 및 `example.com` Placeholder 제거
 - [x] Contact 응답시간 약속 제거와 거래 준비도 참고자료·비산정 범위 명확화

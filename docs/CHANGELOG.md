@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.4.1 - About EQUIV Trust Enhancement
+
+- About의 브랜드 소개와 거래 진행 방식 사이에 `Why EQUIV` 신뢰 섹션 추가
+- Project Owner가 공개 사실로 확인한 `20년 이상의 M&A 전문 경험`과 `Mid-Market M&A Advisory` Positioning 반영
+- `20+ Years Experience / Mid-Market M&A Advisory / Tailored Transaction Strategy` 3개 Trust Indicator 구성
+- 기존 Outline Icon, Typography, Color, Spacing과 Responsive Token을 재사용하고 별도 Asset·Design Token·Animation은 추가하지 않음
+- Desktop 3열, Tablet 3열, Mobile 1열 구조로 기존 About의 시각적 리듬 유지
+
 ## Release Checklist v1.0.0
 
 - `RELEASE_CHECKLIST.md`를 v1.0.0 Release Gate 실행 문서로 추가

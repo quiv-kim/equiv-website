@@ -224,9 +224,11 @@ About 페이지는 회사를 장황하게 설명하지 않는다. EQUIV가 하�
 
 About의 신뢰 정보는 화면에 공개된 실제 업무 범위인 기업가치·거래 가능성 검토, 거래상대방 발굴, 협상·자료 검토와 거래 마무리 지원을 중심으로 작성한다. 경력 연수, 거래 실적, Mid-Market Positioning과 특정 산업 전문성은 검증 가능한 공식 근거가 있을 때만 사용한다.
 
+Project Owner가 공개 사실로 확인한 `20년 이상의 M&A 전문 경험`과 `중견·중소기업 중심의 Mid-Market M&A Advisory` Positioning은 About의 `Why EQUIV` 영역에서만 절제된 Trust Indicator로 사용할 수 있다. 별도의 거래 건수·거래 규모·성공률이나 특정 산업 전문성을 추정하여 추가하지 않는다.
+
 `How We Work`는 `이해 / 검토 / 설계 / 연결 / 진행`의 다섯 단계로 구성한다. Desktop에서는 한 줄 가로형, Tablet에서는 3개와 2개의 자연스러운 흐름, Mobile에서는 세로형으로 전환한다. 단계 번호, 한글 제목과 실제 업무 중심 설명만 사용하며 강한 그림자, 큰 아이콘과 과도한 장식은 사용하지 않는다.
 
-About 페이지는 Desktop 기준 약 2개 화면 내외를 목표로 하며 Hero, 통합 소개, How We Work와 CTA 외의 반복 철학 섹션을 두지 않는다.
+About 페이지는 Hero, 통합 소개, Why EQUIV, How We Work와 CTA의 간결한 흐름으로 운영하며 이외의 반복 철학 섹션을 두지 않는다.
 
 Header 로고는 모든 공개 페이지에서 `EQUIV`만 표시한다. 브랜드 설명은 Hero가 담당하고, Footer는 별도의 Brand Signature 원칙을 따른다.
 
