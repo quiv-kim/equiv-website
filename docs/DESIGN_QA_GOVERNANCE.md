@@ -1459,6 +1459,8 @@ Quarterly Audit:
 
 `MAJOR.MINOR.PATCH`
 
+Version 선택, Release State, Changelog·Decision 연결과 실행 절차는 `EQUIV_AI_OPERATING_MANUAL.md` Chapter 6을 따른다.
+
 ### 15.2 Major
 
 다음 중 하나:
@@ -1469,6 +1471,8 @@ Quarterly Audit:
 - Page Architecture 변경
 - Brand Identity 변경
 - Governance Gate 또는 지원 Platform의 중대한 변경
+
+새 기능이라는 이유만으로 Major가 되지는 않는다. 기존 Contract를 유지하는 기능 추가는 Minor다.
 
 Requirements:
 
@@ -1806,6 +1810,8 @@ Risk Register는 문제를 숨기지 않고 의사결정을 돕는 도구다. �
 
 `Release Candidate → QA → Approval → Production → Monitoring → Issue → Hotfix → Documentation → Next Sprint`
 
+Release 준비, Version Assignment, Owner Approval, 실행, Post-release Review와 Rollback의 운영 절차는 `EQUIV_AI_OPERATING_MANUAL.md` Chapter 6을 따른다.
+
 ### 20.2 Release Candidate
 
 조건:
@@ -1868,6 +1874,7 @@ Production Release는 PASS와 Project Owner 최종 승인이 모두 있을 때�
 - 배포 시각과 Actor 기록
 - Production Config 확인
 - Smoke Test 즉시 수행
+- 검증한 Source·Artifact와 배포 Artifact의 동일성 확인
 
 ### 20.6 Monitoring
 
@@ -1898,6 +1905,8 @@ Rollback Trigger:
 ### 20.8 PM Notes
 
 Release는 파일 업로드가 아니라 승인된 Quality State를 Production으로 이동하는 과정이다.
+
+Release Candidate, Ready for Owner Approval, Approved for Release, Released와 Verified in Production 상태를 구분한다. 배포 명령 성공만으로 Verified 상태를 선언하지 않는다.
 
 ---
 

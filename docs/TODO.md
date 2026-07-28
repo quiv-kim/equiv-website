@@ -2,6 +2,8 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 6 Release & Version Management 문서화
+- [x] Release State·Semantic Version·Changelog·Decision·Rollback·Post-release 운영 기준 동기화
 - [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 5 Quality Assurance 문서화
 - [x] QA Result를 PASS·Minor Revision·Major Revision·REJECT로 통일하고 PASS 전용 Release Gate 적용
 - [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 4 Development & Modification Workflow 문서화

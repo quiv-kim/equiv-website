@@ -1,5 +1,21 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Chapter 6 Release & Version Management
+
+- Development → QA → Documentation → Changelog → Version → RC → PM Recommendation → Owner Approval → Release → Post-release의 표준 Release Workflow 수립
+- Implementation Complete, QA PASS, Release Candidate, Ready for Owner Approval, Approved, Released, Verified와 Rolled Back 상태 정의
+- Major·Minor·Patch·Hotfix·Documentation Release 분류와 Semantic Versioning 선택 규칙 정립
+- Breaking Change만 Major, Backward-compatible Feature는 Minor, Contract 유지 Fix는 Patch로 분류하도록 명확화
+- Website Product Version, Document Version과 Component Version의 독립 관리·Dependency 원칙 추가
+- Release Candidate Entry·Scope Freeze·RC 변경·해제 조건과 Version Proposal 절차 정의
+- Changelog Added·Changed·Fixed·Deprecated·Removed·Security·Documentation 범주와 Draft·Released 구분 수립
+- Decision Log Trigger, Required Field, Supersede와 Release 전 Accepted Decision 요구사항 정리
+- PM Recommendation, Project Owner 최종 승인, Authorized Operator 실행과 Artifact Integrity 규칙 정의
+- Production Smoke Test, Monitoring, Issue Severity, Rollback·Fix Forward와 Hotfix Version·Scope 정책 추가
+- Version, RC, Approval, Release, Post-release와 Rollback Record Template 및 단계별 Checklist 추가
+- `DESIGN_QA_GOVERNANCE.md`의 Version·Release Process를 Chapter 6 State와 Artifact Verification 기준에 맞게 동기화
+- `DECISION_LOG.md`의 `DQ-2026-002` History에 Chapter 6 반영 기록
+
 ## EQUIV AI Operating Manual v1.0 - Chapter 5 Quality Assurance
 
 - 세부 QA 기준은 `DESIGN_QA_GOVERNANCE.md`에 유지하고 Operating Manual에는 QA Timing·Responsibility·Decision·Rework 절차를 수립

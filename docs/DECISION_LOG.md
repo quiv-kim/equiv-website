@@ -75,6 +75,7 @@ EQUIV는 Design Bible, Design System, Component Library, Service Page Template, 
 
 ### History
 
+- 2026-07-28: Chapter 6 Release State·Semantic Version·Changelog·Rollback과 Post-release Rule 추가
 - 2026-07-28: Chapter 5 QA Timing·Responsibility·PASS 전용 Release와 Rework Rule 추가
 - 2026-07-28: Chapter 4 Development·Modification Workflow와 Release 단계 구분 추가
 - 2026-07-28: Chapter 3 문서 계층·Source of Truth·Decision과 Conflict Rule 추가

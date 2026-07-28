@@ -15,6 +15,7 @@ Applies To: ChatGPT, Codex, Work, Human Contributors and Future AI Operators
 3. Documentation Priority & Decision Rules
 4. Development & Modification Workflow
 5. Quality Assurance
+6. Release & Version Management
 
 ---
 
@@ -5083,3 +5084,1147 @@ QA는 개발 마지막 단계가 아니다.
 EQUIV의 QA는 많은 Checklist를 채우는 일이 아니다.
 
 필요한 기준을 정확한 환경에서 검증하고, 확인한 사실만 보고하며, 사용자와 브랜드에 위험이 남아 있으면 Release하지 않는 일이다.
+
+---
+
+# Chapter 6. Release & Version Management
+
+Version 1.0
+Status: Approved Draft
+
+---
+
+## Chapter 6 Contents
+
+1. Purpose
+2. Release Philosophy
+3. Release Authority and Relationship
+4. Release States
+5. Release Workflow
+6. Release Types
+7. Version Policy
+8. Version Selection Rules
+9. Release Candidate
+10. Changelog Rules
+11. Decision Log Rules
+12. Release Approval
+13. Release Execution
+14. Post-release Review
+15. Rollback Policy
+16. Hotfix Policy
+17. Documentation Policy
+18. Release Records and Templates
+19. Operational Checklists
+20. Success Criteria
+21. PM Note
+
+---
+
+## 1. Purpose
+
+이 Chapter는 EQUIV 프로젝트의 Release 절차와 Version 관리 기준을 정의한다.
+
+Release는 단순한 파일 업로드가 아니다.
+
+품질이 검증되고 승인된 결과물을 추적 가능한 Version으로 사용자에게 제공하는 과정이다.
+
+이 Chapter의 목적은 다음 질문에 일관되게 답하는 것이다.
+
+- 무엇을 Release할 수 있는가?
+- 누가 Release를 승인하는가?
+- 어떤 Version을 부여하는가?
+- Changelog와 Decision Log는 언제 작성하는가?
+- Release 후 무엇을 확인하는가?
+- 치명적 문제가 발생하면 어떻게 복구하는가?
+
+---
+
+## 2. Release Philosophy
+
+Release는 빠르게 하는 것이 아니라 안정적으로 하는 것이다.
+
+충분히 검토되지 않은 변경은 Release하지 않는다.
+
+### 2.1 Quality State
+
+Release는 Source를 Production에 복사하는 행위가 아니다.
+
+검증·문서화·승인된 Quality State를 특정 환경으로 이동하는 과정이다.
+
+### 2.2 Trust
+
+EQUIV의 Release는 사용자의 신뢰에 직접 영향을 준다.
+
+특히 다음은 일반 UI 변경보다 높은 기준을 적용한다.
+
+- Consultation
+- 개인정보
+- Business Valuation
+- Navigation
+- Brand Logo
+- Accessibility
+- External Integration
+
+### 2.3 Reversible
+
+Release는 되돌릴 수 있어야 한다.
+
+Rollback 방법을 확인하지 않은 변경은 Production에 배포하지 않는다.
+
+### 2.4 Traceable
+
+모든 Production Release는 다음을 추적할 수 있어야 한다.
+
+- Version
+- Scope
+- Actor
+- Approver
+- Date·Time
+- QA Evidence
+- Changelog
+- Rollback
+- Monitoring
+
+### 2.5 Small and Predictable
+
+큰 Release보다 작은 Release를 선호한다.
+
+서로 다른 Risk와 Rollback 단위를 하나의 Release에 무리하게 묶지 않는다.
+
+---
+
+## 3. Release Authority and Relationship
+
+### 3.1 Source of Truth
+
+세부 Release Gate, Risk, Rollback, Monitoring과 Incident 기준은 `DESIGN_QA_GOVERNANCE.md`를 따른다.
+
+본 Chapter는 Release와 Version을 실제 운영 Workflow에 연결한다.
+
+### 3.2 Document Relationship
+
+| Document | Responsibility |
+|---|---|
+| Operating Manual Chapter 6 | Release Sequence, Version Selection과 Record Procedure |
+| `DESIGN_QA_GOVERNANCE.md` | Release Gate, Risk, Rollback, Monitoring과 Incident |
+| `CHANGELOG.md` | 실제 변경 이력 |
+| `DECISION_LOG.md` | 중요한 선택과 승인 이유 |
+| Domain Documentation | Release된 Contract와 Rule |
+| `TODO.md` | Release되지 않았거나 Deferred된 작업 |
+
+### 3.3 Authority
+
+- Implementation AI: Release Package와 Evidence 준비
+- Project Manager: QA PASS와 Release Readiness 권고
+- Project Owner: Production Release 최종 승인
+- Authorized Operator: 승인된 Release 실행
+
+### 3.4 No Implied Release Permission
+
+다음은 Production Release 권한을 의미하지 않는다.
+
+- 구현 요청
+- QA PASS
+- Local Preview
+- Git Commit
+- Release Candidate
+- 문서 업데이트
+
+Project Owner의 명시적 승인이 필요하다.
+
+---
+
+## 4. Release States
+
+### 4.1 State Model
+
+| State | Meaning |
+|---|---|
+| In Development | 구현 중 |
+| Implementation Complete | Source 변경 완료 |
+| QA In Progress | 검증 중 |
+| Revision Required | Minor·Major Revision |
+| QA PASS | 필수 QA 충족 |
+| Release Candidate | Version·문서·Rollback·Monitoring 준비 |
+| Ready for Owner Approval | PM Release 권고 완료 |
+| Approved for Release | Project Owner 승인 완료 |
+| Released | 대상 환경 배포 완료 |
+| Verified in Production | Production Smoke Test 완료 |
+| Rolled Back | 이전 안정 Version으로 복구 |
+| Superseded | 이후 Version으로 대체 |
+
+### 4.2 State Transition
+
+`In Development`
+
+`→ Implementation Complete`
+
+`→ QA In Progress`
+
+`→ QA PASS`
+
+`→ Release Candidate`
+
+`→ Ready for Owner Approval`
+
+`→ Approved for Release`
+
+`→ Released`
+
+`→ Verified in Production`
+
+### 4.3 Invalid Transitions
+
+다음 전환은 금지한다.
+
+- In Development → Released
+- QA In Progress → Released
+- Minor Revision → Released
+- Major Revision → Released
+- Release Candidate → Released without Owner Approval
+- Released → Verified without Production Check
+
+### 4.4 Documentation Handoff
+
+Documentation-only 작업은 `Documentation Handoff`로 완료할 수 있다.
+
+Website Runtime을 변경하지 않았다면 이를 Production Release라고 부르지 않는다.
+
+---
+
+## 5. Release Workflow
+
+공식 Workflow:
+
+`Development`
+
+`↓`
+
+`QA`
+
+`↓`
+
+`Documentation Check`
+
+`↓`
+
+`CHANGELOG Update`
+
+`↓`
+
+`Version Assignment`
+
+`↓`
+
+`Release Candidate`
+
+`↓`
+
+`PM Release Recommendation`
+
+`↓`
+
+`Project Owner Approval`
+
+`↓`
+
+`Release`
+
+`↓`
+
+`Post-release Review`
+
+`↓`
+
+`Monitoring and Documentation Finalization`
+
+### 5.1 Development
+
+Chapter 4 Workflow에 따라 변경을 구현한다.
+
+### 5.2 QA
+
+Chapter 5에 따라 최종 PASS를 확보한다.
+
+### 5.3 Documentation Check
+
+Primary Source, Changelog, Decision, Migration과 TODO가 실제 변경과 일치하는지 확인한다.
+
+### 5.4 Version Assignment
+
+Compatibility와 Change Scope를 기준으로 Version을 선택한다.
+
+### 5.5 Release Candidate
+
+Scope를 Freeze하고 Release Package와 Rollback을 준비한다.
+
+### 5.6 PM Recommendation
+
+Project Manager가 Evidence와 Open Risk를 검토한다.
+
+### 5.7 Owner Approval
+
+Project Owner가 Production Release를 최종 승인한다.
+
+### 5.8 Release
+
+Authorized Operator가 승인된 Version과 범위만 배포한다.
+
+### 5.9 Post-release
+
+Production Smoke Test, Monitoring과 최종 Record를 수행한다.
+
+---
+
+## 6. Release Types
+
+### 6.1 Major Release
+
+Major Release는 기존 Public Contract 또는 사용자 기대를 깨는 변경이다.
+
+Examples:
+
+- Breaking Component API
+- Token Role 제거·의미 변경
+- 필수 User Flow 변경
+- Page Architecture 변경
+- Brand Identity 변경
+- 핵심 Domain Logic의 비호환 변경
+- 지원 Platform의 중대한 변경
+
+새 기능이라는 이유만으로 Major가 되지는 않는다.
+
+Backward-compatible Feature는 Minor다.
+
+### 6.2 Minor Release
+
+기존 Contract를 유지하는 기능 확장이다.
+
+Examples:
+
+- 새로운 기능
+- Backward-compatible Component Variant
+- 새 Token·Pattern 추가
+- UI 개선
+- UX 개선
+- 새로운 Page
+- 지원 Browser·Device 확장
+- 새로운 QA Rule
+
+### 6.3 Patch Release
+
+기존 Contract를 바꾸지 않는 수정이다.
+
+Examples:
+
+- Bug Fix
+- 오타
+- Content Correction
+- Documentation Clarification
+- 경미한 Visual Correction
+- 호환성을 유지하는 Accessibility Fix
+- 경미한 Performance Fix
+
+### 6.4 Hotfix Release
+
+Production의 Blocker·Critical Issue를 해결하는 긴급 Patch다.
+
+Hotfix도 Version, QA, 승인, Rollback과 Changelog를 유지한다.
+
+### 6.5 Documentation Release
+
+Runtime 변경 없이 운영·전문 문서만 갱신하는 변경이다.
+
+Document Version 또는 Changelog에는 반영할 수 있지만 Website Product Version을 자동 증가시키지 않는다.
+
+### 6.6 Release Train
+
+관련 변경을 하나의 Version으로 묶을 수 있지만 다음은 분리한다.
+
+- 서로 다른 Owner
+- 다른 Risk
+- 다른 Rollback
+- 독립적인 Breaking Change
+- 검증되지 않은 Scope
+
+---
+
+## 7. Version Policy
+
+### 7.1 Semantic Versioning
+
+Website Product Release는 Semantic Versioning을 사용한다.
+
+`MAJOR.MINOR.PATCH`
+
+Examples:
+
+`1.0.0 → 1.1.0 → 1.1.1 → 1.2.0 → 2.0.0`
+
+### 7.2 Major
+
+기존 Contract와의 호환성을 깨면 Major를 증가시킨다.
+
+`1.8.4 → 2.0.0`
+
+Major가 증가하면 Minor와 Patch는 0으로 초기화한다.
+
+### 7.3 Minor
+
+Backward-compatible 기능을 추가하면 Minor를 증가시킨다.
+
+`1.8.4 → 1.9.0`
+
+Minor가 증가하면 Patch는 0으로 초기화한다.
+
+### 7.4 Patch
+
+Backward-compatible Fix면 Patch를 증가시킨다.
+
+`1.8.4 → 1.8.5`
+
+### 7.5 Pre-release
+
+필요한 경우 다음 식별자를 사용할 수 있다.
+
+- `2.0.0-alpha.1`
+- `2.0.0-beta.1`
+- `2.0.0-rc.1`
+
+Pre-release는 Production Stable Version으로 간주하지 않는다.
+
+### 7.6 Build Metadata
+
+필요한 경우:
+
+`1.4.2+build.20260728`
+
+처럼 Build Metadata를 사용할 수 있다.
+
+Metadata는 Version 우선순위를 바꾸지 않는다.
+
+### 7.7 Document Version
+
+Document Version은 Website Product Version과 별도로 관리한다.
+
+예:
+
+- Operating Manual Version 1.0
+- Component Library Version 1.1
+- Website Release 2.3.4
+
+모든 문서 Version을 Website Version과 억지로 동일하게 만들지 않는다.
+
+### 7.8 Component Version
+
+독립 Contract와 Migration이 필요한 Shared Component는 별도 Version을 가질 수 있다.
+
+Dependency를 기록한다.
+
+### 7.9 Current Version
+
+실제 현재 Product Version은 Release Record 또는 Version Source에서 확인한다.
+
+문서만 보고 존재하지 않는 Version을 추측·발급하지 않는다.
+
+---
+
+## 8. Version Selection Rules
+
+### 8.1 Decision Sequence
+
+1. Public Contract가 깨지는가?
+   - Yes → Major
+2. Backward-compatible 기능이 추가되는가?
+   - Yes → Minor
+3. Contract를 유지하는 Fix인가?
+   - Yes → Patch
+4. Runtime 변경이 없는 문서 작업인가?
+   - Document Version 또는 Documentation Record
+
+### 8.2 Highest Impact Wins
+
+하나의 Release에 여러 변경이 포함되면 가장 높은 Version Impact를 적용한다.
+
+Example:
+
+- Patch 3개 + Minor 1개 → Minor
+- Minor 2개 + Breaking 1개 → Major
+
+### 8.3 Scope Does Not Equal Version
+
+변경 파일 수가 많다고 Major가 아니다.
+
+변경 파일이 하나라도 Public Contract를 깨면 Major가 될 수 있다.
+
+### 8.4 Internal Refactoring
+
+외부 동작과 Contract가 동일하면 Patch 또는 Product Version 미증가로 처리할 수 있다.
+
+실제 Release 여부와 운영 정책을 확인한다.
+
+### 8.5 Accessibility and Performance
+
+접근성·성능 Fix는 일반적으로 Patch다.
+
+Public Behavior 또는 지원 범위를 의미 있게 바꾸면 Minor 또는 Major를 검토한다.
+
+### 8.6 Content
+
+오타·명확화는 Patch다.
+
+Page Role, Legal Meaning 또는 핵심 Claim을 바꾸면 Minor·Major와 Decision Log를 검토한다.
+
+### 8.7 Version Proposal
+
+Implementation AI는 Version을 제안할 수 있다.
+
+Project Manager가 Compatibility와 Scope를 검토한다.
+
+Project Owner가 Major Release와 Production Release를 승인한다.
+
+---
+
+## 9. Release Candidate
+
+### 9.1 Entry Criteria
+
+- Scope Freeze
+- Version Assigned
+- 최종 QA PASS
+- Blocker 0
+- Known Issue 기록
+- 필수 Documentation 준비
+- Changelog 준비
+- Migration 준비
+- Rollback Ready
+- Monitoring Owner 지정
+
+### 9.2 Scope Freeze
+
+Release Candidate 이후에는 Blocker Fix만 허용한다.
+
+추가 개선은 다음 Version으로 이동한다.
+
+### 9.3 RC Change
+
+RC에서 수정이 발생하면:
+
+- 영향 분석
+- 관련 QA 재수행
+- Changelog·Evidence 갱신
+- 필요 시 `rc.N` 증가
+
+를 수행한다.
+
+### 9.4 RC Rejection
+
+Minor·Major Revision, Blocker, Evidence 누락 또는 Rollback 불가면 RC를 해제하고 Development 단계로 되돌린다.
+
+### 9.5 RC Is Not Released
+
+Release Candidate는 Production Release가 아니다.
+
+Owner 승인과 실제 배포가 필요하다.
+
+---
+
+## 10. Changelog Rules
+
+### 10.1 Required
+
+Release 시 `CHANGELOG.md`를 반드시 업데이트한다.
+
+### 10.2 Record Categories
+
+- Added
+- Changed
+- Fixed
+- Deprecated
+- Removed
+- Security
+- Documentation
+
+현재 Changelog 형식을 유지하되 필요한 경우 이 Category를 사용한다.
+
+### 10.3 Record
+
+기록 대상:
+
+- 신규 기능
+- 기능 수정
+- UI·UX 개선
+- Bug Fix
+- Public Content 변경
+- Component·Pattern·Token 변경
+- Accessibility·Performance 개선
+- Deprecation·Removal
+- 운영·Governance 변경
+
+### 10.4 Do Not Record as Release Change
+
+- 변경 없는 조사
+- 실패한 실험
+- Temporary Local File
+- 사소한 개인 작업 메모
+- User-visible·System-visible 영향이 없는 일회성 확인
+
+필요하면 QA Record 또는 Working Note에 남긴다.
+
+### 10.5 Draft vs Released
+
+아직 Release되지 않은 변경을 Released 상태처럼 기록하지 않는다.
+
+프로젝트가 현재 Unreleased Section을 사용하지 않는 경우, Changelog Entry와 실제 Release Status를 완료 보고에서 명확히 구분한다.
+
+### 10.6 Content
+
+각 Entry는 다음을 답해야 한다.
+
+- 무엇이 바뀌었는가?
+- 사용자·System 영향은 무엇인가?
+- 어떤 기능이 보호되었는가?
+- Migration이 필요한가?
+
+### 10.7 Changelog Is Not Decision Log
+
+Changelog는 변경 사실을 기록한다.
+
+중요한 선택의 이유와 Alternative는 Decision Log에 기록한다.
+
+---
+
+## 11. Decision Log Rules
+
+### 11.1 Trigger
+
+다음 경우에만 `DECISION_LOG.md`를 작성한다.
+
+- 구조 변경
+- Design Philosophy 변경
+- 운영 원칙 변경
+- 중요한 기술 선택
+- Project Direction 변경
+- Breaking Change
+- 승인된 예외
+- 장기 Migration
+
+### 11.2 Not Required
+
+일반 수정은 Decision Log 대상이 아니다.
+
+Examples:
+
+- 일반 Bug Fix
+- 오타 수정
+- 기존 Token을 사용한 Visual Correction
+- 기존 Contract 안의 Content Update
+
+### 11.3 Required Fields
+
+- Decision ID
+- Status
+- Date
+- Owner
+- Approver
+- Context
+- Problem
+- Decision
+- Alternatives
+- Impact
+- Risk
+- Migration
+- Review Date
+- History
+
+### 11.4 Supersede
+
+Accepted Decision을 삭제하지 않는다.
+
+새 Decision으로 Supersede하고 History를 유지한다.
+
+### 11.5 Release Relationship
+
+Decision이 필요한 Release는 Accepted Decision 없이 Release하지 않는다.
+
+---
+
+## 12. Release Approval
+
+### 12.1 PM Review
+
+Project Manager가 다음을 검토한다.
+
+- QA PASS
+- Acceptance
+- Open Issue
+- Risk
+- Documentation
+- Changelog
+- Version
+- Migration
+- Rollback
+- Monitoring
+
+### 12.2 PM Decision
+
+- Ready for Owner Approval
+- Not Ready — Minor Revision
+- Not Ready — Major Revision
+- Rejected
+
+### 12.3 Owner Decision
+
+Project Owner는 다음 중 하나를 결정한다.
+
+- Approved for Release
+- Hold
+- Return for Revision
+- Cancel
+
+### 12.4 Approval Record
+
+- Approver
+- Date·Time
+- Version
+- Target
+- Scope
+- Accepted Risk
+- Conditions
+
+### 12.5 PASS Is Required
+
+QA PASS가 아닌 변경은 Production Release 승인 대상이 아니다.
+
+### 12.6 Separation
+
+PM의 Release Recommendation과 Project Owner의 최종 승인은 구분한다.
+
+Authorized Operator는 승인된 범위만 실행한다.
+
+---
+
+## 13. Release Execution
+
+### 13.1 Preflight
+
+- Version 확인
+- Target 환경 확인
+- Branch·Commit·Artifact 확인
+- Environment Variable 확인
+- Backup·Rollback 확인
+- Maintenance Window 확인
+- Monitoring 준비
+
+### 13.2 Artifact Integrity
+
+검증한 Source와 배포할 Artifact가 동일해야 한다.
+
+Build 이후 Source가 바뀌면 다시 Build·QA한다.
+
+### 13.3 Execution
+
+- 승인된 Actor가 실행
+- 승인된 Version만 배포
+- 배포 시작·완료 시각 기록
+- 예상하지 못한 Scope가 포함되면 중단
+
+### 13.4 Immediate Verification
+
+- Homepage 접근
+- Header·Navigation
+- 핵심 Service Page
+- Consultation Flow
+- Business Valuation 진입
+- Asset·Link
+- Console·Network
+
+### 13.5 Release Failure
+
+배포 중 실패하면:
+
+1. 추가 변경 중지
+2. 사용자 영향 확인
+3. Rollback 또는 Fix Forward 판단
+4. Owner·PM 보고
+5. Incident 기록
+
+### 13.6 No Unverified Completion
+
+배포 명령 성공만으로 Release 완료라고 보고하지 않는다.
+
+Production Verification 후 `Released and Verified`로 표시한다.
+
+---
+
+## 14. Post-release Review
+
+### 14.1 Immediate
+
+- 기능 정상 동작
+- UI 이상 없음
+- UX 이상 없음
+- Link 확인
+- Console Error 확인
+- Network 404 확인
+- Form·Modal 확인
+- 주요 Browser 확인
+
+### 14.2 Monitoring
+
+- Error Log
+- Consultation Completion
+- Business Valuation Error
+- Performance Signal
+- Accessibility Feedback
+- User·Support Feedback
+
+### 14.3 Review Window
+
+Risk에 따라 Monitoring 기간을 정한다.
+
+- Patch: 짧은 집중 확인
+- Minor: 핵심 Flow와 Browser 확인
+- Major: 확대 Monitoring과 Owner Review
+
+구체 기간은 Release Plan에 기록한다.
+
+### 14.4 Post-release Issue
+
+Issue를 Severity로 분류한다.
+
+- Observation
+- Minor
+- Major
+- Critical
+- Blocker
+
+필요하면 Patch 또는 Hotfix Release를 진행한다.
+
+### 14.5 Documentation Finalization
+
+- 실제 Release 시각
+- Version
+- Actor
+- Verification
+- Incident
+- Rollback 여부
+
+를 최종 반영한다.
+
+---
+
+## 15. Rollback Policy
+
+### 15.1 Principle
+
+Release 후 치명적인 문제가 발견되면 즉시 이전 안정 Version으로 Rollback한다.
+
+수정 가능성을 기다리며 사용자 Risk를 유지하지 않는다.
+
+### 15.2 Trigger
+
+- 주요 Task 불가
+- 개인정보 노출
+- 계산 결과 오류
+- Navigation 전체 장애
+- Critical Accessibility Failure
+- Severe Performance Regression
+- Data Corruption
+- Security Issue
+
+### 15.3 Rollback Plan
+
+- Stable Version
+- Trigger
+- Decision Owner
+- Steps
+- Data Impact
+- Verification
+- Communication
+- Recovery
+
+### 15.4 Authority
+
+Critical Incident에서는 사전 승인된 Rollback Plan과 Incident Authority를 따른다.
+
+Project Owner와 PM에게 즉시 보고한다.
+
+### 15.5 After Rollback
+
+- Production 안정 확인
+- 원인 분석
+- Incident 기록
+- Changelog
+- Fix Plan
+- Regression Test
+- 재Release 승인
+
+### 15.6 Fix Forward
+
+Rollback보다 Fix Forward가 안전하다는 Evidence가 있을 때만 선택한다.
+
+시간이 짧다는 이유만으로 Fix Forward를 선택하지 않는다.
+
+---
+
+## 16. Hotfix Policy
+
+### 16.1 Purpose
+
+Hotfix는 Production Blocker·Critical Issue를 최소 범위로 해결한다.
+
+### 16.2 Workflow
+
+`Detect → Triage → Contain → Minimal Fix or Rollback → Critical QA → Owner Approval → Release → Monitor → Document`
+
+### 16.3 Version
+
+기본적으로 Patch Version을 증가시킨다.
+
+Breaking Hotfix가 필요하면 Major와 Migration을 검토한다.
+
+### 16.4 Scope
+
+Hotfix에는 직접 원인 해결에 필요한 변경만 포함한다.
+
+일반 개선을 함께 넣지 않는다.
+
+### 16.5 QA
+
+시간을 줄이되 다음은 생략하지 않는다.
+
+- Root Cause
+- Direct Flow
+- Regression
+- Security·Privacy·Valuation Domain
+- Rollback
+
+### 16.6 Follow-up
+
+임시 Compatibility 또는 미완성 Documentation은 다음 Sprint의 확정 Task로 등록한다.
+
+---
+
+## 17. Documentation Policy
+
+### 17.1 Before Release
+
+다음 문서는 Release 승인 전에 준비한다.
+
+- Changelog
+- Domain Contract
+- Component·Pattern·Token 변경
+- Migration
+- Decision
+- Rollback
+- Monitoring
+
+### 17.2 After Release
+
+실제 Version, Date, Actor, Verification과 Issue를 최종 반영한다.
+
+### 17.3 Consistency
+
+운영 문서와 실제 프로젝트가 불일치하지 않도록 관리한다.
+
+### 17.4 No Over-documentation
+
+모든 내부 작업을 Changelog나 Decision Log에 기록하지 않는다.
+
+사용자·System·Governance에 의미 있는 변경만 기록한다.
+
+### 17.5 Unreleased Work
+
+Release되지 않은 변경은 Released 문서와 구분한다.
+
+필요하면 TODO, Draft 또는 RC Record로 유지한다.
+
+---
+
+## 18. Release Records and Templates
+
+### 18.1 Version Proposal
+
+```text
+Current Version:
+Proposed Version:
+Change Type:
+Compatibility:
+Breaking:
+Migration:
+Reason:
+```
+
+### 18.2 Release Candidate
+
+```text
+Version:
+Scope:
+QA Result:
+Evidence:
+Known Issues:
+Documentation:
+Migration:
+Rollback:
+Monitoring Owner:
+Release Owner:
+```
+
+### 18.3 Approval
+
+```text
+Version:
+PM Recommendation:
+Project Owner Decision:
+Approved Scope:
+Accepted Risk:
+Target:
+Date:
+```
+
+### 18.4 Release Record
+
+```text
+Version:
+Commit/Artifact:
+Environment:
+Actor:
+Start:
+End:
+Result:
+Verification:
+Incident:
+Rollback:
+```
+
+### 18.5 Post-release Review
+
+```text
+Version:
+Core Flows:
+Console/Network:
+Performance:
+User Feedback:
+Open Issues:
+Action:
+Monitoring End:
+```
+
+### 18.6 Rollback Record
+
+```text
+Failed Version:
+Stable Version:
+Trigger:
+Decision:
+Steps:
+Verification:
+Root Cause:
+Follow-up:
+```
+
+---
+
+## 19. Operational Checklists
+
+### 19.1 Version
+
+- [ ] Current Version을 실제 Source에서 확인했는가?
+- [ ] Breaking Compatibility를 검토했는가?
+- [ ] Major·Minor·Patch를 올바르게 선택했는가?
+- [ ] Highest Impact Rule을 적용했는가?
+- [ ] Document Version과 Product Version을 구분했는가?
+- [ ] Migration이 필요한가?
+
+### 19.2 Release Candidate
+
+- [ ] Scope가 Freeze되었는가?
+- [ ] Version이 지정되었는가?
+- [ ] 최종 QA Result가 PASS인가?
+- [ ] Blocker가 0인가?
+- [ ] Known Issue가 기록되었는가?
+- [ ] Documentation이 준비되었는가?
+- [ ] Changelog가 준비되었는가?
+- [ ] Rollback이 가능한가?
+- [ ] Monitoring Owner가 있는가?
+
+### 19.3 Changelog and Decision
+
+- [ ] Added·Changed·Fixed·Removed를 기록했는가?
+- [ ] 사용자·System 영향을 설명했는가?
+- [ ] Release되지 않은 변경을 Released처럼 쓰지 않았는가?
+- [ ] Decision Log Trigger를 확인했는가?
+- [ ] 필요한 Accepted Decision이 있는가?
+
+### 19.4 Approval
+
+- [ ] PM이 QA와 Risk를 검토했는가?
+- [ ] Release Recommendation이 있는가?
+- [ ] Project Owner가 Version과 Scope를 승인했는가?
+- [ ] Accepted Risk가 기록되었는가?
+- [ ] Authorized Operator가 정해졌는가?
+
+### 19.5 Preflight
+
+- [ ] Target 환경이 맞는가?
+- [ ] 검증한 Artifact와 배포 Artifact가 동일한가?
+- [ ] Environment Variable이 준비되었는가?
+- [ ] Backup·Rollback이 준비되었는가?
+- [ ] Monitoring이 준비되었는가?
+
+### 19.6 Post-release
+
+- [ ] Production 접근이 정상인가?
+- [ ] 핵심 기능이 정상인가?
+- [ ] UI·UX 이상이 없는가?
+- [ ] Link와 Asset이 정상인가?
+- [ ] Console·Network Error가 없는가?
+- [ ] User Feedback를 확인했는가?
+- [ ] Release Record를 완료했는가?
+
+### 19.7 Rollback
+
+- [ ] Trigger가 충족되었는가?
+- [ ] 이전 안정 Version이 확인되었는가?
+- [ ] Rollback Actor와 Owner가 있는가?
+- [ ] 복구 후 핵심 Flow를 확인했는가?
+- [ ] Incident와 Root Cause를 기록했는가?
+- [ ] 재Release 조건을 정의했는가?
+
+---
+
+## 20. Success Criteria
+
+- [ ] Release 절차가 일관된다.
+- [ ] QA PASS 전에는 Release하지 않는다.
+- [ ] Project Owner 승인 없이 Production Release하지 않는다.
+- [ ] Version이 Semantic Versioning에 따라 명확하다.
+- [ ] Breaking Change만 Major로 분류된다.
+- [ ] Backward-compatible Feature는 Minor로 분류된다.
+- [ ] Bug·Content Fix는 적절한 Patch로 관리된다.
+- [ ] Product Version과 Document Version이 구분된다.
+- [ ] Changelog가 유지된다.
+- [ ] 중요한 Decision이 추적된다.
+- [ ] Release Candidate와 Released가 구분된다.
+- [ ] Rollback이 가능하다.
+- [ ] Post-release Review와 Monitoring이 수행된다.
+- [ ] 프로젝트가 안정적으로 운영된다.
+
+---
+
+## 21. PM Note
+
+Release는 프로젝트의 종료가 아니다.
+
+다음 개선을 위한 새로운 시작이다.
+
+EQUIV는 완성 후 멈추는 프로젝트가 아니라 지속적으로 발전하는 Product다.
+
+모든 Release는 브랜드 신뢰도를 높이는 과정이어야 한다.
+
+Version 숫자를 올리는 것보다 중요한 것은 사용자가 받은 결과와 그 결과를 되돌릴 수 있는 능력이다.
+
+안정적인 Release는 느린 Release가 아니다.
+
+Scope가 명확하고, QA가 충분하며, 문서와 Rollback이 준비된 예측 가능한 Release다.
