@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.4.4 - Contact Right Column Alignment Correction
+
+- 1024px 이상 Desktop·Laptop에서 Contact를 명확한 좌우 2열 구조로 유지
+- `Is This Right for You?`, Checklist, 진행 안내와 Confidential을 우측 독립 컬럼에 고정
+- 1023px 이하에서만 Trust Panel이 Contact 흐름 아래로 이동하도록 Component Breakpoint 보정
+- 콘텐츠, Consultation Modal, CTA 동작과 Mobile Layout은 변경하지 않음
+
 ## Sprint 7.4.3 - Contact Layout Refinement
 
 - HOME Contact를 좌측 Main Contact와 우측 Trust Panel의 명확한 2열 구조로 재정렬
