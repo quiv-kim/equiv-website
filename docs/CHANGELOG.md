@@ -1,5 +1,16 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.2 - Homepage Copy & UI Polishing
+
+- HOME Hero Subtitle을 의미 단위 두 줄로 고정하여 Mobile의 한 글자 고립 줄바꿈 제거
+- Principle Card 03 설명을 `정확성과 기밀성을 우선하는 중개·자문`으로 간결화
+- Expertise 안내 문구의 서비스 나열을 `매각·인수·투자유치`로 통일
+- M&A 준비도 진단 안내를 기업가치 산정과 구분되는 두 문장으로 축약
+- Hero·Section·Card 제목에 브라우저 기본 Balance Wrapping을 적용하여 반응형 줄바꿈 균형 개선
+- 같은 Row의 서비스 카드 Equal Height, Insights 정보 밀도, Contact–Footer 연결, Hover·Focus와 반응형 Grid는 기존 Component를 유지
+- HOME에서 이미 제거되어 About `How We Work`로 이전된 Transaction Process는 IA 원칙에 따라 재추가하지 않음
+- Header, Navigation, Color, Design Token, CSS Variable, JavaScript와 Animation Structure는 변경하지 않음
+
 ## Sprint 7.1 - Hero Section Copy Refinement
 
 - HOME Hero Main Title을 `기업의 가치를 이해합니다.`로 변경

@@ -913,6 +913,17 @@ button {
   word-break: keep-all;
 }
 
+.hero h1,
+.hero-description,
+.principle-head h2,
+.section-head h2,
+.final-cta h2,
+.principle-card h3,
+.service-card h3,
+.insight-card h3 {
+  text-wrap: balance;
+}
+
 .hero-brand-identity {
   display: inline-flex;
   align-items: center;

@@ -2,6 +2,9 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] Sprint 7.2 HOME Copy·Typography·Spacing·Layout Balance 종합 검수
+- [x] 1440·1200·768·390px Responsive 및 접근성·상호작용 QA
+- [x] Hero Subtitle 줄바꿈, Principle·Expertise·Readiness 카피와 제목 Balance Wrapping 개선
 - [x] Sprint 7.1 HOME Hero Main Title을 `기업의 가치를 이해합니다.`로 교체
 - [x] HOME Hero Subtitle을 추가하고 Desktop·Tablet·Mobile 가독성 검증
 - [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Appendix A Golden Rules 문서화
