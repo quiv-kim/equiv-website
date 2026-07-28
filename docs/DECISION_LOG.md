@@ -75,6 +75,7 @@ EQUIV는 Design Bible, Design System, Component Library, Service Page Template, 
 
 ### History
 
+- 2026-07-28: Chapter 2 역할·책임, QA Gate와 Production Release 승인 경계 추가
 - 2026-07-28: Accepted
 
 ---

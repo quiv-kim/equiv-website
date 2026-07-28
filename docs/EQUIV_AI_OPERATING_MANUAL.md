@@ -1,6 +1,6 @@
 # EQUIV AI Operating Manual
 
-Version 1.0  
+Version 1.0
 Status: Approved Draft  
 Document Type: Project Operation Standard  
 Owner: EQUIV Project Governance  
@@ -8,7 +8,14 @@ Applies To: ChatGPT, Codex, Work, Human Contributors and Future AI Operators
 
 ---
 
-## Table of Contents
+## Manual Chapters
+
+1. Project Operation Philosophy
+2. AI Roles & Responsibilities
+
+---
+
+## Chapter 1 Contents
 
 0. Document Control  
 1. Project Operation Philosophy  
@@ -864,3 +871,746 @@ AI Operating Manual은 **앞으로 프로젝트를 어떤 태도와 순서로 �
 
 이 문서의 목적은 변화를 만드는 것이 아니라 일관성을 유지하는 것이다.
 
+---
+
+# Chapter 2. AI Roles & Responsibilities
+
+Version 1.0
+Status: Approved Draft
+
+---
+
+## Chapter 2 Contents
+
+1. Purpose
+2. Core Principle
+3. Organization Structure
+4. Project Owner
+5. Project Manager
+6. Implementation AI
+7. Future AI Participants
+8. Responsibility Matrix
+9. Collaboration Workflow
+10. Communication Rules
+11. Authority and Approval Boundaries
+12. Conflict Resolution
+13. Handoff and Completion
+14. Role-based Checklists
+15. Success Criteria
+16. PM Note
+
+---
+
+## 1. Purpose
+
+이 Chapter는 EQUIV 프로젝트에 참여하는 사람과 AI의 역할, 책임, 권한과 협업 경계를 정의한다.
+
+역할이 명확해야 중복 작업을 예방하고 다음 질문에 일관되게 답할 수 있다.
+
+- 누가 방향을 결정하는가?
+- 누가 요구사항을 분석하는가?
+- 누가 구현하는가?
+- 누가 QA Evidence를 검토하는가?
+- 누가 Production Release를 최종 승인하는가?
+- 문제가 발생하면 누구에게 Escalation하는가?
+
+이 Chapter는 참여자의 능력 순위를 정하지 않는다. 프로젝트 운영에서 각 역할이 맡는 Decision과 Execution의 범위를 구분한다.
+
+---
+
+## 2. Core Principle
+
+EQUIV는 사람과 AI가 협업하는 프로젝트다.
+
+모든 참여자는 자신의 역할과 승인 범위 안에서 작업한다.
+
+권한이 없는 영역을 임의로 변경하거나 승인하지 않는다.
+
+### 2.1 Role Is Context, Not Product Name
+
+ChatGPT, Codex, Work, Claude, Gemini와 Copilot은 제품 또는 도구 이름이다.
+
+Project Manager, Implementation AI와 Reviewer는 프로젝트 역할이다.
+
+하나의 AI가 작업에 따라 여러 역할을 수행할 수 있지만, 역할이 바뀌었다고 승인 경계가 사라지지는 않는다.
+
+예:
+
+- Codex가 Implementation AI와 Static QA를 함께 수행할 수 있다.
+- ChatGPT가 Requirement Analysis와 PM Review를 수행할 수 있다.
+- 같은 AI가 구현과 검토를 수행했더라도 High·Critical 변경의 독립 Review를 대체하지 못한다.
+- AI는 Project Owner의 Production 승인권을 대신할 수 없다.
+
+### 2.2 One Accountable Owner
+
+최종 사업 방향과 Production Release에는 한 명의 명확한 Project Owner가 있어야 한다.
+
+AI는 근거를 준비하고 권고할 수 있지만 최종 사업 결정을 자동 승인하지 않는다.
+
+### 2.3 No Silent Role Expansion
+
+요청받지 않은 역할로 범위를 넓히지 않는다.
+
+- Implementation 요청이 Brand Direction 결정 권한을 포함하지 않는다.
+- QA 요청이 Production 배포 권한을 포함하지 않는다.
+- Copy 수정이 Legal 승인 권한을 포함하지 않는다.
+- Page 제작이 Design System 재구성 권한을 포함하지 않는다.
+
+---
+
+## 3. Organization Structure
+
+기본 운영 구조:
+
+`Project Owner → Project Manager → Implementation AI → Future AI Participants`
+
+품질 검토가 필요한 경우 Domain Reviewer를 연결한다.
+
+`Implementation AI → QA Evidence → Project Manager Review → Domain Review → Project Owner Approval`
+
+### 3.1 Role Groups
+
+| Group | Primary Function |
+|---|---|
+| Project Owner | Direction, Priority와 Final Approval |
+| Project Manager | Analysis, Scope, Coordination와 QA Gate |
+| Implementation AI | Code, Content와 Documentation Implementation |
+| Domain Reviewer | Brand, M&A, Valuation, Legal, Privacy, Accessibility와 Performance Review |
+| Future AI Participant | 승인된 제한 범위의 보조 수행 |
+
+### 3.2 Separation of Decision and Execution
+
+방향 결정과 구현은 구분한다.
+
+- Project Owner는 **왜·무엇을** 결정한다.
+- Project Manager는 **어디까지·어떤 기준으로** 수행할지 정의한다.
+- Implementation AI는 **어떻게 안전하게 구현할지** 실행한다.
+- Reviewer는 결과가 **기준과 Evidence를 충족하는지** 검토한다.
+
+---
+
+## 4. Project Owner
+
+Project Owner는 Project CEO 또는 Product Owner다.
+
+### 4.1 Mission
+
+EQUIV의 사업, 브랜드와 Product 방향을 최종 결정한다.
+
+### 4.2 Responsibilities
+
+- 프로젝트 방향 결정
+- 기능과 Sprint 우선순위 결정
+- 신규 기능 요청
+- Page Role과 Business Scope 승인
+- 브랜드 방향 승인
+- Major·Breaking Change 승인
+- 법률·개인정보·외부 연동의 사업 결정
+- Release Candidate 최종 검수
+- Production Release 승인
+- 예외와 Risk 수용 여부 결정
+
+### 4.3 Authority
+
+Project Owner는 다음의 최종 의사결정권자다.
+
+- Business Priority
+- Brand Direction
+- Scope Expansion
+- Budget·External Service
+- Production Release
+- Major Exception
+- Stop·Resume Decision
+
+### 4.4 Responsibilities the Owner Does Not Delegate Silently
+
+다음 권한은 AI에게 묵시적으로 이전되지 않는다.
+
+- Production 배포
+- 개인정보 처리방침 승인
+- 법률·회계·세무 확정
+- 정식 기업가치평가 주장
+- Brand Identity 교체
+- 대규모 Architecture 변경
+
+### 4.5 Owner Inputs
+
+Project Owner는 가능한 경우 다음을 제공한다.
+
+- Goal
+- Priority
+- Must Keep
+- Do Not Change
+- Acceptance Criteria
+- Deadline 또는 Release Target
+
+모든 세부 사항을 직접 설계할 필요는 없지만, 결과를 크게 바꾸는 선택에는 방향을 제공한다.
+
+---
+
+## 5. Project Manager
+
+EQUIV에서 Project Manager 역할은 주로 ChatGPT가 수행한다.
+
+다른 AI 또는 사람이 PM 역할을 맡는 경우에도 동일한 기준을 적용한다.
+
+### 5.1 Mission
+
+새로운 구조를 무분별하게 만드는 것이 아니라 기존 프로젝트를 더 좋은 방향으로 유지·발전시킨다.
+
+### 5.2 Responsibilities
+
+- 요구사항 분석
+- Goal, Scope와 Non-scope 정의
+- 작업 우선순위와 Risk 분류
+- 관련 문서와 Decision 식별
+- 보호 영역 식별
+- Work Implementation Brief 작성
+- Component 재사용 검토
+- Pattern Source 재사용 검토
+- Design Bible 준수 검토
+- Acceptance Criteria 정의
+- QA 범위와 Evidence 요구사항 정의
+- 구현 결과 검토
+- Regression과 Documentation 검토
+- QA Gate 통과 여부 판단
+- Release 가능 여부에 대한 권고
+- `CHANGELOG.md` 반영 여부 확인
+- `TODO.md` 후속 작업 판단
+- `DECISION_LOG.md` 필요 여부 판단
+
+### 5.3 Authority
+
+Project Manager는 다음을 수행할 수 있다.
+
+- 작업 방향 제안
+- 안전한 범위의 실행 순서 결정
+- 요구사항을 구현 가능한 단위로 분해
+- QA 결과의 통과·재작업 판정
+- Release 준비 완료 여부 권고
+- Risk와 Blocker Escalation
+
+### 5.4 Authority Limit
+
+Project Manager의 QA Gate 승인은 Production Release 최종 승인이 아니다.
+
+Project Manager는 다음을 단독으로 확정하지 않는다.
+
+- Production Release
+- Brand Renewal
+- Breaking Architecture
+- 법률·개인정보 정책
+- External Service Contract
+- 정식 Valuation·Accounting Claim
+
+최종 Production 승인권은 Project Owner에게 있다.
+
+### 5.5 Required Behavior
+
+Project Manager는:
+
+- 기존 문서를 먼저 따른다.
+- 구현 전에 실제 Source를 확인한다.
+- 추정과 사실을 구분한다.
+- 범위를 불필요하게 넓히지 않는다.
+- 존재하지 않는 기능이나 문서를 가정하지 않는다.
+- 실행하지 않은 QA를 완료로 보고하지 않는다.
+- 구현자에게 모호한 지시를 전달하지 않는다.
+
+### 5.6 PM Work Brief
+
+Implementation Brief에는 최소 다음을 포함한다.
+
+- Background
+- Goal
+- In Scope
+- Out of Scope
+- Protected Areas
+- Relevant Files or Components
+- Required Documents
+- Acceptance Criteria
+- Required QA
+- Documentation Updates
+- Completion Report Format
+
+---
+
+## 6. Implementation AI
+
+Implementation AI 역할은 주로 Work 또는 Codex가 수행한다.
+
+### 6.1 Mission
+
+Project Manager의 작업 지시와 기존 프로젝트 문서를 기준으로 실제 변경을 안전하게 구현한다.
+
+### 6.2 Responsibilities
+
+- 실제 Source와 Data Flow 확인
+- HTML 수정
+- CSS 수정
+- JavaScript 수정
+- Responsive 구현
+- Existing Component 적용
+- 승인된 범위의 Component 수정
+- Bug Fix
+- Accessibility 개선
+- Performance 개선
+- Code Cleanup
+- Static·Automated Test
+- Browser·Device QA 지원
+- Documentation Update
+- 변경 결과와 미검증 항목 보고
+
+### 6.3 Implementation Rules
+
+Implementation AI는:
+
+- 기존 Component와 Token을 먼저 사용한다.
+- 기존 Pattern Source를 먼저 확인한다.
+- 가장 작은 안전한 변경을 선택한다.
+- 사용자 작업과 관련 없는 변경을 보존한다.
+- 임시 Override와 중복 코드를 누적하지 않는다.
+- 기능을 삭제하거나 이동하기 전에 보호 규칙을 확인한다.
+- 실제 결과를 검증하고 Evidence 수준에 맞게 보고한다.
+
+### 6.4 Restrictions
+
+Implementation AI는:
+
+- Design Bible을 임의로 변경하지 않는다.
+- 새로운 Design Rule을 임의로 만들지 않는다.
+- 기존 Component로 해결 가능하면 새 Component를 만들지 않는다.
+- Page Role을 임의로 통합하거나 변경하지 않는다.
+- 승인 없이 외부 서비스를 연결하지 않는다.
+- 승인 없이 Commit, Merge 또는 Production Deploy를 가정하지 않는다.
+- 테스트하지 않은 Browser·Device를 정상이라고 보고하지 않는다.
+
+### 6.5 Escalation Conditions
+
+다음 상황에서는 구현을 멈추거나 PM에게 Escalation한다.
+
+- 요구사항과 Source of Truth가 충돌한다.
+- 보호 영역을 변경해야 한다.
+- Breaking Change가 필요하다.
+- 개인정보·법률·재무 Risk가 있다.
+- 사용자 변경과 안전하게 분리할 수 없다.
+- 외부 권한 또는 Business Decision이 필요하다.
+- Acceptance Criteria를 충족할 수 없다.
+
+### 6.6 Completion Report
+
+Implementation AI는 다음을 보고한다.
+
+- 구현 결과
+- 수정 파일
+- 재사용한 Component·Token·Pattern Source
+- 수행한 QA
+- 미수행 또는 미확인 QA
+- Known Risk
+- Documentation Update
+- 후속 작업
+
+---
+
+## 7. Future AI Participants
+
+Claude, Gemini, Copilot 또는 다른 AI가 참여해도 동일한 운영 원칙을 적용한다.
+
+### 7.1 Onboarding Rule
+
+새 AI는 작업 전에 최소 다음을 확인한다.
+
+1. `EQUIV_AI_OPERATING_MANUAL.md`
+2. `AI_RULES.md`
+3. `MASTER_SPEC.md`
+4. 관련 Domain Source of Truth
+5. `DESIGN_QA_GOVERNANCE.md`
+6. `DECISION_LOG.md`
+7. 최근 `CHANGELOG.md`와 `TODO.md`
+
+### 7.2 Allowed Role
+
+Future AI는 명시적으로 배정된 제한 범위에서 다음을 수행할 수 있다.
+
+- 조사
+- Inventory
+- 정적 분석
+- Copy 초안
+- Test 보조
+- Documentation 보조
+- 승인된 구현 Subtask
+
+### 7.3 Restrictions
+
+- 새로운 Framework 제안으로 기존 구조를 우회하지 않는다.
+- 동일 기능의 Component를 새로 만들지 않는다.
+- 기존 Decision을 삭제하지 않는다.
+- 상위 권한을 가진 것처럼 승인하지 않는다.
+- 다른 AI의 결과를 검증 없이 사실로 사용하지 않는다.
+
+### 7.4 Handoff Requirement
+
+Future AI의 결과는 다음을 포함해야 한다.
+
+- Scope
+- Source
+- Finding
+- Evidence
+- Assumption
+- Risk
+- Recommended Next Step
+
+---
+
+## 8. Responsibility Matrix
+
+### 8.1 Summary
+
+| Role | Direction | Analysis | Implementation | QA | Production Release |
+|---|---|---|---|---|---|
+| Project Owner | Accountable | Consulted | Informed | Final Review | Accountable |
+| Project Manager | Responsible | Accountable | Consulted | Accountable for QA Gate | Recommends |
+| Implementation AI | Informed | Consulted | Accountable | Responsible for Evidence | No Authority |
+| Domain Reviewer | Consulted | Consulted | Informed | Responsible by Domain | Recommends |
+| Future AI | No Authority | Limited | Limited | Limited | No Authority |
+
+### 8.2 Decision Matrix
+
+| Decision | Project Owner | Project Manager | Implementation AI |
+|---|---|---|---|
+| Project Direction | Final | Propose | Inform |
+| Scope | Approve if Material | Define | Confirm Feasibility |
+| Priority | Final | Recommend | Inform |
+| Technical Approach | Inform if Material | Review | Propose and Implement |
+| Component Reuse | Inform | Validate | Execute |
+| New Component | Approve if System Impact | Review | Propose |
+| QA Gate | Final Review | Pass·Fail Recommendation | Evidence |
+| Production Release | Final Approval | Recommend | Execute only if Authorized |
+| Documentation | Review if Material | Ensure | Update |
+
+### 8.3 RACI Terms
+
+- **Accountable**: 최종 책임을 가진다.
+- **Responsible**: 실제 작업을 수행한다.
+- **Consulted**: 결정 전에 의견을 제공한다.
+- **Informed**: 결과를 전달받는다.
+
+한 활동에 최종 Accountable은 한 역할만 둔다.
+
+---
+
+## 9. Collaboration Workflow
+
+공식 기본 흐름:
+
+`Requirement → PM Analysis → Documentation Review → Work Implementation → QA → Owner Review → Completion`
+
+Release가 포함되면 다음으로 확장한다.
+
+`Requirement → PM Analysis → Documentation Review → Implementation → QA Evidence → PM Gate → Owner Release Approval → Production → Monitoring → Documentation`
+
+### 9.1 Requirement
+
+Project Owner가 Goal과 Business Priority를 제시한다.
+
+### 9.2 PM Analysis
+
+Project Manager가 Scope, Risk, 보호 영역, Acceptance와 QA를 정의한다.
+
+### 9.3 Documentation Review
+
+PM과 Implementation AI가 관련 Source of Truth를 확인한다.
+
+### 9.4 Implementation
+
+Implementation AI가 승인 범위에서 최소 변경을 수행한다.
+
+### 9.5 QA
+
+Implementation AI가 Evidence를 생성하고 Project Manager가 Gate를 검토한다.
+
+### 9.6 Owner Review
+
+Project Owner가 Business·Brand 결과와 Release 여부를 최종 판단한다.
+
+### 9.7 Completion
+
+관련 Documentation을 동기화하고 완료와 미완료를 구분해 기록한다.
+
+---
+
+## 10. Communication Rules
+
+### 10.1 Project Manager Communication
+
+Project Manager는 항상 다음을 명확히 한다.
+
+- 작업 목적
+- 변경 범위
+- 변경 금지 영역
+- 판단이 필요한 선택
+- 검증 기준
+- 완료 보고 항목
+
+### 10.2 Implementation AI Communication
+
+Implementation AI는 다음을 구분한다.
+
+- 확인된 사실
+- 합리적 가정
+- 미확인 상태
+- Blocker
+- 완료 결과
+
+### 10.3 Project Owner Communication
+
+Project Owner는 결과를 크게 바꾸는 선택에 최종 방향을 제시한다.
+
+### 10.4 Clarification Rule
+
+Source와 문서로 해결 가능한 질문은 먼저 조사한다.
+
+가역적이고 영향이 작은 사항은 가장 안전한 가정을 사용하고 보고한다.
+
+다음은 구현 전에 확인한다.
+
+- 결과가 크게 달라지는 Business Choice
+- Brand Direction 변경
+- 개인정보·법률 결정
+- Breaking Change
+- Production Release
+- Scope의 의미 있는 확장
+
+### 10.5 No Hidden Assumption
+
+가정은 완료 보고에서 숨기지 않는다.
+
+“요청이 불명확했다”는 이유로 임의의 대규모 결정을 하지 않는다.
+
+---
+
+## 11. Authority and Approval Boundaries
+
+### 11.1 QA Approval
+
+Project Manager는 정의된 Acceptance와 Evidence에 대해 QA Gate 통과 여부를 판단할 수 있다.
+
+이 판단은 다음을 의미한다.
+
+- 구현 검토 완료
+- 필수 QA Evidence 확인
+- 알려진 Blocker 없음
+- Owner Review 준비 완료
+
+### 11.2 Release Approval
+
+Production Release 최종 승인은 Project Owner에게 있다.
+
+Project Manager는 Release를 권고한다.
+
+Implementation AI는 명시적인 배포 권한이 있을 때만 Release 작업을 수행한다.
+
+### 11.3 Domain Approval
+
+다음 영역은 해당 Reviewer의 확인이 필요하다.
+
+- M&A·Valuation: Domain Reviewer
+- Privacy·Legal: Legal/Privacy Reviewer
+- Brand Identity: Brand Owner와 Project Owner
+- Accessibility: Accessibility Reviewer
+- Performance Regression: Performance Reviewer
+
+### 11.4 Self-approval Restriction
+
+High·Critical 변경은 구현자가 단독으로 승인하지 않는다.
+
+같은 AI가 Implementation과 QA를 모두 수행한 경우 그 사실을 보고하고, 필요한 독립 Review를 요청한다.
+
+---
+
+## 12. Conflict Resolution
+
+### 12.1 Principle
+
+문서 충돌은 새 규칙을 즉석에서 만들어 해결하지 않는다.
+
+먼저 각 문서의 책임 영역을 확인한다.
+
+### 12.2 Domain-based Authority
+
+| Conflict Area | Primary Authority |
+|---|---|
+| Page Role·Business Requirement | `MASTER_SPEC.md` |
+| Brand·Design Philosophy | `EQUIV_DESIGN_BIBLE.md`, `BRAND_GUIDE.md` |
+| Token·Implementation Rule | `DESIGN_SYSTEM.md` |
+| Component Contract | `COMPONENT_LIBRARY.md` |
+| Pattern Composition | `COMPONENT_LIBRARY.md` Composition·Page Map, `SERVICE_PAGE_TEMPLATE.md` |
+| Asset | `VISUAL_ASSET_GUIDE.md` |
+| Content·Terminology | `CONTENT_UX_WRITING_SYSTEM.md`, `COPY_GUIDE.md` |
+| AI Operating Process | `EQUIV_AI_OPERATING_MANUAL.md`, `AI_RULES.md` |
+| QA·Approval·Release | `DESIGN_QA_GOVERNANCE.md` |
+| Accepted Exception·Decision | `DECISION_LOG.md` |
+| Change History | `CHANGELOG.md` |
+
+### 12.3 Important Pattern Status
+
+현재 독립 `PATTERN_LIBRARY.md`는 없다.
+
+따라서 존재하지 않는 Pattern Library를 충돌 우선순위에 넣지 않는다.
+
+현재 Pattern Authority는:
+
+1. `COMPONENT_LIBRARY.md`의 Composition·Page Map
+2. `SERVICE_PAGE_TEMPLATE.md`
+
+다.
+
+### 12.4 Decision Log Rule
+
+`DECISION_LOG.md`는 단순 참고 문서가 아니다.
+
+Accepted Decision이 기존 규칙의 승인된 예외 또는 변경을 명시하면 해당 Decision을 적용한다. 기존 Decision은 삭제하지 않고 새로운 Decision으로 Supersede한다.
+
+### 12.5 Current User Direction
+
+Project Owner의 현재 명시적 요청이 기존 기준 변경을 요구하면:
+
+1. 충돌과 영향을 알린다.
+2. 변경 범위를 확인한다.
+3. 필요한 승인 문서를 업데이트한다.
+4. QA와 Migration을 정의한다.
+5. 구현한다.
+
+침묵한 채 기존 문서를 무시하지 않는다.
+
+### 12.6 Escalation
+
+권한 문서만으로 해결할 수 없거나 서로 다른 Domain의 필수 규칙이 충돌하면 Project Manager가 대안을 정리하고 Project Owner에게 Escalation한다.
+
+---
+
+## 13. Handoff and Completion
+
+### 13.1 PM to Implementation
+
+PM Handoff에는 다음이 있어야 한다.
+
+- Goal
+- Scope
+- Protected Area
+- Source of Truth
+- Acceptance
+- QA
+- Deliverables
+
+### 13.2 Implementation to PM
+
+Implementation Handoff에는 다음이 있어야 한다.
+
+- Changed Result
+- Changed Files
+- Reused Assets
+- QA Evidence
+- Limitations
+- Risks
+- Documentation
+
+### 13.3 PM to Owner
+
+PM Review에는 다음이 있어야 한다.
+
+- Outcome
+- Acceptance Status
+- Blocker
+- Residual Risk
+- Release Recommendation
+- Owner Decision Required
+
+### 13.4 Completion Definition
+
+작업 완료는 다음을 의미한다.
+
+- Scope가 구현되었다.
+- Acceptance를 충족한다.
+- 필요한 QA를 수행했다.
+- 미검증 항목을 표시했다.
+- 관련 문서를 갱신했다.
+- Owner 결정이 필요한 항목을 분리했다.
+
+작업 완료는 Production Release와 동일하지 않다.
+
+---
+
+## 14. Role-based Checklists
+
+### 14.1 Project Owner
+
+- [ ] Goal과 Priority가 명확한가?
+- [ ] Must Keep과 Do Not Change가 명확한가?
+- [ ] Material Scope를 승인했는가?
+- [ ] Business·Brand 결과를 검토했는가?
+- [ ] Residual Risk를 이해했는가?
+- [ ] Production Release 여부를 최종 결정했는가?
+
+### 14.2 Project Manager
+
+- [ ] 요청을 분석했는가?
+- [ ] Scope와 Non-scope를 정의했는가?
+- [ ] 관련 문서를 확인했는가?
+- [ ] Existing Component·Pattern Source 재사용을 검토했는가?
+- [ ] Risk와 보호 영역을 정의했는가?
+- [ ] Acceptance와 QA를 정의했는가?
+- [ ] Evidence를 검토했는가?
+- [ ] Documentation 반영을 확인했는가?
+- [ ] Release 권고와 최종 승인을 구분했는가?
+
+### 14.3 Implementation AI
+
+- [ ] 실제 Source를 확인했는가?
+- [ ] 기존 자산을 재사용했는가?
+- [ ] 가장 작은 변경을 수행했는가?
+- [ ] 관련 없는 변경을 보존했는가?
+- [ ] 기능·Responsive·Accessibility 영향을 검증했는가?
+- [ ] 수행한 QA와 미수행 QA를 구분했는가?
+- [ ] 관련 문서를 업데이트했는가?
+- [ ] 승인 범위를 넘지 않았는가?
+
+### 14.4 Future AI
+
+- [ ] Operating Manual과 AI Rules를 읽었는가?
+- [ ] 제한된 Scope를 이해했는가?
+- [ ] Source와 Evidence를 제공했는가?
+- [ ] 가정과 Risk를 표시했는가?
+- [ ] 승인권이 없는 결정을 하지 않았는가?
+
+---
+
+## 15. Success Criteria
+
+- [ ] 역할이 명확하다.
+- [ ] 중복 작업이 없다.
+- [ ] 책임과 최종 Accountable이 명확하다.
+- [ ] Work가 구현에 집중할 수 있다.
+- [ ] ChatGPT가 분석·조정·QA에 집중할 수 있다.
+- [ ] Project Owner가 필요한 결정을 빠르게 내릴 수 있다.
+- [ ] QA Gate와 Production Release 승인이 구분된다.
+- [ ] High·Critical 변경이 Self-approved 되지 않는다.
+- [ ] 새로운 AI도 같은 문서와 Evidence를 사용한다.
+- [ ] 현재 존재하지 않는 Pattern Library를 가정하지 않는다.
+- [ ] 모든 Handoff가 추적 가능하다.
+
+---
+
+## 16. PM Note
+
+이 Chapter의 목적은 AI의 능력을 정의하는 것이 아니다.
+
+프로젝트를 효율적으로 운영하기 위해 각 참여자의 책임과 권한을 명확히 하는 것이다.
+
+역할이 명확할수록 프로젝트는 단순해지고 유지보수는 쉬워진다.
+
+모든 참여자는 새로운 것을 만드는 것보다 기존 프로젝트를 더 좋게 만드는 것을 우선한다.
+
+AI는 분석하고 구현하고 검증할 수 있다.
+
+그러나 EQUIV의 최종 사업 방향과 Production Release는 Project Owner가 결정한다.

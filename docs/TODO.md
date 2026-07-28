@@ -2,6 +2,8 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 2 AI Roles & Responsibilities 문서화
+- [x] Project Owner 최종 Release 승인과 ChatGPT PM QA Gate·Release 권고 책임 분리
 - [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 1 Project Operation Philosophy 문서화
 - [x] `DQ-2026-002` AI Operating Manual 최상위 Project Operation Standard 채택 기록
 - [x] EQUIV Design Bible v1.0 Chapter 12 및 `DESIGN_QA_GOVERNANCE.md` Review·Approval·Release·Risk·Decision Governance 문서화

@@ -262,7 +262,8 @@ Design Governance의 목적은 통제 자체가 아니다.
 
 | Role | Responsibility |
 |---|---|
-| Project Manager | Scope, Priority, Risk, Acceptance와 Release 승인 |
+| Project Owner | 프로젝트 방향, 최종 의사결정과 Production Release 승인 |
+| Project Manager | Scope, Priority, Risk, Acceptance, QA Gate와 Release 권고 |
 | Design Owner | Design Bible, Visual Hierarchy와 Pattern 적합성 |
 | Design System Owner | Token, Component, Version과 Migration |
 | Engineering Owner | 구현 품질, Architecture, Test와 Rollback |
@@ -274,21 +275,22 @@ Design Governance의 목적은 통제 자체가 아니다.
 | Legal/Privacy Reviewer | 개인정보, 법률 문구와 동의 |
 | QA Owner | Test Matrix, Evidence, Defect와 Regression |
 
-한 사람이 여러 역할을 수행할 수 있지만 필수 Review 관점은 생략할 수 없다.
+한 사람이 여러 역할을 수행할 수 있지만 필수 Review 관점은 생략할 수 없다. Project Manager의 QA Gate 통과 판단과 Project Owner의 Production Release 최종 승인은 서로 다른 책임이다.
 
 ### 3.2 RACI
 
-| Activity | PM | Design | Engineering | QA | Content | A11y | Domain/Legal |
-|---|---|---|---|---|---|---|---|
-| Proposal | A | R | C | C | C | C | C |
-| Design Review | A | R | C | C | C | C | C |
-| Implementation | C | C | A/R | C | C | C | I |
-| Functional QA | A | C | R | R | C | C | I |
-| Accessibility QA | A | C | C | C | I | R | I |
-| Content QA | A | C | I | C | R | C | C |
-| Release Approval | A | C | R | R | C | C | C |
-| Documentation | A | R | R | C | R | C | I |
-| Hotfix | A | C | R | R | I | C | C |
+| Activity | Owner | PM | Design | Engineering | QA | Content | A11y | Domain/Legal |
+|---|---|---|---|---|---|---|---|---|
+| Proposal | A | R | C | C | C | C | C | C |
+| Design Review | I | A | R | C | C | C | C | C |
+| Implementation | I | C | C | A/R | C | C | C | I |
+| Functional QA | I | A | C | R | R | C | C | I |
+| Accessibility QA | I | A | C | C | C | I | R | I |
+| Content QA | I | A | C | I | C | R | C | C |
+| QA Gate | I | A | C | R | R | C | C | C |
+| Production Release Approval | A | R | C | R | R | C | C | C |
+| Documentation | I | A | R | R | C | R | C | I |
+| Hotfix | A | R | C | R | R | I | C | C |
 
 `A`는 한 명이어야 한다. 승인권자가 불명확하면 Release하지 않는다.
 
@@ -306,6 +308,8 @@ ChatGPT 또는 Work가 PM 역할을 수행할 때도 동일한 Gate를 따른다
 - 변경 범위를 임의로 넓히지 않는다.
 - 자동 검사 결과만으로 완료를 선언하지 않는다.
 - 사용자 승인 없이 Production Release나 Commit을 가정하지 않는다.
+- QA Gate 통과 판단과 Production Release 최종 승인을 구분한다.
+- Production Release 준비가 완료되면 Project Owner에게 근거와 함께 권고한다.
 
 ### 3.5 Escalation
 

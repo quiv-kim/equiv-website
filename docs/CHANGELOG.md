@@ -1,5 +1,17 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Chapter 2 AI Roles & Responsibilities
+
+- Project Owner, Project Manager, Implementation AI, Domain Reviewer와 Future AI Participant의 역할·책임·권한 정의
+- ChatGPT PM의 QA Gate 판단·Release 권고와 Project Owner의 Production Release 최종 승인을 명확히 분리
+- Work·Codex를 포함한 Implementation AI의 구현 범위, 제한사항, Escalation과 완료 보고 기준 수립
+- Requirement → PM Analysis → Documentation Review → Implementation → QA → Owner Review의 협업 Flow와 Handoff 계약 정의
+- 역할 기반 Responsibility·Decision Matrix와 Project Owner·PM·Implementation·Future AI Checklist 추가
+- 문서 충돌을 단순 순번이 아닌 Domain Source of Truth로 해결하도록 정리
+- 독립 `PATTERN_LIBRARY.md`가 없는 현재 상태와 실제 Pattern Source를 재확인
+- `DESIGN_QA_GOVERNANCE.md`의 RACI와 Release 승인 책임을 Chapter 2에 맞게 동기화
+- `DECISION_LOG.md`의 `DQ-2026-002` History에 Chapter 2 반영 기록
+
 ## EQUIV AI Operating Manual v1.0 - Chapter 1 Project Operation Philosophy
 
 - `EQUIV_AI_OPERATING_MANUAL.md` 신규 작성 및 프로젝트 최상위 Operation Standard 수립
