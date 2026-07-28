@@ -570,13 +570,14 @@ Asset Class, Directory 확장, 해상도·비율, Naming, License, Optimization,
 
 앞으로 디자인을 수정하거나 새로운 페이지를 만들 때에는 아래 문서를 먼저 참고한 후 코드를 작성하는 것을 프로젝트 원칙으로 적용한다.
 
+- `EQUIV_AI_OPERATING_MANUAL.md`
+- `AI_RULES.md`
 - `MASTER_SPEC.md`
 - `BRAND_GUIDE.md`
 - `CONTENT_UX_WRITING_SYSTEM.md`
 - `COPY_GUIDE.md`
 - `DESIGN_SYSTEM.md`
 - `COMPONENT_LIBRARY.md`
-- `AI_RULES.md`
 - `VISUAL_ASSET_GUIDE.md`
 - `DESIGN_QA_GOVERNANCE.md`
 - `DECISION_LOG.md`

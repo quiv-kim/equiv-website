@@ -14,7 +14,68 @@ Owner: EQUIV Design Governance
 
 | Decision ID | Title | Status | Date | Supersedes |
 |---|---|---|---|---|
+| DQ-2026-002 | AI Operating Manual을 최상위 Project Operation Standard로 채택 | Accepted | 2026-07-28 | None |
 | DQ-2026-001 | Design QA & Governance를 최상위 Release Gate로 채택 | Accepted | 2026-07-27 | None |
+
+---
+
+## DQ-2026-002 — AI Operating Manual을 최상위 Project Operation Standard로 채택
+
+- Status: Accepted
+- Date: 2026-07-28
+- Owner: EQUIV Project Governance
+- Approvers: Project Manager
+
+### Context
+
+EQUIV는 Design Bible, Design System, Component Library, Service Page Template, Visual Asset Guide, Content & UX Writing System과 QA Governance를 갖춘 Release Candidate 직전 프로젝트다. 전문 문서들은 무엇을 만들고 어떻게 검증할지를 정의하지만, AI와 사람이 실제 작업을 어떤 순서와 태도로 수행하는지를 하나로 연결하는 최상위 운영 기준이 필요했다.
+
+### Decision
+
+`EQUIV_AI_OPERATING_MANUAL.md`를 프로젝트의 최상위 Operation Standard로 채택한다.
+
+이 매뉴얼은 기존 전문 문서를 대체하지 않는다. Design Bible은 디자인 철학, Design System은 구현 규칙, Component Library는 Component Contract, `DESIGN_QA_GOVERNANCE.md`는 QA·승인·Release Gate의 Single Source of Truth로 유지한다.
+
+### Operating Principles
+
+- Maintain Before Create
+- Consistency Before Creativity
+- Documentation Before Implementation
+- Reuse Before Development
+- Quality Before Release
+- Small Change Principle
+
+### Impact
+
+- 모든 AI와 사람은 구현 전에 Operating Manual과 관련 전문 문서를 확인한다.
+- 기존 Component, Pattern Source와 Token을 신규 구현보다 우선한다.
+- 완료 보고는 실제 Evidence 수준에 맞춰 작성한다.
+- Production Release와 작업 완료를 구분한다.
+- 독립 `PATTERN_LIBRARY.md`가 없는 현재 상태를 사실대로 유지한다.
+
+### Affected Documents
+
+- `EQUIV_AI_OPERATING_MANUAL.md`
+- `AI_RULES.md`
+- `DESIGN_QA_GOVERNANCE.md`
+- `DESIGN_SYSTEM.md`
+- `DECISION_LOG.md`
+- `CHANGELOG.md`
+- `TODO.md`
+
+### Version and Migration
+
+- Operating Manual Version: 1.0
+- Migration: 신규 작업부터 즉시 적용
+- 기존 완료 작업은 재구현하지 않으며 향후 수정 시 적용
+
+### Review Date
+
+2026-10-28
+
+### History
+
+- 2026-07-28: Accepted
 
 ---
 

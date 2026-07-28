@@ -1,5 +1,16 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Chapter 1 Project Operation Philosophy
+
+- `EQUIV_AI_OPERATING_MANUAL.md` 신규 작성 및 프로젝트 최상위 Operation Standard 수립
+- Maintain Before Create, Consistency Before Creativity, Documentation Before Implementation, Reuse Before Development, Quality Before Release와 Small Change Principle 정의
+- Release Candidate 직전 단계의 운영 범위, 보호 영역, 중단 조건과 작업 완료·Release 승인 구분 명시
+- 문서별 Source of Truth, 필수 확인 순서, Domain Reading Matrix와 Small Change Operating Cycle 수립
+- Evidence Level, 사실 기반 완료 보고, 미검증 항목 표시와 RC Evidence 기준 정의
+- 독립 `PATTERN_LIBRARY.md`가 없는 현재 상태와 Component Composition·Service Page Template의 Pattern Source 역할 명시
+- `AI_RULES.md`, `DESIGN_SYSTEM.md`, `DESIGN_QA_GOVERNANCE.md`의 문서 참조 관계 동기화
+- `DECISION_LOG.md`에 `DQ-2026-002` AI Operating Manual 채택 결정 기록
+
 ## EQUIV Design Bible v1.0 - Chapter 12 Quality Assurance & Design Governance
 
 - `DESIGN_QA_GOVERNANCE.md` 신규 작성 및 최상위 Design Review·Approval·Release Governance 수립

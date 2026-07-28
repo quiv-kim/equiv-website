@@ -75,17 +75,20 @@ Appendices:
 
 이 문서는 각 전문 문서의 내용을 반복하지 않고 Release Gate와 책임을 통합한다.
 
-1. `EQUIV_DESIGN_BIBLE.md`: 브랜드와 디자인 철학
-2. `DESIGN_QA_GOVERNANCE.md`: 최상위 Review, Approval, Release와 Audit
-3. `DESIGN_SYSTEM.md`: Token과 구현 규칙
-4. `COMPONENT_LIBRARY.md`: Component Contract와 Lifecycle
-5. `CONTENT_UX_WRITING_SYSTEM.md`: Voice, Tone, Terminology와 Content QA
-6. `VISUAL_ASSET_GUIDE.md`: Asset Lifecycle, Rights, Optimization과 Asset QA
-7. `SERVICE_PAGE_TEMPLATE.md`: 현재 Service Pattern
-8. `MASTER_SPEC.md`: Page Role, 기능과 비즈니스 요구사항
-9. `AI_RULES.md`: AI와 Work의 프로젝트 수행 원칙
-10. `CHANGELOG.md`: 배포된 변경 이력
-11. `TODO.md`: 현재 계획과 미해결 작업
+1. `EQUIV_AI_OPERATING_MANUAL.md`: 프로젝트의 최상위 운영 순서, 변경 범위와 Evidence 원칙
+2. `EQUIV_DESIGN_BIBLE.md`: 브랜드와 디자인 철학
+3. `DESIGN_QA_GOVERNANCE.md`: 최상위 Review, Approval, Release와 Audit
+4. `DESIGN_SYSTEM.md`: Token과 구현 규칙
+5. `COMPONENT_LIBRARY.md`: Component Contract와 Lifecycle
+6. `CONTENT_UX_WRITING_SYSTEM.md`: Voice, Tone, Terminology와 Content QA
+7. `VISUAL_ASSET_GUIDE.md`: Asset Lifecycle, Rights, Optimization과 Asset QA
+8. `SERVICE_PAGE_TEMPLATE.md`: 현재 Service Pattern
+9. `MASTER_SPEC.md`: Page Role, 기능과 비즈니스 요구사항
+10. `AI_RULES.md`: AI와 Work의 프로젝트 수행 원칙
+11. `CHANGELOG.md`: 배포된 변경 이력
+12. `TODO.md`: 현재 계획과 미해결 작업
+
+`EQUIV_AI_OPERATING_MANUAL.md`는 작업을 수행하는 순서를 정의한다. 본 문서는 QA Evidence, 승인과 Release Gate의 Single Source of Truth이며 두 문서는 서로의 책임을 대체하지 않는다.
 
 현재 독립된 `PATTERN_LIBRARY.md`는 없다. Pattern Source는 `COMPONENT_LIBRARY.md`의 Composition·Page Map과 `SERVICE_PAGE_TEMPLATE.md`다. 독립 Pattern Library가 생기면 이 문서의 Pattern QA와 Version Gate를 적용한다.
 

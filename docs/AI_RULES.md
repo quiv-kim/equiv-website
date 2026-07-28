@@ -9,6 +9,12 @@ ChatGPT, Codex 및 향후 참여하는 모든 AI가
 이 문서의 목적은
 브랜드의 일관성과 프로젝트 방향성을 유지하는 것이다.
 
+프로젝트의 전체 운영 순서, 변경 범위, Evidence와 완료 기준은
+`EQUIV_AI_OPERATING_MANUAL.md`를 따른다.
+
+이 문서는 AI의 기본 행동 규칙을 담당하며,
+Design·Component·Content·QA 전문 기준을 다시 정의하지 않는다.
+
 # Rule 1
 
 브랜드 철학을 우선한다.
@@ -109,6 +115,14 @@ HOME은 요약이다.
 
 항상
 
+EQUIV_AI_OPERATING_MANUAL.md
+
+↓
+
+AI_RULES.md
+
+↓
+
 MASTER_SPEC.md
 
 ↓
@@ -126,6 +140,14 @@ COPY_GUIDE.md
 ↓
 
 DESIGN_SYSTEM.md
+
+↓
+
+COMPONENT_LIBRARY.md
+
+↓
+
+DESIGN_QA_GOVERNANCE.md
 
 ↓
 
