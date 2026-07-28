@@ -12,6 +12,7 @@ Applies To: ChatGPT, Codex, Work, Human Contributors and Future AI Operators
 
 1. Project Operation Philosophy
 2. AI Roles & Responsibilities
+3. Documentation Priority & Decision Rules
 
 ---
 
@@ -1436,6 +1437,8 @@ High·Critical 변경은 구현자가 단독으로 승인하지 않는다.
 
 먼저 각 문서의 책임 영역을 확인한다.
 
+문서 계층, 승인 상태, Update Trigger와 상세 Decision Rule은 Chapter 3을 따른다.
+
 ### 12.2 Domain-based Authority
 
 | Conflict Area | Primary Authority |
@@ -1614,3 +1617,1098 @@ PM Review에는 다음이 있어야 한다.
 AI는 분석하고 구현하고 검증할 수 있다.
 
 그러나 EQUIV의 최종 사업 방향과 Production Release는 Project Owner가 결정한다.
+
+---
+
+# Chapter 3. Documentation Priority & Decision Rules
+
+Version 1.0
+Status: Approved Draft
+
+---
+
+## Chapter 3 Contents
+
+1. Purpose
+2. Core Principle
+3. Documentation Model
+4. Documentation Hierarchy
+5. Document Purpose and Ownership
+6. Document Usage Rules
+7. Reference Rules
+8. Decision Rules
+9. Conflict Resolution
+10. Documentation Update Rules
+11. Documentation Principles
+12. AI Decision Rules
+13. Document Lifecycle and Status
+14. Governance and Review
+15. Operational Checklists
+16. Success Criteria
+17. PM Note
+
+---
+
+## 1. Purpose
+
+이 Chapter는 EQUIV 프로젝트에서 사용하는 모든 운영 문서의 역할, 책임, 참조 순서와 충돌 해결 기준을 정의한다.
+
+목적은 다음과 같다.
+
+- 문서 간 중복 방지
+- 문서 간 충돌 예방
+- Source of Truth 명확화
+- 작업 전 확인 순서 통일
+- 변경 시 갱신 대상 명확화
+- AI와 사람의 동일 기준 확보
+- 승인된 Decision의 추적성 유지
+
+이 Chapter는 새로운 전문 문서를 만드는 기준이 아니다.
+
+이미 존재하는 문서를 가장 정확하고 효율적으로 활용하기 위한 운영 규칙이다.
+
+---
+
+## 2. Core Principle
+
+모든 작업은 추측이 아니라 문서를 기반으로 수행한다.
+
+작업을 시작하기 전에 관련 문서를 먼저 확인한다.
+
+개인 선호나 AI의 일반 지식이 EQUIV의 승인 문서보다 앞서지 않는다.
+
+### 2.1 Documentation Is an Operating Constraint
+
+문서는 참고용 설명이 아니다.
+
+문서에는 다음이 포함된다.
+
+- Scope
+- Contract
+- Protected Area
+- Approved Pattern
+- Decision Boundary
+- QA Criteria
+- Release Requirement
+
+구현이 문서와 다르면 문서를 무시하지 않는다. 구현 오류인지, 문서가 낡았는지, 승인된 예외인지 확인한다.
+
+### 2.2 One Topic, One Source of Truth
+
+동일한 규칙을 여러 문서에서 각각 관리하지 않는다.
+
+한 문서는 해당 Domain의 원본 규칙을 가진다.
+
+다른 문서는:
+
+- 원본 문서를 참조하거나
+- 필요한 요약만 제공하거나
+- 해당 규칙이 적용되는 Gate를 정의한다.
+
+복사된 동일 문장을 여러 문서에 독립적으로 유지하지 않는다.
+
+### 2.3 Authority Is Role-based
+
+모든 문서를 한 줄로 세워 단순 비교하지 않는다.
+
+문서의 우선순위는:
+
+1. 규칙이 속한 Domain
+2. 문서의 승인 상태
+3. 명시적인 Supersede 여부
+4. 현재 요청의 Scope
+
+를 함께 판단한다.
+
+예:
+
+- Color Token은 `DESIGN_SYSTEM.md`가 우선한다.
+- Button Anatomy는 `COMPONENT_LIBRARY.md`가 우선한다.
+- Production Release Gate는 `DESIGN_QA_GOVERNANCE.md`가 우선한다.
+- AI 작업 순서는 `EQUIV_AI_OPERATING_MANUAL.md`가 우선한다.
+
+---
+
+## 3. Documentation Model
+
+EQUIV 문서는 네 가지 유형으로 구분한다.
+
+### 3.1 Direction Documents
+
+프로젝트가 무엇이고 어떤 방향을 유지하는지 정의한다.
+
+- `MASTER_SPEC.md`
+- `EQUIV_DESIGN_BIBLE.md`
+- `BRAND_GUIDE.md`
+
+### 3.2 System and Domain Documents
+
+특정 영역을 어떻게 설계·구현·운영하는지 정의한다.
+
+- `DESIGN_SYSTEM.md`
+- `COMPONENT_LIBRARY.md`
+- `SERVICE_PAGE_TEMPLATE.md`
+- `VISUAL_ASSET_GUIDE.md`
+- `CONTENT_UX_WRITING_SYSTEM.md`
+- `COPY_GUIDE.md`
+- `VALUATION_MODEL_SPEC.md`
+
+### 3.3 Operation and Governance Documents
+
+작업과 검증을 어떤 순서와 권한으로 수행하는지 정의한다.
+
+- `EQUIV_AI_OPERATING_MANUAL.md`
+- `AI_RULES.md`
+- `DESIGN_QA_GOVERNANCE.md`
+
+### 3.4 Record Documents
+
+결정, 변경과 미해결 작업의 이력을 기록한다.
+
+- `DECISION_LOG.md`
+- `CHANGELOG.md`
+- `TODO.md`
+- `EQUIV_CALIBRATION_LOG.md`
+
+Record Document는 일반적으로 새로운 규칙을 만드는 문서가 아니다.
+
+단, `DECISION_LOG.md`의 Accepted Decision은 명시된 범위에서 기존 규칙을 변경하거나 예외를 승인할 수 있다.
+
+---
+
+## 4. Documentation Hierarchy
+
+### 4.1 Base Design and Product Cascade
+
+기본 설계·제품 계층은 다음을 따른다.
+
+| Level | Document | Primary Authority |
+|---|---|---|
+| 1 | `MASTER_SPEC.md` | Project Scope, Page Role, Information Architecture와 Feature |
+| 2 | `EQUIV_DESIGN_BIBLE.md` | Brand, Design과 UX Philosophy |
+| 3 | `DESIGN_SYSTEM.md` | Token, CSS와 Implementation Foundation |
+| 4 | `COMPONENT_LIBRARY.md` | UI Component Contract, Variant와 State |
+| 5 | Pattern Source | Page·Interaction·UX Composition |
+| 6 | `VISUAL_ASSET_GUIDE.md` | Image, Icon, SVG와 Asset Governance |
+| 7 | `CONTENT_UX_WRITING_SYSTEM.md` | Voice, Tone, Terminology와 UI Writing |
+| 8 | `EQUIV_AI_OPERATING_MANUAL.md` | Operation Procedure, Role와 Documentation Use |
+| 9 | `CHANGELOG.md` | Change History |
+| 10 | `DECISION_LOG.md` | Accepted Decision Record |
+
+이 표는 문서의 가치 순위가 아니다.
+
+Level 1–8은 기본 참조 Cascade를 나타낸다. Level 9–10은 Record Layer이므로 일반 규칙과 같은 방식으로 하위 문서로 취급하지 않는다.
+
+### 4.2 Pattern Source at Level 5
+
+현재 독립 `PATTERN_LIBRARY.md`는 존재하지 않는다.
+
+따라서 Level 5의 Pattern Source는 다음 두 문서가 공동으로 담당한다.
+
+1. `COMPONENT_LIBRARY.md`의 Composition과 Page Map
+2. `SERVICE_PAGE_TEMPLATE.md`
+
+새로운 UX를 검토할 때 존재하지 않는 `PATTERN_LIBRARY.md`를 찾거나 참조 완료로 표시하지 않는다.
+
+독립 Pattern Library가 승인·생성되면 Level 5 Source of Truth를 해당 문서로 이전하고 관련 참조를 갱신한다.
+
+### 4.3 Operating Manual Position
+
+Operating Manual이 Level 8에 표시되어 있다고 해서 운영 절차가 다른 문서의 일반 문장에 의해 자동 변경되는 것은 아니다.
+
+이 문서는 다음 영역의 Primary Authority다.
+
+- AI 작업 순서
+- 역할과 책임
+- Documentation Use
+- Evidence와 완료 보고
+- Escalation
+
+Design Rule을 정할 때는 Design 문서를 따르고, 작업 절차를 정할 때는 Operating Manual을 따른다.
+
+### 4.4 Decision Log Position
+
+`DECISION_LOG.md`는 단순히 가장 낮은 우선순위의 문서가 아니다.
+
+Accepted Decision은 다음 조건을 충족할 때 명시된 범위에서 기존 기준을 보완·변경한다.
+
+- Decision ID
+- Status: Accepted
+- Owner와 Approver
+- Context와 Reason
+- Affected Scope
+- Supersedes
+- Version·Migration
+- Review Date
+
+Draft 또는 Proposed Decision은 기존 규칙을 변경하지 않는다.
+
+### 4.5 Changelog Position
+
+`CHANGELOG.md`는 무엇이 변경되었는지 기록한다.
+
+Changelog는:
+
+- 변경의 근거가 될 수 있지만
+- 새로운 Design Rule을 승인하지 않으며
+- Source of Truth를 대체하지 않고
+- 현재 구현을 자동 승인하지 않는다.
+
+Changelog와 전문 문서가 다르면 실제 Source, Accepted Decision과 전문 문서를 확인한다.
+
+### 4.6 Additional Supporting Documents
+
+다음 문서도 실제 운영에서 필수로 사용한다.
+
+| Document | Role |
+|---|---|
+| `BRAND_GUIDE.md` | Brand Identity, Logo와 Brand Expression |
+| `COPY_GUIDE.md` | 현재 Website Copy의 실무 적용 |
+| `AI_RULES.md` | AI의 기본 금지·우선 행동 |
+| `DESIGN_QA_GOVERNANCE.md` | QA Evidence, Approval와 Release Gate |
+| `VALUATION_MODEL_SPEC.md` | Business Valuation Domain Logic |
+| `EQUIV_CALIBRATION_LOG.md` | Calibration 변경·검증 기록 |
+| `TODO.md` | 미완료 작업과 후속 계획 |
+
+이 문서들은 단순 Level 숫자에 끼워 넣기보다 해당 Domain에서 직접 참조한다.
+
+---
+
+## 5. Document Purpose and Ownership
+
+### 5.1 MASTER_SPEC
+
+Purpose:
+
+- 프로젝트 전체 구조
+- Scope
+- Information Architecture
+- Page Type과 Page Role
+- Feature Definition
+- Protected Function
+- Business Requirement
+
+Use When:
+
+- Page를 추가·삭제·재분류할 때
+- User Flow를 변경할 때
+- Business Valuation과 Service Page 역할을 판단할 때
+- 기능 Scope를 확인할 때
+
+Must Not:
+
+- 세부 Token 값을 관리하지 않는다.
+- Component의 세부 Anatomy를 반복하지 않는다.
+- Changelog 역할을 대신하지 않는다.
+
+### 5.2 EQUIV_DESIGN_BIBLE
+
+Purpose:
+
+- Brand Philosophy
+- Design Principle
+- UX Principle
+- Visual Philosophy
+- Responsive Experience
+- Content와 Quality의 상위 원칙
+
+Use When:
+
+- 시각적·경험적 방향을 판단할 때
+- 새로운 Proposal이 브랜드와 일치하는지 검토할 때
+- Page 간 일관성을 평가할 때
+
+Must Not:
+
+- Component별 코드 계약을 관리하지 않는다.
+- Sprint별 구현 이력을 기록하지 않는다.
+
+### 5.3 DESIGN_SYSTEM
+
+Purpose:
+
+- Foundation·Semantic·Component Token
+- Color
+- Typography
+- Spacing
+- Container와 Grid
+- Radius
+- Shadow
+- Motion
+- CSS Architecture Rule
+
+Use When:
+
+- Style 값을 변경할 때
+- Token을 추가·수정할 때
+- Responsive Foundation을 조정할 때
+- Component가 참조할 공통 값을 찾을 때
+
+Must Not:
+
+- 페이지 전용 값을 무분별하게 추가하지 않는다.
+- Component Usage를 중복 정의하지 않는다.
+
+### 5.4 COMPONENT_LIBRARY
+
+Purpose:
+
+- UI Component Inventory
+- Anatomy
+- Variant
+- State
+- Dependency
+- Responsive Contract
+- Accessibility Contract
+- Lifecycle
+
+Use When:
+
+- Component를 사용·수정·추가할 때
+- 기존 Variant로 해결 가능한지 판단할 때
+- Consumer Impact를 검토할 때
+
+Must Not:
+
+- Token의 원본 값을 소유하지 않는다.
+- Page 하나를 위한 중복 Component를 승인하지 않는다.
+
+### 5.5 Pattern Source
+
+Purpose:
+
+- User Flow
+- Page Composition
+- Interaction Pattern
+- UX Pattern
+- Component Combination
+
+Current Sources:
+
+- `COMPONENT_LIBRARY.md` Composition·Page Map
+- `SERVICE_PAGE_TEMPLATE.md`
+
+Use When:
+
+- 새로운 User Flow를 만들 때
+- Page Structure를 변경할 때
+- 여러 Component를 반복 조합할 때
+
+### 5.6 VISUAL_ASSET_GUIDE
+
+Purpose:
+
+- Image
+- Icon
+- SVG
+- Photography
+- Illustration
+- Background
+- Asset Naming
+- Optimization
+- Rights와 Lifecycle
+
+Use When:
+
+- Asset을 추가·교체·삭제할 때
+- 포맷과 해상도를 결정할 때
+- Alt Text와 Asset Accessibility를 검토할 때
+
+### 5.7 CONTENT_UX_WRITING_SYSTEM
+
+Purpose:
+
+- Voice
+- Tone
+- Terminology
+- CTA
+- Button
+- Form
+- Error
+- Success Message
+- Article와 SEO Writing
+
+Use When:
+
+- 새로운 Copy를 작성할 때
+- 서비스 문구를 통일할 때
+- Form·Modal State 문구를 변경할 때
+
+`COPY_GUIDE.md`는 현재 Website Copy의 실무 적용과 간결성 기준을 보완한다.
+
+### 5.8 EQUIV_AI_OPERATING_MANUAL
+
+Purpose:
+
+- Operation Procedure
+- Work Sequence
+- AI Role
+- Responsibility
+- Documentation Use
+- Evidence
+- Escalation
+
+Use When:
+
+- 모든 작업을 시작할 때
+- 역할과 승인 경계를 판단할 때
+- 완료와 Release를 구분할 때
+- 문서 충돌을 처리할 때
+
+### 5.9 DESIGN_QA_GOVERNANCE
+
+Purpose:
+
+- QA Standard
+- Evidence
+- Review
+- Approval Gate
+- Release
+- Risk
+- Design Debt
+- Incident와 Hotfix
+
+Use When:
+
+- QA 범위를 정할 때
+- Release 가능성을 검토할 때
+- Exception과 Risk를 승인할 때
+
+### 5.10 CHANGELOG
+
+Purpose:
+
+- 프로젝트 변경 이력
+- Version별 Change Summary
+- Documentation Change
+
+Changelog는 실제 변경 후 갱신한다.
+
+### 5.11 DECISION_LOG
+
+Purpose:
+
+- 중요한 결정의 Context
+- Alternatives
+- Reason
+- Impact
+- Approval
+- Supersede History
+
+Decision Log는 “무엇을 바꿨는가”가 아니라 “왜 그 결정을 승인했는가”를 기록한다.
+
+### 5.12 TODO
+
+Purpose:
+
+- 미완료 작업
+- 검증 필요 항목
+- Deferred Scope
+- Follow-up
+
+TODO는 승인된 현재 기능을 정의하지 않는다.
+
+---
+
+## 6. Document Usage Rules
+
+### 6.1 Universal Start
+
+모든 참여자는 작업 전에 다음을 확인한다.
+
+1. `EQUIV_AI_OPERATING_MANUAL.md`
+2. `AI_RULES.md`
+3. `MASTER_SPEC.md`
+4. 최근 `DECISION_LOG.md`, `CHANGELOG.md`, `TODO.md`
+
+그 후 작업 Domain에 맞는 전문 문서를 확인한다.
+
+### 6.2 Standard Task Sequence
+
+실제 수정 순서는 다음과 같다.
+
+1. `MASTER_SPEC.md`에서 Project·Page Role 확인
+2. 관련 Page와 실제 Source 확인
+3. `EQUIV_DESIGN_BIBLE.md`에서 상위 원칙 확인
+4. `COMPONENT_LIBRARY.md`에서 Existing Component 확인
+5. Pattern Source에서 Existing Composition 확인
+6. `DESIGN_SYSTEM.md`에서 Token·Implementation Rule 확인
+7. Asset이 포함되면 `VISUAL_ASSET_GUIDE.md` 확인
+8. Copy가 포함되면 `CONTENT_UX_WRITING_SYSTEM.md`와 `COPY_GUIDE.md` 확인
+9. Domain Logic이 포함되면 해당 Spec 확인
+10. `DESIGN_QA_GOVERNANCE.md`에서 QA와 Release Gate 확인
+11. 수정 작업 진행
+12. 검증과 문서 동기화
+
+### 6.3 Read by Change Type
+
+모든 문서를 매번 기계적으로 전부 읽는 것이 목적은 아니다.
+
+필수 공통 문서와 변경 Domain 문서를 정확히 선택하는 것이 목적이다.
+
+| Change | Must Read |
+|---|---|
+| Header·Hero·Layout | Master, Design Bible, Design System, Component Library |
+| Service Page | Master, Service Template, Component Library, Content System |
+| Business Valuation | Master, Valuation Spec, Component Library, QA Governance |
+| Copy | Content System, Copy Guide, Brand Guide |
+| Asset | Visual Asset Guide, Brand Guide, Design System |
+| Component | Component Library, Design System, QA Governance |
+| Release | Operating Manual, QA Governance, Decision, Changelog, TODO |
+
+### 6.4 Verify Current State
+
+문서만 읽고 실제 구현을 추측하지 않는다.
+
+반드시 확인한다.
+
+- 파일 존재 여부
+- 현재 Consumer
+- 실제 Data Source
+- Version 또는 Status
+- 최근 변경
+- 미완료 TODO
+
+---
+
+## 7. Reference Rules
+
+### 7.1 Component
+
+새로운 Component를 만들기 전에 `COMPONENT_LIBRARY.md`를 먼저 확인한다.
+
+판단 순서:
+
+1. Existing Component
+2. Existing Variant
+3. Existing State
+4. Existing Composition
+5. Minimal Extension
+6. New Component Proposal
+
+### 7.2 Pattern
+
+새로운 UX를 만들기 전에 현재 Pattern Source를 확인한다.
+
+독립 Pattern Library가 없으므로:
+
+- `COMPONENT_LIBRARY.md` Composition·Page Map
+- `SERVICE_PAGE_TEMPLATE.md`
+
+를 확인한다.
+
+### 7.3 Style
+
+새로운 Style 값을 만들기 전에 `DESIGN_SYSTEM.md`를 확인한다.
+
+하드코딩 전에:
+
+- Existing Token
+- Semantic Token
+- Component Token
+- Responsive Token
+
+순으로 검토한다.
+
+### 7.4 Content
+
+새 Copy를 작성하기 전에 `CONTENT_UX_WRITING_SYSTEM.md`와 `COPY_GUIDE.md`를 확인한다.
+
+기존 Terminology와 동일 Action에는 동일 Label을 사용한다.
+
+### 7.5 Asset
+
+새 이미지·Icon·SVG를 만들기 전에 `VISUAL_ASSET_GUIDE.md`를 확인한다.
+
+기존 Asset 재사용, 권리, 포맷, 최적화와 접근성을 먼저 검토한다.
+
+### 7.6 New Rule
+
+새로운 Rule은 기존 문서와 Component로 해결할 수 없을 때만 검토한다.
+
+필요성 판단:
+
+- 반복 Consumer가 있는가?
+- 기존 규칙으로 표현할 수 없는가?
+- 장기적으로 재사용 가능한가?
+- Migration과 Owner가 있는가?
+- 문서 증가 비용보다 가치가 큰가?
+
+---
+
+## 8. Decision Rules
+
+### 8.1 Evidence Before Decision
+
+AI는 결정을 제안하기 전에 다음을 확인한다.
+
+- User Goal
+- Actual Source
+- Existing Documentation
+- Existing Decision
+- Affected Consumer
+- Risk
+- Reversibility
+
+### 8.2 Decision Types
+
+| Type | Example | Required Record |
+|---|---|---|
+| Routine | Copy 오탈자, 명확한 Bug | Changelog |
+| Local | 한 Component의 비파괴 개선 | Changelog, 필요 시 Component Doc |
+| System | Token, Shared Component, Pattern | Proposal, Domain Doc, Changelog |
+| Major | Architecture, Page Role, Brand Rule | Decision Log, Migration, Approval |
+| Emergency | Production Blocker Hotfix | Incident·Hotfix Record, Changelog |
+
+### 8.3 Reversible Decision
+
+영향이 작고 쉽게 되돌릴 수 있는 변경은 가장 작은 안전한 가정으로 진행할 수 있다.
+
+가정과 결과를 보고한다.
+
+### 8.4 Irreversible or Material Decision
+
+다음은 Project Owner 확인 전에 임의 결정하지 않는다.
+
+- Brand Direction
+- Page Architecture
+- Breaking Component
+- Production Release
+- 개인정보·법률
+- External Integration
+- Valuation Logic
+- 대규모 Content Removal
+
+### 8.5 Decision Log Trigger
+
+다음 중 하나면 `DECISION_LOG.md`를 검토한다.
+
+- 장기적으로 다시 논의될 가능성이 있다.
+- 기존 원칙을 변경한다.
+- 여러 Page·Component에 영향을 준다.
+- Breaking Change다.
+- 승인된 예외를 만든다.
+- Architecture 또는 Governance를 변경한다.
+
+### 8.6 Supersede Rule
+
+기존 Accepted Decision을 삭제·수정해 과거를 지우지 않는다.
+
+새 Decision을 만들고:
+
+- `Supersedes`
+- 변경 이유
+- Migration
+- 영향
+
+을 기록한다.
+
+---
+
+## 9. Conflict Resolution
+
+### 9.1 First Question: Is It a Real Conflict?
+
+표현이 다르다고 모두 충돌은 아니다.
+
+먼저 확인한다.
+
+- 서로 다른 Domain을 설명하는가?
+- 한 문서는 원칙, 다른 문서는 구현인가?
+- 한 문서는 현재 상태, 다른 문서는 이력인가?
+- 한 문서는 요약, 다른 문서는 상세인가?
+
+### 9.2 Base Conflict Cascade
+
+동일 Domain에서 실제 충돌하면 기본적으로 다음을 검토한다.
+
+`MASTER_SPEC → Design Bible → Design System → Component Library → Pattern Source → Visual Asset Guide → Content System → Operating Manual`
+
+그러나 각 문서가 자신의 책임 영역에서만 권한을 가진다는 원칙을 유지한다.
+
+### 9.3 Records Are Not Lower Rules
+
+`CHANGELOG.md`와 `DECISION_LOG.md`는 위 Cascade 뒤에 단순히 놓이는 하위 규칙이 아니다.
+
+- Changelog: 과거 변경의 Evidence
+- Accepted Decision: 승인된 변경·예외의 Authority
+
+Accepted Decision이 명확하게 기존 규칙을 Supersede하면 Decision을 적용하고 원본 전문 문서를 함께 갱신해야 한다.
+
+### 9.4 Current Project Owner Instruction
+
+현재 Project Owner의 명시적 요청이 기존 문서 변경을 요구하면:
+
+1. 충돌을 확인한다.
+2. 영향과 Risk를 설명한다.
+3. 변경 승인 범위를 확인한다.
+4. 관련 Source of Truth를 갱신한다.
+5. 필요한 Decision과 Migration을 기록한다.
+
+명시적 요청을 적용하면서 기존 문서를 낡은 상태로 방치하지 않는다.
+
+### 9.5 Version and Status
+
+동일 책임을 가진 문서가 둘 이상이면 다음을 확인한다.
+
+1. Active·Approved Status
+2. Version
+3. Accepted Decision
+4. Supersedes
+5. Owner
+
+파일 수정일이 더 최근이라는 이유만으로 자동 우선하지 않는다.
+
+### 9.6 Unresolved Conflict
+
+해결할 수 없는 충돌은 Project Manager가 다음을 준비해 Project Owner에게 Escalation한다.
+
+- Conflict
+- Affected Scope
+- Option A·B
+- Risk
+- Recommendation
+- Required Decision
+
+승인 전 임의로 새 Rule을 만들지 않는다.
+
+---
+
+## 10. Documentation Update Rules
+
+모든 수정이 모든 문서의 변경을 의미하지는 않는다.
+
+변경의 Source of Truth만 갱신하고 다른 문서는 필요한 참조만 수정한다.
+
+### 10.1 Update Matrix
+
+| Change | Primary Update |
+|---|---|
+| Project Scope·Page Role·Feature | `MASTER_SPEC.md` |
+| Brand·Design·UX Principle | `EQUIV_DESIGN_BIBLE.md`, 필요 시 `BRAND_GUIDE.md` |
+| Token·CSS Foundation | `DESIGN_SYSTEM.md` |
+| Component Structure·Variant·State | `COMPONENT_LIBRARY.md` |
+| Page·Interaction Pattern | 현재 Pattern Source |
+| Asset Policy | `VISUAL_ASSET_GUIDE.md` |
+| Voice·Tone·Terminology | `CONTENT_UX_WRITING_SYSTEM.md` |
+| Website Copy Application | `COPY_GUIDE.md` |
+| AI Operation·Role·Decision Process | `EQUIV_AI_OPERATING_MANUAL.md`, 필요 시 `AI_RULES.md` |
+| QA·Approval·Release | `DESIGN_QA_GOVERNANCE.md` |
+| Valuation Model | `VALUATION_MODEL_SPEC.md`, 필요 시 Calibration Log |
+| Important Structural Decision | `DECISION_LOG.md` |
+| Implemented Change | `CHANGELOG.md` |
+| Deferred or Unverified Work | `TODO.md` |
+
+### 10.2 Changelog Trigger
+
+다음 실제 변경은 Changelog에 기록한다.
+
+- 기능
+- 구조
+- Public Copy
+- Design
+- Component
+- Pattern
+- Accessibility
+- Performance
+- Documentation Governance
+
+단순 조사나 변경 없는 검토는 Changelog에 Release Change처럼 기록하지 않는다.
+
+### 10.3 Decision Trigger
+
+Routine Bug Fix마다 Decision Log를 만들지 않는다.
+
+System·Major Change, 승인된 예외와 장기적으로 중요한 선택만 기록한다.
+
+### 10.4 Pattern Update
+
+현재는 독립 Pattern Library 대신 실제 Pattern Source를 수정한다.
+
+존재하지 않는 문서에 Update 완료를 기록하지 않는다.
+
+### 10.5 Cross-reference Update
+
+문서명, 책임 또는 Source of Truth가 바뀌면 해당 문서를 참조하는 위치를 검색하고 함께 갱신한다.
+
+### 10.6 Documentation Is Part of Done
+
+필요한 문서 업데이트가 누락되면 작업은 완료되지 않았다.
+
+---
+
+## 11. Documentation Principles
+
+### 11.1 Minimal
+
+문서는 필요한 만큼만 수정한다.
+
+작은 변경을 이유로 전체 문서를 재작성하지 않는다.
+
+### 11.2 No Duplication
+
+이미 존재하는 문서를 중복 생성하지 않는다.
+
+같은 규칙을 여러 문서에 복사하지 않는다.
+
+### 11.3 Single Responsibility
+
+한 문서는 하나의 명확한 역할을 가진다.
+
+전문 문서가 다른 Domain의 세부 규칙을 흡수하지 않는다.
+
+### 11.4 Traceable
+
+중요한 변경은 다음을 추적할 수 있어야 한다.
+
+- 무엇이 변경되었는가?
+- 왜 변경되었는가?
+- 누가 승인했는가?
+- 어떤 문서와 Consumer가 영향을 받는가?
+- 어떻게 되돌리는가?
+
+### 11.5 Current
+
+문서는 실제 구현과 일치해야 한다.
+
+Planned 기능을 Active처럼 설명하지 않는다.
+
+### 11.6 Searchable
+
+공식 파일명, Component명, Decision ID와 Terminology를 일관되게 사용한다.
+
+### 11.7 No Documentation Theater
+
+문서를 업데이트했다는 사실 자체가 품질을 보장하지 않는다.
+
+문서가 실제 Source, Decision과 QA Evidence를 정확하게 반영해야 한다.
+
+---
+
+## 12. AI Decision Rules
+
+### 12.1 Follow Existing Documentation
+
+AI는 기존 문서를 우선적으로 따른다.
+
+문서와 충돌하는 새로운 구조를 임의로 제안·구현하지 않는다.
+
+### 12.2 Verify, Do Not Assume
+
+AI는 다음을 추측하지 않는다.
+
+- 파일 존재
+- Component 상태
+- Pattern Library 존재
+- Production 배포
+- Browser QA
+- External Integration
+- 승인 상태
+
+### 12.3 Maintain Existing Project
+
+AI는 기존 프로젝트를 최대한 유지하면서 개선한다.
+
+기본 판단:
+
+`Reuse > Extend > Create`
+
+### 12.4 Distinguish Proposal and Approval
+
+AI가 제안한 내용은 승인된 Rule이 아니다.
+
+다음을 구분한다.
+
+- Proposal
+- Approved Draft
+- Active
+- Deprecated
+- Archived
+
+### 12.5 Explain Conflict
+
+문서 충돌을 발견하면:
+
+- 숨기지 않는다.
+- 임의로 한쪽을 삭제하지 않는다.
+- 책임 영역을 구분한다.
+- 영향과 권고를 보고한다.
+
+### 12.6 No Unrequested Framework
+
+기존 문서로 해결 가능한 경우 새로운 Framework, Library, Layer 또는 Governance 문서를 만들지 않는다.
+
+---
+
+## 13. Document Lifecycle and Status
+
+### 13.1 Status
+
+| Status | Meaning |
+|---|---|
+| Draft | 검토 전 초안 |
+| Approved Draft | 방향 승인, 운영 적용 가능 |
+| Active | 현재 공식 운영 기준 |
+| Deprecated | 신규 사용 금지, Migration 진행 |
+| Archived | 이력 보존, 현재 적용 금지 |
+
+### 13.2 New Document Gate
+
+새 문서는 다음 조건을 모두 검토한다.
+
+- 기존 문서로 해결 불가능한가?
+- 독립 책임이 있는가?
+- 반복 Consumer가 있는가?
+- Owner가 있는가?
+- Maintenance 비용을 감당할 수 있는가?
+- 기존 문서와 경계가 명확한가?
+- Decision 또는 Approval이 있는가?
+
+### 13.3 Deprecation
+
+문서를 Deprecated할 때:
+
+- 대체 문서
+- Migration 기간
+- Affected Reference
+- Archive 위치
+- Owner
+
+를 기록한다.
+
+파일을 즉시 삭제해 과거 Context를 잃지 않는다.
+
+### 13.4 Review
+
+문서는 다음 시점에 검토한다.
+
+- Major Change
+- Domain Owner 변경
+- 반복 충돌 발생
+- Release 전
+- 정기 Governance Audit
+
+---
+
+## 14. Governance and Review
+
+### 14.1 Owner
+
+각 문서는 명확한 Owner를 가져야 한다.
+
+Owner는:
+
+- Scope 유지
+- 중복 방지
+- Version 관리
+- Review 조정
+- Deprecated 결정
+
+을 책임진다.
+
+### 14.2 Review Questions
+
+- 이 문서가 자신의 역할만 수행하는가?
+- 다른 문서와 동일 규칙을 중복 관리하는가?
+- 실제 구현과 일치하는가?
+- Status와 Version이 명확한가?
+- 참조 링크가 유효한가?
+- 존재하지 않는 기능을 설명하는가?
+- 최근 Decision이 반영되었는가?
+
+### 14.3 Documentation Debt
+
+다음은 Documentation Debt다.
+
+- 구현과 문서 불일치
+- 중복 Source of Truth
+- Owner 없는 문서
+- Deprecated 참조
+- Broken Link
+- Planned 기능의 Active 표기
+- 이유 없는 새 문서
+
+Risk에 따라 `TODO.md` 또는 Governance Debt Register에 기록한다.
+
+---
+
+## 15. Operational Checklists
+
+### 15.1 Before Work
+
+- [ ] Operating Manual을 확인했다.
+- [ ] AI Rules를 확인했다.
+- [ ] Master Spec에서 Scope와 Page Role을 확인했다.
+- [ ] 실제 관련 Page와 Source를 확인했다.
+- [ ] Design Bible을 확인했다.
+- [ ] Existing Component를 확인했다.
+- [ ] Existing Pattern Source를 확인했다.
+- [ ] Design System Token을 확인했다.
+- [ ] Asset·Content·Domain 문서를 필요에 따라 확인했다.
+- [ ] Accepted Decision과 최근 Changelog를 확인했다.
+- [ ] 미완료 TODO를 확인했다.
+
+### 15.2 Before New Component·Pattern·Rule
+
+- [ ] 기존 Component로 해결 가능한가?
+- [ ] Variant 또는 State로 해결 가능한가?
+- [ ] Existing Composition이 있는가?
+- [ ] 기존 Token으로 해결 가능한가?
+- [ ] 새 Rule이 반복 사용되는가?
+- [ ] Owner와 Consumer가 있는가?
+- [ ] Proposal과 Approval이 필요한가?
+
+### 15.3 After Work
+
+- [ ] Primary Source of Truth를 갱신했는가?
+- [ ] 중복 문장을 만들지 않았는가?
+- [ ] 관련 Cross-reference를 갱신했는가?
+- [ ] Changelog를 기록했는가?
+- [ ] Decision Log가 필요한지 검토했는가?
+- [ ] 미완료 항목을 TODO에 기록했는가?
+- [ ] 문서와 실제 Source가 일치하는가?
+- [ ] 변경한 문서의 Status와 Owner가 유효한가?
+
+### 15.4 Conflict Review
+
+- [ ] 동일 Domain의 실제 충돌인가?
+- [ ] 각 문서의 책임을 확인했는가?
+- [ ] Accepted Decision이 있는가?
+- [ ] Supersede가 명시되어 있는가?
+- [ ] Project Owner 판단이 필요한가?
+- [ ] 결과를 관련 문서에 동기화했는가?
+
+---
+
+## 16. Success Criteria
+
+- [ ] 모든 문서의 역할이 명확하다.
+- [ ] 문서 간 중복 Source of Truth가 없다.
+- [ ] Work가 어떤 문서를 확인해야 하는지 명확하다.
+- [ ] ChatGPT가 동일한 기준으로 Review할 수 있다.
+- [ ] 새로운 AI도 Project Context를 이해할 수 있다.
+- [ ] 문서 충돌을 Domain과 승인 상태로 해결할 수 있다.
+- [ ] Accepted Decision을 단순 하위 기록으로 오인하지 않는다.
+- [ ] Changelog를 규칙 문서로 오인하지 않는다.
+- [ ] 현재 없는 Pattern Library를 존재한다고 가정하지 않는다.
+- [ ] 새로운 문서는 기존 문서로 해결할 수 없을 때만 검토한다.
+- [ ] 구현과 문서가 동기화된다.
+- [ ] 프로젝트가 장기적으로 유지 가능하다.
+
+---
+
+## 17. PM Note
+
+이 Chapter의 목적은 문서를 늘리는 것이 아니다.
+
+이미 존재하는 문서를 가장 효율적으로 사용하는 기준을 만드는 것이다.
+
+앞으로 새로운 기능이 추가되더라도 가능한 한 기존 문서를 활용한다.
+
+새로운 문서는 기존 문서로 해결할 수 없는 경우에만 추가를 검토한다.
+
+프로젝트의 성장 속도보다 문서의 일관성과 사실성을 우선한다.
+
+문서의 숫자가 많아지는 것은 성숙함의 증거가 아니다.
+
+필요한 규칙을 한 곳에서 정확하게 찾을 수 있는 상태가 성숙한 Documentation System이다.

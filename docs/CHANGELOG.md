@@ -1,5 +1,18 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Chapter 3 Documentation Priority & Decision Rules
+
+- Direction, System·Domain, Operation·Governance와 Record의 4개 Documentation Model 정의
+- Master Spec → Design Bible → Design System → Component Library → Pattern Source의 기본 설계 Cascade와 Domain별 Authority 수립
+- Operating Manual, QA Governance, Accepted Decision, Changelog와 TODO의 서로 다른 운영 권한 명확화
+- 독립 `PATTERN_LIBRARY.md`가 없는 현재 상태와 Component Composition·Service Page Template의 Level 5 Pattern Source 역할 명시
+- Document Purpose·Use When·Must Not, 작업 유형별 Required Reading과 Standard Task Sequence 정의
+- Component·Pattern·Style·Content·Asset의 Reference Rule과 `Reuse → Extend → Create` 판단 기준 정립
+- Routine·Local·System·Major·Emergency Decision 분류, Decision Log Trigger와 Supersede 규칙 정의
+- 문서 충돌의 Domain·Status·Version·Accepted Decision 기반 해결 절차와 Escalation 규칙 수립
+- 변경 유형별 Primary Documentation Update Matrix, Changelog·Decision·TODO Trigger와 Document Lifecycle 추가
+- `DECISION_LOG.md`의 `DQ-2026-002` History에 Chapter 3 반영 기록
+
 ## EQUIV AI Operating Manual v1.0 - Chapter 2 AI Roles & Responsibilities
 
 - Project Owner, Project Manager, Implementation AI, Domain Reviewer와 Future AI Participant의 역할·책임·권한 정의
