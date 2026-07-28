@@ -1,5 +1,10 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 8.0 - Business Valuation Time Copy Update
+
+- 기업가치 사전진단의 사용자 노출 예상 소요시간을 `예상 소요시간 5분 내외`로 통일
+- 입력 항목, 단계 구성, 계산 로직, 결과 화면, CTA와 기존 스타일은 변경하지 않음
+
 ## Sprint 7.4.4 - Contact Right Column Alignment Correction
 
 - 1024px 이상 Desktop·Laptop에서 Contact를 명확한 좌우 2열 구조로 유지

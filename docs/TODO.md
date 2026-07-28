@@ -2,6 +2,7 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] 기업가치 사전진단 예상 소요시간을 `예상 소요시간 5분 내외`로 통일
 - [x] Sprint 7.4.4 Contact Trust Panel의 1024px 이상 우측 독립 컬럼 정렬 보정
 - [x] Sprint 7.4.3 HOME Contact 우측 Checklist·진행 안내·Confidential을 단일 Trust Panel로 재정렬
 - [x] Sprint 7.4.2 HOME Contact `When to Contact Us` 신뢰 보조 영역 추가
