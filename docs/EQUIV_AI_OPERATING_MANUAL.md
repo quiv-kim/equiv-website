@@ -14,6 +14,7 @@ Applies To: ChatGPT, Codex, Work, Human Contributors and Future AI Operators
 2. AI Roles & Responsibilities
 3. Documentation Priority & Decision Rules
 4. Development & Modification Workflow
+5. Quality Assurance
 
 ---
 
@@ -3971,3 +3972,1114 @@ EQUIV는 매번 새롭게 만드는 프로젝트가 아니라 완성된 제품�
 빠른 구현은 좋은 결과가 아니다.
 
 정확한 분석, 작은 변경, 충분한 검증과 사실 기반 보고가 좋은 결과다.
+
+---
+
+# Chapter 5. Quality Assurance
+
+Version 1.0
+Status: Approved Draft
+
+---
+
+## Chapter 5 Contents
+
+1. Purpose
+2. QA Philosophy
+3. QA Authority and Relationship
+4. QA Timing
+5. QA Workflow
+6. QA Responsibility
+7. QA Scope Selection
+8. QA Categories
+9. QA Principles
+10. Evidence and Environment
+11. QA Decision
+12. Defect and Revision Classification
+13. Rework Policy
+14. Release Connection
+15. Continuous Quality
+16. QA Records and Templates
+17. Operational Checklists
+18. Success Criteria
+19. PM Note
+
+---
+
+## 1. Purpose
+
+이 Chapter는 EQUIV 프로젝트의 모든 변경이 동일한 품질 기준을 만족하도록 QA의 실행 시점, 책임, 판정, 재작업과 승인 절차를 정의한다.
+
+본 Chapter는 세부 QA 기준 자체를 새로 정의하지 않는다.
+
+Typography, Spacing, Responsive, Accessibility, Performance, Content, Component, Pattern과 Release의 상세 기준·Checklist는 `DESIGN_QA_GOVERNANCE.md`를 따른다.
+
+본 Chapter가 정의하는 것은 다음이다.
+
+- 언제 QA를 수행하는가?
+- 누가 Evidence를 만드는가?
+- 누가 QA Gate를 검토하는가?
+- 어떤 범위를 검증하는가?
+- 어떤 상태로 판정하는가?
+- Fail 이후 어떻게 재검증하는가?
+- 언제 Release를 권고할 수 있는가?
+
+---
+
+## 2. QA Philosophy
+
+모든 구현은 완료되었다고 주장하는 것이 아니라 검증되어야 한다.
+
+QA를 통과하지 못한 구현은 완성으로 인정하지 않는다.
+
+### 2.1 Verified, Not Assumed
+
+코드가 저장되었다는 사실은 정상 동작의 Evidence가 아니다.
+
+화면이 한 번 열렸다는 사실은 전체 User Flow가 정상이라는 Evidence가 아니다.
+
+자동 Test 통과는 실제 Browser·Keyboard·Responsive 경험을 완전히 대체하지 않는다.
+
+### 2.2 Quality Is Designed
+
+QA는 마지막에 결함을 찾는 작업이 아니다.
+
+Request, Requirement, Documentation Review, Impact Analysis와 Plan 단계에서 품질 조건을 먼저 정의한다.
+
+### 2.3 User Task First
+
+QA는 단순히 픽셀 오류를 찾는 과정이 아니다.
+
+사용자가:
+
+- Page를 이해할 수 있는가?
+- 필요한 행동을 수행할 수 있는가?
+- Keyboard와 Touch로 접근할 수 있는가?
+- Error에서 회복할 수 있는가?
+- 결과를 신뢰할 수 있는가?
+
+를 검증한다.
+
+### 2.4 Brand Quality
+
+기능이 동작해도 EQUIV의 Brand, Typography, Spacing, Voice와 Interaction이 흔들리면 QA를 통과한 것으로 보지 않는다.
+
+### 2.5 Evidence-based
+
+모든 PASS는 Evidence를 가져야 한다.
+
+확인하지 않은 항목을 “문제 없음”으로 표시하지 않는다.
+
+---
+
+## 3. QA Authority and Relationship
+
+### 3.1 Source of Truth
+
+세부 QA의 Single Source of Truth는 `DESIGN_QA_GOVERNANCE.md`다.
+
+이 Chapter는 해당 기준을 실제 Development Workflow에서 언제·어떻게 적용하는지 정의한다.
+
+### 3.2 Relationship
+
+| Document | QA Responsibility |
+|---|---|
+| `EQUIV_AI_OPERATING_MANUAL.md` Chapter 5 | QA Timing, Role, Decision와 Rework Procedure |
+| `DESIGN_QA_GOVERNANCE.md` | 상세 Criteria, 215개 Review Checklist, Evidence와 Release Gate |
+| `COMPONENT_LIBRARY.md` | Component별 QA Contract |
+| `VISUAL_ASSET_GUIDE.md` | Asset QA |
+| `CONTENT_UX_WRITING_SYSTEM.md` | Content QA |
+| `VALUATION_MODEL_SPEC.md` | Valuation Domain QA |
+
+### 3.3 No Duplicate Standard
+
+세부 Threshold와 Checklist를 이 Chapter에 복제하지 않는다.
+
+상세 기준이 바뀌면 전문 문서만 수정하고 본 Chapter에는 운영 연결만 유지한다.
+
+### 3.4 Conflict
+
+QA 세부 기준이 충돌하면 `DESIGN_QA_GOVERNANCE.md`와 해당 Domain Contract를 확인한다.
+
+QA 수행 순서와 역할이 충돌하면 본 Chapter와 Chapter 2·4를 따른다.
+
+Production Release 최종 승인은 Project Owner에게 있다.
+
+---
+
+## 4. QA Timing
+
+### 4.1 Every Change Is Reviewed
+
+다음 작업은 반드시 QA를 수행한다.
+
+- UI 수정
+- UX 수정
+- 신규 Page
+- Component 변경
+- Pattern 변경
+- JavaScript 수정
+- Responsive 수정
+- Content 변경
+- Performance 개선
+- Accessibility 개선
+- Asset 변경
+- SEO 변경
+- Documentation 변경
+- Refactoring
+- Bug Fix
+- Hotfix
+
+QA 자체에는 예외가 없다.
+
+단, 변경과 관련 없는 QA Category는 `N/A`와 근거를 기록할 수 있다.
+
+### 4.2 QA Begins Before Development
+
+QA Timing은 구현 후에만 존재하지 않는다.
+
+| Stage | QA Activity |
+|---|---|
+| Request | Expected Result와 User Impact 확인 |
+| Requirement | Acceptance Criteria 정의 |
+| Documentation Review | Existing Contract와 Protected Area 확인 |
+| Impact Analysis | Regression과 Test Scope 정의 |
+| Plan | QA Matrix와 Environment 정의 |
+| Development | Incremental Self Review |
+| After Development | Full Applicable QA |
+| Before Release | PM Gate와 Documentation Check |
+| After Release | Smoke Test와 Monitoring |
+
+### 4.3 Incremental QA
+
+큰 변경은 구현이 모두 끝난 후 한 번에 검증하지 않는다.
+
+다음 단위마다 확인한다.
+
+- Component
+- State
+- Viewport
+- User Flow
+- Integration Point
+
+### 4.4 Pre-release QA
+
+Release Candidate 전 필수 QA를 완료한다.
+
+Production에서 처음 확인하는 방식으로 Release하지 않는다.
+
+### 4.5 Post-release QA
+
+Production Release 후 Smoke Test와 Monitoring을 수행한다.
+
+Post-release QA는 Pre-release QA를 대체하지 않는다.
+
+---
+
+## 5. QA Workflow
+
+공식 QA Workflow:
+
+`Development`
+
+`↓`
+
+`Self Review — Implementation AI`
+
+`↓`
+
+`Evidence Preparation`
+
+`↓`
+
+`PM Review — ChatGPT`
+
+`↓`
+
+`QA Decision`
+
+`↓`
+
+`Documentation Check`
+
+`↓`
+
+`Project Owner Release Approval`
+
+`↓`
+
+`Release and Monitoring`
+
+### 5.1 Development
+
+승인된 Plan과 Component Contract에 따라 구현한다.
+
+### 5.2 Self Review
+
+Implementation AI가 변경 직후 기본 오류, Scope, Diff와 직접 영향을 확인한다.
+
+### 5.3 Evidence Preparation
+
+실행한 Test, 환경, 결과, Screenshot·Log·Command와 미검증 항목을 정리한다.
+
+### 5.4 PM Review
+
+Project Manager가:
+
+- Acceptance
+- Scope
+- Documentation
+- Design·UX
+- Component Reuse
+- Responsive
+- Accessibility
+- Content
+- Performance
+- Regression
+
+Evidence를 검토한다.
+
+### 5.5 QA Decision
+
+결과를 PASS, Minor Revision, Major Revision 또는 REJECT로 판정한다.
+
+### 5.6 Documentation Check
+
+Primary Source, Changelog, Decision과 TODO가 실제 결과와 일치하는지 확인한다.
+
+### 5.7 Release Approval
+
+PASS만 Project Owner에게 Production Release 승인을 요청할 수 있다.
+
+QA PASS는 Project Owner의 Release 승인을 자동 의미하지 않는다.
+
+### 5.8 Monitoring
+
+Release 후 핵심 User Flow, Error와 Regression을 확인한다.
+
+---
+
+## 6. QA Responsibility
+
+### 6.1 Implementation AI — Work or Codex
+
+Responsibilities:
+
+- 구현 완료
+- Scope Self Review
+- 기본 오류 확인
+- Console·Network Error 확인
+- Syntax·Build·Automated Test
+- Code Diff Review
+- 직접 영향 기능 확인
+- Responsive·Keyboard 기본 검증
+- Dead Code·Debug Output 정리
+- Evidence 준비
+- 미검증 항목 보고
+
+Implementation AI는 자신이 구현한 결과를 PASS로 최종 승인하지 않는다.
+
+### 6.2 Project Manager — ChatGPT
+
+Responsibilities:
+
+- 요구사항과 Acceptance 검토
+- 디자인 검토
+- UX와 User Task 검토
+- 문서 일관성 검토
+- Responsive 검토
+- Component·Pattern 재사용 검토
+- Content 검토
+- Accessibility·Performance Evidence 검토
+- Regression 범위 검토
+- QA Decision
+- Release Recommendation
+
+Project Manager는 검증하지 않은 환경을 정상이라고 승인하지 않는다.
+
+### 6.3 Project Owner
+
+Responsibilities:
+
+- 최종 결과 확인
+- Business·Brand 적합성 확인
+- Residual Risk 확인
+- Production Release 승인
+
+### 6.4 Domain Reviewer
+
+필요한 경우 다음 Reviewer가 참여한다.
+
+- Design·Brand
+- M&A·Valuation
+- Legal·Privacy
+- Accessibility
+- Performance
+- Content
+
+### 6.5 Separation of Duties
+
+High·Critical 변경은 구현자 단독 승인 금지다.
+
+동일 AI가 구현과 Self Review를 수행했다면 PM 또는 독립 Reviewer가 Evidence를 확인한다.
+
+---
+
+## 7. QA Scope Selection
+
+### 7.1 Risk-based Scope
+
+QA는 변경 Risk와 Consumer에 비례한다.
+
+| Risk | Minimum Scope |
+|---|---|
+| Low | Changed Source, Static Validation, Direct Output |
+| Medium | Direct Page, Relevant Viewports, Interaction, Regression Consumer |
+| High | Shared Consumer, Full State, A11y, Browser, Performance |
+| Critical | Independent Review, Domain Validation, Rollback, Owner Approval |
+
+### 7.2 Changed Area
+
+직접 변경한 요소의:
+
+- Default
+- Hover
+- Focus
+- Active
+- Disabled
+- Loading
+- Error
+- Success
+
+중 적용 가능한 State를 확인한다.
+
+### 7.3 Consumer Scope
+
+Shared Token·Component·JavaScript를 변경하면 모든 Consumer를 Inventory한다.
+
+한 Page에서 정상이라는 이유로 Shared Change를 PASS하지 않는다.
+
+### 7.4 Responsive Scope
+
+Scope에 맞는 Target을 선택한다.
+
+- Mobile: 360, 390, 430
+- Tablet: 768, 1024
+- Desktop: 1280, 1440, 1920
+
+Breakpoint 경계도 필요한 경우 확인한다.
+
+### 7.5 Browser Scope
+
+변경 유형에 맞게 확인한다.
+
+- Chrome
+- Edge
+- Safari
+- Samsung Internet
+- In-app Browser
+
+실제 확인하지 않은 Browser는 `Not Verified`로 표시한다.
+
+### 7.6 N/A Rule
+
+적용되지 않는 Category는:
+
+- `N/A`
+- 이유
+- 영향 없음의 근거
+
+를 기록한다.
+
+단순히 시간이 없다는 이유로 `N/A` 처리하지 않는다.
+
+---
+
+## 8. QA Categories
+
+세부 기준은 `DESIGN_QA_GOVERNANCE.md`를 따른다.
+
+### 8.1 Layout
+
+- Container
+- Grid
+- Section Flow
+- Overflow
+- Viewport Fit
+
+### 8.2 Typography
+
+- Role Token
+- Hierarchy
+- Line Height
+- Wrapping
+- Readability
+
+### 8.3 Color
+
+- Approved Token
+- Contrast
+- State Color
+- Brand Accent
+
+### 8.4 Spacing
+
+- Section Rhythm
+- Component Gap
+- Internal Padding
+- Touch Separation
+
+### 8.5 Alignment
+
+- Baseline
+- Optical Alignment
+- Grid Edge
+- Icon·Text
+
+### 8.6 Component
+
+- Approved Variant
+- State
+- Dependency
+- Consumer
+- Backward Compatibility
+
+### 8.7 Responsive
+
+- Mobile
+- Tablet
+- Desktop
+- Orientation
+- Zoom·Reflow
+
+### 8.8 Accessibility
+
+- Semantic Structure
+- Keyboard
+- Focus
+- ARIA
+- Screen Reader
+- Contrast
+- Touch Target
+- Reduced Motion
+
+### 8.9 Performance
+
+- LCP
+- INP
+- CLS
+- Asset Size
+- Script·CSS Cost
+- Runtime Error
+
+### 8.10 Content
+
+- Voice
+- Tone
+- Terminology
+- Accuracy
+- Duplication
+- Error·Success State
+
+### 8.11 Navigation
+
+- Link
+- Active State
+- Dropdown
+- Mobile Menu
+- Keyboard
+- ESC
+
+### 8.12 Interaction
+
+- Trigger
+- Feedback
+- State Transition
+- Error Recovery
+- Focus Return
+
+### 8.13 Animation
+
+- Motion Token
+- Duration
+- Reduced Motion
+- Performance
+- No Unexpected Movement
+
+### 8.14 SEO
+
+- Title
+- Meta
+- Heading
+- Canonical·OG
+- Link
+- Alt
+
+### 8.15 Console and Network
+
+- Console Error
+- Unhandled Rejection
+- Failed Request
+- Missing Asset
+- 404
+
+### 8.16 Cross Browser
+
+- Layout
+- Font Rendering
+- Form
+- Modal
+- Navigation
+- Viewport Behavior
+
+---
+
+## 9. QA Principles
+
+### 9.1 Quality, Not Blame
+
+QA는 잘못한 사람을 찾는 과정이 아니다.
+
+브랜드와 사용자 품질을 유지하는 과정이다.
+
+### 9.2 Criteria, Not Preference
+
+“마음에 들지 않는다”가 아니라 승인된 Criteria와 User Impact를 기준으로 판정한다.
+
+### 9.3 User Experience Before Internal Convenience
+
+구현이 편하다는 이유로 사용자의 이해, 접근성과 안정성을 낮추지 않는다.
+
+### 9.4 Regression Is a Defect
+
+요청한 화면이 좋아졌더라도 다른 Page나 State가 깨지면 PASS가 아니다.
+
+### 9.5 No Hidden Failure
+
+실패, 미검증과 Known Issue를 숨기지 않는다.
+
+### 9.6 Same Standard
+
+사람과 AI, 신규 Page와 기존 Page, Desktop과 Mobile에 같은 품질 철학을 적용한다.
+
+### 9.7 Risk Proportionality
+
+모든 Checklist를 기계적으로 수행하지 않는다.
+
+Scope와 Risk에 필요한 항목을 선택하고 N/A에는 근거를 기록한다.
+
+---
+
+## 10. Evidence and Environment
+
+### 10.1 Evidence Types
+
+- Source Diff
+- Static Check
+- Build Result
+- Automated Test
+- Console·Network Log
+- Screenshot
+- Video
+- Keyboard Test
+- Screen Reader Result
+- Device·Browser Result
+- Lighthouse·Performance Measurement
+- Production Monitoring
+
+### 10.2 Required Metadata
+
+QA Evidence에는 다음을 포함한다.
+
+- Date
+- Build or Commit
+- Environment
+- Browser
+- Viewport·Device
+- Test Scenario
+- Expected
+- Actual
+- Result
+- Reviewer
+
+### 10.3 Evidence Level
+
+Chapter 1의 E0–E5 Evidence Level을 따른다.
+
+PASS Claim은 해당 Criteria에 필요한 Evidence 수준을 충족해야 한다.
+
+### 10.4 Screenshot Rule
+
+Screenshot은 시각적 결과를 증명하지만 Keyboard, Screen Reader, Console과 계산 정확성을 증명하지 않는다.
+
+### 10.5 Automated Test Rule
+
+자동 Test는 반복 Regression에 유용하지만 정성적 Brand Review와 실제 Device 경험을 대체하지 않는다.
+
+### 10.6 Environment Limitation
+
+Safari·실기기·Production 등 접근할 수 없는 환경은 명시한다.
+
+검증하지 않은 환경을 추론으로 PASS하지 않는다.
+
+---
+
+## 11. QA Decision
+
+QA 결과는 다음 중 하나다.
+
+### 11.1 PASS
+
+조건:
+
+- 모든 필수 Acceptance 충족
+- Blocker·Critical Defect 없음
+- 필수 Evidence 존재
+- 필요한 Documentation 준비
+- 승인되지 않은 Risk 없음
+
+PASS만 Production Release 승인을 요청할 수 있다.
+
+### 11.2 Minor Revision
+
+조건:
+
+- 핵심 User Task는 가능
+- 제한된 Cosmetic·Content·Non-critical Issue 존재
+- 수정 범위가 작고 명확
+
+상태:
+
+- Release 불가
+- 수정 후 적용 가능한 QA와 Regression 재수행
+
+### 11.3 Major Revision
+
+조건:
+
+- User Flow·Responsive·Accessibility·Shared Component 문제
+- Acceptance 일부 미충족
+- 여러 Consumer 영향
+- 구조 또는 Plan 재검토 필요
+
+상태:
+
+- Release 불가
+- Requirement·Impact·Plan 단계로 필요한 만큼 되돌아감
+
+### 11.4 REJECT
+
+조건:
+
+- 요청 목적과 구현 방향이 근본적으로 다름
+- Brand·Architecture·Safety와 충돌
+- 증거 없는 구조 변경
+- 개인정보·법률·계산 정확성 Risk
+- Scope를 유지한 수정으로 해결 불가
+
+상태:
+
+- 현재 구현 경로 중단
+- 대안 Proposal 또는 Owner Decision 필요
+
+### 11.5 No Conditional Release
+
+Minor Revision과 Major Revision은 PASS가 아니다.
+
+Production Release는 최종 PASS 후에만 가능하다.
+
+Non-blocking Issue를 Project Owner가 명시적으로 수용하더라도:
+
+1. Exception의 Owner·기한·영향을 기록하고
+2. 필수 Criteria를 다시 판정하며
+3. 최종 QA Result를 PASS 또는 REJECT로 확정한다.
+
+`Conditional Pass`를 Production Release 상태로 사용하지 않는다.
+
+---
+
+## 12. Defect and Revision Classification
+
+### 12.1 Blocker
+
+- 주요 User Task 불가
+- Privacy·Security·Legal Critical
+- 계산 결과 오류
+- Production Crash
+- Rollback 불가
+
+Decision: Major Revision 또는 REJECT
+
+### 12.2 Critical
+
+- 핵심 Navigation·Form·Modal 불가
+- WCAG Critical Failure
+- Brand Logo 손상
+- Shared Component 대규모 Regression
+
+Decision: Major Revision
+
+### 12.3 Major
+
+- 특정 Device·Browser에서 주요 기능 실패
+- Acceptance의 의미 있는 부분 미충족
+- 여러 Page Layout Regression
+
+Decision: Major Revision
+
+### 12.4 Minor
+
+- 제한된 Cosmetic Misalignment
+- 의미를 해치지 않는 Copy 문제
+- Workaround가 있는 Non-critical Issue
+
+Decision: Minor Revision
+
+### 12.5 Observation
+
+- 현재 Release를 차단하지 않는 개선 제안
+- Future Optimization
+
+Observation은 QA Result를 낮추지 않을 수 있지만 `TODO.md` 또는 Review Note에 기록한다.
+
+---
+
+## 13. Rework Policy
+
+### 13.1 Fix the Cause
+
+QA Fail은 증상만 숨기지 않고 원인을 수정한다.
+
+### 13.2 Rework Flow
+
+`QA Decision`
+
+`↓`
+
+`Root Cause`
+
+`↓`
+
+`Revision Plan`
+
+`↓`
+
+`Fix`
+
+`↓`
+
+`Self Review`
+
+`↓`
+
+`Applicable QA Rerun`
+
+`↓`
+
+`Regression QA`
+
+`↓`
+
+`New Decision`
+
+### 13.3 Same QA Rerun
+
+실패한 Criteria는 동일한 환경과 Scenario에서 다시 검증한다.
+
+환경이 바뀌면 비교 가능성을 설명한다.
+
+### 13.4 Regression Rerun
+
+수정이 영향을 줄 수 있는 인접 영역도 다시 확인한다.
+
+단순히 실패한 한 항목만 확인하고 Release하지 않는다.
+
+### 13.5 Scope of Rerun
+
+전체 Site QA를 매번 반복하는 것이 목적은 아니다.
+
+다음을 다시 수행한다.
+
+- 실패한 Test
+- 수정된 Source의 직접 State
+- 영향을 받는 Consumer
+- 관련 Regression Suite
+
+### 13.6 New Failure
+
+재작업 중 새로운 결함이 생기면 별도 Defect로 기록하고 Severity를 판정한다.
+
+### 13.7 Repeated Failure
+
+동일 문제가 반복되면:
+
+- Root Cause 재분석
+- Plan 재검토
+- Test Coverage 추가
+- Component·Pattern Debt 확인
+- PM Escalation
+
+을 수행한다.
+
+---
+
+## 14. Release Connection
+
+### 14.1 PASS Is Necessary, Not Sufficient
+
+QA PASS는 Release의 필수 조건이지만 유일한 조건은 아니다.
+
+Release에는 추가로:
+
+- Documentation
+- Changelog
+- Version
+- Rollback
+- Monitoring
+- Project Owner Approval
+
+이 필요하다.
+
+### 14.2 Release Recommendation
+
+Project Manager는 다음 중 하나를 권고한다.
+
+- Ready for Owner Approval
+- Not Ready — Minor Revision
+- Not Ready — Major Revision
+- Rejected
+
+### 14.3 Owner Approval
+
+Project Owner는 PASS Evidence와 Residual Risk를 확인한 후 Production Release를 승인한다.
+
+### 14.4 Post-release Verification
+
+Release 후:
+
+- 핵심 Page
+- Navigation
+- Consultation
+- Business Valuation
+- Error
+- Performance Signal
+
+을 확인한다.
+
+### 14.5 Rollback
+
+Production에서 Blocker·Critical Issue가 발생하면 수정 가능성을 기다리지 않고 승인된 Rollback 기준을 적용한다.
+
+---
+
+## 15. Continuous Quality
+
+### 15.1 No Quality Regression
+
+모든 수정은 프로젝트 품질을 유지하거나 향상해야 한다.
+
+품질이 낮아지는 변경은 허용하지 않는다.
+
+### 15.2 Defect Learning
+
+반복 결함은 개인의 실수로만 처리하지 않는다.
+
+다음을 검토한다.
+
+- Requirement Gap
+- Missing Contract
+- Missing Test
+- Token·Component Drift
+- Documentation Gap
+- Tooling Gap
+
+### 15.3 Test Asset Reuse
+
+반복되는 핵심 Flow는 재사용 가능한 Test Scenario와 Checklist로 유지한다.
+
+### 15.4 Quality Trend
+
+정기적으로 확인한다.
+
+- 반복 Regression
+- Accessibility Debt
+- Performance Trend
+- Browser Issue
+- Documentation Drift
+- Component Duplication
+
+### 15.5 QA Debt
+
+수행하지 못한 필수 QA는 숨기지 않고 Debt 또는 Blocker로 기록한다.
+
+시간 부족은 PASS 근거가 아니다.
+
+---
+
+## 16. QA Records and Templates
+
+### 16.1 QA Plan
+
+```text
+Change:
+Risk:
+Acceptance:
+Categories:
+Consumers:
+Viewports:
+Browsers:
+Accessibility:
+Performance:
+Domain Review:
+Evidence:
+```
+
+### 16.2 Self Review
+
+```text
+Implementation:
+Changed Files:
+Direct Tests:
+Console/Network:
+Responsive:
+Keyboard/Focus:
+Known Issue:
+Not Verified:
+```
+
+### 16.3 QA Review
+
+```text
+Reviewer:
+Environment:
+Acceptance Result:
+Category Results:
+Defects:
+Evidence:
+Documentation:
+Residual Risk:
+Decision:
+Required Rework:
+```
+
+### 16.4 Revision Record
+
+```text
+Previous Decision:
+Root Cause:
+Revision:
+Affected Scope:
+Retest:
+Regression:
+New Decision:
+```
+
+### 16.5 Release Recommendation
+
+```text
+QA Result:
+Blockers:
+Open Issues:
+Documentation:
+Rollback:
+Monitoring:
+Recommendation:
+Owner Decision:
+```
+
+---
+
+## 17. Operational Checklists
+
+### 17.1 QA Planning
+
+- [ ] Acceptance Criteria가 검증 가능한가?
+- [ ] Risk Level이 정해졌는가?
+- [ ] QA Category를 선택했는가?
+- [ ] Consumer를 확인했는가?
+- [ ] Viewport·Browser를 선택했는가?
+- [ ] Domain Reviewer가 필요한가?
+- [ ] Evidence 형식이 정해졌는가?
+
+### 17.2 Work Self Review
+
+- [ ] Scope를 충족했는가?
+- [ ] 관련 없는 변경이 없는가?
+- [ ] 기본 기능이 동작하는가?
+- [ ] Console·Network Error가 없는가?
+- [ ] Code가 정리되었는가?
+- [ ] 직접 Responsive 영향을 확인했는가?
+- [ ] Keyboard·Focus를 확인했는가?
+- [ ] 미검증 항목을 기록했는가?
+
+### 17.3 PM Review
+
+- [ ] Design Bible과 일치하는가?
+- [ ] Component·Pattern을 재사용했는가?
+- [ ] Layout·Typography·Spacing이 일관적인가?
+- [ ] UX와 User Task가 명확한가?
+- [ ] Responsive Evidence가 있는가?
+- [ ] Accessibility Evidence가 있는가?
+- [ ] Content가 정확한가?
+- [ ] Performance Regression이 없는가?
+- [ ] Shared Consumer Regression이 없는가?
+- [ ] Documentation이 일치하는가?
+
+### 17.4 Decision
+
+- [ ] 필수 Acceptance를 모두 확인했는가?
+- [ ] Blocker·Critical Issue가 없는가?
+- [ ] Evidence가 충분한가?
+- [ ] PASS·Minor·Major·REJECT 중 하나로 판정했는가?
+- [ ] Revision 항목이 명확한가?
+- [ ] Release 가능 여부를 분명히 했는가?
+
+### 17.5 Rework
+
+- [ ] Root Cause를 확인했는가?
+- [ ] 수정 범위를 정의했는가?
+- [ ] 실패한 Test를 다시 실행했는가?
+- [ ] 영향 Consumer를 다시 확인했는가?
+- [ ] Regression QA를 수행했는가?
+- [ ] 새로운 Decision을 기록했는가?
+
+### 17.6 Release
+
+- [ ] 최종 QA Result가 PASS인가?
+- [ ] 문서가 최신인가?
+- [ ] Changelog가 작성되었는가?
+- [ ] Rollback이 준비되었는가?
+- [ ] Monitoring Owner가 있는가?
+- [ ] Project Owner 승인이 있는가?
+- [ ] 실제 Production 결과를 확인했는가?
+
+---
+
+## 18. Success Criteria
+
+- [ ] QA가 생략되지 않는다.
+- [ ] 모든 변경은 검증된다.
+- [ ] QA Category의 N/A에는 근거가 있다.
+- [ ] Work의 Self Review와 PM Review가 구분된다.
+- [ ] QA Result가 네 가지 상태로 명확하다.
+- [ ] Minor·Major Revision은 Release되지 않는다.
+- [ ] 재작업 후 적용 가능한 QA와 Regression을 다시 수행한다.
+- [ ] PASS Evidence가 추적 가능하다.
+- [ ] 프로젝트 품질이 유지된다.
+- [ ] QA 기준이 일관된다.
+- [ ] Project Owner 승인 후에만 Production Release한다.
+- [ ] Release 품질이 지속적으로 향상된다.
+
+---
+
+## 19. PM Note
+
+QA는 개발 마지막 단계가 아니다.
+
+프로젝트 전체 품질을 유지하는 운영 프로세스다.
+
+품질은 Release 직전에 만드는 것이 아니라 모든 작업 과정에서 유지한다.
+
+EQUIV의 QA는 많은 Checklist를 채우는 일이 아니다.
+
+필요한 기준을 정확한 환경에서 검증하고, 확인한 사실만 보고하며, 사용자와 브랜드에 위험이 남아 있으면 Release하지 않는 일이다.

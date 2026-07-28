@@ -1,5 +1,19 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Chapter 5 Quality Assurance
+
+- 세부 QA 기준은 `DESIGN_QA_GOVERNANCE.md`에 유지하고 Operating Manual에는 QA Timing·Responsibility·Decision·Rework 절차를 수립
+- 모든 UI·UX·Page·Component·Pattern·JavaScript·Responsive·Content·Performance·Accessibility·Asset·SEO·Documentation 변경에 QA 적용
+- QA 자체는 생략하지 않되 적용되지 않는 Category는 근거가 있는 `N/A`로 기록하도록 정의
+- Development → Work Self Review → Evidence → ChatGPT PM Review → QA Decision → Documentation → Owner Approval → Release의 공식 Flow 추가
+- Work·Codex, ChatGPT PM, Project Owner와 Domain Reviewer의 QA 책임·승인 경계 정의
+- Layout, Typography, Color, Spacing, Alignment, Component, Responsive, Accessibility, Performance, Content, Navigation, Interaction, Animation, SEO, Console과 Cross-browser Category 정리
+- QA 결과를 `PASS / Minor Revision / Major Revision / REJECT`로 통일하고 PASS만 Production Release 승인 요청 가능하도록 제한
+- Defect Severity, Root Cause, 적용 가능한 QA 재수행, Consumer Regression과 반복 실패 Escalation을 포함한 Rework Policy 수립
+- QA Plan, Self Review, QA Review, Revision과 Release Recommendation Template 및 역할별 Checklist 추가
+- `DESIGN_QA_GOVERNANCE.md`의 Review Result·Approval·Exception을 PASS 전용 Release 체계에 맞게 동기화
+- `DECISION_LOG.md`의 `DQ-2026-002` History에 Chapter 5 반영 기록
+
 ## EQUIV AI Operating Manual v1.0 - Chapter 4 Development & Modification Workflow
 
 - Request → Requirement Analysis → Documentation Review → Impact Analysis → Implementation Plan → Development → QA → Documentation Update → Release의 표준 운영 절차 수립

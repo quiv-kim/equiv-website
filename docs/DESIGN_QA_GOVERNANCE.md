@@ -379,6 +379,8 @@ Output: Implemented
 
 ### 4.5 Gate 3 — QA
 
+QA의 실행 시점, 책임, 판정과 Rework 절차는 `EQUIV_AI_OPERATING_MANUAL.md` Chapter 5를 따른다.
+
 Order:
 
 1. Design QA
@@ -397,6 +399,8 @@ Output: Release Candidate
 PM은 Evidence, Open Defect, Risk Acceptance, Rollback과 Documentation을 검토해 QA Gate와 Release Recommendation을 결정한다. Production Release의 최종 승인은 Project Owner가 수행한다.
 
 Blocker 또는 Critical Defect가 하나라도 있으면 승인하지 않는다.
+
+최종 QA Result가 `PASS`인 Release Candidate만 Project Owner 승인 단계로 이동한다.
 
 ### 4.7 Gate 5 — Release
 
@@ -697,9 +701,12 @@ Reject 사유는 사람에 대한 평가가 아니라 Criteria와 Evidence로 �
 
 ### 5.17 Review Result
 
-- **Pass**: 모든 필수 항목 충족
-- **Conditional Pass**: Blocker 없음, 승인된 기한부 예외만 존재
-- **Fail**: Blocker, 승인되지 않은 Risk 또는 Evidence 누락
+- **PASS**: 모든 필수 항목과 Evidence 충족
+- **Minor Revision**: 제한된 Non-critical Issue, 수정 후 관련 QA와 Regression 재수행
+- **Major Revision**: User Flow·Shared Consumer·Accessibility·구조 문제, Plan과 영향 범위 재검토
+- **REJECT**: 방향·Architecture·Safety 충돌 또는 현재 접근으로 해결 불가
+
+Minor Revision과 Major Revision은 Release할 수 없다. Project Owner 승인 단계에는 최종 PASS만 전달한다.
 
 ### 5.18 PM Notes
 
@@ -1848,11 +1855,12 @@ Risk Register는 문제를 숨기지 않고 의사결정을 돕는 도구다. �
 
 PM은 QA Report, Open Risk, Documentation, Migration과 Rollback을 검토하고 다음 중 하나를 결정한다.
 
-- Approved
-- Conditionally Approved
+- Ready for Owner Approval — PASS
+- Not Ready — Minor Revision
+- Not Ready — Major Revision
 - Rejected
 
-Conditional Approval은 만료일과 Owner가 있는 Non-blocking Issue에만 허용한다.
+Production Release는 PASS와 Project Owner 최종 승인이 모두 있을 때만 가능하다.
 
 ### 20.5 Production
 
@@ -2027,21 +2035,28 @@ PM은 다음 경우 승인하지 않는다.
 - Owner 없는 Risk
 - Rollback 불가
 
-### 22.5 Conditional Approval
+### 22.5 Exception and Final PASS
 
-허용:
+Non-blocking Issue를 Project Owner가 수용하더라도 `Conditional Pass`를 Production Release 상태로 사용하지 않는다.
 
-- Cosmetic Low Issue
-- 영향이 제한되고 Workaround가 있는 Minor Issue
-- Owner와 기한이 있는 Debt
+Exception에는 다음이 필요하다.
 
-금지:
+- Owner
+- Reason
+- User·System Impact
+- Expiry
+- Resolution Plan
+
+Exception 기록 후 필수 Criteria를 다시 검토하고 최종 결과를 PASS 또는 REJECT로 확정한다.
+
+다음은 Exception으로 PASS 처리할 수 없다.
 
 - 개인정보
 - 계산 정확성
-- 주요 Navigation/Form
+- 주요 Navigation·Form
 - Critical Accessibility
 - Brand Logo
+- Rollback 불가
 
 ### 22.6 PM Notes
 
