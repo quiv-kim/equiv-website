@@ -330,9 +330,9 @@ ChatGPT 또는 Work가 PM 역할을 수행할 때도 동일한 Gate를 따른다
 
 ### 4.1 Official Flow
 
-`Design → PM Review → Work Implementation → QA → Approval → Release → Documentation`
+`Request → Requirement Analysis → Documentation Review → Impact Analysis → Implementation Plan → Work Implementation → QA → Documentation Update → PM Gate → Project Owner Approval → Release → Monitoring`
 
-실제 운영에서는 다음 Gate로 세분화한다.
+Workflow의 상세 수행 기준은 `EQUIV_AI_OPERATING_MANUAL.md` Chapter 4를 따르며, 실제 운영에서는 다음 Gate로 세분화한다.
 
 ### 4.2 Gate 0 — Intake
 
@@ -394,7 +394,7 @@ Output: Release Candidate
 
 ### 4.6 Gate 4 — Approval
 
-PM은 Evidence, Open Defect, Risk Acceptance, Rollback과 Documentation을 검토한다.
+PM은 Evidence, Open Defect, Risk Acceptance, Rollback과 Documentation을 검토해 QA Gate와 Release Recommendation을 결정한다. Production Release의 최종 승인은 Project Owner가 수행한다.
 
 Blocker 또는 Critical Defect가 하나라도 있으면 승인하지 않는다.
 
@@ -409,9 +409,9 @@ Required:
 - Monitoring Owner
 - Production Verification Plan
 
-### 4.8 Gate 6 — Documentation
+### 4.8 Gate 6 — Documentation Finalization
 
-문서 업데이트는 Release 이후 정리하는 선택 작업이 아니다. Production 변경과 같은 Release Scope다.
+필수 문서 변경은 Gate 4 전에 준비한다. Gate 6에서는 실제 Version, Release 결과, Production Verification과 후속 Issue를 최종 반영한다. Documentation은 Release 이후 선택적으로 정리하는 작업이 아니라 Release Scope다.
 
 ### 4.9 Gate 7 — Monitoring
 
@@ -1899,7 +1899,7 @@ Release는 파일 업로드가 아니라 승인된 Quality State를 Production�
 
 모든 Sprint 종료 시 다음을 수행한다.
 
-`Design QA → Responsive QA → Accessibility QA → Performance QA → Documentation Update → CHANGELOG Update → Git Commit → PM Review → Release`
+`Design QA → Responsive QA → Accessibility QA → Performance QA → Documentation Update → CHANGELOG Update → PM Review → Project Owner Approval → Authorized Commit·Release`
 
 Git Commit과 Release는 프로젝트 권한과 사용자의 명시적 승인 범위 안에서 수행한다. 승인 전에는 Commit 또는 Production Release를 완료했다고 보고하지 않는다.
 
@@ -1907,18 +1907,23 @@ Git Commit과 Release는 프로젝트 권한과 사용자의 명시적 승인 �
 
 Work는 다음 문서를 확인한다.
 
-1. `AI_RULES.md`
-2. `MASTER_SPEC.md`
-3. `EQUIV_DESIGN_BIBLE.md`
-4. `BRAND_GUIDE.md`
-5. `CONTENT_UX_WRITING_SYSTEM.md`
-6. `DESIGN_SYSTEM.md`
-7. `COMPONENT_LIBRARY.md`
-8. `VISUAL_ASSET_GUIDE.md`
-9. `DESIGN_QA_GOVERNANCE.md`
-10. Task 관련 전문 문서
-11. `CHANGELOG.md`
-12. `TODO.md`
+1. `EQUIV_AI_OPERATING_MANUAL.md`
+2. `AI_RULES.md`
+3. `MASTER_SPEC.md`
+4. `EQUIV_DESIGN_BIBLE.md`
+5. `BRAND_GUIDE.md`
+6. `CONTENT_UX_WRITING_SYSTEM.md`
+7. `DESIGN_SYSTEM.md`
+8. `COMPONENT_LIBRARY.md`
+9. 현재 Pattern Source
+10. `VISUAL_ASSET_GUIDE.md`
+11. `DESIGN_QA_GOVERNANCE.md`
+12. Task 관련 전문 문서
+13. `DECISION_LOG.md`
+14. `CHANGELOG.md`
+15. `TODO.md`
+
+현재 독립 `PATTERN_LIBRARY.md`는 없으므로 Pattern Source는 `COMPONENT_LIBRARY.md`의 Composition·Page Map과 `SERVICE_PAGE_TEMPLATE.md`를 사용한다.
 
 ### 21.3 During Work
 

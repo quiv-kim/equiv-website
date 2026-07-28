@@ -1,5 +1,20 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Chapter 4 Development & Modification Workflow
+
+- Request → Requirement Analysis → Documentation Review → Impact Analysis → Implementation Plan → Development → QA → Documentation Update → Release의 표준 운영 절차 수립
+- 작업 성격상 적용되지 않는 단계는 생략하지 않고 근거와 함께 `N/A` 처리하도록 정의
+- Bug, UI, UX, Content, Responsive, Accessibility, Performance, Component, Pattern, New Page, Feature, Refactoring, Documentation과 Hotfix Request 분류 체계 추가
+- Problem Statement, Scope·Protected Area, 검증 가능한 Acceptance Criteria와 Risk 기반 Workflow Depth 정의
+- Consumer·Responsive·Accessibility·JavaScript·SEO·Performance·Rollback을 포함한 Impact Analysis 기준 수립
+- Implementation Plan 필수 항목, 작업 범위 변경과 Reuse·Code·Content·Responsive·A11y 개발 규칙 정의
+- QA Minimum·Conditional Matrix, Evidence, Failure 처리, Regression과 QA Report 계약 추가
+- Documentation Update Matrix와 실제 Pattern Source 반영, 완료·Release Ready·Released 상태 구분
+- Bug Fix, UI·UX, New Page, Content, Responsive, Accessibility, Performance, Component, Feature, Refactoring, Documentation과 Hotfix Standard Workflow 추가
+- Intake, Requirement, Impact, Plan, QA와 Completion Report Template 및 단계별 Checklist 추가
+- `DESIGN_QA_GOVERNANCE.md`의 Official Flow, PM Gate·Project Owner 승인, Documentation Finalization과 Work Reading Order를 Chapter 4에 맞게 동기화
+- `DECISION_LOG.md`의 `DQ-2026-002` History에 Chapter 4 반영 기록
+
 ## EQUIV AI Operating Manual v1.0 - Chapter 3 Documentation Priority & Decision Rules
 
 - Direction, System·Domain, Operation·Governance와 Record의 4개 Documentation Model 정의

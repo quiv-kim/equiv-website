@@ -13,6 +13,7 @@ Applies To: ChatGPT, Codex, Work, Human Contributors and Future AI Operators
 1. Project Operation Philosophy
 2. AI Roles & Responsibilities
 3. Documentation Priority & Decision Rules
+4. Development & Modification Workflow
 
 ---
 
@@ -2712,3 +2713,1261 @@ Risk에 따라 `TODO.md` 또는 Governance Debt Register에 기록한다.
 문서의 숫자가 많아지는 것은 성숙함의 증거가 아니다.
 
 필요한 규칙을 한 곳에서 정확하게 찾을 수 있는 상태가 성숙한 Documentation System이다.
+
+---
+
+# Chapter 4. Development & Modification Workflow
+
+Version 1.0
+Status: Approved Draft
+
+---
+
+## Chapter 4 Contents
+
+1. Purpose
+2. Core Workflow
+3. Workflow Application Rules
+4. Step 1 — Request
+5. Step 2 — Requirement Analysis
+6. Step 3 — Documentation Review
+7. Step 4 — Impact Analysis
+8. Step 5 — Implementation Plan
+9. Step 6 — Development
+10. Step 7 — Quality Assurance
+11. Step 8 — Documentation Update
+12. Step 9 — Release
+13. Modification Principles
+14. Standard Workflows
+15. Escalation Rules
+16. Workflow Records and Templates
+17. Operational Checklists
+18. Success Criteria
+19. PM Note
+
+---
+
+## 1. Purpose
+
+이 Chapter는 EQUIV 프로젝트의 모든 개발, 수정, 유지보수와 신규 Page 작업이 동일한 절차로 수행되도록 정의한다.
+
+모든 작업은 빠르게 구현하는 것이 아니라 다음을 목표로 한다.
+
+- 요구사항을 정확하게 이해한다.
+- 기존 프로젝트의 일관성을 유지한다.
+- 변경 범위를 최소화한다.
+- 재사용 가능한 구조를 보존한다.
+- Regression을 예방한다.
+- 검증 가능한 Evidence를 남긴다.
+- 문서와 구현을 동기화한다.
+- 승인된 상태만 Release한다.
+
+이 Workflow는 ChatGPT, Work, Codex, 사람과 향후 참여하는 모든 AI에 동일하게 적용한다.
+
+---
+
+## 2. Core Workflow
+
+모든 작업은 다음 순서를 따른다.
+
+`Request`
+
+`↓`
+
+`Requirement Analysis`
+
+`↓`
+
+`Documentation Review`
+
+`↓`
+
+`Impact Analysis`
+
+`↓`
+
+`Implementation Plan`
+
+`↓`
+
+`Development`
+
+`↓`
+
+`Quality Assurance`
+
+`↓`
+
+`Documentation Update`
+
+`↓`
+
+`Release`
+
+### 2.1 No Silent Skip
+
+어느 단계도 설명 없이 생략하지 않는다.
+
+작업 성격상 특정 단계가 적용되지 않으면 삭제하지 않고 `N/A`와 근거를 기록한다.
+
+예:
+
+- Copy 오탈자 수정에서 Performance 측정: `N/A — Runtime과 Asset 변경 없음`
+- 문서 전용 변경에서 Browser Visual QA: `N/A — UI Source 변경 없음`
+- Local Draft에서 Production Release: `N/A — Owner가 배포를 요청하지 않음`
+
+### 2.2 Scale by Risk
+
+모든 작업이 같은 양의 문서와 QA를 요구하지는 않는다.
+
+Workflow 단계는 유지하되 Evidence의 깊이는 Risk에 비례한다.
+
+| Risk | Example | Workflow Depth |
+|---|---|---|
+| Low | 오탈자, 링크 문구 | 간결한 분석·정적 검증 |
+| Medium | UI·Responsive·Component Style | 영향 분석·Browser QA |
+| High | Shared Component Behavior, Form, Modal | 다중 Consumer·A11y·Regression |
+| Critical | Valuation Logic, Privacy, Release Architecture | 독립 Review·Owner 승인·Rollback |
+
+### 2.3 Work Completion vs Release
+
+Development 완료, QA 완료와 Production Release는 서로 다른 상태다.
+
+- **Implementation Complete**: 수정이 Source에 반영됨
+- **QA Complete**: 정의된 Evidence와 Acceptance 충족
+- **Release Ready**: 문서, Risk, Rollback과 승인 준비 완료
+- **Released**: Project Owner 승인 후 대상 환경에 배포됨
+
+문서 전용 작업에서 Release는 승인 가능한 Documentation Handoff를 의미할 수 있다. 실제 Production 배포를 자동 의미하지 않는다.
+
+---
+
+## 3. Workflow Application Rules
+
+### 3.1 Applies To
+
+- Bug Fix
+- UI Improvement
+- UX Improvement
+- Content Update
+- Responsive Fix
+- Accessibility Improvement
+- Performance Optimization
+- Component Update
+- Pattern Update
+- New Page
+- Feature Enhancement
+- Documentation Change
+- Refactoring
+- Hotfix
+
+### 3.2 Roles
+
+| Stage | Accountable Role | Responsible Role |
+|---|---|---|
+| Request | Project Owner | Project Owner·PM |
+| Requirement Analysis | Project Manager | Project Manager |
+| Documentation Review | Project Manager | PM·Implementation AI |
+| Impact Analysis | Project Manager | PM·Implementation AI·Reviewer |
+| Implementation Plan | Project Manager | Project Manager |
+| Development | Engineering/Implementation | Implementation AI |
+| Quality Assurance | Project Manager | Implementation AI·QA·Reviewer |
+| Documentation Update | Project Manager | Implementation AI·Document Owner |
+| Production Release | Project Owner | Authorized Operator |
+
+역할의 상세 권한은 Chapter 2를 따른다.
+
+### 3.3 Required Outputs
+
+각 작업에는 최소 다음 Output이 있어야 한다.
+
+- 분류된 Request
+- 명확한 Acceptance Criteria
+- 확인한 Documentation
+- Impact Summary
+- Implementation Plan
+- 변경 Diff
+- QA Evidence
+- Documentation Decision
+- Release 또는 Handoff Status
+
+---
+
+## 4. Step 1 — Request
+
+### 4.1 Objective
+
+사용자의 수정 또는 신규 요청을 작업 가능한 단위로 접수한다.
+
+### 4.2 Request Classification
+
+요청은 하나 이상의 유형으로 분류한다.
+
+| Type | Definition |
+|---|---|
+| Bug Fix | 의도된 동작과 실제 동작의 차이 수정 |
+| UI Improvement | 시각적 품질·일관성 개선 |
+| UX Improvement | 사용자 흐름·이해·행동 개선 |
+| Content Update | Public Copy·Label·Message 수정 |
+| Responsive Fix | Device·Viewport별 문제 수정 |
+| Accessibility Improvement | Keyboard·Focus·ARIA·Contrast 등 개선 |
+| Performance Optimization | Loading·Runtime·Asset·CWV 개선 |
+| Component Update | Shared Component Contract·Variant·State 수정 |
+| Pattern Update | 반복 Flow·Page Composition 수정 |
+| New Page | 승인된 Architecture 안의 Page 추가 |
+| Feature Enhancement | 기존 기능의 비파괴 확장 |
+| Refactoring | 외부 동작 유지 상태의 내부 구조 개선 |
+| Documentation Change | 운영·전문 문서만 수정 |
+| Hotfix | Production Blocker의 긴급 수정 |
+
+### 4.3 Request Record
+
+최소 기록:
+
+- Requester
+- Date
+- Goal
+- Target Page·Component
+- Requested Change
+- Must Keep
+- Do Not Change
+- Expected Result
+
+### 4.4 Intake Questions
+
+- 사용자가 해결하려는 문제는 무엇인가?
+- 어떤 화면·기능·문구가 대상인가?
+- 현재 동작과 기대 동작은 무엇인가?
+- 보호해야 할 기능은 무엇인가?
+- Desktop·Tablet·Mobile 중 어느 범위인가?
+- 외부 연동이나 Production 변경이 포함되는가?
+
+### 4.5 Request Boundary
+
+요청에 포함되지 않은 변경을 자동으로 추가하지 않는다.
+
+예:
+
+- Header 수정 요청으로 Footer를 변경하지 않는다.
+- Copy 변경 요청으로 Layout을 재설계하지 않는다.
+- Mobile 수정 요청으로 Desktop Token을 변경하지 않는다.
+- 문서 작성 요청으로 Production Deploy를 수행하지 않는다.
+
+### 4.6 Output
+
+- Request Type
+- Initial Scope
+- Known Constraint
+- Clarification Need
+
+---
+
+## 5. Step 2 — Requirement Analysis
+
+### 5.1 Owner
+
+Project Manager가 요구사항을 분석한다.
+
+### 5.2 Required Analysis
+
+반드시 확인한다.
+
+- 수정 목적
+- 사용자 기대 결과
+- Business Goal
+- Page Role
+- 영향 범위
+- 기존 기능과의 관계
+- 기존 Page와의 일관성
+- Must Keep
+- Do Not Change
+- Acceptance Criteria
+- Validation Method
+
+### 5.3 Problem Statement
+
+요청 문장을 그대로 반복하지 않는다.
+
+다음 형식으로 문제를 정의한다.
+
+> 현재 [대상]에서 [문제]가 발생하여 [사용자 영향]이 있다. [보호 영역]을 유지하면서 [기대 결과]를 달성한다.
+
+### 5.4 Scope
+
+Scope를 세 부분으로 나눈다.
+
+- **In Scope**: 이번 작업에서 반드시 변경
+- **Out of Scope**: 이번 작업에서 변경하지 않음
+- **Protected**: Regression이 발생하면 안 되는 기능
+
+### 5.5 Acceptance Criteria
+
+Acceptance Criteria는 검증 가능해야 한다.
+
+Bad:
+
+- 더 Premium하게 만든다.
+- 자연스럽게 보이게 한다.
+
+Good:
+
+- Header 높이는 지정 Token을 사용한다.
+- 360·390·430px에서 Logo와 Menu가 충돌하지 않는다.
+- ESC, Overlay와 Close Button으로 Modal이 닫힌다.
+- 기존 Valuation Engine 결과는 변경되지 않는다.
+
+정성적 목표가 포함되면 기준 Screenshot 또는 비교 화면을 함께 사용한다.
+
+### 5.6 Clarification Rule
+
+불명확한 요구사항은 먼저 Source와 Documentation에서 확인한다.
+
+다음은 구현 전에 Project Owner에게 확인한다.
+
+- 결과를 크게 바꾸는 선택
+- Page Role 변경
+- Brand Direction 변경
+- 개인정보·법률 판단
+- Core Logic 변경
+- Production Release
+
+영향이 작고 가역적인 세부 사항은 안전한 가정을 사용하고 완료 보고에 명시할 수 있다.
+
+### 5.7 Output
+
+- Problem Statement
+- Goal
+- In Scope
+- Out of Scope
+- Protected Areas
+- Acceptance Criteria
+- Open Questions
+
+---
+
+## 6. Step 3 — Documentation Review
+
+### 6.1 Principle
+
+구현 전에 기존 문서를 검토한다.
+
+기존 문서로 해결 가능하면 새로운 구조를 만들지 않는다.
+
+### 6.2 Basic Review Order
+
+1. `EQUIV_AI_OPERATING_MANUAL.md`
+2. `AI_RULES.md`
+3. `MASTER_SPEC.md`
+4. 실제 관련 Page와 Source
+5. `EQUIV_DESIGN_BIBLE.md`
+6. `COMPONENT_LIBRARY.md`
+7. 현재 Pattern Source
+8. `DESIGN_SYSTEM.md`
+9. `VISUAL_ASSET_GUIDE.md`
+10. `CONTENT_UX_WRITING_SYSTEM.md`, `COPY_GUIDE.md`
+11. 관련 Domain Spec
+12. `DESIGN_QA_GOVERNANCE.md`
+13. `DECISION_LOG.md`, `CHANGELOG.md`, `TODO.md`
+
+문서 우선순위와 상세 책임은 Chapter 3을 따른다.
+
+### 6.3 Pattern Review
+
+현재 독립 `PATTERN_LIBRARY.md`는 없다.
+
+Pattern 확인은 다음으로 수행한다.
+
+- `COMPONENT_LIBRARY.md`의 Composition·Page Map
+- `SERVICE_PAGE_TEMPLATE.md`
+
+존재하지 않는 문서의 검토를 완료했다고 표시하지 않는다.
+
+### 6.4 Review by Change Type
+
+| Change | Additional Required Documents |
+|---|---|
+| Brand·Visual | Brand Guide, Design Bible, Visual Asset Guide |
+| Token·CSS | Design System, Component Library |
+| Component | Component Library, Design System, QA Governance |
+| Service Page | Master Spec, Service Template, Content System |
+| Copy | Content System, Copy Guide |
+| Valuation | Valuation Model Spec, Calibration Log |
+| Release | QA Governance, Decision Log, Changelog, TODO |
+
+### 6.5 Documentation Findings
+
+다음을 기록한다.
+
+- Relevant Rule
+- Existing Component
+- Existing Pattern
+- Protected Area
+- Known Decision
+- Known TODO
+- Documentation Conflict
+
+### 6.6 Output
+
+- Reviewed Documents
+- Applicable Rules
+- Reuse Candidate
+- Conflict or Gap
+
+---
+
+## 7. Step 4 — Impact Analysis
+
+### 7.1 Objective
+
+수정이 직접 대상과 프로젝트 전체에 미치는 영향을 검토한다.
+
+### 7.2 Impact Domains
+
+반드시 해당 여부를 판단한다.
+
+- 다른 Page
+- Shared Component
+- Pattern
+- Token
+- Responsive
+- Accessibility
+- JavaScript
+- Data·State
+- SEO
+- Performance
+- Content
+- Asset
+- Analytics
+- External Integration
+- Documentation
+- Release·Rollback
+
+### 7.3 Consumer Analysis
+
+Shared Source를 수정할 때 Consumer를 검색한다.
+
+확인:
+
+- 어떤 Page가 같은 Class·Component·Function을 사용하는가?
+- Mobile·Tablet Override가 있는가?
+- Modal·Dropdown처럼 전역 State가 있는가?
+- 동일 Copy가 Data·Template·JavaScript에 중복되어 있는가?
+- 변경이 Public Link나 SEO에 영향을 주는가?
+
+### 7.4 Risk Classification
+
+| Risk | Criteria |
+|---|---|
+| Low | 한 위치, 가역적, 기능 영향 없음 |
+| Medium | 여러 Viewport 또는 Page, UI Regression 가능 |
+| High | Shared Component, User Flow, Form, Modal, Accessibility |
+| Critical | Privacy, Legal, Valuation, Production Data, Breaking Architecture |
+
+### 7.5 Change Splitting
+
+영향이 큰 변경은 작은 작업으로 분리한다.
+
+분리 기준:
+
+- 다른 목적
+- 다른 Consumer
+- 다른 QA
+- 다른 Rollback
+- 다른 승인권자
+
+### 7.6 Backward Compatibility
+
+Component·Pattern·Data 변경은 기존 Consumer가 계속 동작하는지 확인한다.
+
+Breaking Change가 필요하면:
+
+- Proposal
+- Impact
+- Migration
+- Deprecation
+- Decision
+- Owner Approval
+
+을 준비한다.
+
+### 7.7 Rollback
+
+Medium 이상 변경은 되돌리는 방법을 확인한다.
+
+Critical 변경은 문서화된 Rollback 없이 Release하지 않는다.
+
+### 7.8 Output
+
+- Affected Files
+- Affected Consumers
+- Risk Level
+- Regression Areas
+- Rollback Strategy
+- Required Reviewer
+
+---
+
+## 8. Step 5 — Implementation Plan
+
+### 8.1 Owner
+
+Work가 구현하기 전에 Project Manager가 작업 계획을 정의한다.
+
+### 8.2 Required Plan
+
+계획에는 다음이 포함되어야 한다.
+
+- 작업 목적
+- 수정 대상
+- 재사용 대상
+- 구현 순서
+- 예상 영향
+- 보호 영역
+- QA 항목
+- 문서 업데이트
+- 완료 기준
+
+### 8.3 Plan Size
+
+Low Risk:
+
+- 한 문단 또는 짧은 Checklist
+
+Medium Risk:
+
+- 단계별 Plan과 QA Matrix
+
+High·Critical:
+
+- Proposal, Consumer, Migration, Rollback, Reviewer와 Approval
+
+### 8.4 Implementation Boundary
+
+Implementation AI는 계획 범위를 벗어난 구현을 하지 않는다.
+
+새로운 문제가 발견되면:
+
+1. 현재 Scope와 관련 있는지 판단한다.
+2. 안전한 수정인지 평가한다.
+3. Scope 변경이 필요하면 PM에게 보고한다.
+4. 별도 Task가 적절하면 TODO로 분리한다.
+
+### 8.5 Plan Change
+
+구현 중 Plan이 바뀌면 이유와 영향을 기록한다.
+
+High·Critical 변경은 PM Review 없이 Plan을 변경하지 않는다.
+
+### 8.6 Output
+
+- Ordered Steps
+- File Scope
+- QA Plan
+- Documentation Plan
+- Done Definition
+
+---
+
+## 9. Step 6 — Development
+
+### 9.1 Principle
+
+Implementation AI가 승인 범위 안에서 실제 변경을 수행한다.
+
+### 9.2 Required Development Rules
+
+- 기존 Component를 우선 사용한다.
+- 기존 Pattern Source를 유지한다.
+- Design System을 준수한다.
+- 승인된 Token을 사용한다.
+- 중복 코드를 만들지 않는다.
+- 불필요한 CSS Override를 추가하지 않는다.
+- 기존 Architecture와 Naming을 유지한다.
+- 관련 없는 Formatting을 피한다.
+- 사용자 변경을 보존한다.
+- Accessibility State를 제거하지 않는다.
+
+### 9.3 Reuse Decision
+
+`Existing Component → Variant → State → Composition → Minimal Extension → New Component`
+
+새로운 Component는 기존 방식으로 해결할 수 없을 때만 Proposal한다.
+
+### 9.4 Code Change Rules
+
+- 가장 작은 Diff를 선호한다.
+- Magic Number보다 Token을 사용한다.
+- 같은 값을 여러 파일에 복제하지 않는다.
+- Dead Code 삭제는 Scope와 Consumer를 확인한 뒤 수행한다.
+- 임시 Fix에는 Owner와 제거 계획을 기록한다.
+- External Dependency는 승인 없이 추가하지 않는다.
+
+### 9.5 Content Change Rules
+
+- 최신 Copy Source를 확인한다.
+- HTML·JavaScript·Data·Template의 실제 출력 위치를 모두 확인한다.
+- 동일 Action에는 동일 Label을 사용한다.
+- 근거 없는 Claim을 추가하지 않는다.
+
+### 9.6 Responsive Rules
+
+- Desktop 변경 요청이 아니면 Desktop Regression을 피한다.
+- Component Responsive Rule을 우선한다.
+- 360·390·430·768·1024·1280·1440·1920px 중 Scope에 맞는 Matrix를 선택한다.
+- Browser와 Device 검증을 수행하지 않았다면 명시한다.
+
+### 9.7 Accessibility Rules
+
+- Semantic HTML
+- Keyboard
+- Focus
+- ARIA
+- Label
+- Contrast
+- Touch Target
+- Reduced Motion
+
+을 기능과 함께 구현한다.
+
+접근성을 후속 장식 작업으로 미루지 않는다.
+
+### 9.8 Working Tree Safety
+
+- 관련 없는 변경을 되돌리지 않는다.
+- 파괴적 Reset을 사용하지 않는다.
+- 기존 수정과 충돌하면 범위를 축소하거나 Escalation한다.
+- Auto-format으로 전체 파일을 불필요하게 변경하지 않는다.
+
+### 9.9 Output
+
+- Implemented Change
+- Changed Files
+- Reused Components·Tokens
+- Known Deviation
+
+---
+
+## 10. Step 7 — Quality Assurance
+
+### 10.1 Responsibility
+
+Implementation AI는 QA Evidence를 생성한다.
+
+Project Manager는 Acceptance와 Evidence를 검토해 QA Gate를 판단한다.
+
+High·Critical 변경은 독립 Reviewer가 필요하다.
+
+### 10.2 Minimum QA
+
+- [ ] 요구사항 충족
+- [ ] 디자인 일관성
+- [ ] Typography
+- [ ] Spacing
+- [ ] Alignment
+- [ ] Responsive
+- [ ] Accessibility
+- [ ] Interaction
+- [ ] Content
+- [ ] Console Error
+- [ ] Protected Area Regression
+- [ ] Documentation Consistency
+
+### 10.3 Conditional QA
+
+변경에 따라 추가한다.
+
+| Change | Additional QA |
+|---|---|
+| JavaScript | State, Event, Error, Memory, Console |
+| Form | Validation, Error, Success, Keyboard, Privacy |
+| Modal | Focus Trap, ESC, Overlay, Scroll Lock, Focus Return |
+| Navigation | Active, Dropdown, Keyboard, Mobile Menu |
+| Valuation | Calculation Regression, Calibration, Result State |
+| Asset | Format, Size, Alt, Crop, Lazy Loading |
+| SEO | Title, Meta, Heading, Link, Structured Data |
+| Performance | LCP, INP, CLS, Bundle, Network |
+
+### 10.4 Evidence Levels
+
+Chapter 1의 E0–E5 Evidence Level을 사용한다.
+
+최소 Claim은 실제 Evidence를 넘지 않는다.
+
+### 10.5 Browser and Device
+
+필요한 Matrix:
+
+- Chrome
+- Edge
+- Safari
+- Samsung Internet
+- In-app Browser
+
+Target Viewport:
+
+- 360
+- 390
+- 430
+- 768
+- 1024
+- 1280
+- 1440
+- 1920
+
+모든 작업에서 전체 Matrix를 기계적으로 실행하지는 않지만, Scope에 필요한 환경을 명시한다.
+
+### 10.6 QA Failure
+
+QA를 통과하지 못하면 Release하지 않는다.
+
+다음 중 하나로 처리한다.
+
+- Fix and Retest
+- Scope Reduction
+- Known Issue with Approved Exception
+- Defer
+- Reject
+
+### 10.7 Regression
+
+직접 변경한 영역뿐 아니라 Shared Consumer를 확인한다.
+
+Regression이 발견되면 원인과 수정 결과를 다시 검증한다.
+
+### 10.8 QA Report
+
+- Acceptance Status
+- Tests Performed
+- Environment
+- Evidence
+- Failed Items
+- N/A with Reason
+- Residual Risk
+- Release Recommendation
+
+상세 Gate는 `DESIGN_QA_GOVERNANCE.md`가 우선한다.
+
+---
+
+## 11. Step 8 — Documentation Update
+
+### 11.1 Principle
+
+모든 수정은 문서 변경 필요 여부를 확인한다.
+
+문서 변경이 필요하지 않다면 불필요하게 수정하지 않는다.
+
+### 11.2 Update Matrix
+
+| Change | Update |
+|---|---|
+| 기능·Public Change | `CHANGELOG.md` |
+| 새 Component·Contract | `COMPONENT_LIBRARY.md` |
+| 새 Pattern·Composition | 현재 Pattern Source |
+| 새 Design·UX Principle | `EQUIV_DESIGN_BIBLE.md` |
+| 새 Token·CSS Foundation | `DESIGN_SYSTEM.md` |
+| Asset Rule | `VISUAL_ASSET_GUIDE.md` |
+| Voice·Tone·Terminology | `CONTENT_UX_WRITING_SYSTEM.md` |
+| Page Role·Feature | `MASTER_SPEC.md` |
+| AI Operation·Workflow | `EQUIV_AI_OPERATING_MANUAL.md` |
+| QA·Release Rule | `DESIGN_QA_GOVERNANCE.md` |
+| Important Decision | `DECISION_LOG.md` |
+| Deferred Work | `TODO.md` |
+
+### 11.3 Pattern Note
+
+현재 독립 Pattern Library가 없으므로 Pattern 변경은 실제 Pattern Source에 기록한다.
+
+존재하지 않는 `PATTERN_LIBRARY.md`를 생성하거나 업데이트했다고 보고하지 않는다.
+
+### 11.4 No Duplicate Documentation
+
+Primary Source를 갱신하고 다른 문서에는 참조만 추가한다.
+
+동일 규칙을 여러 문서에 복사해 독립 관리하지 않는다.
+
+### 11.5 Changelog
+
+실제 사용자·개발·운영 결과가 변경되면 Changelog를 기록한다.
+
+단순 조사, 실패한 시도 또는 변경 없는 Review는 Release Change처럼 기록하지 않는다.
+
+### 11.6 Output
+
+- Updated Documents
+- No-update Reason
+- Decision Log Trigger
+- Deferred TODO
+
+---
+
+## 12. Step 9 — Release
+
+### 12.1 Release Preconditions
+
+- [ ] Acceptance 충족
+- [ ] QA 완료
+- [ ] 필수 문서 반영
+- [ ] Changelog 작성
+- [ ] Blocker 0
+- [ ] Open Risk 기록
+- [ ] Rollback 확인
+- [ ] 프로젝트 일관성 유지
+- [ ] Project Owner 승인
+
+### 12.2 Release Types
+
+| Type | Meaning |
+|---|---|
+| Documentation Handoff | 문서 승인·검토 가능한 상태 |
+| Local Verification | 개발 환경 검증 완료 |
+| Release Candidate | Production 전 QA·승인 준비 |
+| Production Release | Owner 승인 후 실제 배포 |
+| Hotfix Release | 승인된 긴급 Production 수정 |
+
+### 12.3 Owner Approval
+
+Project Manager는 QA Gate와 Release Recommendation을 제공한다.
+
+Project Owner 승인 후 Production Release한다.
+
+Implementation AI는 명시적인 배포 권한이 있는 경우에만 배포한다.
+
+### 12.4 Release Record
+
+- Version
+- Scope
+- QA Evidence
+- Approved By
+- Release Target
+- Rollback
+- Known Issue
+- Monitoring Plan
+
+### 12.5 Post-release
+
+Production Release 후:
+
+- Smoke Test
+- Monitoring
+- Error 확인
+- User Flow 확인
+- Incident 대응
+- Documentation Finalization
+
+을 수행한다.
+
+### 12.6 No False Release
+
+Source 수정 또는 Local Test만으로 Released라고 보고하지 않는다.
+
+Production 확인이 없으면 `Not Released` 또는 `Release Ready`로 표현한다.
+
+---
+
+## 13. Modification Principles
+
+### 13.1 Maintain Before Replace
+
+기존 구조가 유효하면 유지한다.
+
+교체는 유지로 해결할 수 없을 때 검토한다.
+
+### 13.2 Replace Before Rewrite
+
+문제 영역을 국소적으로 교체할 수 있다면 전체를 다시 작성하지 않는다.
+
+Rewrite는:
+
+- 현재 구조가 요구사항을 충족할 수 없고
+- Migration과 Regression 비용이 정당화되며
+- 승인된 Plan이 있을 때
+
+만 수행한다.
+
+### 13.3 Reuse Before Create
+
+Component, Pattern, Token, Copy와 Asset을 재사용한다.
+
+### 13.4 Small Changes First
+
+작은 단위로 수정하고 검토하고 QA한다.
+
+### 13.5 Quality Before Speed
+
+속도를 이유로 QA, 접근성과 문서를 생략하지 않는다.
+
+### 13.6 Documentation First
+
+구현 전 관련 문서를 확인한다.
+
+문서가 낡았으면 이를 기록하고 승인된 방식으로 동기화한다.
+
+### 13.7 Minimal Change, Maximum Quality
+
+AI는 기존 프로젝트를 최대한 유지하면서 최소한의 수정으로 문제를 해결한다.
+
+---
+
+## 14. Standard Workflows
+
+### 14.1 Bug Fix
+
+`Request → Reproduce → Root Cause → Impact → Fix → Regression QA → Changelog → Release`
+
+Required:
+
+- 실제 재현
+- 원인과 증상 구분
+- 임시 우회보다 Root Cause 수정
+- 관련 Consumer 확인
+- Regression Test
+
+완전히 재현하지 못하면 추측 Fix를 적용하지 않는다.
+
+### 14.2 UI Improvement
+
+`Request → Design Bible → Component·Token Review → Impact → Modify → Visual·Responsive QA → Changelog → Release`
+
+Do Not:
+
+- 새 Design Language 도입
+- Page 전용 임의 값 추가
+- 다른 Page의 Typography를 우발적으로 변경
+
+### 14.3 UX Improvement
+
+`Request → User Problem → Existing Pattern → Flow Impact → Plan → Implement → Task·A11y QA → Documentation → Release`
+
+확인:
+
+- 사용자의 다음 행동
+- State 변화
+- Error·Success
+- Keyboard·Focus
+- Mobile Action Priority
+
+### 14.4 New Page
+
+`Request → MASTER_SPEC → Page Role Approval → Existing Pattern → Component Reuse → Content → Implementation → Full QA → Documentation → Release`
+
+Required:
+
+- Architecture 안의 명확한 Page Role
+- 기존 Page와 중복되지 않는 목적
+- 승인된 Template·Composition
+- Navigation·SEO·Responsive·Accessibility
+
+### 14.5 Content Update
+
+`Request → Content Source → Actual Output Search → Copy Change → Content·Layout QA → Changelog → Handoff`
+
+HTML만 수정하지 않는다.
+
+JavaScript, Data, Template와 Modal에서 실제 출력되는 Source를 확인한다.
+
+### 14.6 Responsive Fix
+
+`Request → Target Device → Existing Component Rule → Impact → Mobile·Tablet·Desktop Isolation → Device QA → Changelog → Release`
+
+한 Breakpoint 수정이 다른 Device에 영향을 주지 않는지 확인한다.
+
+### 14.7 Accessibility Improvement
+
+`Request → WCAG·Component Contract → User Task → Implement → Keyboard·Focus·Screen Reader·Zoom QA → Documentation → Release`
+
+시각적 결과만으로 완료하지 않는다.
+
+### 14.8 Performance Optimization
+
+`Request → Baseline → Bottleneck → Hypothesis → Minimal Change → Measure → Regression QA → Documentation → Release`
+
+측정 전후 환경을 동일하게 유지한다.
+
+측정하지 않은 개선을 성능 향상이라고 단정하지 않는다.
+
+### 14.9 Component Update
+
+`Request → Consumer Inventory → Contract → Impact → Version·Migration → Implementation → Component·Consumer QA → Documentation → Release`
+
+Shared Component는 한 Page만 보고 수정하지 않는다.
+
+### 14.10 Feature Enhancement
+
+`Request → Business Goal → Existing Feature → Scope → Risk → Plan → Implement → Functional·A11y·Performance QA → Documentation → Owner Approval → Release`
+
+Feature가 Page Role이나 External Integration을 바꾸면 Owner 승인이 필요하다.
+
+### 14.11 Refactoring
+
+`Request → Behavior Baseline → Dependency → Plan → Refactor → Equivalence Test → Regression QA → Changelog → Release`
+
+Refactoring은 외부 동작을 변경하지 않는다.
+
+동작 변경이 필요하면 별도 Feature 또는 Bug Fix로 분리한다.
+
+### 14.12 Documentation Change
+
+`Request → Document Inventory → Authority·Conflict Review → Edit → Cross-reference QA → Changelog·Decision → Handoff`
+
+UI·기능이 변경되지 않았다면 Browser·Production Release를 허위로 보고하지 않는다.
+
+### 14.13 Hotfix
+
+`Incident → Triage → Minimal Safe Fix → Critical QA → Owner Approval → Release → Monitor → Full Documentation → Follow-up`
+
+Hotfix는 Governance를 생략하는 절차가 아니다.
+
+시간을 줄이되 Risk, 승인과 기록은 유지한다.
+
+---
+
+## 15. Escalation Rules
+
+### 15.1 Immediate Owner Escalation
+
+다음 상황에서는 즉시 Project Owner와 협의한다.
+
+- Brand 변경
+- Information Architecture 변경
+- Design System의 Breaking 변경
+- 핵심 구조 변경
+- 신규 기능 추가
+- Release 일정 변경
+- 개인정보·법률 Risk
+- Valuation Logic 변경
+- External Integration
+- Production Incident
+- Rollback 불가
+
+AI는 독자적으로 이러한 변경을 결정하지 않는다.
+
+### 15.2 PM Escalation Record
+
+- Issue
+- Current State
+- Affected Scope
+- Risk
+- Options
+- Recommendation
+- Required Decision
+
+### 15.3 Work Stop Conditions
+
+- Acceptance가 불명확하다.
+- 필수 Source가 없다.
+- 보호 영역을 훼손해야 한다.
+- 사용자 작업과 충돌한다.
+- 승인 범위를 넘어간다.
+- QA를 수행할 수 없다.
+- 성공을 사실대로 검증할 수 없다.
+
+### 15.4 Continue Safely
+
+영향이 작고 가역적인 세부 사항은 가장 안전한 기존 Pattern을 사용해 진행할 수 있다.
+
+가정과 결과를 보고한다.
+
+---
+
+## 16. Workflow Records and Templates
+
+### 16.1 Work Intake
+
+```text
+Request:
+Type:
+Goal:
+Target:
+Must Keep:
+Do Not Change:
+Expected Result:
+```
+
+### 16.2 Requirement Brief
+
+```text
+Problem:
+Goal:
+In Scope:
+Out of Scope:
+Protected:
+Acceptance:
+Open Questions:
+```
+
+### 16.3 Impact Summary
+
+```text
+Affected Pages:
+Affected Components:
+Affected Pattern:
+Responsive:
+Accessibility:
+JavaScript/Data:
+SEO:
+Performance:
+Documentation:
+Risk:
+Rollback:
+```
+
+### 16.4 Implementation Plan
+
+```text
+Purpose:
+Files:
+Reuse:
+Steps:
+QA:
+Documentation:
+Done:
+```
+
+### 16.5 QA Record
+
+```text
+Acceptance:
+Environment:
+Tests:
+Passed:
+Failed:
+N/A and Reason:
+Evidence:
+Residual Risk:
+Recommendation:
+```
+
+### 16.6 Completion Report
+
+```text
+Outcome:
+Changed Files:
+Reused Assets:
+QA:
+Not Verified:
+Documentation:
+Known Risk:
+Release Status:
+Next Step:
+```
+
+---
+
+## 17. Operational Checklists
+
+### 17.1 Request
+
+- [ ] Request Type을 분류했는가?
+- [ ] Goal과 Expected Result가 명확한가?
+- [ ] Must Keep과 Do Not Change가 있는가?
+- [ ] 요청 범위를 불필요하게 넓히지 않았는가?
+
+### 17.2 Requirement
+
+- [ ] Problem Statement가 명확한가?
+- [ ] In Scope와 Out of Scope가 분리되었는가?
+- [ ] Protected Area가 정의되었는가?
+- [ ] Acceptance가 검증 가능한가?
+- [ ] 필요한 Clarification을 완료했는가?
+
+### 17.3 Documentation
+
+- [ ] Operating Manual과 AI Rules를 확인했는가?
+- [ ] Master Spec에서 Page Role을 확인했는가?
+- [ ] Design Bible을 확인했는가?
+- [ ] Existing Component를 확인했는가?
+- [ ] 실제 Pattern Source를 확인했는가?
+- [ ] Design System Token을 확인했는가?
+- [ ] 관련 Asset·Content·Domain 문서를 확인했는가?
+- [ ] Decision, Changelog와 TODO를 확인했는가?
+
+### 17.4 Impact
+
+- [ ] 다른 Page 영향이 있는가?
+- [ ] Shared Component Consumer를 확인했는가?
+- [ ] Responsive 영향을 확인했는가?
+- [ ] Accessibility 영향을 확인했는가?
+- [ ] JavaScript·Data 영향을 확인했는가?
+- [ ] SEO·Performance 영향을 확인했는가?
+- [ ] Risk와 Rollback을 정의했는가?
+
+### 17.5 Plan
+
+- [ ] 수정 대상이 명확한가?
+- [ ] 재사용 대상이 명확한가?
+- [ ] 작업 순서가 있는가?
+- [ ] QA 항목이 있는가?
+- [ ] 완료 기준이 있는가?
+
+### 17.6 Development
+
+- [ ] 기존 Component와 Pattern을 재사용했는가?
+- [ ] Token을 사용했는가?
+- [ ] 중복 Code와 CSS를 만들지 않았는가?
+- [ ] 관련 없는 변경을 보존했는가?
+- [ ] Accessibility를 기능과 함께 구현했는가?
+- [ ] Plan 범위를 벗어나지 않았는가?
+
+### 17.7 QA
+
+- [ ] Acceptance를 검증했는가?
+- [ ] Visual·Responsive를 확인했는가?
+- [ ] Keyboard·Focus·ARIA를 확인했는가?
+- [ ] Interaction과 State를 확인했는가?
+- [ ] Console Error를 확인했는가?
+- [ ] Shared Consumer Regression을 확인했는가?
+- [ ] 실제 Evidence 수준에 맞게 보고했는가?
+
+### 17.8 Documentation
+
+- [ ] Changelog 필요 여부를 확인했는가?
+- [ ] Component·Pattern·Token 문서 필요 여부를 확인했는가?
+- [ ] Decision Log Trigger를 확인했는가?
+- [ ] Deferred Work를 TODO에 기록했는가?
+- [ ] 문서와 구현이 일치하는가?
+
+### 17.9 Release
+
+- [ ] QA Gate를 통과했는가?
+- [ ] Blocker가 0인가?
+- [ ] Open Risk가 기록되었는가?
+- [ ] Rollback이 가능한가?
+- [ ] Project Owner 승인이 있는가?
+- [ ] 실제 Release Target을 확인했는가?
+- [ ] Release와 Handoff를 혼동하지 않았는가?
+
+---
+
+## 18. Success Criteria
+
+- [ ] 모든 작업이 동일한 절차로 진행된다.
+- [ ] 분석 후 구현이 이루어진다.
+- [ ] 문서를 먼저 확인한다.
+- [ ] Work가 구현 범위를 벗어나지 않는다.
+- [ ] 영향 분석과 Plan이 Risk에 맞게 수행된다.
+- [ ] 기존 Component·Pattern·Token을 재사용한다.
+- [ ] QA가 항상 수행되거나 N/A 근거가 기록된다.
+- [ ] Changelog와 필요한 전문 문서가 유지된다.
+- [ ] Project Owner 승인 없이 Production Release하지 않는다.
+- [ ] 완료, Release Ready와 Released가 구분된다.
+- [ ] 프로젝트 일관성이 유지된다.
+- [ ] Release 품질이 지속적으로 향상된다.
+
+---
+
+## 19. PM Note
+
+Development Workflow의 목적은 개발 속도를 높이는 것이 아니다.
+
+프로젝트 품질을 일정하게 유지하는 것이다.
+
+EQUIV는 매번 새롭게 만드는 프로젝트가 아니라 완성된 제품을 지속적으로 개선하는 프로젝트다.
+
+따라서 모든 수정은 **최소한의 변경으로 최대한의 품질을 유지한다**는 원칙 아래 수행한다.
+
+이 Workflow는 향후 유지보수, 기능 확장과 신규 AI 참여 시에도 동일하게 적용되는 EQUIV의 Standard Operating Procedure다.
+
+빠른 구현은 좋은 결과가 아니다.
+
+정확한 분석, 작은 변경, 충분한 검증과 사실 기반 보고가 좋은 결과다.

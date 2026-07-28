@@ -2,6 +2,8 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 4 Development & Modification Workflow 문서화
+- [x] QA Governance의 Official Flow·Project Owner Release 승인·Work 문서 확인 순서 동기화
 - [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 3 Documentation Priority & Decision Rules 문서화
 - [x] Domain Source of Truth, Accepted Decision, Changelog와 현재 Pattern Source의 권한 구분
 - [x] `EQUIV_AI_OPERATING_MANUAL.md` v1.0 Chapter 2 AI Roles & Responsibilities 문서화
