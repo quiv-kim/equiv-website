@@ -231,7 +231,7 @@ Component Role은 `Hero Main Title = Display / Page Hero H1 = H1 / Section Title
 - Hero 제목은 `--mobile-display(26px)`과 `1.24` 행간을 사용하며 기존보다 굵게 만들지 않는다.
 - Hero Brand Label은 `--mobile-small(13px)`과 기존 Weight·Letter Spacing을 유지한다.
 - Hero CTA는 기존 폭과 Radius를 유지하고 높이 `48px`, 글자 `16px`, 버튼 간격 `8px`을 사용한다.
-- Mobile Container Gutter `20px`을 Hero에도 적용하며 현재 Hero에는 별도 Description을 추가하지 않는다.
+- Mobile Container Gutter `20px`을 Hero에도 적용하며 한 줄 Description은 공통 `Body Large` 역할로 표시한다.
 - Mobile Header 높이·Logo·Menu·Padding과 Hero 이미지·색상·Scroll Indicator는 변경하지 않는다.
 
 ### QA-03 Mobile Density

@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.1 - Hero Section Copy Refinement
+
+- HOME Hero Main Title을 `기업의 가치를 이해합니다.`로 변경
+- Subtitle `가장 적합한 상대를 찾아 성공적인 M&A를 완성합니다.` 추가
+- 기존 Hero Component의 Optional Description 구조와 Typography·Spacing·Motion Token을 재사용
+- Header, Navigation, Hero 이미지·Overlay, CTA, Layout, Scroll과 Design Token 값은 변경하지 않음
+- `MASTER_SPEC`, `CONTENT_UX_WRITING_SYSTEM`, `COPY_GUIDE`, `DESIGN_SYSTEM`의 HOME Hero 기준을 최신 카피와 동기화
+
 ## EQUIV AI Operating Manual v1.0 - Appendix A Golden Rules
 
 - Understand Before You Change, Documents First, Reuse Before Create와 Consistency Wins 원칙 확정

@@ -904,6 +904,15 @@ button {
   display: block;
 }
 
+.hero-description {
+  margin: var(--space-md) 0 0;
+  color: var(--color-on-primary-body);
+  font-size: var(--type-body-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
 .hero-brand-identity {
   display: inline-flex;
   align-items: center;
@@ -990,6 +999,7 @@ button {
 }
 
 .hero h1,
+.hero-description,
 .hero-actions {
   opacity: 0;
   animation: equiv-hero-enter var(--motion-duration-fade) var(--motion-ease-standard) both;
@@ -999,6 +1009,10 @@ button {
 .scroll-indicator {
   opacity: 0;
   animation: equiv-hero-fade var(--motion-duration-fade) var(--motion-ease-standard) both;
+}
+
+.hero-description {
+  animation-delay: var(--motion-delay-hero-description);
 }
 
 .hero-actions {
@@ -6036,6 +6050,7 @@ button {
   .site-header .equiv-logo-wordmark,
   .hero-brand-identity,
   .hero h1,
+  .hero-description,
   .hero-actions,
   .scroll-indicator,
   [data-reveal],
@@ -6054,6 +6069,7 @@ button {
   .site-header .equiv-logo-wordmark,
   .hero-brand-identity,
   .hero h1,
+  .hero-description,
   .hero-actions,
   .scroll-indicator,
   [data-reveal],
