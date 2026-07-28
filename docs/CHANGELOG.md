@@ -1,5 +1,16 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.4 - Trust & Credibility Enhancement
+
+- About 소개 문구를 기업가치·거래 가능성 검토, 거래상대방 발굴, 협상·자료 검토와 거래 마무리 지원 범위로 구체화
+- 근거가 확인되지 않은 `20년 이상`, `Mid-Market`과 특정 산업 전문성 문구는 추가하지 않음
+- HOME Title, Meta Description, Keywords와 Open Graph 문구를 `기업의 가치를 이해하는 M&A 중개·자문` Positioning으로 통일
+- Open Graph에 공식 Site Name, Locale, 접근 가능한 공개 Image URL과 Image Alt를 추가하고 `example.com` Placeholder 제거
+- 실제 운영 도메인이 아직 구성되지 않아 canonical과 `og:url`은 추정값을 넣지 않고 운영 도메인 확정 후 적용하도록 보류
+- Contact의 `평균 1영업일`, 상담 완료의 `영업일 기준 1~2일` 약속을 삭제하고 담당자 검토 후 연락 절차로 통일
+- HOME과 Modal의 거래 준비도 설명을 상담 참고자료로 명시하고 기업가치·거래가격 산정 기능과 구분
+- Layout, Typography, Component, Color, Design Token, Animation, Responsive와 Navigation은 변경하지 않음
+
 ## Sprint 7.2 - Homepage Copy & UI Polishing
 
 - HOME Hero Subtitle을 의미 단위 두 줄로 고정하여 Mobile의 한 글자 고립 줄바꿈 제거

@@ -2,6 +2,9 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] Sprint 7.4 About 신뢰 문구를 확인 가능한 거래 지원 범위로 구체화
+- [x] HOME SEO·Open Graph 문구 동기화 및 `example.com` Placeholder 제거
+- [x] Contact 응답시간 약속 제거와 거래 준비도 참고자료·비산정 범위 명확화
 - [x] Sprint 7.2 HOME Copy·Typography·Spacing·Layout Balance 종합 검수
 - [x] 1440·1200·768·390px Responsive 및 접근성·상호작용 QA
 - [x] Hero Subtitle 줄바꿈, Principle·Expertise·Readiness 카피와 제목 Balance Wrapping 개선
@@ -99,7 +102,7 @@ Phase 5
 - [x] Header EQUIV Wordmark 자간과 Desktop·Tablet·Mobile Lockup 비례 최종 정리
 - [x] 360·390·430·768px 기준 HOME·상세페이지·공통 Modal Mobile Experience 최적화
 - [ ] Contact 이메일 주소 확정
-- [ ] `og:url`, `og:image`, 메타 정보 실제 도메인 기준으로 교체
+- [ ] 실제 운영 도메인 확정 후 canonical과 `og:url` 절대 URL 적용
 - [ ] 최종 배포 전 링크 전체 검수
 
 - [x] Sprint 9.1 Mobile 전용 Typography Scale 정제

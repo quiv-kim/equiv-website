@@ -146,7 +146,7 @@
           <p class="section-kicker">SUCCESS</p>
           <h2>상담 신청이 완료되었습니다.</h2>
           <p>상담 신청이 정상적으로 접수되었습니다.</p>
-          <p>담당자가 내용을 확인한 후<br>영업일 기준 1~2일 이내 연락드리겠습니다.</p>
+          <p>담당자가 내용을 확인한 후<br>연락드리겠습니다.</p>
           <p>필요한 자료는 상담 과정에서 별도로 안내드리며,<br>상담 내용은 비밀유지 원칙에 따라 안전하게 관리됩니다.</p>
           <p class="consultation-modal__static-notice" data-development-notice>현재 정적 버전에서는 입력 내용이 실제로 전송되거나 저장되지 않습니다.</p>
           <button class="btn btn-primary" type="button" data-consultation-confirm>확인</button>

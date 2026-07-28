@@ -104,7 +104,7 @@ Modal은 `Header / M&A 상담 안내 / 상담 신청 Form / 개인정보 수집 
 
 Submit Success도 동일한 Modal 안에서 전환하며 별도 페이지로 이동하지 않는다. 우측 상단 닫기, ESC, Overlay 클릭과 Success 확인 버튼으로 닫을 수 있어야 하고, Focus Trap, Tab 이동, ARIA 상태와 호출 요소로의 Focus 복원을 지원한다.
 
-Success 화면은 56~64px Gold Outline Check Icon과 `상담 신청이 완료되었습니다.` 제목을 사용한다. 접수 확인, 영업일 기준 1~2일 이내 연락, 자료 안내와 비밀유지 원칙을 차분하게 전달하며 과도한 축하 표현이나 애니메이션을 사용하지 않는다. 확인 버튼과 Enter는 Modal을 닫고, 페이지 Scroll 위치를 바꾸지 않은 채 호출 요소로 Focus를 복원한다. 정적 전송 안내는 localhost, 로컬 파일과 `.local` 환경에서만 표시하고 Production에서는 숨긴다.
+Success 화면은 56~64px Gold Outline Check Icon과 `상담 신청이 완료되었습니다.` 제목을 사용한다. 접수 확인, 담당자 검토 후 연락, 자료 안내와 비밀유지 원칙을 차분하게 전달하며 과도한 축하 표현이나 애니메이션을 사용하지 않는다. 확인 버튼과 Enter는 Modal을 닫고, 페이지 Scroll 위치를 바꾸지 않은 채 호출 요소로 Focus를 복원한다. 정적 전송 안내는 localhost, 로컬 파일과 `.local` 환경에서만 표시하고 Production에서는 숨긴다.
 
 Consultation Modal은 `consultation`과 `success`의 두 상태로 관리한다. Success 전환 시 Body만 교체하지 않고 Header도 `SUCCESS / 상담 신청 완료 / 상담 신청이 정상적으로 접수되었습니다.`로 변경한다. Header 우측은 입력 안내 대신 비밀유지 원칙과 필요 시 NDA 체결 안내를 표시한다. Header와 Body는 약 0.28초의 짧은 Fade 전환으로 동시에 바뀌며, Modal 크기·Typography·Spacing·Color System은 유지한다. 상태에 따라 Dialog의 `aria-labelledby`와 `aria-describedby`도 함께 갱신한다.
 
@@ -185,6 +185,8 @@ Sprint 7.5 이후 HOME은 서비스 설명보다 브랜드 경험과 상담 유�
 
 `M&A 준비도 진단`은 Featured Expertise와 분리된 EQUIV의 Signature Experience이다. 사용자는 HOME에서 `Deal Readiness Check` 모달을 열어 현재 거래 준비 상태를 간단히 확인할 수 있다. 이 기능은 기업가치 계산기나 가격 산정 도구가 아니며, 거래 준비 상태를 이해하고 상담으로 자연스럽게 연결하기 위한 초기 진단 경험으로 운영한다.
 
+HOME 안내와 Modal은 결과가 상담을 위한 참고자료임을 명시하고, 기업가치나 거래가격을 산정하는 기능으로 오해할 수 있는 표현을 사용하지 않는다.
+
 `THE EQUIV PRINCIPLE` 영역은 서비스 설명이 아니라 EQUIV의 거래 철학을 보여주는 Brand Manifesto 역할을 한다. 핵심 메시지는 `좋은 거래는 올바른 원칙에서 시작됩니다.`로 운영하며, `가치 / 전략 / 신뢰`의 세 원칙을 짧고 명확하게 전달한다. 별도의 하단 영문 슬로건이나 반복 설명은 사용하지 않는다.
 
 #### Home Hero Principle
@@ -194,6 +196,8 @@ Hero는 브랜드를 기억시키는 공간이다. 회사소개를 하지 않고
 HOME Hero 상단은 `EQUIV (이퀴브) │ M&A 중개·자문 브랜드`, 메인 제목은 `기업의 가치를 이해합니다.`, Subtitle은 `가장 적합한 상대를 찾아 / 성공적인 M&A를 완성합니다.`의 두 줄로 운영한다. 별도의 회사소개나 장문의 설명 문단을 두지 않으며 CTA는 `기업 매각 상담`을 Primary, `기업 인수 상담`을 Secondary로 유지한다.
 
 Hero의 브랜드 영역, 메인 제목과 CTA는 하나의 콘텐츠 그룹으로 관리하며 화면 정중앙보다 약간 위에 배치한다. 브랜드 영역과 제목은 하나의 메시지처럼 가깝게 연결하고, 제목과 CTA 사이에는 메시지를 읽은 뒤 행동으로 전환할 수 있는 충분한 여백을 둔다. Desktop·Tablet·Mobile에서 Hero 높이와 버튼 디자인은 유지하면서 콘텐츠 그룹의 수직 균형을 우선한다.
+
+HOME의 Title, Meta Description과 Open Graph 문구는 Hero의 `기업의 가치를 이해합니다.`와 M&A 중개·자문 역할을 동일하게 반영한다. canonical과 `og:url`은 실제 운영 도메인이 확인된 경우에만 절대 URL로 제공하며 `example.com` 같은 Placeholder를 배포하지 않는다.
 
 About EQUIV에서는 EQUIV가 어떤 브랜드인지, 브랜드를 만든 이유, M&A 중개 중심 철학과 거래 지원 방식을 자연스럽게 설명한다.
 
@@ -217,6 +221,8 @@ About EQUIV는 회사 연혁, 대표 인사말, 조직도를 소개하는 페이
 #### About Page Principle
 
 About 페이지는 회사를 장황하게 설명하지 않는다. EQUIV가 하는 일, M&A 중개 철학과 거래 진행 방식만 짧고 명확하게 전달한다. 브랜드 경험은 설명보다 실제 서비스와 상담 과정에서 확인하도록 한다.
+
+About의 신뢰 정보는 화면에 공개된 실제 업무 범위인 기업가치·거래 가능성 검토, 거래상대방 발굴, 협상·자료 검토와 거래 마무리 지원을 중심으로 작성한다. 경력 연수, 거래 실적, Mid-Market Positioning과 특정 산업 전문성은 검증 가능한 공식 근거가 있을 때만 사용한다.
 
 `How We Work`는 `이해 / 검토 / 설계 / 연결 / 진행`의 다섯 단계로 구성한다. Desktop에서는 한 줄 가로형, Tablet에서는 3개와 2개의 자연스러운 흐름, Mobile에서는 세로형으로 전환한다. 단계 번호, 한글 제목과 실제 업무 중심 설명만 사용하며 강한 그림자, 큰 아이콘과 과도한 장식은 사용하지 않는다.
 
