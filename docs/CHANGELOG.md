@@ -1,5 +1,12 @@
 # EQUIV M&A Website Changelog
 
+## Release Checklist v1.0.0
+
+- `RELEASE_CHECKLIST.md`를 v1.0.0 Release Gate 실행 문서로 추가
+- Brand, UI, 기능, Responsive, Browser, Performance, SEO, Accessibility, Security, Content, Repository와 Deployment 최종 점검 항목 정의
+- `DESIGN_QA_GOVERNANCE.md`와 AI Operating Manual의 Release 승인 체계를 유지하고 Project Owner의 명시적 승인 원칙 연결
+- 미검증 상태에서 Release Ready를 선언하지 않도록 초기 상태를 `Draft`로 설정
+
 ## Sprint 7.4 - Trust & Credibility Enhancement
 
 - About 소개 문구를 기업가치·거래 가능성 검토, 거래상대방 발굴, 협상·자료 검토와 거래 마무리 지원 범위로 구체화
