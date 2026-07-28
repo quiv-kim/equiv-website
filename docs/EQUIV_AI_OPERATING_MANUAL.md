@@ -17,6 +17,10 @@ Applies To: ChatGPT, Codex, Work, Human Contributors and Future AI Operators
 5. Quality Assurance
 6. Release & Version Management
 
+## Manual Appendices
+
+A. Golden Rules
+
 ---
 
 ## Chapter 1 Contents
@@ -6228,3 +6232,497 @@ Version 숫자를 올리는 것보다 중요한 것은 사용자가 받은 결�
 안정적인 Release는 느린 Release가 아니다.
 
 Scope가 명확하고, QA가 충분하며, 문서와 Rollback이 준비된 예측 가능한 Release다.
+
+---
+
+# Appendix A. Golden Rules
+
+Version 1.0
+Status: Approved Draft
+
+---
+
+## Purpose
+
+Golden Rules는 EQUIV 프로젝트 운영 시 모든 AI와 모든 참여자가 반드시 지켜야 하는 최상위 운영 원칙이다.
+
+이 원칙은 프로젝트가 성장해도 유지되는 기준이며 모든 작업과 의사결정의 출발점이다.
+
+Golden Rules는 전문 문서의 세부 규칙을 다시 정의하지 않는다.
+
+- Page Role은 `MASTER_SPEC.md`
+- Design은 `EQUIV_DESIGN_BIBLE.md`
+- Token은 `DESIGN_SYSTEM.md`
+- Component는 `COMPONENT_LIBRARY.md`
+- QA·Release Gate는 `DESIGN_QA_GOVERNANCE.md`
+
+를 따른다.
+
+Golden Rules는 해당 규칙을 어떤 태도로 적용할지를 정의한다.
+
+### Governance
+
+Golden Rules의 변경은 일반 문서 수정이 아니다.
+
+변경하려면:
+
+- Project Owner 승인
+- 영향 분석
+- Accepted Decision
+- 관련 Chapter와 AI Rules 동기화
+- Changelog
+
+가 필요하다.
+
+---
+
+## The 10 Golden Rules
+
+### Rule 1 — Understand Before You Change
+
+변경하기 전에 먼저 프로젝트를 이해한다.
+
+추측으로 구현하지 않는다.
+
+항상 요구사항, 관련 문서와 실제 Source를 먼저 검토한다.
+
+#### Required Behavior
+
+- 요청의 목적을 확인한다.
+- 현재 동작을 재현·관찰한다.
+- Page Role과 보호 영역을 확인한다.
+- 실제 Consumer와 Data Flow를 확인한다.
+- 모르는 상태를 사실처럼 단정하지 않는다.
+
+#### Decision Test
+
+- 무엇을 왜 바꾸는지 설명할 수 있는가?
+- 현재 동작을 Evidence로 확인했는가?
+- 변경하지 말아야 할 영역을 알고 있는가?
+
+하나라도 `아니오`라면 구현 전에 조사한다.
+
+#### Anti-pattern
+
+- 파일명만 보고 역할을 추측한다.
+- Screenshot만 보고 Data Flow를 단정한다.
+- 재현 없이 Bug Fix를 적용한다.
+- “아마 그럴 것”을 완료 보고에 사용한다.
+
+---
+
+### Rule 2 — Documents First
+
+코드보다 문서를 먼저 확인한다.
+
+운영 시작 기준:
+
+1. `EQUIV_AI_OPERATING_MANUAL.md`
+2. `AI_RULES.md`
+
+Task의 기본 Domain 순서:
+
+1. `MASTER_SPEC.md`
+2. `EQUIV_DESIGN_BIBLE.md`
+3. `DESIGN_SYSTEM.md`
+4. `COMPONENT_LIBRARY.md`
+5. 현재 Pattern Source
+6. `VISUAL_ASSET_GUIDE.md`
+7. `CONTENT_UX_WRITING_SYSTEM.md`
+8. 관련 Domain Specification
+9. `DESIGN_QA_GOVERNANCE.md`
+10. `DECISION_LOG.md`, `CHANGELOG.md`, `TODO.md`
+
+현재 독립 `PATTERN_LIBRARY.md`는 없다.
+
+Pattern Source는:
+
+- `COMPONENT_LIBRARY.md`의 Composition·Page Map
+- `SERVICE_PAGE_TEMPLATE.md`
+
+이다.
+
+기존 문서가 답을 가지고 있다면 새로운 규칙을 만들지 않는다.
+
+#### Required Behavior
+
+- 변경 Domain의 Source of Truth를 찾는다.
+- Accepted Decision과 최근 변경을 확인한다.
+- 문서와 구현이 다르면 원인을 확인한다.
+- 존재하지 않는 문서를 확인했다고 보고하지 않는다.
+
+#### Decision Test
+
+- 어떤 문서가 이 결정의 Authority인지 말할 수 있는가?
+- 최신 Accepted Decision이 반영되었는가?
+- 문서가 실제 Source와 일치하는가?
+
+#### Anti-pattern
+
+- 개인 선호를 문서보다 우선한다.
+- Changelog를 Design Rule처럼 사용한다.
+- TODO를 현재 기능의 Specification처럼 사용한다.
+- 문서를 읽지 않고 Override를 추가한다.
+
+---
+
+### Rule 3 — Reuse Before Create
+
+새로운 것을 만들기 전에 기존 것을 재사용한다.
+
+다음은 기존 자산으로 해결할 수 없는 경우에만 추가한다.
+
+- Component
+- Pattern
+- Style
+- Token
+- Rule
+- Copy
+- Asset
+
+#### Reuse Order
+
+`Existing → Variant → State → Composition → Minimal Extension → Create`
+
+#### Required Behavior
+
+- Component Inventory를 검색한다.
+- Existing Pattern Source를 확인한다.
+- Semantic·Component Token을 확인한다.
+- 동일 Action과 Terminology를 재사용한다.
+- 기존 Asset의 적합성·권리·품질을 검토한다.
+
+#### Decision Test
+
+- 기존 Component Variant로 해결 가능한가?
+- 새로운 자산이 둘 이상의 Consumer에 필요한가?
+- 추가 비용보다 재사용 가치가 큰가?
+
+#### Anti-pattern
+
+- Page 하나를 위한 유사 Component를 복제한다.
+- 같은 Button에 새 이름과 Style을 만든다.
+- 기존 Token과 같은 값의 새 Token을 추가한다.
+- 같은 문구를 HTML·JavaScript·Data에 독립 복사한다.
+
+---
+
+### Rule 4 — Consistency Wins
+
+창의성보다 일관성을 우선한다.
+
+모든 수정은 EQUIV의 브랜드 경험을 강화해야 한다.
+
+페이지마다 다른 디자인을 만드는 것이 아니라 하나의 브랜드를 만드는 것이 목표다.
+
+#### Required Behavior
+
+- 같은 역할에는 같은 Component를 사용한다.
+- 같은 정보 위계에는 같은 Typography를 사용한다.
+- 같은 State에는 같은 Interaction을 사용한다.
+- 같은 의미에는 같은 Terminology를 사용한다.
+- Page Role이 달라도 Brand Language는 유지한다.
+
+#### Decision Test
+
+- 기존 Page와 같은 Product로 보이는가?
+- 사용자에게 이미 학습한 Interaction을 제공하는가?
+- 새 차이가 Page Role 때문에 필요한가?
+
+#### Anti-pattern
+
+- 미적 취향만으로 Page별 Radius·Shadow를 바꾼다.
+- 같은 CTA에 다른 Label을 사용한다.
+- Mobile과 Desktop이 다른 브랜드처럼 보인다.
+- 한 화면의 개선 때문에 Shared Consumer가 흔들린다.
+
+---
+
+### Rule 5 — Small Changes, Big Stability
+
+작게 수정하고 자주 검토한다.
+
+큰 변경보다 작은 개선을 반복한다.
+
+모든 변경은 프로젝트 안정성을 유지해야 한다.
+
+#### Required Behavior
+
+- 하나의 Goal에 집중한다.
+- 영향과 Rollback 단위로 작업을 분리한다.
+- 작은 Diff를 유지한다.
+- 각 단계에서 Incremental QA를 수행한다.
+- Scope가 커지면 다시 계획한다.
+
+#### Decision Test
+
+- 더 작은 변경으로 같은 결과를 만들 수 있는가?
+- 이 변경을 독립적으로 되돌릴 수 있는가?
+- 관련 없는 Formatting·Refactoring이 포함됐는가?
+
+#### Anti-pattern
+
+- UI Fix와 Architecture Refactoring을 함께 수행한다.
+- 한 Sprint에 여러 독립 Goal을 묶는다.
+- 전체 파일을 재작성해 작은 문제를 해결한다.
+- “정리하는 김에” 관련 없는 코드를 변경한다.
+
+---
+
+### Rule 6 — Quality Is Non-negotiable
+
+QA를 통과하지 않은 구현은 완성이 아니다.
+
+속도보다 품질을 우선한다.
+
+Production Release는 최종 QA PASS 이후에만 가능하다.
+
+#### Required Behavior
+
+- Acceptance Criteria를 먼저 정의한다.
+- Work Self Review와 PM Review를 구분한다.
+- Scope와 Risk에 맞는 QA를 수행한다.
+- 미검증 환경은 `Not Verified`로 표시한다.
+- Revision 후 관련 QA와 Regression을 다시 수행한다.
+
+#### Decision Test
+
+- 최종 QA Result가 PASS인가?
+- 필수 Evidence가 있는가?
+- Blocker와 Critical Defect가 없는가?
+- Project Owner 승인이 있는가?
+
+#### Anti-pattern
+
+- Local Preview를 Production 검증처럼 보고한다.
+- 자동 Test만으로 Visual·A11y QA를 대체한다.
+- Minor Revision 상태를 Release한다.
+- 시간 부족을 N/A 또는 PASS 근거로 사용한다.
+
+---
+
+### Rule 7 — Every Change Has the Right Record
+
+중요한 변경은 기록한다.
+
+`CHANGELOG.md`는 프로젝트의 이력이다.
+
+`DECISION_LOG.md`는 프로젝트의 기억이다.
+
+필요한 변경은 반드시 기록하고 불필요한 기록은 남기지 않는다.
+
+#### Record Rule
+
+- 실제 변경: Changelog
+- 중요한 선택·예외: Decision Log
+- 미완료·미검증: TODO
+- Domain Contract: 해당 전문 문서
+- Release·Rollback: Release Record
+
+#### Required Behavior
+
+- 변경 후 Documentation Trigger를 확인한다.
+- Primary Source of Truth만 상세 갱신한다.
+- Accepted Decision의 History를 유지한다.
+- Release되지 않은 변경을 Released처럼 기록하지 않는다.
+
+#### Decision Test
+
+- 사용자가 결과 차이를 느끼는가?
+- System Contract가 바뀌는가?
+- 장기적으로 이유를 다시 물을 가능성이 있는가?
+- 미완료 작업이 남는가?
+
+#### Anti-pattern
+
+- 모든 작업 메모를 Changelog에 기록한다.
+- 중요한 구조 변경을 Changelog 한 줄로만 남긴다.
+- Decision을 삭제해 과거 Context를 지운다.
+- 문서 업데이트 없이 구현만 변경한다.
+
+---
+
+### Rule 8 — Respect Existing Architecture
+
+기존 구조를 존중한다.
+
+다음은 명확한 필요와 승인 없이 수행하지 않는다.
+
+- 불필요한 Refactoring
+- 불필요한 Redesign
+- 불필요한 Framework 변경
+- Page Role 통합
+- Core Logic 교체
+
+프로젝트는 계속 새롭게 만드는 것이 아니라 더 나아지게 만드는 것이다.
+
+#### Required Behavior
+
+- 현재 Architecture의 이유를 조사한다.
+- Shared Consumer와 Dependency를 확인한다.
+- Backward Compatibility를 유지한다.
+- Breaking Change에는 Proposal·Migration·Rollback을 준비한다.
+- 보호 영역을 명시적으로 검증한다.
+
+#### Decision Test
+
+- 현재 구조로 해결할 수 없는가?
+- 변경의 장기 가치가 Migration 비용보다 큰가?
+- Owner와 Reviewer가 승인했는가?
+
+#### Anti-pattern
+
+- 새로운 기술이 더 익숙하다는 이유로 교체한다.
+- 한 Page 문제로 Design System을 재구성한다.
+- 기존 기능을 삭제하고 비슷한 기능을 다시 만든다.
+- 사용자 요청 없이 Framework를 도입한다.
+
+---
+
+### Rule 9 — Human Makes the Final Decision
+
+AI는 분석하고 제안하고 구현하고 검증을 지원한다.
+
+다음의 최종 판단은 Project Owner가 결정한다.
+
+- Project Direction
+- Brand Direction
+- Production Release
+- Major·Breaking Change
+- Core Architecture
+- Privacy·Legal Business Decision
+- External Integration
+
+#### Required Behavior
+
+- AI의 Recommendation과 Approval을 구분한다.
+- PM QA Gate와 Owner Release Approval을 구분한다.
+- 중요 Risk와 Alternative를 Owner에게 제시한다.
+- 승인되지 않은 Scope를 실행하지 않는다.
+
+#### Decision Test
+
+- 이 결정이 Business·Brand·Release를 바꾸는가?
+- AI가 권고를 승인처럼 표현하고 있지 않은가?
+- Project Owner의 명시적인 결정이 있는가?
+
+#### Anti-pattern
+
+- QA PASS를 Production 승인으로 간주한다.
+- 구현 요청을 배포 권한으로 해석한다.
+- AI가 법률·회계 판단을 최종 확정한다.
+- Owner에게 알리지 않고 Breaking Change를 적용한다.
+
+---
+
+### Rule 10 — Create Less. Maintain Better.
+
+EQUIV 프로젝트의 가장 중요한 운영 철학이다.
+
+새로운 것을 만드는 것보다 기존 프로젝트를 더 완성도 있게 유지하는 것이 중요하다.
+
+모든 수정은 프로젝트를:
+
+- 더 단순하게
+- 더 안정적으로
+- 더 일관성 있게
+- 더 이해하기 쉽게
+- 더 검증 가능하게
+
+만들어야 한다.
+
+#### Required Behavior
+
+- 추가보다 제거·통합 가능성을 먼저 본다.
+- 새 Rule보다 기존 Rule의 정확한 적용을 우선한다.
+- 복잡도를 늘리면 그 이유와 Owner를 기록한다.
+- 유지보수 비용을 Acceptance에 포함한다.
+
+#### Decision Test
+
+- 이 변경이 사용자 가치를 높이는가?
+- 장기 유지보수가 쉬워지는가?
+- 불필요한 선택지와 중복이 줄어드는가?
+- 변경 후 프로젝트를 더 쉽게 설명할 수 있는가?
+
+#### Anti-pattern
+
+- 결과보다 코드·문서 양을 성과로 본다.
+- 신규 Component 수를 발전으로 본다.
+- 기능을 계속 추가해 핵심 User Flow를 흐린다.
+- 기존 품질보다 새로운 시각 효과를 우선한다.
+
+---
+
+## Daily Checklist
+
+작업을 시작하기 전에 다음 질문에 답한다.
+
+- [ ] 요구사항을 정확히 이해했는가?
+- [ ] 현재 동작과 실제 Source를 확인했는가?
+- [ ] Operating Manual과 AI Rules를 확인했는가?
+- [ ] 관련 Domain 문서를 확인했는가?
+- [ ] 기존 Component를 사용할 수 있는가?
+- [ ] 기존 Pattern Source를 사용할 수 있는가?
+- [ ] Design System을 따르고 있는가?
+- [ ] 최소한의 변경으로 해결 가능한가?
+- [ ] 다른 Page와 Consumer에 영향을 주는가?
+- [ ] Protected Area를 정의했는가?
+- [ ] QA 항목과 Evidence를 정의했는가?
+- [ ] Changelog가 필요한가?
+- [ ] Decision Log가 필요한가?
+- [ ] Owner 판단이 필요한가?
+- [ ] 이번 수정이 프로젝트를 더 좋아지게 만드는가?
+
+### Stop Check
+
+다음 중 하나라도 `예`라면 구현 또는 Release를 멈추고 검토한다.
+
+- [ ] 문서를 읽지 않았다.
+- [ ] 현재 동작을 확인하지 못했다.
+- [ ] 존재하지 않는 기능이나 문서를 가정한다.
+- [ ] 보호 영역을 변경해야 한다.
+- [ ] QA Evidence를 만들 수 없다.
+- [ ] Production 승인 권한이 없다.
+- [ ] Rollback할 수 없다.
+- [ ] 완료를 사실대로 보고할 수 없다.
+
+---
+
+## Operating Motto
+
+**Create Less.**
+
+**Maintain Better.**
+
+**Improve Continuously.**
+
+**Release Confidently.**
+
+### Korean Operating Statement
+
+적게 만들고,
+
+더 잘 유지하며,
+
+계속 개선하고,
+
+검증된 결과만 자신 있게 Release한다.
+
+---
+
+## Final Message
+
+EQUIV는 단순한 Website가 아니다.
+
+오랜 시간 축적한 경험과 철학을 하나의 Digital Product로 구현한 프로젝트다.
+
+모든 AI와 참여자는 새로운 것을 만드는 사람만이 아니라 프로젝트의 품질과 일관성을 지키는 Custodian이라는 마음가짐으로 작업한다.
+
+좋은 프로젝트는 많이 바꾸어서 만들어지는 것이 아니다.
+
+필요한 것만 신중하게 개선하며 완성된다.
+
+Golden Rules는 EQUIV의 모든 운영과 의사결정에서 가장 먼저 확인하는 기준이다.
+
+세부 판단은 각 전문 문서와 승인된 Decision을 따르며, Golden Rules는 그 판단이 EQUIV의 운영 철학을 벗어나지 않도록 지키는 최상위 행동 원칙이다.

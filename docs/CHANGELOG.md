@@ -1,5 +1,19 @@
 # EQUIV M&A Website Changelog
 
+## EQUIV AI Operating Manual v1.0 - Appendix A Golden Rules
+
+- Understand Before You Change, Documents First, Reuse Before Create와 Consistency Wins 원칙 확정
+- Small Changes·Quality·Right Record·Existing Architecture·Human Final Decision·Create Less의 10대 행동 원칙 수립
+- 각 Rule에 Required Behavior, Decision Test와 Anti-pattern을 추가하여 실제 작업 판정 기준으로 전환
+- Golden Rules가 전문 문서의 세부 기준을 대체하지 않고 운영 태도를 정의하도록 Authority 경계 명시
+- 독립 `PATTERN_LIBRARY.md`가 없는 현재 상태와 실제 Pattern Source를 Documents First 원칙에 반영
+- AI Recommendation·QA Gate와 Project Owner의 최종 Brand·Release·Breaking Change 승인권 구분
+- Changelog·Decision·TODO·Domain Contract·Release Record의 적정 기록 원칙 정립
+- 15개 Daily Checklist와 8개 Stop Check 및 `Create Less. Maintain Better. Improve Continuously. Release Confidently.` Operating Motto 추가
+- Golden Rules 변경 시 Owner 승인·Impact·Accepted Decision·관련 문서 동기화를 요구하는 Governance 적용
+- `AI_RULES.md`에 모든 작업 전 Appendix A 확인 원칙 추가
+- `DECISION_LOG.md`의 `DQ-2026-002` History에 Appendix A 반영 기록
+
 ## EQUIV AI Operating Manual v1.0 - Chapter 6 Release & Version Management
 
 - Development → QA → Documentation → Changelog → Version → RC → PM Recommendation → Owner Approval → Release → Post-release의 표준 Release Workflow 수립

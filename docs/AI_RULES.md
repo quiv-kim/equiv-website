@@ -12,6 +12,9 @@ ChatGPT, Codex 및 향후 참여하는 모든 AI가
 프로젝트의 전체 운영 순서, 변경 범위, Evidence와 완료 기준은
 `EQUIV_AI_OPERATING_MANUAL.md`를 따른다.
 
+모든 작업을 시작할 때 같은 문서의
+`Appendix A. Golden Rules`를 먼저 확인한다.
+
 이 문서는 AI의 기본 행동 규칙을 담당하며,
 Design·Component·Content·QA 전문 기준을 다시 정의하지 않는다.
 
