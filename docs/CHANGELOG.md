@@ -1,5 +1,14 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.4.3 - Contact Layout Refinement
+
+- HOME Contact를 좌측 Main Contact와 우측 Trust Panel의 명확한 2열 구조로 재정렬
+- 우측 제목을 체크리스트의 역할이 즉시 드러나는 `Is This Right for You?`로 정리
+- Checklist, 진행 여부 안내, Confidential 안내를 하나의 연속된 Vertical Group으로 통합
+- Box, Background, Border, Shadow를 추가하지 않고 기존 Typography·Color·Spacing Token만 재사용
+- Tablet과 Mobile에서는 Trust Panel을 Contact 흐름 아래로 이동하고 좌측 정렬 유지
+- Consultation Modal과 Form 구조 및 동작은 변경하지 않음
+
 ## Sprint 7.4.2 - Contact Trust Enhancement
 
 - HOME Contact의 기존 Primary CTA는 유지하고 우측 여백에 `When to Contact Us` 신뢰 보조 영역 추가

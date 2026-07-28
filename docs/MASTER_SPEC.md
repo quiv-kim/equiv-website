@@ -90,7 +90,7 @@ Business Valuation의 목적은 서비스를 설명하는 것이 아니라 방�
 
 Contact는 별도 페이지가 아니라 HOME 안에서 상담을 시작하는 공통 Conversion Experience이다. Header 상담 메뉴는 HOME의 `#contact`로 이동하고, Contact Section의 `상담 시작하기` CTA가 중앙 Consultation Modal을 연다.
 
-HOME Contact의 좌측 Primary CTA는 유지하고 우측에는 `When to Contact Us` 신뢰 보조 영역을 둘 수 있다. 보조 영역은 기업 매각, 투자유치, 인수 대상 탐색, 기업가치 확인과 M&A 가능성 상담의 다섯 상황만 짧게 안내하며 `상담 후 진행 여부는 대표가 자유롭게 결정할 수 있다`는 문구로 상담의 심리적 부담을 낮춘다. 별도 Contact Form을 만들거나 공통 Consultation Modal의 Form 구조를 변경하지 않는다.
+HOME Contact는 좌측의 제목·안내·Primary CTA를 메인 흐름으로 유지하고, 우측 전체 컬럼에는 `Is This Right for You?` Trust Panel을 하나의 세로형 그룹으로 배치한다. Trust Panel은 기업 매각, 투자유치, 인수 대상 탐색, 기업가치 확인과 M&A 가능성 상담의 다섯 상황, 진행 여부 안내, Confidential 안내를 순서대로 묶어 상담의 심리적 부담을 낮춘다. Box, Background, Border, Shadow를 추가하지 않으며 Tablet과 Mobile에서는 Form 흐름 아래로 이동해 좌측 정렬한다. 별도 Contact Form을 만들거나 공통 Consultation Modal의 Form 구조를 변경하지 않는다.
 
 #### Consultation Modal Principle
 

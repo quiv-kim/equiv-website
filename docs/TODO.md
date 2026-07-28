@@ -2,6 +2,7 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
+- [x] Sprint 7.4.3 HOME Contact 우측 Checklist·진행 안내·Confidential을 단일 Trust Panel로 재정렬
 - [x] Sprint 7.4.2 HOME Contact `When to Contact Us` 신뢰 보조 영역 추가
 - [x] Sprint 7.4.1 About `Why EQUIV` 신뢰 섹션과 3개 Trust Indicator 추가
 - [x] Sprint 7.4 About 신뢰 문구를 확인 가능한 거래 지원 범위로 구체화

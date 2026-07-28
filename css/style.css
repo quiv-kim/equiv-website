@@ -3131,17 +3131,21 @@ button {
   font-size: var(--type-body);
 }
 
-.contact-action-row {
+.contact-layout {
   display: grid;
-  grid-template-columns: minmax(264px, 360px) minmax(0, 1fr);
-  gap: var(--space-xl);
-  align-items: start;
-  max-width: 1040px;
-  margin-top: var(--space-lg);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.contact-main {
+  min-width: 0;
 }
 
 .contact-primary-action {
+  max-width: 360px;
   min-width: 0;
+  margin-top: var(--space-lg);
 }
 
 .final-cta .cta-response-note {
@@ -3151,14 +3155,14 @@ button {
   line-height: 1.7;
 }
 
-.contact-support-column {
+.contact-trust-panel {
+  width: 100%;
   max-width: 600px;
   min-width: 0;
-  display: grid;
-  gap: var(--space-xl);
+  justify-self: end;
 }
 
-.contact-trust-support h3 {
+.contact-trust-panel h3 {
   margin: 0;
   color: var(--color-white);
   font-family: var(--font-en);
@@ -3190,13 +3194,15 @@ button {
   color: var(--color-gold);
 }
 
-.final-cta .contact-support-column .contact-trust-support .contact-trust-note {
-  padding-top: var(--space-lg);
+.final-cta .contact-trust-panel .contact-trust-note {
   margin: var(--space-lg) 0 0;
   color: var(--color-on-primary-low);
-  border-top: 1px solid var(--color-on-primary-border);
   font-size: var(--type-caption);
   line-height: 1.75;
+}
+
+.contact-trust-panel .confidential-notice {
+  margin-top: var(--space-xl);
 }
 
 .confidential-notice {
@@ -3239,7 +3245,7 @@ button {
   line-height: 1.82;
 }
 
-.final-cta .contact-support-column .confidential-notice p {
+.final-cta .contact-trust-panel .confidential-notice p {
   font-size: var(--type-small);
   line-height: 1.8;
 }
@@ -4540,6 +4546,17 @@ button {
     border-bottom: 0;
   }
 
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .contact-trust-panel {
+    max-width: 600px;
+    justify-self: start;
+  }
+
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -5238,9 +5255,12 @@ button {
     text-align: left;
   }
 
-  .contact-action-row {
-    grid-template-columns: 1fr;
+  .contact-layout {
     gap: var(--space-xl);
+  }
+
+  .contact-primary-action {
+    max-width: 100%;
     margin-top: var(--space-xl);
   }
 
@@ -5256,9 +5276,9 @@ button {
     margin-top: 0;
   }
 
-  .contact-support-column {
+  .contact-trust-panel {
     max-width: 100%;
-    gap: var(--space-lg);
+    justify-self: start;
   }
 
   .contact-trust-list {
@@ -5270,8 +5290,7 @@ button {
     font-size: var(--type-small);
   }
 
-  .final-cta .contact-support-column .contact-trust-support .contact-trust-note {
-    padding-top: var(--space-md);
+  .final-cta .contact-trust-panel .contact-trust-note {
     margin-top: var(--space-md);
     font-size: var(--type-caption);
   }
