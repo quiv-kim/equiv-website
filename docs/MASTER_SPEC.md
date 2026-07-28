@@ -90,6 +90,8 @@ Business Valuation의 목적은 서비스를 설명하는 것이 아니라 방�
 
 Contact는 별도 페이지가 아니라 HOME 안에서 상담을 시작하는 공통 Conversion Experience이다. Header 상담 메뉴는 HOME의 `#contact`로 이동하고, Contact Section의 `상담 시작하기` CTA가 중앙 Consultation Modal을 연다.
 
+HOME Contact의 좌측 Primary CTA는 유지하고 우측에는 `When to Contact Us` 신뢰 보조 영역을 둘 수 있다. 보조 영역은 기업 매각, 투자유치, 인수 대상 탐색, 기업가치 확인과 M&A 가능성 상담의 다섯 상황만 짧게 안내하며 `상담 후 진행 여부는 대표가 자유롭게 결정할 수 있다`는 문구로 상담의 심리적 부담을 낮춘다. 별도 Contact Form을 만들거나 공통 Consultation Modal의 Form 구조를 변경하지 않는다.
+
 #### Consultation Modal Principle
 
 상담은 페이지 이동이 아니라 현재 화면 위의 공통 Modal에서 진행한다. HOME Hero, Service Page CTA, Insights CTA, Deal Readiness 결과와 Business Valuation 결과를 포함한 사이트 전체 상담 CTA는 하나의 Modal만 호출한다. 페이지별 Form 복제 또는 별도 Contact Page를 만들지 않는다.

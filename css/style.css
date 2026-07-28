@@ -3151,6 +3151,54 @@ button {
   line-height: 1.7;
 }
 
+.contact-support-column {
+  max-width: 600px;
+  min-width: 0;
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.contact-trust-support h3 {
+  margin: 0;
+  color: var(--color-white);
+  font-family: var(--font-en);
+  font-size: var(--type-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.contact-trust-list {
+  display: grid;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: var(--space-lg) 0 0;
+  list-style: none;
+}
+
+.contact-trust-list li {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  color: var(--color-on-primary-soft);
+  font-size: var(--type-small);
+  line-height: 1.7;
+}
+
+.contact-trust-list .icon {
+  margin-top: calc(var(--space-2xs) / 2);
+  color: var(--color-gold);
+}
+
+.final-cta .contact-support-column .contact-trust-support .contact-trust-note {
+  padding-top: var(--space-lg);
+  margin: var(--space-lg) 0 0;
+  color: var(--color-on-primary-low);
+  border-top: 1px solid var(--color-on-primary-border);
+  font-size: var(--type-caption);
+  line-height: 1.75;
+}
+
 .confidential-notice {
   max-width: 600px;
   display: flex;
@@ -3189,6 +3237,11 @@ button {
   color: var(--color-on-primary-soft);
   font-size: var(--type-body);
   line-height: 1.82;
+}
+
+.final-cta .contact-support-column .confidential-notice p {
+  font-size: var(--type-small);
+  line-height: 1.8;
 }
 
 /* Contact & Consultation Page */
@@ -5201,6 +5254,26 @@ button {
   .confidential-notice {
     max-width: 100%;
     margin-top: 0;
+  }
+
+  .contact-support-column {
+    max-width: 100%;
+    gap: var(--space-lg);
+  }
+
+  .contact-trust-list {
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .contact-trust-list li {
+    font-size: var(--type-small);
+  }
+
+  .final-cta .contact-support-column .contact-trust-support .contact-trust-note {
+    padding-top: var(--space-md);
+    margin-top: var(--space-md);
+    font-size: var(--type-caption);
   }
 
   .confidential-notice p {

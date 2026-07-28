@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 7.4.2 - Contact Trust Enhancement
+
+- HOME Contact의 기존 Primary CTA는 유지하고 우측 여백에 `When to Contact Us` 신뢰 보조 영역 추가
+- 기업 매각·투자유치·인수 대상 탐색·기업가치 확인·M&A 가능성 상담의 5개 상황을 간결한 Checklist로 안내
+- 상담 후 진행 여부를 대표가 자유롭게 결정할 수 있다는 보조 문구 추가
+- 기존 Confidential 안내를 유지하고 공통 Consultation Modal과 Form 구조는 변경하지 않음
+- 기존 Outline Icon, Color, Typography와 Spacing Token을 재사용하고 Desktop·Tablet 2열, Mobile 1열 흐름 확인
+
 ## Sprint 7.4.1 - About EQUIV Trust Enhancement
 
 - About의 브랜드 소개와 거래 진행 방식 사이에 `Why EQUIV` 신뢰 섹션 추가
