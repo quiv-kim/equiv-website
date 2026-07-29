@@ -2488,7 +2488,7 @@ button {
 }
 
 .valuation-range strong {
-  font-size: var(--type-h1);
+  font-size: var(--type-h2);
   line-height: 1.25;
 }
 
@@ -2851,13 +2851,22 @@ button {
 }
 
 .valuation-consultation .valuation-result-actions {
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  justify-content: stretch;
+}
+
+.valuation-consultation .valuation-result-actions .btn-secondary {
+  justify-self: start;
 }
 
 .valuation-consultation .valuation-result-actions .btn-primary {
-  min-width: calc(var(--space-16) + var(--space-12));
+  grid-column: 2;
+  min-width: calc(var(--space-16) * 2);
   height: var(--space-7);
   min-height: var(--space-7);
+  justify-self: center;
 }
 
 .valuation-result-actions .btn:disabled {
@@ -5608,6 +5617,24 @@ button {
   .valuation-result-actions .btn {
     width: 100%;
     min-height: 48px;
+  }
+
+  .valuation-equity-card__value {
+    font-size: clamp(var(--mobile-h2), 9.23vw, var(--mobile-h1));
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+
+  .valuation-consultation .valuation-result-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .valuation-consultation .valuation-result-actions .btn-secondary,
+  .valuation-consultation .valuation-result-actions .btn-primary {
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+    justify-self: stretch;
   }
 
   .valuation-range {
