@@ -2469,6 +2469,24 @@ button {
   margin-top: var(--space-lg);
 }
 
+.valuation-form-actions--with-prev {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.valuation-prev-button {
+  min-width: calc(var(--space-10) + var(--space-2));
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.valuation-prev-button:hover {
+  color: var(--color-primary);
+  background: var(--color-surface-muted);
+  border-color: var(--color-primary);
+}
+
 .valuation-range {
   padding: var(--space-lg);
   margin-bottom: 0;
@@ -5617,6 +5635,22 @@ button {
   .valuation-result-actions .btn {
     width: 100%;
     min-height: 48px;
+  }
+
+  .valuation-form-actions--with-prev {
+    display: grid;
+    grid-template-columns: minmax(var(--space-10), max-content) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .valuation-form-actions--with-prev .valuation-prev-button {
+    width: auto;
+    min-width: var(--space-10);
+  }
+
+  .valuation-form-actions--with-prev .btn-primary {
+    width: 100%;
+    min-width: 0;
   }
 
   .valuation-equity-card__value {

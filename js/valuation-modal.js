@@ -117,8 +117,8 @@
         ${progressMarkup(stepIndex + 1)}
         <div class="valuation-step"><h3>${step.title}</h3>${step.body()}</div>
         <p class="valuation-error" role="alert">${escapeHtml(errorMessage)}</p>
-        <div class="valuation-form-actions">
-          ${stepIndex > 0 ? '<button class="btn btn-secondary" type="button" data-valuation-prev>이전</button>' : ""}
+        <div class="valuation-form-actions${stepIndex > 0 ? " valuation-form-actions--with-prev" : ""}">
+          ${stepIndex > 0 ? '<button class="btn btn-secondary valuation-prev-button" type="button" data-valuation-prev aria-label="이전 단계로 이동">이전</button>' : ""}
           <button class="btn btn-primary" type="submit">${stepIndex === steps.length - 1 ? "사전진단 결과 확인" : "다음"}</button>
         </div>
       </form>`;
