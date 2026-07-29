@@ -1810,6 +1810,40 @@ button {
   border-top: 1px solid var(--color-line);
 }
 
+.section.valuation-review-section {
+  padding-bottom: 0;
+}
+
+.valuation-review-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  border-top: 0;
+}
+
+.valuation-review-grid li {
+  min-width: 0;
+  height: 100%;
+  padding: var(--space-lg);
+  background: var(--card-background);
+  border: 1px solid var(--card-border-subtle);
+  border-radius: var(--card-radius);
+}
+
+.valuation-review-grid h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: var(--type-h4);
+  line-height: 1.5;
+}
+
+.valuation-review-grid p {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-muted);
+  font-size: var(--type-small);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.75;
+}
+
 .faq-list {
   border-top: 1px solid var(--color-line);
 }
@@ -5743,6 +5777,11 @@ button {
   .key-list li,
   .content-list li {
     font-size: var(--type-caption);
+  }
+
+  .valuation-review-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
   }
 
   .numbered-list li,
