@@ -2,8 +2,15 @@
 
 앞으로 기능, 디자인, 문구, 페이지 구조를 변경할 때는 이 문서를 함께 업데이트한다.
 
-- [x] Sprint 8.1 HOME Contact 및 공통 상담 모달의 모바일 안내 밀도 경량화
+- [x] Sprint 8.1 HOME Contact Mobile Checklist를 3개 항목으로 경량화하고 Desktop 기존 5개 항목 유지
+- [x] 공통 상담 Modal의 중복 상담 대상 목록 제거와 상담 절차 3단계·Confidential/NDA 안내 통합
+- [x] 상담 Modal Header 설명 단일 문장화와 필수 입력 안내 추가
+- [x] 기업가치 사전진단 STEP 1·2·3 공통 필수 입력 안내 추가
 - [x] 기업가치 사전진단 예상 소요시간을 `예상 소요시간 5분 내외`로 통일
+- [x] Desktop Contact에서 Mobile Checklist가 중복 표시되던 CSS 우선순위 수정
+- [ ] Sprint 8.1 후속 변경의 360·390·430·768·1024·1440px 전체 Responsive Browser QA
+- [ ] Sprint 8.1 상담·기업가치 Modal의 실제 Console Error QA
+- [ ] Sprint 8.1 후속 변경의 실제 배포 환경 QA
 - [x] Sprint 7.4.4 Contact Trust Panel의 1024px 이상 우측 독립 컬럼 정렬 보정
 - [x] Sprint 7.4.3 HOME Contact 우측 Checklist·진행 안내·Confidential을 단일 Trust Panel로 재정렬
 - [x] Sprint 7.4.2 HOME Contact `When to Contact Us` 신뢰 보조 영역 추가

@@ -1,12 +1,27 @@
 # EQUIV M&A Website Changelog
 
-## Sprint 8.1 - Contact Mobile UX Optimization
+## Sprint 8.1.2 - Contact Display Fix
+
+- Desktop에서 Mobile 전용 Contact Checklist가 함께 노출되던 표시 우선순위 문제 수정
+- 769px 이상에서는 기존 5개 상담 항목만, 768px 이하에서는 Mobile 전용 3개 항목만 표시
+- 기업가치 사전진단 페이지의 최신 STEP 안내와 Responsive Style이 확실히 로드되도록 CSS·`valuation-modal.js` Asset Version 갱신
+- 입력 항목, 필수·선택 설정, 진행률, 계산 모델, 결과 화면과 Modal 동작은 변경하지 않음
+
+## Sprint 8.1.1 - Required Field Guidance Refinement
+
+- 상담 Modal Header 설명을 `상담 내용을 남겨주시면 담당자가 확인 후 연락드립니다.` 한 문장으로 정리
+- 상담 Modal에 `* 표시는 필수 입력 항목입니다.` 안내를 추가하고 Desktop 우측·Mobile 설명 아래에 배치
+- 기업가치 사전진단의 공통 진행 단계 Template에 같은 필수 입력 안내를 추가하여 STEP 1·2·3에서 유지
+- 769px 이상에서는 STEP 오른쪽, 768px 이하에서는 STEP 아래에 안내가 표시되도록 Responsive Rule 적용
+- 기업가치 사전진단 예상 소요시간 `5분 내외` 안내를 유지하고 입력·검증·계산 로직은 변경하지 않음
+
+## Sprint 8.1 - Contact Mobile UX Refinement
 
 - HOME Contact의 768px 이하 Trust Panel을 모바일 전용 3개 상담 항목과 간결한 진행·비밀유지 안내로 경량화
 - 768px 초과에서는 기존 5개 항목과 Contact 2열 구성을 유지
 - 공통 상담 모달의 중복 상담 대상 목록을 제거하고, 상담 절차를 3단계로 축약
 - 상담 모달 Header 설명과 Confidential·NDA 안내를 한 문장으로 통합
-- 상담 폼 입력 항목, 검증·제출 로직 및 기업가치 사전진단은 변경하지 않음
+- 초기 Sprint 8.1 범위에서는 상담 Form과 기업가치 사전진단의 구조·입력 항목을 변경하지 않았으며, 후속 Patch에서 필수 입력 안내와 예상 소요시간 문구만 보완
 
 ## Sprint 8.0 - Business Valuation Time Copy Update
 
