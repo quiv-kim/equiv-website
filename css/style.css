@@ -1820,10 +1820,10 @@ button {
   line-height: 1.6;
 }
 
-.valuation-section-heading h2 {
+.expertise-page .valuation-section-heading h2 {
   margin: 0;
   color: var(--color-primary);
-  font-size: var(--type-h2);
+  font-size: 2rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
   word-break: keep-all;
@@ -4639,6 +4639,10 @@ button {
     gap: var(--space-lg);
   }
 
+  .expertise-page .valuation-section-heading h2 {
+    font-size: 1.875rem;
+  }
+
   .about-section-head {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -5810,6 +5814,11 @@ button {
   .valuation-review-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-md);
+  }
+
+  .expertise-page .valuation-section-heading h2 {
+    font-size: 1.625rem;
+    line-height: 1.32;
   }
 
   .numbered-list li,
