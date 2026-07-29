@@ -21,9 +21,6 @@
       copy: "기업의 현재와 미래를 분석하여 실행 가능한 성장 전략을 제안합니다.",
     },
   ];
-  const serviceGuideMarkup = serviceCopies
-    .map(({ value }) => `<li>${value}</li>`)
-    .join("");
   const serviceOptionMarkup = serviceCopies
     .map(({ value }, index) => `<label><input type="radio" name="consultation_type" value="${value}"${index === 0 ? " required" : ""}><span>${value}</span></label>`)
     .join("");
@@ -41,7 +38,7 @@
           </div>
           <p class="section-kicker">CONSULTATION</p>
           <h2 id="consultation-modal-title">M&amp;A 상담 신청</h2>
-          <p id="consultation-modal-description"><strong>검토 중인 서비스와 기업 현황을<br>남겨주시면</strong><span>담당자가 내용을 확인한 후 연락드리겠습니다.</span></p>
+          <p id="consultation-modal-description">상담 내용을 남겨주시면 확인 후 담당자가 연락드립니다.</p>
         </header>
 
         <header class="consultation-modal__header consultation-modal__header--success" data-success-header hidden>
@@ -58,25 +55,15 @@
         <div class="consultation-modal__body" data-consultation-content>
           <aside class="consultation-modal__guide" aria-label="M&A 상담 안내">
             <div class="consultation-modal__guide-block">
-              <h3>M&amp;A 상담 안내</h3>
-              <h4>상담 대상</h4>
-              <ul>
-                ${serviceGuideMarkup}
-              </ul>
-            </div>
-            <div class="consultation-modal__guide-block">
               <h4>상담 절차</h4>
               <ol>
-                <li><span>01</span>상담 신청</li>
-                <li><span>02</span>담당자 연락</li>
-                <li><span>03</span>비밀유지계약(NDA)</li>
-                <li><span>04</span>자료 검토</li>
-                <li><span>05</span>미팅 및 자문</li>
+                <li><span>01</span>상담 내용 접수</li>
+                <li><span>02</span>담당자 검토 및 연락</li>
+                <li><span>03</span>상담 진행</li>
               </ol>
             </div>
             <div class="consultation-modal__confidential">
-              <p>제출하신 정보와 상담 내용은<br>비밀유지 원칙에 따라 관리됩니다.</p>
-              <p>필요한 경우 상담 진행 전에<br>비밀유지계약(NDA)을 체결합니다.</p>
+              <p>상담 내용은 비밀로 관리되며, 필요 시 비밀유지계약(NDA)을 체결할 수 있습니다.</p>
             </div>
           </aside>
 

@@ -1,5 +1,13 @@
 # EQUIV M&A Website Changelog
 
+## Sprint 8.1 - Contact Mobile UX Optimization
+
+- HOME Contact의 768px 이하 Trust Panel을 모바일 전용 3개 상담 항목과 간결한 진행·비밀유지 안내로 경량화
+- 768px 초과에서는 기존 5개 항목과 Contact 2열 구성을 유지
+- 공통 상담 모달의 중복 상담 대상 목록을 제거하고, 상담 절차를 3단계로 축약
+- 상담 모달 Header 설명과 Confidential·NDA 안내를 한 문장으로 통합
+- 상담 폼 입력 항목, 검증·제출 로직 및 기업가치 사전진단은 변경하지 않음
+
 ## Sprint 8.0 - Business Valuation Time Copy Update
 
 - 기업가치 사전진단의 사용자 노출 예상 소요시간을 `예상 소요시간 5분 내외`로 통일

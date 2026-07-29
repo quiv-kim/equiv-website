@@ -3180,6 +3180,11 @@ button {
   list-style: none;
 }
 
+.contact-trust-list--mobile,
+.contact-trust-copy--mobile {
+  display: none;
+}
+
 .contact-trust-list li {
   display: flex;
   gap: var(--space-sm);
@@ -3397,6 +3402,13 @@ button {
   margin: var(--space-md) 0 0;
 }
 
+.consultation-modal__header[data-consultation-header] > p:last-child {
+  display: block;
+  color: var(--color-on-primary-strong);
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
 .consultation-modal__header strong {
   color: var(--color-on-primary-strong);
   font-size: var(--type-h4);
@@ -3436,21 +3448,9 @@ button {
   border-right: 1px solid var(--color-line);
 }
 
-.consultation-modal__guide-block + .consultation-modal__guide-block {
-  padding-top: var(--space-lg);
-  margin-top: var(--space-lg);
-  border-top: 1px solid var(--color-line);
-}
-
-.consultation-modal__guide h3,
 .consultation-modal__guide h4 {
   margin: 0;
   color: var(--color-primary);
-}
-
-.consultation-modal__guide h3 {
-  margin-bottom: var(--space-lg);
-  font-size: var(--type-h3);
 }
 
 .consultation-modal__guide h4 {
@@ -3459,35 +3459,10 @@ button {
   font-weight: var(--font-weight-semibold);
 }
 
-.consultation-modal__guide ul,
 .consultation-modal__guide ol {
   padding: 0;
   margin: 0;
   list-style: none;
-}
-
-.consultation-modal__guide ul {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xs) var(--space-sm);
-}
-
-.consultation-modal__guide ul li {
-  position: relative;
-  padding-left: var(--space-sm);
-  color: var(--color-muted);
-  font-size: var(--type-small);
-}
-
-.consultation-modal__guide ul li::before {
-  content: "";
-  position: absolute;
-  top: 0.7em;
-  left: 0;
-  width: 3px;
-  height: 3px;
-  background: var(--color-gold);
-  border-radius: 50%;
 }
 
 .consultation-modal__guide ol {
@@ -3522,10 +3497,6 @@ button {
   color: var(--color-muted);
   font-size: var(--type-body);
   line-height: 1.7;
-}
-
-.consultation-modal__confidential p + p {
-  margin-top: var(--space-xs);
 }
 
 .consultation-modal__form {
@@ -4548,7 +4519,7 @@ button {
 
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 768px) {
   .contact-layout {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
@@ -4980,15 +4951,6 @@ button {
     padding: var(--modal-padding-block) var(--modal-padding-inline);
     border-right: 0;
     border-bottom: 1px solid var(--color-line);
-  }
-
-  .consultation-modal__guide h3 {
-    margin-bottom: var(--space-md);
-  }
-
-  .consultation-modal__guide-block + .consultation-modal__guide-block {
-    padding-top: var(--space-md);
-    margin-top: var(--space-md);
   }
 
   .consultation-modal__confidential {
@@ -5897,7 +5859,6 @@ button {
     font-size: var(--modal-supporting-size);
   }
 
-  .consultation-modal__guide h3,
   .consultation-modal__privacy-details h3,
   .valuation-step h3,
   .valuation-result > h3,
@@ -5931,7 +5892,6 @@ button {
     font-size: var(--modal-input-size);
   }
 
-  .consultation-modal__guide ul li,
   .consultation-modal__guide ol li,
   .consultation-modal__guide ol span,
   .consultation-modal__privacy-row > label,
@@ -6189,6 +6149,192 @@ button {
   .consultation-submit,
   .consultation-modal__submit {
     height: var(--component-button-height-mobile);
+  }
+}
+
+/* Sprint 8.1: Contact and consultation density at mobile widths */
+@media (max-width: 768px) {
+  .contact-layout {
+    gap: var(--space-lg);
+  }
+
+  .contact-primary-action {
+    margin-top: var(--space-lg);
+  }
+
+  .contact-trust-list--desktop,
+  .contact-trust-copy--desktop {
+    display: none;
+  }
+
+  .contact-trust-list--mobile {
+    display: grid;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+  }
+
+  .contact-trust-copy--mobile {
+    display: inline;
+  }
+
+  .contact-trust-list li {
+    gap: var(--space-xs);
+    align-items: center;
+    font-size: var(--mobile-small);
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+
+  .contact-trust-list .icon {
+    margin-top: 0;
+  }
+
+  .final-cta .contact-trust-panel .contact-trust-note {
+    margin-top: var(--space-sm);
+    font-size: var(--mobile-caption);
+    line-height: 1.6;
+  }
+
+  .contact-trust-panel .confidential-notice {
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .contact-trust-panel .confidential-notice svg {
+    margin-top: 0;
+  }
+
+  .contact-trust-panel .confidential-notice strong,
+  .contact-trust-panel .confidential-notice p {
+    display: inline;
+    margin: 0;
+    font-size: var(--mobile-small);
+    line-height: 1.6;
+  }
+
+  .contact-trust-panel .confidential-notice strong {
+    letter-spacing: 0.06em;
+  }
+
+  .consultation-modal {
+    --modal-title-size: var(--mobile-h2);
+    --modal-description-size: var(--mobile-body);
+    --modal-supporting-size: var(--mobile-small);
+    --modal-section-title-size: var(--mobile-body);
+    --modal-label-size: var(--mobile-small);
+    --modal-input-size: var(--mobile-body);
+    --modal-help-size: var(--mobile-caption);
+    --modal-button-size: var(--mobile-body);
+    align-items: flex-start;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .consultation-modal__dialog {
+    width: 100%;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: var(--radius-lg);
+    overscroll-behavior: contain;
+  }
+
+  .consultation-modal__header {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .consultation-modal__brand {
+    margin-bottom: var(--space-sm);
+  }
+
+  .consultation-modal__header .section-kicker {
+    margin-bottom: var(--space-2xs);
+  }
+
+  .consultation-modal__header h2 {
+    padding-right: var(--space-2xl);
+    font-size: var(--modal-title-size);
+    line-height: 1.3;
+  }
+
+  .consultation-modal__header[data-consultation-header] > p:last-child {
+    margin-top: var(--space-sm);
+    font-size: var(--modal-description-size);
+    line-height: 1.55;
+  }
+
+  .consultation-modal__close {
+    top: 10px;
+    right: 10px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .consultation-modal__body {
+    grid-template-columns: 1fr;
+  }
+
+  .consultation-modal__form {
+    order: 1;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg) max(var(--space-md), env(safe-area-inset-bottom));
+  }
+
+  .consultation-modal__field-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .consultation-modal__guide {
+    order: 2;
+    padding: var(--space-md) var(--space-lg) max(var(--space-md), env(safe-area-inset-bottom));
+    border-right: 0;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 0;
+  }
+
+  .consultation-modal__guide h4 {
+    margin-bottom: var(--space-xs);
+    font-size: var(--modal-section-title-size);
+  }
+
+  .consultation-modal__guide ol {
+    gap: var(--space-xs);
+  }
+
+  .consultation-modal__guide ol li,
+  .consultation-modal__guide ol span {
+    font-size: var(--modal-help-size);
+  }
+
+  .consultation-modal__confidential {
+    padding-top: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .consultation-modal__confidential p {
+    font-size: var(--modal-supporting-size);
+    line-height: 1.6;
+  }
+
+  .consultation-modal__types > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .consultation-modal__types label span,
+  .consultation-modal__field input {
+    min-height: 48px;
+  }
+
+  .consultation-modal__field textarea {
+    min-height: 96px;
+    height: 96px;
+  }
+
+  .consultation-modal__privacy-details dl > div {
+    grid-template-columns: 1fr;
+    gap: calc(var(--space-2xs) / 4);
   }
 }
 
