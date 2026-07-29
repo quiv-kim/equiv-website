@@ -3180,7 +3180,7 @@ button {
   list-style: none;
 }
 
-.contact-trust-list--mobile,
+.contact-trust-list.contact-trust-list--mobile,
 .contact-trust-copy--mobile {
   display: none;
 }
@@ -3407,6 +3407,7 @@ button {
   color: var(--color-on-primary-strong);
   font-size: var(--type-body);
   line-height: 1.65;
+  text-align: left;
 }
 
 .consultation-modal__header strong {
@@ -6162,12 +6163,12 @@ button {
     margin-top: var(--space-lg);
   }
 
-  .contact-trust-list--desktop,
+  .contact-trust-list.contact-trust-list--desktop,
   .contact-trust-copy--desktop {
     display: none;
   }
 
-  .contact-trust-list--mobile {
+  .contact-trust-list.contact-trust-list--mobile {
     display: grid;
     gap: var(--space-xs);
     margin-top: var(--space-sm);
