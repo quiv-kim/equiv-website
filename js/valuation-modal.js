@@ -544,7 +544,7 @@
         </div>
         <div class="valuation-consultation">
           <h4>기업가치 검토 상담</h4>
-          <p>사전진단 결과에 대한 검토가 필요하시면 상담을 신청해 주세요.</p>
+          <p>사전진단 결과에 대한 추가 검토가 필요하시면 상담을 신청해 주세요.</p>
           <div class="valuation-result-actions">
             <button class="btn btn-secondary" type="button" data-valuation-reset>초기화 및 다시 계산하기</button>
             <a class="btn btn-primary" href="index.html#contact" data-consultation-open data-consultation-type="기업가치 검토">상담 신청</a>
