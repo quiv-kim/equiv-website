@@ -1888,6 +1888,10 @@ button {
   line-height: 1.45;
 }
 
+.sell-side-page .faq-list h3 {
+  font-size: 1.1875rem;
+}
+
 .faq-list p {
   margin: 0;
   color: var(--color-muted);
@@ -4974,6 +4978,10 @@ button {
 }
 
 @media (max-width: 767px) {
+  .sell-side-page .faq-list h3 {
+    font-size: 1.0625rem;
+  }
+
   :root {
     --header-height: 54px;
     --component-header-logo-gap: calc(var(--space-half) / 2);
