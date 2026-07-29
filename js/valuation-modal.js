@@ -72,7 +72,7 @@
           <p class="valuation-section-note">재무제표를 기준으로 금액을 억원 단위로 입력해 주십시오.</p>
           <div class="valuation-year-group"><h5>${latestFiscalYear} · 최근 사업연도 (필수)</h5><div class="valuation-fields">${numberField("latestRevenue", "매출 (억원)", true)}${numberField("latestProfit", "영업이익 (억원)", true, true)}${numberField("latestEbitda", "EBITDA (억원, 선택)", false, true)}${numberField("depreciation", "감가상각비 (억원, 선택)")}</div></div>
           <div class="valuation-year-group"><h5>${latestFiscalYear - 1} · 직전 사업연도 (권장)</h5><div class="valuation-fields">${numberField("yearMinus2Revenue", "매출 (억원)")}${numberField("yearMinus2Profit", "영업이익 (억원)", false, true)}</div></div>
-          <div class="valuation-year-group"><h5>${latestFiscalYear - 2} · 2개년 전 (선택)</h5><div class="valuation-fields">${numberField("yearMinus3Revenue", "매출 (억원)")}${numberField("yearMinus3Profit", "영업이익 (억원)", false, true)}</div><p class="valuation-year-note">2개년 전 자료는 선택 입력입니다. 입력하지 않아도 예비 기업가치 산출은 가능하며, 입력자료가 충분할수록 결과 신뢰도는 높아질 수 있습니다.</p></div>
+          <div class="valuation-year-group"><h5>${latestFiscalYear - 2} · 2개년 전 (선택)</h5><div class="valuation-fields">${numberField("yearMinus3Revenue", "매출 (억원)")}${numberField("yearMinus3Profit", "영업이익 (억원)", false, true)}</div><p class="valuation-year-note">2개년 전 자료는 선택 입력입니다. 입력하지 않아도 예비 기업가치 범위 산출은 가능하며, 입력자료가 충분할수록 결과 신뢰도는 높아질 수 있습니다.</p></div>
           <div class="valuation-year-group"><h5>${latestFiscalYear + 1} 예상 실적 (선택)</h5><div class="valuation-fields">${numberField("forecastRevenue", "예상 매출 (억원)")}${numberField("forecastProfit", "예상 영업이익 (억원)", false, true)}${selectField("forecastEvidence", "예상 실적 근거", [["strong","객관적 근거 강함"],["partial","일부 근거 있음"],["limited","근거가 제한적"]], false)}</div></div>
         </section>`,
     },
@@ -106,7 +106,7 @@
             ${[["technology","기술·특허·노하우"],["brand","브랜드"],["license","인허가 또는 진입장벽"],["contract","장기계약"],["distribution","유통망·판매채널"],["none","특별한 경쟁력 없음"]].map(([value,text]) => `<label><input type="checkbox" name="strengths" value="${value}"${checked("strengths", value)}> <span>${text}</span></label>`).join("")}
           </fieldset>
         </section>
-        <label class="valuation-confirm"><input type="checkbox" name="disclaimerConfirmed" value="yes" ${values.disclaimerConfirmed === "yes" ? "checked" : ""} required> <span>본 결과가 전문 상담 이전의 참고용 예비진단이며, 정식 기업가치평가 또는 실제 거래가격이 아님을 확인합니다.</span></label>`,
+        <label class="valuation-confirm"><input type="checkbox" name="disclaimerConfirmed" value="yes" ${values.disclaimerConfirmed === "yes" ? "checked" : ""} required> <span>본 결과가 상담 전 참고용 사전진단이며, 정식 기업가치평가 또는 실제 거래가격이 아님을 확인합니다.</span></label>`,
     },
   ];
 
@@ -119,7 +119,7 @@
         <p class="valuation-error" role="alert">${escapeHtml(errorMessage)}</p>
         <div class="valuation-form-actions">
           ${stepIndex > 0 ? '<button class="btn btn-secondary" type="button" data-valuation-prev>이전</button>' : ""}
-          <button class="btn btn-primary" type="submit">${stepIndex === steps.length - 1 ? "예비 기업가치 확인하기" : "다음"}</button>
+          <button class="btn btn-primary" type="submit">${stepIndex === steps.length - 1 ? "사전진단 결과 확인" : "다음"}</button>
         </div>
       </form>`;
     const first = stage.querySelector("input, select, button");
@@ -146,7 +146,7 @@
             <span></span>
             <span></span>
           </div>
-          <h3>예비 기업가치를 분석하고 있습니다.</h3>
+          <h3>사전진단 결과를 준비하고 있습니다.</h3>
           <p>입력하신 정보를 바탕으로 결과를 준비하고 있습니다.</p>
           <small>잠시만 기다려 주세요.</small>
         </div>
@@ -253,7 +253,7 @@
     if (industryModelReference) prepared.industry = industryModelReference;
 
     if (!hasPreviousYear && !hasTwoYearsAgo) {
-      reviewFactors.push("최근 사업연도 기준으로 예비 기업가치를 산출했습니다. 과거 재무자료를 추가하면 참고 신뢰도를 높일 수 있습니다.");
+      reviewFactors.push("최근 사업연도 기준으로 예비 기업가치 범위를 산출했습니다. 과거 재무자료를 추가하면 참고 신뢰도를 높일 수 있습니다.");
     } else if (!hasPreviousYear) {
       reviewFactors.push("최근 및 2개년 전 실적을 기준으로 산출했습니다. 직전 사업연도 자료를 추가하면 보다 안정적인 분석이 가능합니다.");
     } else if (!hasTwoYearsAgo) {
@@ -317,35 +317,35 @@
       return {
         stars,
         label: equityReviewLabels[stars],
-        description: `예비 기업가치는 현재 입력자료를 기준으로 정상적으로 산출되었습니다. 예상 지분가치는 현재 금융부채 규모의 영향으로 전문가 검토가 권장됩니다.${inputGuidance}`,
+        description: `예비 기업가치 범위는 현재 입력자료를 기준으로 정상적으로 산출되었습니다. 예상 지분가치 범위는 현재 금융부채 규모의 영향으로 전문가 검토가 권장됩니다.${inputGuidance}`,
       };
     }
     if (stars === 5) {
       return {
         stars,
         label: "참고 신뢰도 매우 높음",
-        description: "현재 입력자료를 기준으로 예비 기업가치를 산출했습니다. 입력자료가 충분하여 결과의 참고 신뢰도가 높은 편입니다. 구체적인 검토에는 추가 자료와 EQUIV 상담이 필요합니다.",
+        description: "현재 입력자료를 기준으로 예비 기업가치 범위를 산출했습니다. 입력자료가 충분하여 결과의 참고 신뢰도가 높은 편입니다. 구체적인 검토에는 추가 자료와 EQUIV 상담이 필요합니다.",
       };
     }
     if (stars === 4) {
       return {
         stars,
         label: "참고 신뢰도 높음",
-        description: "현재 입력자료를 기준으로 예비 기업가치를 산출했습니다. 입력자료가 비교적 충분하여 참고 신뢰도가 높은 편입니다.",
+        description: "현재 입력자료를 기준으로 예비 기업가치 범위를 산출했습니다. 입력자료가 비교적 충분하여 참고 신뢰도가 높은 편입니다.",
       };
     }
     if (stars === 3) {
       return {
         stars,
         label: "참고 신뢰도 양호",
-        description: "현재 입력자료를 기준으로 예비 기업가치를 산출했습니다. 핵심 자료가 충족되어 참고 신뢰도는 양호한 수준입니다.",
+        description: "현재 입력자료를 기준으로 예비 기업가치 범위를 산출했습니다. 핵심 자료가 충족되어 참고 신뢰도는 양호한 수준입니다.",
       };
     }
     if (stars === 2) {
       return {
         stars,
         label: "참고 신뢰도 제한적",
-        description: "현재 입력자료를 기준으로 예비 기업가치를 산출했습니다. 핵심 자료가 제한되어 있어 추가 자료와 함께 검토할 것을 권합니다.",
+        description: "현재 입력자료를 기준으로 예비 기업가치 범위를 산출했습니다. 핵심 자료가 제한되어 있어 추가 자료와 함께 검토할 것을 권합니다.",
       };
     }
     return {
@@ -439,13 +439,13 @@
       : "금융부채 및 보유 현금 반영";
     const valueBridgeDetail = financialAdjustment > 0
       ? hasNonOperatingAssets
-        ? "보유 현금과 비영업자산이 부채 및 조정부채를 초과하면 예상 지분가치가 더 높아질 수 있습니다."
-        : "보유 현금이 금융부채 및 조정부채를 초과하면 예상 지분가치가 더 높아질 수 있습니다."
+        ? "보유 현금과 비영업자산이 부채 및 조정부채를 초과하면 예상 지분가치 범위가 더 높아질 수 있습니다."
+        : "보유 현금이 금융부채 및 조정부채를 초과하면 예상 지분가치 범위가 더 높아질 수 있습니다."
       : financialAdjustment < 0
         ? "금융부채와 조정부채를 차감하고 보유 현금과 비영업자산을 반영한 결과입니다."
         : "현재 입력된 재무구조 조정항목의 순효과가 크지 않습니다.";
     const resultIntro = businessValueResult.range
-      ? "사업의 수익성과 성장성을 기준으로 산출한 예비 기업가치입니다."
+      ? "사업의 수익성과 성장성을 기준으로 산출한 예비 기업가치 범위입니다."
       : "입력한 정보를 바탕으로 기업가치에 영향을 주는 요소를 우선 검토했습니다.";
     const needsEquityReview = !result.range && Boolean(businessValueResult.range);
     const isHighDebtEquityReview = needsEquityReview
@@ -453,16 +453,16 @@
     const insight = buildInsight(businessValueResult, { isHighDebt: isHighDebtEquityReview });
     const equityTooltipMarkup = isHighDebtEquityReview
       ? `<strong>왜 전문가 검토가 필요한가요?</strong>
-          <span>사업 자체에는 예비 기업가치가 존재하지만, 현재 금융부채 규모가 커 단순 계산만으로는 예상 지분가치를 산출하기 어렵습니다.</span>
+          <span>사업 자체에는 예비 기업가치가 존재하지만, 현재 금융부채 규모가 커 단순 계산만으로는 예상 지분가치 범위를 산출하기 어렵습니다.</span>
           <span>실제 거래에서는 거래구조, 채무조정, 부채 승계와 인수조건 등에 따라 최종 거래조건이 달라질 수 있습니다.</span>`
       : `<strong>지분가치란?</strong>
-          <span>기업가치에서 금융부채를 차감하고 보유 현금과 비영업자산 등 현재 재무구조를 반영한 주주의 예비 가치입니다.</span>
+          <span>기업가치에서 금융부채를 차감하고 보유 현금과 비영업자산 등 현재 재무구조를 반영한 예상 지분가치 범위입니다.</span>
           <span>실제 거래에서는 실사 결과, 운전자금, 우발채무, 거래조건 등에 따라 달라질 수 있습니다.</span>`;
     const businessValueMarkup = businessValueResult.range
       ? `<div class="valuation-range"><p>예비 기업가치 범위</p><strong>${money(businessValueResult.range.low)} ~ ${money(businessValueResult.range.high)}</strong><div class="valuation-range__model"><small>적용 평가모델</small><b>${escapeHtml(businessValueResult.modelName)}</b><span class="valuation-range__model-description">${escapeHtml(modelDescriptions[businessValueResult.model] || "기업 특성 기반 평가모델")}</span><em>${escapeHtml(businessValueResult.basis)}</em></div></div>`
-      : `<div class="valuation-range valuation-range--review"><p>예비 기업가치 검토</p><strong>추가 검토가 필요합니다.</strong><span>현재 입력정보를 보완하면 사업가치에 영향을 주는 요소를 더 구체적으로 검토할 수 있습니다.</span></div>`;
+      : `<div class="valuation-range valuation-range--review"><p>결과 안내</p><strong>추가 검토가 필요합니다.</strong><span>입력하신 정보만으로는 예비 기업가치 범위를 산출하기 어렵습니다. 추가 자료 확인을 위해 상담을 신청해 주세요.</span></div>`;
     const businessValueNotice = businessValueResult.range
-      ? `<p class="valuation-result-note">※ 본 예비 기업가치는 현재 입력자료를 기준으로 산출한 참고 범위입니다. 실제 거래가치는 거래구조, 성장성, 기술력, 고객구성과 실사 결과 등에 따라 달라질 수 있습니다.</p>`
+      ? `<p class="valuation-result-note">※ 본 결과는 현재 입력자료를 기준으로 산출한 예비 기업가치 범위입니다. 실제 거래가치는 거래구조, 성장성, 기술력, 고객구성과 실사 결과 등에 따라 달라질 수 있습니다.</p>`
       : "";
     const technologyIndustryResultNotice = calculationValues.industry === "software" && businessValueResult.range
       ? `<p class="valuation-result-note">※ IT·소프트웨어 기업은 기술력, 성장성, 반복매출과 고객 기반 등 정량화하기 어려운 요소가 기업가치에 큰 영향을 미칩니다. 본 결과는 일반적인 예비 평가모델을 적용한 참고 범위이며, 실제 거래가치는 사업모델과 기술 경쟁력에 따라 달라질 수 있습니다. 상세 기업가치와 거래 전략은 EQUIV 전문 상담에서 검토합니다.</p>`
@@ -470,19 +470,19 @@
     const assetIndustryResultNotice = calculationValues.industry === "asset" && businessValueResult.range
       ? `<p class="valuation-result-note">※ 자산형 기업은 사업용 자산가치가 기업가치에 큰 영향을 미칩니다. 본 결과는 영업성과와 사업용 자산을 함께 고려한 예비 평가 결과입니다. 실제 거래가치는 부동산, 시설, 입지와 운영현황 등에 따라 달라질 수 있으며, 상세 검토는 EQUIV 전문 상담에서 진행합니다.</p>`
       : "";
-    const equityDescription = "현재 재무구조를 반영한 예비 지분가치입니다.";
+    const equityDescription = "부채와 현금 등을 반영한 예상 지분가치 범위입니다.";
     const equityValueMarkup = result.range
       ? `<strong class="valuation-equity-card__value">${money(result.range.low)} ~ ${money(result.range.high)}</strong><p>${equityDescription}</p>`
       : isHighDebtEquityReview
-        ? `<strong class="valuation-equity-card__review">거래구조 검토가 필요합니다.</strong><p>현재 금융부채 규모가 예비 기업가치를 초과하여 단순 계산만으로는 양수의 예상 지분가치를 산출하기 어렵습니다. 실제 M&amp;A에서는 거래구조, 채무조정, 부채 승계와 인수조건 등에 따라 최종 거래조건이 달라질 수 있습니다.</p>`
-        : `<strong class="valuation-equity-card__review">추가 검토 필요</strong><p>${businessValueResult.range ? "현재 재무구조의 영향으로 예상 지분가치 산정에는 추가 검토가 필요합니다." : "현재 입력정보만으로는 예상 지분가치 산정에 추가 검토가 필요합니다."}</p>`;
+        ? `<strong class="valuation-equity-card__review">거래구조 검토가 필요합니다.</strong><p>현재 금융부채 규모가 예비 기업가치를 초과하여 단순 계산만으로는 양수의 예상 지분가치 범위를 산출하기 어렵습니다. 실제 M&amp;A에서는 거래구조, 채무조정, 부채 승계와 인수조건 등에 따라 최종 거래조건이 달라질 수 있습니다.</p>`
+        : `<strong class="valuation-equity-card__review">추가 검토 필요</strong><p>${businessValueResult.range ? "현재 재무구조의 영향으로 예상 지분가치 범위 산정에는 추가 검토가 필요합니다." : "현재 입력정보만으로는 예상 지분가치 범위 산정에 추가 검토가 필요합니다."}</p>`;
     const reviewFactors = [...result.reviewFactors, ...calculationPreparation.reviewFactors];
     const otherIndustryResultNotice = isOtherIndustry
       ? `<p class="valuation-result-note">※ 본 결과는 기타 업종에 적용되는 일반 평가모델을 기반으로 산출되었습니다. 건설업을 포함한 특수 업종은 업종별 특성과 거래관행에 따라 실제 기업가치가 달라질 수 있습니다. 업종 특성을 반영한 상세 기업가치와 거래 전략은 EQUIV 전문 상담에서 검토합니다.</p>`
       : "";
     const consultationIntro = isOtherIndustry
       ? "기타 업종은 일반 평가모델을 기준으로 예비 범위를 산출했습니다. 실제 거래에서는 사업모델, 면허, 인허가, 자산구조와 거래관행에 대한 개별 해석이 중요합니다."
-      : "예비 기업가치는 현재 입력정보를 바탕으로 산출됩니다. 실제 거래가치는 산업환경, 거래구조, 인수자의 전략, 실사 결과 등에 따라 달라질 수 있습니다.";
+      : "예비 기업가치 범위는 현재 입력정보를 바탕으로 산출됩니다. 실제 거래가치는 산업환경, 거래구조, 인수자의 전략, 실사 결과 등에 따라 달라질 수 있습니다.";
     const consultationLead = isOtherIndustry
       ? "EQUIV와 함께 업종별 특성을 반영한 상세 기업가치와 거래 전략을 검토해 보십시오."
       : "기업의 현재 가치를 다양한 관점에서 객관적으로 검토합니다.";
@@ -494,7 +494,7 @@
           <p>EQUIV Preliminary Valuation Model</p>
           <span>EQUIV Business Valuation</span>
         </div>
-        <h3>내 회사의 예비 기업가치</h3>
+        <h3>기업가치 사전진단 결과</h3>
         <p class="valuation-result-intro">${resultIntro}</p>
         ${businessValueMarkup}
         ${businessValueNotice}
@@ -509,9 +509,9 @@
         </div>
         <section class="valuation-equity-card" aria-labelledby="valuation-equity-title">
           <div class="valuation-equity-card__header">
-            <h4 id="valuation-equity-title">예상 지분가치</h4>
+            <h4 id="valuation-equity-title">예상 지분가치 범위</h4>
             <span class="valuation-tooltip">
-              <button class="valuation-tooltip__trigger" type="button" aria-label="예상 지분가치 설명 보기" aria-expanded="false" aria-controls="valuation-equity-tooltip" data-valuation-tooltip>?</button>
+              <button class="valuation-tooltip__trigger" type="button" aria-label="예상 지분가치 범위 설명 보기" aria-expanded="false" aria-controls="valuation-equity-tooltip" data-valuation-tooltip>?</button>
               <span class="valuation-tooltip__content" id="valuation-equity-tooltip" role="tooltip">
                 ${equityTooltipMarkup}
               </span>
@@ -526,7 +526,7 @@
               <button class="valuation-tooltip__trigger" type="button" aria-label="결과 신뢰도 설명 보기" aria-expanded="false" aria-controls="valuation-confidence-tooltip" data-valuation-tooltip>?</button>
               <span class="valuation-tooltip__content" id="valuation-confidence-tooltip" role="tooltip">
                 <strong>결과 신뢰도란?</strong>
-                <span>이번 예비 기업가치와 예상 지분가치 결과를 어느 정도 참고할 수 있는지를 나타내는 지표입니다.</span>
+                <span>이번 예비 기업가치 범위와 예상 지분가치 범위를 어느 정도 참고할 수 있는지를 나타내는 지표입니다.</span>
                 <span>기업의 우수성이나 기업 경쟁력을 평가하는 점수가 아닙니다. 입력된 자료가 충분할수록 결과 신뢰도는 높아집니다.</span>
               </span>
             </span>
@@ -536,7 +536,7 @@
             <strong>${confidence.label}</strong>
           </div>
           <p>${confidence.description}</p>
-          <small>※ 결과 신뢰도는 이번 예비 기업가치와 예상 지분가치의 참고 수준을 나타냅니다. 기업의 우수성이나 경쟁력을 평가하는 점수가 아니며, 입력자료가 충분할수록 높아집니다.</small>
+          <small>※ 결과 신뢰도는 이번 예비 기업가치 범위와 예상 지분가치 범위의 참고 수준을 나타냅니다. 기업의 우수성이나 경쟁력을 평가하는 점수가 아니며, 입력자료가 충분할수록 높아집니다.</small>
         </section>
         <div class="valuation-factor-grid">
           <section><h4>기업가치의 강점</h4><ul>${factorList(result.positiveFactors)}</ul></section>
@@ -545,12 +545,12 @@
         <div class="valuation-insight"><span>EQUIV Insight</span><h4>EQUIV Advisory</h4><p>${escapeHtml(insight)}</p></div>
         ${otherIndustryResultNotice}
         <div class="valuation-public-notice">
-          <strong>예비진단 안내</strong>
+          <strong>기업가치 사전진단 안내</strong>
           <p>본 결과는 현재 입력정보를 바탕으로 산출한 참고용 예비 기업가치 범위입니다.</p>
           <p>정식 기업가치평가 또는 실제 거래가격을 의미하지 않으며, 산업환경, 거래구조, 실사 결과와 인수자의 전략에 따라 달라질 수 있습니다.</p>
         </div>
         <div class="valuation-consultation">
-          <h4>거래 전략 상담하기</h4>
+          <h4>기업가치 검토 상담</h4>
           <p>${escapeHtml(consultationIntro)}</p>
           <p>${escapeHtml(consultationLead)}</p>
           <div class="valuation-result-actions">
