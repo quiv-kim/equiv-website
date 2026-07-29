@@ -30,11 +30,11 @@
   const latestFiscalYear = new Date().getFullYear() - 1;
   const totalExperienceSteps = 3;
   const requiredFieldGuideMarkup = '<p class="required-field-guide valuation-required-guide"><b aria-hidden="true">*</b> 표시는 필수 입력 항목입니다.</p>';
-  const progressMarkup = (currentStep, modifier = "") => `
+  const progressMarkup = (currentStep, modifier = "", showRequiredGuide = true) => `
     <div class="valuation-progress${modifier}" aria-label="진행 단계">
       <div class="valuation-progress__meta">
         <p>STEP ${currentStep} / ${totalExperienceSteps}</p>
-        ${requiredFieldGuideMarkup}
+        ${showRequiredGuide ? requiredFieldGuideMarkup : ""}
       </div>
       <div class="valuation-progress__track"><span style="width:${(currentStep / totalExperienceSteps) * 100}%"></span></div>
     </div>`;
@@ -480,16 +480,9 @@
     const otherIndustryResultNotice = isOtherIndustry
       ? `<p class="valuation-result-note">※ 본 결과는 기타 업종에 적용되는 일반 평가모델을 기반으로 산출되었습니다. 건설업을 포함한 특수 업종은 업종별 특성과 거래관행에 따라 실제 기업가치가 달라질 수 있습니다. 업종 특성을 반영한 상세 기업가치와 거래 전략은 EQUIV 전문 상담에서 검토합니다.</p>`
       : "";
-    const consultationIntro = isOtherIndustry
-      ? "기타 업종은 일반 평가모델을 기준으로 예비 범위를 산출했습니다. 실제 거래에서는 사업모델, 면허, 인허가, 자산구조와 거래관행에 대한 개별 해석이 중요합니다."
-      : "예비 기업가치 범위는 현재 입력정보를 바탕으로 산출됩니다. 실제 거래가치는 산업환경, 거래구조, 인수자의 전략, 실사 결과 등에 따라 달라질 수 있습니다.";
-    const consultationLead = isOtherIndustry
-      ? "EQUIV와 함께 업종별 특성을 반영한 상세 기업가치와 거래 전략을 검토해 보십시오."
-      : "기업의 현재 가치를 다양한 관점에서 객관적으로 검토합니다.";
-
     stage.innerHTML = `
       <div class="valuation-result">
-        ${progressMarkup(totalExperienceSteps, " valuation-progress--result")}
+        ${progressMarkup(totalExperienceSteps, " valuation-progress--result", false)}
         <div class="valuation-result-brand">
           <p>EQUIV Preliminary Valuation Model</p>
           <span>EQUIV Business Valuation</span>
@@ -542,17 +535,16 @@
           <section><h4>기업가치의 강점</h4><ul>${factorList(result.positiveFactors)}</ul></section>
           <section><h4>기업가치 검토 포인트</h4><ul>${factorList(reviewFactors)}</ul></section>
         </div>
-        <div class="valuation-insight"><span>EQUIV Insight</span><h4>EQUIV Advisory</h4><p>${escapeHtml(insight)}</p></div>
         ${otherIndustryResultNotice}
+        <div class="valuation-insight"><span>EQUIV Insight</span><h4>EQUIV Advisory</h4><p>${escapeHtml(insight)}</p></div>
         <div class="valuation-public-notice">
           <strong>기업가치 사전진단 안내</strong>
           <p>본 결과는 현재 입력정보를 바탕으로 산출한 참고용 예비 기업가치 범위입니다.</p>
-          <p>정식 기업가치평가 또는 실제 거래가격을 의미하지 않으며, 산업환경, 거래구조, 실사 결과와 인수자의 전략에 따라 달라질 수 있습니다.</p>
+          <p>정식 기업가치평가 또는 실제 거래가격을 의미하지 않으며, 산업환경·거래구조·실사 결과와 인수자의 전략에 따라 달라질 수 있습니다.</p>
         </div>
         <div class="valuation-consultation">
           <h4>기업가치 검토 상담</h4>
-          <p>${escapeHtml(consultationIntro)}</p>
-          <p>${escapeHtml(consultationLead)}</p>
+          <p>사전진단 결과에 대한 검토가 필요하시면 상담을 신청해 주세요.</p>
           <div class="valuation-result-actions">
             <button class="btn btn-secondary" type="button" data-valuation-reset>초기화 및 다시 계산하기</button>
             <a class="btn btn-primary" href="index.html#contact" data-consultation-open data-consultation-type="기업가치 검토">상담 신청</a>
