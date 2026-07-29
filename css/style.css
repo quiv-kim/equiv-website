@@ -2112,8 +2112,16 @@ button {
   margin-bottom: var(--space-xl);
 }
 
-.valuation-progress p {
-  margin: 0 0 var(--space-xs);
+.valuation-progress__meta {
+  display: flex;
+  gap: var(--space-md);
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+}
+
+.valuation-progress__meta > p {
+  margin: 0;
   color: var(--color-gold);
   font-family: var(--font-en);
   font-size: var(--type-body);
@@ -2121,13 +2129,19 @@ button {
   letter-spacing: 0.08em;
 }
 
-.valuation-progress div {
+.valuation-required-guide {
+  flex: 0 1 auto;
+  color: var(--color-muted);
+  text-align: right;
+}
+
+.valuation-progress__track {
   height: 2px;
   overflow: hidden;
   background: var(--color-border-card);
 }
 
-.valuation-progress span {
+.valuation-progress__track > span {
   display: block;
   height: 100%;
   background: var(--color-gold);
@@ -3394,20 +3408,49 @@ button {
   line-height: 1.25;
 }
 
+.required-field-guide {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--type-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.required-field-guide b {
+  color: var(--color-gold);
+  font-weight: var(--font-weight-bold);
+}
+
+.consultation-modal__heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-xl);
+  align-items: end;
+}
+
+.consultation-modal__heading-copy {
+  min-width: 0;
+}
+
+.consultation-modal__heading-copy > p {
+  margin: var(--space-md) 0 0;
+  color: var(--color-on-primary-strong);
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+.consultation-modal__required-guide {
+  padding-bottom: calc(var(--space-2xs) / 2);
+  color: var(--color-on-primary-caption);
+  white-space: nowrap;
+}
+
 .consultation-modal__header > p:last-child {
   display: flex;
   gap: var(--space-xl);
   align-items: flex-end;
   justify-content: space-between;
   margin: var(--space-md) 0 0;
-}
-
-.consultation-modal__header[data-consultation-header] > p:last-child {
-  display: block;
-  color: var(--color-on-primary-strong);
-  font-size: var(--type-body);
-  line-height: 1.65;
-  text-align: left;
 }
 
 .consultation-modal__header strong {
@@ -5877,7 +5920,7 @@ button {
   .consultation-modal__types legend,
   .consultation-modal__types label span,
   .valuation-modal .valuation-public-badge,
-  .valuation-progress p,
+  .valuation-progress__meta > p:first-child,
   .valuation-field > span,
   .valuation-checkbox-group legend {
     font-size: var(--modal-label-size);
@@ -6258,10 +6301,33 @@ button {
     line-height: 1.3;
   }
 
-  .consultation-modal__header[data-consultation-header] > p:last-child {
+  .consultation-modal__heading-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+    align-items: start;
+  }
+
+  .consultation-modal__heading-copy > p {
     margin-top: var(--space-sm);
     font-size: var(--modal-description-size);
     line-height: 1.55;
+  }
+
+  .consultation-modal__required-guide {
+    padding-bottom: 0;
+    font-size: var(--modal-help-size);
+    white-space: normal;
+  }
+
+  .valuation-progress__meta {
+    display: grid;
+    gap: var(--space-2xs);
+    align-items: start;
+  }
+
+  .valuation-required-guide {
+    font-size: var(--mobile-caption);
+    text-align: left;
   }
 
   .consultation-modal__close {

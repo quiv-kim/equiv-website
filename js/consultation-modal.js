@@ -37,8 +37,13 @@
             <span class="equiv-logo-wordmark">EQUIV</span>
           </div>
           <p class="section-kicker">CONSULTATION</p>
-          <h2 id="consultation-modal-title">M&amp;A 상담 신청</h2>
-          <p id="consultation-modal-description">상담 내용을 남겨주시면 담당자가 확인 후 연락드립니다.</p>
+          <div class="consultation-modal__heading-row">
+            <div class="consultation-modal__heading-copy">
+              <h2 id="consultation-modal-title">M&amp;A 상담 신청</h2>
+              <p id="consultation-modal-description">상담 내용을 남겨주시면 담당자가 확인 후 연락드립니다.</p>
+            </div>
+            <p class="required-field-guide consultation-modal__required-guide"><b aria-hidden="true">*</b> 표시는 필수 입력 항목입니다.</p>
+          </div>
         </header>
 
         <header class="consultation-modal__header consultation-modal__header--success" data-success-header hidden>

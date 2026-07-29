@@ -29,6 +29,15 @@
   const checked = (name, value) => Array.isArray(values[name]) && values[name].includes(value) ? " checked" : "";
   const latestFiscalYear = new Date().getFullYear() - 1;
   const totalExperienceSteps = 3;
+  const requiredFieldGuideMarkup = '<p class="required-field-guide valuation-required-guide"><b aria-hidden="true">*</b> 표시는 필수 입력 항목입니다.</p>';
+  const progressMarkup = (currentStep, modifier = "") => `
+    <div class="valuation-progress${modifier}" aria-label="진행 단계">
+      <div class="valuation-progress__meta">
+        <p>STEP ${currentStep} / ${totalExperienceSteps}</p>
+        ${requiredFieldGuideMarkup}
+      </div>
+      <div class="valuation-progress__track"><span style="width:${(currentStep / totalExperienceSteps) * 100}%"></span></div>
+    </div>`;
 
   const numberField = (name, label, required = false, allowNegative = false, helper = "") => `
     <label class="valuation-field">
@@ -105,10 +114,7 @@
     const step = steps[stepIndex];
     stage.innerHTML = `
       <form class="valuation-form" data-valuation-form novalidate>
-        <div class="valuation-progress" aria-label="진행 단계">
-          <p>STEP ${stepIndex + 1} / ${totalExperienceSteps}</p>
-          <div><span style="width:${((stepIndex + 1) / totalExperienceSteps) * 100}%"></span></div>
-        </div>
+        ${progressMarkup(stepIndex + 1)}
         <div class="valuation-step"><h3>${step.title}</h3>${step.body()}</div>
         <p class="valuation-error" role="alert">${escapeHtml(errorMessage)}</p>
         <div class="valuation-form-actions">
@@ -483,10 +489,7 @@
 
     stage.innerHTML = `
       <div class="valuation-result">
-        <div class="valuation-progress valuation-progress--result" aria-label="진행 단계">
-          <p>STEP 3 / ${totalExperienceSteps}</p>
-          <div><span style="width:100%"></span></div>
-        </div>
+        ${progressMarkup(totalExperienceSteps, " valuation-progress--result")}
         <div class="valuation-result-brand">
           <p>EQUIV Preliminary Valuation Model</p>
           <span>EQUIV Business Valuation</span>
