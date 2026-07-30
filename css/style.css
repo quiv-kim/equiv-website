@@ -1449,7 +1449,7 @@ button {
 .insight-article-body h2 {
   margin: var(--space-2xl) 0 var(--space-md);
   color: var(--color-primary);
-  font-size: var(--type-h2);
+  font-size: calc(var(--type-h2) - 2px);
   line-height: 1.4;
 }
 
@@ -1527,6 +1527,12 @@ button {
   font-size: var(--type-body);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.08em;
+}
+
+.sub-hero .insight-article-label {
+  font-size: var(--type-small);
+  line-height: 1.4;
+  letter-spacing: 0.1em;
 }
 
 .service-hero .sub-hero-lead {
@@ -4318,6 +4324,11 @@ button {
   width: min(calc(var(--container-full) - var(--container-gutter)), var(--content-width-home-insights));
 }
 
+.insights-preview .section-head > h2 span {
+  font-size: calc(var(--type-h2) - 8px);
+  line-height: 1.4;
+}
+
 .insights-preview .insight-grid {
   width: 100%;
   max-width: var(--content-width-home-insights);
@@ -4501,7 +4512,7 @@ button {
   }
 
   .insight-article-body h2 {
-    font-size: var(--type-h2);
+    font-size: calc(var(--type-h2) - 4px);
   }
 
   .principle-card h3 {
@@ -4739,6 +4750,10 @@ button {
     --component-card-padding-compact: var(--component-card-padding-tablet);
     --component-home-card-padding-block: var(--component-card-padding-tablet);
     --component-home-card-padding-inline: var(--component-card-padding-tablet);
+  }
+
+  .insights-preview .section-head > h2 span {
+    font-size: calc(var(--type-h2) - 6px);
   }
 
   .container,
@@ -5382,7 +5397,7 @@ button {
 
   .insight-article-body h2 {
     margin-top: var(--space-2xl);
-    font-size: var(--type-h2);
+    font-size: calc(var(--type-h2) - 2px);
   }
 
   .insight-article-body p {
@@ -6182,6 +6197,10 @@ button {
 
   .insight-article-hero .container > p:not(.section-kicker) {
     font-size: var(--type-body);
+  }
+
+  .insight-article-hero .container > p.insight-article-label {
+    font-size: var(--type-small);
   }
 
   .footer-brand .equiv-logo-wordmark {
