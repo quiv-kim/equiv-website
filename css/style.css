@@ -1889,7 +1889,8 @@ button {
 }
 
 .sell-side-page .faq-list h3,
-.buy-side-page .faq-list h3 {
+.buy-side-page .faq-list h3,
+.capital-advisory-page .faq-list h3 {
   font-size: 1.1875rem;
 }
 
@@ -4980,7 +4981,8 @@ button {
 
 @media (max-width: 767px) {
   .sell-side-page .faq-list h3,
-  .buy-side-page .faq-list h3 {
+  .buy-side-page .faq-list h3,
+  .capital-advisory-page .faq-list h3 {
     font-size: 1.0625rem;
   }
 
