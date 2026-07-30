@@ -10,6 +10,7 @@
     },
     {
       value: "기업가치 검토",
+      label: "기업 가치",
       copy: "재무·사업·시장 관점에서 기업의 현재 가치를 검토합니다.",
     },
     {
@@ -22,7 +23,7 @@
     },
   ];
   const serviceOptionMarkup = serviceCopies
-    .map(({ value }, index) => `<label><input type="radio" name="consultation_type" value="${value}"${index === 0 ? " required" : ""}><span>${value}</span></label>`)
+    .map(({ value, label = value }, index) => `<label><input type="radio" name="consultation_type" value="${value}"${index === 0 ? " required" : ""}><span>${label}</span></label>`)
     .join("");
 
   const modalMarkup = `
