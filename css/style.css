@@ -1764,6 +1764,12 @@ button {
   gap: var(--space-md);
 }
 
+@media (min-width: 768px) {
+  .business-valuation-page .expertise-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .expertise-card {
   min-height: 200px;
   background: var(--color-white);
@@ -5575,6 +5581,10 @@ button {
     margin-top: var(--space-2xl);
     font-size: var(--type-h3);
     line-height: 1.48;
+  }
+
+  .business-valuation-page .expertise-card h3 {
+    margin-top: var(--space-xl);
   }
 
   .expertise-card-subtitle {
