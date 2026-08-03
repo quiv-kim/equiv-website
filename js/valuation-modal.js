@@ -672,6 +672,16 @@
       });
     });
   };
+  const closeResultTooltips = () => {
+    let closed = false;
+    stage.querySelectorAll(".valuation-tooltip.is-open").forEach((tooltip) => {
+      tooltip.classList.remove("is-open");
+      const trigger = tooltip.querySelector("[data-valuation-tooltip]");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+      closed = true;
+    });
+    return closed;
+  };
   const open = () => {
     if (resultLoadingTimer !== null) {
       window.clearTimeout(resultLoadingTimer);
@@ -681,6 +691,7 @@
     values = initialState();
     stepIndex = 0;
     validationActive = false;
+    closeResultTooltips();
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
@@ -689,6 +700,7 @@
   };
   const close = ({ restoreFocus = true, preserveScrollLock = false } = {}) => {
     cancelInitialFocus();
+    closeResultTooltips();
     if (resultLoadingTimer !== null) {
       window.clearTimeout(resultLoadingTimer);
       resultLoadingTimer = null;
@@ -760,15 +772,16 @@
     const tooltipTrigger = event.target.closest("[data-valuation-tooltip]");
     if (tooltipTrigger) {
       const tooltip = tooltipTrigger.closest(".valuation-tooltip");
-      const isOpen = tooltip.classList.toggle("is-open");
-      tooltipTrigger.setAttribute("aria-expanded", String(isOpen));
+      const wasOpen = tooltip.classList.contains("is-open");
+      closeResultTooltips();
+      if (!wasOpen) {
+        tooltip.classList.add("is-open");
+        tooltipTrigger.setAttribute("aria-expanded", "true");
+      }
       return;
     }
-    stage.querySelectorAll(".valuation-tooltip.is-open").forEach((tooltip) => {
-      tooltip.classList.remove("is-open");
-      const trigger = tooltip.querySelector("[data-valuation-tooltip]");
-      if (trigger) trigger.setAttribute("aria-expanded", "false");
-    });
+    if (event.target.closest(".valuation-tooltip__content")) return;
+    closeResultTooltips();
     if (event.target.closest("[data-valuation-prev]")) {
       const form = event.target.closest("form");
       if (form) collect(form);
@@ -787,6 +800,7 @@
     if (!modal.classList.contains("is-open")) return;
     if (event.key === "Escape") {
       event.preventDefault();
+      if (closeResultTooltips()) return;
       close();
       return;
     }

@@ -2882,7 +2882,6 @@ button {
 }
 
 .valuation-tooltip:hover .valuation-tooltip__content,
-.valuation-tooltip:focus-within .valuation-tooltip__content,
 .valuation-tooltip.is-open .valuation-tooltip__content {
   visibility: visible;
   opacity: 1;
@@ -5882,10 +5881,25 @@ button {
     padding: var(--space-lg) var(--space-md);
   }
 
+  .valuation-equity-card__header,
+  .valuation-confidence__header {
+    position: relative;
+  }
+
+  .valuation-tooltip {
+    position: static;
+  }
+
   .valuation-tooltip__content {
-    right: 0;
-    left: auto;
-    width: min(280px, calc(100vw - 72px));
+    right: auto;
+    left: 50%;
+    width: min(280px, calc(100% - var(--space-md)));
+    transform: translate(-50%, 4px);
+  }
+
+  .valuation-tooltip:hover .valuation-tooltip__content,
+  .valuation-tooltip.is-open .valuation-tooltip__content {
+    transform: translate(-50%, 0);
   }
 
   .valuation-confidence {
