@@ -76,6 +76,16 @@
       event.stopPropagation();
       const isOpen = toggle.getAttribute("aria-expanded") === "true";
       closeDropdowns(item);
+      const isDesktopPointerActivation = !usesCollapsedNavigation() && event.detail > 0;
+      setDropdownState(item, isDesktopPointerActivation ? true : !isOpen);
+    });
+
+    toggle.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      event.stopPropagation();
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      closeDropdowns(item);
       setDropdownState(item, !isOpen);
     });
 
@@ -90,8 +100,8 @@
       setDropdownState(item, false);
     });
 
-    item.addEventListener("focusin", () => {
-      if (usesCollapsedNavigation()) return;
+    item.addEventListener("focusin", (event) => {
+      if (usesCollapsedNavigation() || event.target === toggle) return;
       closeDropdowns(item);
       setDropdownState(item, true);
     });
