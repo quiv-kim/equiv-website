@@ -162,6 +162,7 @@
   const consultationTypeCopy = modal?.querySelector("[data-consultation-type-copy]");
   const developmentNotices = modal?.querySelectorAll("[data-development-notice]") || [];
   let lastFocused = null;
+  let initialFocusFrame = null;
   let stateTransitionTimer = null;
 
   if (!modal || !dialog || !content || !form || !success || !consultationHeader || !successHeader || !privacyToggle || !privacyDetails || !consultationTypeCopy) return;
@@ -182,6 +183,31 @@
   const getFocusable = () => Array.from(
     dialog.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
   ).filter((item) => !item.hidden && item.getAttribute("aria-hidden") !== "true" && item.offsetParent !== null);
+
+  const cancelInitialFocus = () => {
+    if (initialFocusFrame === null) return;
+    window.cancelAnimationFrame(initialFocusFrame);
+    initialFocusFrame = null;
+  };
+
+  const focusInitialField = () => {
+    cancelInitialFocus();
+    initialFocusFrame = window.requestAnimationFrame(() => {
+      initialFocusFrame = window.requestAnimationFrame(() => {
+        initialFocusFrame = null;
+        if (!modal.classList.contains("is-open")) return;
+        const candidates = [
+          form.querySelector("[autofocus]"),
+          form.querySelector('[name="company_name"]'),
+          form.querySelector("input:not([disabled]), select:not([disabled]), textarea:not([disabled])"),
+        ];
+        const target = candidates.find(
+          (item) => item && !item.hidden && item.getAttribute("aria-hidden") !== "true" && item.offsetParent !== null
+        );
+        if (target) target.focus({ preventScroll: true });
+      });
+    });
+  };
 
   const setModalState = (state) => {
     const isSuccess = state === "success";
@@ -237,13 +263,11 @@
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-    window.requestAnimationFrame(() => {
-      const firstField = form.querySelector("input");
-      if (firstField) firstField.focus({ preventScroll: true });
-    });
+    focusInitialField();
   };
 
   const closeModal = () => {
+    cancelInitialFocus();
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
