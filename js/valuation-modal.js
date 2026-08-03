@@ -14,6 +14,7 @@
   let stepIndex = 0;
   let lastFocused = null;
   let initialFocusFrame = null;
+  let validationActive = false;
   let resultLoadingTimer = null;
   const resultTransitionDuration = window.EQUIVMotion
     ? window.EQUIVMotion.duration("--motion-duration-fade", 300)
@@ -28,6 +29,10 @@
   const fieldValue = (name) => escapeHtml(values[name] ?? "");
   const selected = (name, value) => values[name] === value ? " selected" : "";
   const checked = (name, value) => Array.isArray(values[name]) && values[name].includes(value) ? " checked" : "";
+  const fieldDomId = (name) => `valuation-${name}`;
+  const fieldErrorId = (name) => `${fieldDomId(name)}-error`;
+  const fieldHelpId = (name) => `${fieldDomId(name)}-help`;
+  const fieldErrorMarkup = (name) => `<p class="valuation-error" id="${fieldErrorId(name)}" data-valuation-field-error="${name}" hidden></p>`;
   const latestFiscalYear = new Date().getFullYear() - 1;
   const totalExperienceSteps = 3;
   const requiredFieldGuideMarkup = '<p class="required-field-guide valuation-required-guide"><b aria-hidden="true">*</b> 표시는 필수 입력 항목입니다.</p>';
@@ -41,20 +46,26 @@
     </div>`;
 
   const numberField = (name, label, required = false, allowNegative = false, helper = "") => `
-    <label class="valuation-field">
-      <span>${label}${required ? " *" : ""}</span>
-      ${helper ? `<small>${helper}</small>` : ""}
-      <input type="number" name="${name}" value="${fieldValue(name)}" step="0.1" ${allowNegative ? "" : 'min="0"'} ${required ? "required" : ""} inputmode="decimal">
-    </label>`;
+    <div class="valuation-field-wrap">
+      <label class="valuation-field" for="${fieldDomId(name)}">
+        <span>${label}${required ? " *" : ""}</span>
+        ${helper ? `<small id="${fieldHelpId(name)}">${helper}</small>` : ""}
+        <input id="${fieldDomId(name)}" type="number" name="${name}" value="${fieldValue(name)}" step="0.1" ${allowNegative ? "" : 'min="0"'} ${required ? "required" : ""} inputmode="decimal"${helper ? ` aria-describedby="${fieldHelpId(name)}"` : ""}>
+      </label>
+      ${fieldErrorMarkup(name)}
+    </div>`;
 
   const selectField = (name, label, options, required = true) => `
-    <label class="valuation-field">
-      <span>${label}${required ? " *" : ""}</span>
-      <select name="${name}" ${required ? "required" : ""}>
-        <option value="">선택해 주십시오</option>
-        ${options.map(([value, text]) => `<option value="${value}"${selected(name, value)}>${text}</option>`).join("")}
-      </select>
-    </label>`;
+    <div class="valuation-field-wrap">
+      <label class="valuation-field" for="${fieldDomId(name)}">
+        <span>${label}${required ? " *" : ""}</span>
+        <select id="${fieldDomId(name)}" name="${name}" ${required ? "required" : ""}>
+          <option value="">선택해 주십시오</option>
+          ${options.map(([value, text]) => `<option value="${value}"${selected(name, value)}>${text}</option>`).join("")}
+        </select>
+      </label>
+      ${fieldErrorMarkup(name)}
+    </div>`;
 
   const steps = [
     {
@@ -102,22 +113,23 @@
         </section>
         <section class="valuation-input-section">
           <h4>보유 경쟁력</h4>
-          <fieldset class="valuation-checkbox-group">
+          <fieldset class="valuation-checkbox-group" id="${fieldDomId("strengths")}">
             <legend><span>복수 선택 가능</span><small>업종에 따라 기술, 특허, 독자 노하우, AI·소프트웨어, 제조공정, 브랜드, 인허가, 장기계약, 유통망·판매채널 등 해당 기업의 핵심 경쟁력을 선택해 주십시오.</small></legend>
             ${[["technology","기술·특허·노하우"],["brand","브랜드"],["license","인허가 또는 진입장벽"],["contract","장기계약"],["distribution","유통망·판매채널"],["none","특별한 경쟁력 없음"]].map(([value,text]) => `<label><input type="checkbox" name="strengths" value="${value}"${checked("strengths", value)}> <span>${text}</span></label>`).join("")}
           </fieldset>
+          ${fieldErrorMarkup("strengths")}
         </section>
-        <label class="valuation-confirm"><input type="checkbox" name="disclaimerConfirmed" value="yes" ${values.disclaimerConfirmed === "yes" ? "checked" : ""} required> <span>본 결과가 상담 전 참고용 사전진단이며, 정식 기업가치평가 또는 실제 거래가격이 아님을 확인합니다.</span></label>`,
+        <label class="valuation-confirm" for="${fieldDomId("disclaimerConfirmed")}"><input id="${fieldDomId("disclaimerConfirmed")}" type="checkbox" name="disclaimerConfirmed" value="yes" ${values.disclaimerConfirmed === "yes" ? "checked" : ""} required> <span>본 결과가 상담 전 참고용 사전진단이며, 정식 기업가치평가 또는 실제 거래가격이 아님을 확인합니다.</span></label>
+        ${fieldErrorMarkup("disclaimerConfirmed")}`,
     },
   ];
 
-  const renderStep = (errorMessage = "") => {
+  const renderStep = () => {
     const step = steps[stepIndex];
     stage.innerHTML = `
       <form class="valuation-form" data-valuation-form novalidate>
         ${progressMarkup(stepIndex + 1)}
         <div class="valuation-step"><h3>${step.title}</h3>${step.body()}</div>
-        <p class="valuation-error" role="alert">${escapeHtml(errorMessage)}</p>
         <div class="valuation-form-actions${stepIndex > 0 ? " valuation-form-actions--with-prev" : ""}">
           ${stepIndex > 0 ? '<button class="btn btn-secondary valuation-prev-button" type="button" data-valuation-prev aria-label="이전 단계로 이동">이전</button>' : ""}
           <button class="btn btn-primary" type="submit">${stepIndex === steps.length - 1 ? "사전진단 결과 확인" : "다음"}</button>
@@ -169,28 +181,98 @@
     if (form.querySelector('[name="strengths"]')) values.strengths = data.getAll("strengths");
   };
 
+  const validationTargets = (form, name) => {
+    if (name === "strengths") {
+      const fieldset = form.querySelector(`#${fieldDomId(name)}`);
+      return fieldset ? [fieldset] : [];
+    }
+    const field = form.querySelector(`[name="${name}"]`);
+    return field ? [field] : [];
+  };
+
+  const validationFocusTarget = (form, name) => name === "strengths"
+    ? form.querySelector('input[name="strengths"]:not([disabled])')
+    : form.querySelector(`[name="${name}"]:not([disabled])`);
+
+  const updateDescriptionToken = (element, token, shouldInclude) => {
+    const tokens = new Set((element.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean));
+    if (shouldInclude) tokens.add(token);
+    else tokens.delete(token);
+    if (tokens.size) element.setAttribute("aria-describedby", Array.from(tokens).join(" "));
+    else element.removeAttribute("aria-describedby");
+  };
+
+  const applyValidationErrors = (form, errors, { focusFirst = false, announce = false } = {}) => {
+    form.querySelectorAll("[data-valuation-field-error]").forEach((message) => {
+      validationTargets(form, message.dataset.valuationFieldError).forEach((target) => {
+        target.removeAttribute("aria-invalid");
+        updateDescriptionToken(target, message.id, false);
+      });
+      message.hidden = true;
+      message.textContent = "";
+      message.removeAttribute("role");
+      message.removeAttribute("aria-atomic");
+    });
+
+    errors.forEach((error, index) => {
+      const message = form.querySelector(`[data-valuation-field-error="${error.name}"]`);
+      if (!message) return;
+      message.textContent = error.message;
+      message.hidden = false;
+      if (announce && index === 0) {
+        message.setAttribute("role", "alert");
+        message.setAttribute("aria-atomic", "true");
+      }
+      validationTargets(form, error.name).forEach((target) => {
+        target.setAttribute("aria-invalid", "true");
+        updateDescriptionToken(target, message.id, true);
+      });
+    });
+
+    if (!focusFirst || !errors.length) return;
+    const firstInvalid = validationFocusTarget(form, errors[0].name);
+    if (firstInvalid && firstInvalid.offsetParent !== null) firstInvalid.focus();
+  };
+
   const validateStep = (form) => {
-    if (!form.checkValidity()) return "필수 입력항목을 확인해 주십시오.";
+    const errors = [];
+    const addError = (name, message) => {
+      if (!errors.some((error) => error.name === name)) errors.push({ name, message });
+    };
+
+    form.querySelectorAll("input:invalid, select:invalid, textarea:invalid").forEach((field) => {
+      if (field.name) addError(field.name, "필수 입력항목을 확인해 주십시오.");
+    });
     if (stepIndex === 0) {
       const isFilled = (value) => value !== "" && value !== null && value !== undefined;
-      if (Number(values.latestRevenue) <= 0) return "최근 사업연도 매출은 0보다 커야 합니다.";
+      if (Number(values.latestRevenue) <= 0) addError("latestRevenue", "최근 사업연도 매출은 0보다 커야 합니다.");
       const optionalYears = [
-        [values.yearMinus2Revenue, values.yearMinus2Profit, "직전 사업연도"],
-        [values.yearMinus3Revenue, values.yearMinus3Profit, "2개년 전"],
+        ["yearMinus2Revenue", "yearMinus2Profit", "직전 사업연도"],
+        ["yearMinus3Revenue", "yearMinus3Profit", "2개년 전"],
       ];
-      for (const [revenue, profit, label] of optionalYears) {
-        if (isFilled(revenue) !== isFilled(profit)) return `${label} 매출과 영업이익을 함께 입력해 주십시오.`;
-        if (isFilled(revenue) && Number(revenue) <= 0) return `${label} 매출은 0보다 커야 합니다.`;
+      for (const [revenueName, profitName, label] of optionalYears) {
+        const revenue = values[revenueName];
+        const profit = values[profitName];
+        if (isFilled(revenue) !== isFilled(profit)) {
+          addError(isFilled(revenue) ? profitName : revenueName, `${label} 매출과 영업이익을 함께 입력해 주십시오.`);
+        }
+        if (isFilled(revenue) && Number(revenue) <= 0) addError(revenueName, `${label} 매출은 0보다 커야 합니다.`);
       }
       const hasForecast = [values.forecastRevenue, values.forecastProfit]
         .some((value) => value !== "" && value !== null && value !== undefined && Number(value) !== 0);
-      if (hasForecast && !values.forecastEvidence) return "예상 실적을 입력한 경우 근거 수준을 선택해 주십시오.";
+      if (hasForecast && !values.forecastEvidence) addError("forecastEvidence", "예상 실적을 입력한 경우 근거 수준을 선택해 주십시오.");
     }
-    if (stepIndex === 1 && (Number(values.debt) < 0 || Number(values.cash) < 0)) return "금융부채와 현금은 0 이상이어야 합니다.";
+    if (stepIndex === 1 && Number(values.debt) < 0) addError("debt", "금융부채와 현금은 0 이상이어야 합니다.");
+    if (stepIndex === 1 && Number(values.cash) < 0) addError("cash", "금융부채와 현금은 0 이상이어야 합니다.");
     if (stepIndex === 1 && (!values.strengths.length || (values.strengths.includes("none") && values.strengths.length > 1))) {
-      return "경쟁력을 선택해 주십시오. ‘특별한 경쟁력 없음’은 다른 항목과 함께 선택할 수 없습니다.";
+      addError("strengths", "경쟁력을 선택해 주십시오. ‘특별한 경쟁력 없음’은 다른 항목과 함께 선택할 수 없습니다.");
     }
-    return "";
+    return errors.sort((a, b) => {
+      const first = validationFocusTarget(form, a.name);
+      const second = validationFocusTarget(form, b.name);
+      if (!first || !second || first === second) return 0;
+      return first.compareDocumentPosition(second) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
   };
 
   const factorList = (items) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
@@ -598,6 +680,7 @@
     lastFocused = document.activeElement;
     values = initialState();
     stepIndex = 0;
+    validationActive = false;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
@@ -646,12 +729,29 @@
     const form = event.target.closest("[data-valuation-form]");
     if (!form) return;
     collect(form);
-    const error = validateStep(form);
-    if (error) return renderStep(error);
+    const errors = validateStep(form);
+    if (errors.length) {
+      validationActive = true;
+      applyValidationErrors(form, errors, { focusFirst: true, announce: true });
+      return;
+    }
+    validationActive = false;
+    applyValidationErrors(form, []);
     if (stepIndex === steps.length - 1) return renderResultLoading();
     stepIndex += 1;
     renderStep();
   });
+  const refreshValidationErrors = (event) => {
+    if (!validationActive) return;
+    const form = event.target.closest("[data-valuation-form]");
+    if (!form) return;
+    collect(form);
+    const errors = validateStep(form);
+    applyValidationErrors(form, errors);
+    if (!errors.length) validationActive = false;
+  };
+  stage.addEventListener("input", refreshValidationErrors);
+  stage.addEventListener("change", refreshValidationErrors);
   stage.addEventListener("click", (event) => {
     if (event.target.closest("[data-consultation-open]")) {
       close({ restoreFocus: false, preserveScrollLock: true });
@@ -673,11 +773,13 @@
       const form = event.target.closest("form");
       if (form) collect(form);
       stepIndex = Math.max(0, stepIndex - 1);
+      validationActive = false;
       renderStep();
     }
     if (event.target.closest("[data-valuation-reset]")) {
       values = initialState();
       stepIndex = 0;
+      validationActive = false;
       renderStep();
     }
   });
