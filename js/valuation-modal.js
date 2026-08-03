@@ -13,6 +13,7 @@
   let values = initialState();
   let stepIndex = 0;
   let lastFocused = null;
+  let initialFocusFrame = null;
   let resultLoadingTimer = null;
   const resultTransitionDuration = window.EQUIVMotion
     ? window.EQUIVMotion.duration("--motion-duration-fade", 300)
@@ -559,7 +560,36 @@
     scrollToModalStart();
   };
 
-  const getFocusable = () => Array.from(modal.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'));
+  const getFocusable = () => Array.from(
+    modal.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])')
+  ).filter((item) => !item.hidden && item.getAttribute("aria-hidden") !== "true" && item.offsetParent !== null);
+
+  const cancelInitialFocus = () => {
+    if (initialFocusFrame === null) return;
+    window.cancelAnimationFrame(initialFocusFrame);
+    initialFocusFrame = null;
+  };
+
+  const focusInitialField = () => {
+    cancelInitialFocus();
+    initialFocusFrame = window.requestAnimationFrame(() => {
+      initialFocusFrame = window.requestAnimationFrame(() => {
+        initialFocusFrame = null;
+        if (!modal.classList.contains("is-open")) return;
+        const candidates = [
+          stage.querySelector('select[name="industry"]'),
+          stage.querySelector("input:not([disabled]), select:not([disabled]), textarea:not([disabled])"),
+          modal.querySelector(".readiness-modal__dialog"),
+        ];
+        const target = candidates.find(
+          (item) => item && !item.hidden && item.getAttribute("aria-hidden") !== "true" && item.offsetParent !== null
+        );
+        if (!target) return;
+        if (!target.matches("input, select, textarea, button, a[href], [tabindex]")) target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+      });
+    });
+  };
   const open = () => {
     if (resultLoadingTimer !== null) {
       window.clearTimeout(resultLoadingTimer);
@@ -572,8 +602,10 @@
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
     renderStep();
+    focusInitialField();
   };
-  const close = () => {
+  const close = ({ restoreFocus = true, preserveScrollLock = false } = {}) => {
+    cancelInitialFocus();
     if (resultLoadingTimer !== null) {
       window.clearTimeout(resultLoadingTimer);
       resultLoadingTimer = null;
@@ -581,8 +613,8 @@
     stage.setAttribute("aria-busy", "false");
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-    if (lastFocused) lastFocused.focus();
+    if (!preserveScrollLock) document.body.classList.remove("modal-open");
+    if (restoreFocus && lastFocused) lastFocused.focus({ preventScroll: true });
   };
 
   openButton.addEventListener("click", open);
@@ -622,7 +654,7 @@
   });
   stage.addEventListener("click", (event) => {
     if (event.target.closest("[data-consultation-open]")) {
-      close();
+      close({ restoreFocus: false, preserveScrollLock: true });
       return;
     }
     const tooltipTrigger = event.target.closest("[data-valuation-tooltip]");
@@ -649,14 +681,22 @@
       renderStep();
     }
   });
-  modal.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") return close();
+  document.addEventListener("keydown", (event) => {
+    if (!modal.classList.contains("is-open")) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      close();
+      return;
+    }
     if (event.key !== "Tab") return;
     const items = getFocusable();
     if (!items.length) return;
     const first = items[0];
     const last = items[items.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
+    if (!modal.contains(document.activeElement)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+    } else if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
       last.focus();
     } else if (!event.shiftKey && document.activeElement === last) {
