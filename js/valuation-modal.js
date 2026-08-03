@@ -85,7 +85,7 @@
           <div class="valuation-year-group"><h5>${latestFiscalYear} · 최근 사업연도 (필수)</h5><div class="valuation-fields">${numberField("latestRevenue", "매출 (억원)", true)}${numberField("latestProfit", "영업이익 (억원)", true, true)}${numberField("latestEbitda", "EBITDA (억원, 선택)", false, true)}${numberField("depreciation", "감가상각비 (억원, 선택)")}</div></div>
           <div class="valuation-year-group"><h5>${latestFiscalYear - 1} · 직전 사업연도 (권장)</h5><div class="valuation-fields">${numberField("yearMinus2Revenue", "매출 (억원)")}${numberField("yearMinus2Profit", "영업이익 (억원)", false, true)}</div></div>
           <div class="valuation-year-group"><h5>${latestFiscalYear - 2} · 2개년 전 (선택)</h5><div class="valuation-fields">${numberField("yearMinus3Revenue", "매출 (억원)")}${numberField("yearMinus3Profit", "영업이익 (억원)", false, true)}</div><p class="valuation-year-note">2개년 전 자료는 선택 입력입니다. 입력하지 않아도 예비 기업가치 범위 산출은 가능하며, 입력자료가 충분할수록 결과 신뢰도는 높아질 수 있습니다.</p></div>
-          <div class="valuation-year-group"><h5>${latestFiscalYear + 1} 예상 실적 (선택)</h5><div class="valuation-fields">${numberField("forecastRevenue", "예상 매출 (억원)")}${numberField("forecastProfit", "예상 영업이익 (억원)", false, true)}${selectField("forecastEvidence", "예상 실적 근거", [["strong","객관적 근거 강함"],["partial","일부 근거 있음"],["limited","근거가 제한적"]], false)}</div></div>
+          <div class="valuation-year-group"><h5>${latestFiscalYear + 1} 예상 실적 (선택)</h5><div class="valuation-fields">${numberField("forecastRevenue", "예상 매출 (억원)", false, false, "예상 매출은 결과 신뢰도를 검토하기 위한 참고 항목이며, 예비 기업가치 범위에는 직접 반영되지 않습니다.")}${numberField("forecastProfit", "예상 영업이익 (억원)", false, true)}${selectField("forecastEvidence", "예상 실적 근거", [["strong","객관적 근거 강함"],["partial","일부 근거 있음"],["limited","근거가 제한적"]], false)}</div></div>
         </section>`,
     },
     {
@@ -472,7 +472,7 @@
     }
 
     if (selectedStrengths.length) {
-      comments.push(`${selectedStrengths.join("·")}은 재무제표에 모두 반영되지 않는 기업가치 요소가 될 수 있습니다.`);
+      comments.push(`확인된 주요 경쟁력 항목은 ${selectedStrengths.join(" · ")}이며, 재무제표에 모두 반영되지 않는 기업가치 요소가 될 수 있습니다.`);
     } else if (["over70", "from40to70"].includes(values.recurringRevenue)) {
       comments.push("안정적인 반복 매출 기반은 수익의 지속 가능성을 설명하는 중요한 요소입니다.");
     } else if (Number(values.latestProfit) > 0) {
