@@ -79,18 +79,22 @@
               <div class="consultation-modal__field">
                 <label for="modal-company-name">회사명 <span aria-hidden="true">*</span></label>
                 <input id="modal-company-name" name="company_name" type="text" autocomplete="organization" required>
+                <p class="consultation-modal__error" id="modal-company-name-error" data-consultation-error="company_name" hidden></p>
               </div>
               <div class="consultation-modal__field">
                 <label for="modal-contact-name">담당자명 <span aria-hidden="true">*</span></label>
                 <input id="modal-contact-name" name="contact_name" type="text" autocomplete="name" required>
+                <p class="consultation-modal__error" id="modal-contact-name-error" data-consultation-error="contact_name" hidden></p>
               </div>
               <div class="consultation-modal__field">
                 <label for="modal-contact-phone">연락처 <span aria-hidden="true">*</span></label>
                 <input id="modal-contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+                <p class="consultation-modal__error" id="modal-contact-phone-error" data-consultation-error="phone" hidden></p>
               </div>
               <div class="consultation-modal__field">
                 <label for="modal-contact-email">이메일 <span aria-hidden="true">*</span></label>
                 <input id="modal-contact-email" name="email" type="email" autocomplete="email" required>
+                <p class="consultation-modal__error" id="modal-contact-email-error" data-consultation-error="email" hidden></p>
               </div>
             </div>
 
@@ -101,6 +105,7 @@
                 <label><input type="radio" name="consultation_type" value="기타"><span>기타</span></label>
               </div>
               <p class="consultation-modal__type-copy" data-consultation-type-copy hidden></p>
+              <p class="consultation-modal__error" id="modal-consultation-type-error" data-consultation-error="consultation_type" hidden></p>
             </fieldset>
 
             <div class="consultation-modal__field">
@@ -116,6 +121,7 @@
                 </label>
                 <button type="button" aria-expanded="false" aria-controls="consultation-privacy-details" data-consultation-privacy-toggle>자세히 보기</button>
               </div>
+              <p class="consultation-modal__error" id="modal-privacy-consent-error" data-consultation-error="privacy_consent" hidden></p>
               <div class="consultation-modal__privacy-details" id="consultation-privacy-details" data-consultation-privacy-details hidden>
                 <h3>개인정보 수집 및 이용 안내</h3>
                 <dl>
@@ -180,6 +186,85 @@
     notice.hidden = !isDevelopmentEnvironment;
   });
 
+  const validationFields = [
+    { name: "company_name", errorId: "modal-company-name-error", emptyMessage: "회사명을 입력해 주세요." },
+    { name: "contact_name", errorId: "modal-contact-name-error", emptyMessage: "담당자명을 입력해 주세요." },
+    { name: "phone", errorId: "modal-contact-phone-error", emptyMessage: "연락처를 입력해 주세요." },
+    {
+      name: "email",
+      errorId: "modal-contact-email-error",
+      emptyMessage: "이메일을 입력해 주세요.",
+      invalidMessage: "올바른 이메일 주소를 입력해 주세요.",
+    },
+    { name: "consultation_type", errorId: "modal-consultation-type-error", emptyMessage: "상담 유형을 선택해 주세요." },
+    { name: "privacy_consent", errorId: "modal-privacy-consent-error", emptyMessage: "개인정보 수집 및 이용에 동의해 주세요." },
+  ];
+
+  const validationTarget = (name) => form.querySelector(`[name="${name}"]`);
+
+  const updateDescriptionToken = (element, token, shouldInclude) => {
+    const tokens = new Set((element.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean));
+    if (shouldInclude) tokens.add(token);
+    else tokens.delete(token);
+    if (tokens.size) element.setAttribute("aria-describedby", Array.from(tokens).join(" "));
+    else element.removeAttribute("aria-describedby");
+  };
+
+  const validationMessage = (field) => {
+    const target = validationTarget(field.name);
+    if (!target || target.validity.valid) return "";
+    if (field.name === "email" && !target.validity.valueMissing) return field.invalidMessage;
+    return field.emptyMessage;
+  };
+
+  const clearValidationError = (field) => {
+    const target = validationTarget(field.name);
+    const message = form.querySelector(`[data-consultation-error="${field.name}"]`);
+    if (target) {
+      target.removeAttribute("aria-invalid");
+      updateDescriptionToken(target, field.errorId, false);
+    }
+    if (!message) return;
+    message.hidden = true;
+    message.textContent = "";
+    message.removeAttribute("role");
+    message.removeAttribute("aria-atomic");
+  };
+
+  const clearValidationErrors = () => validationFields.forEach(clearValidationError);
+
+  const collectValidationErrors = () => validationFields
+    .map((field) => ({ field, message: validationMessage(field) }))
+    .filter(({ message }) => message);
+
+  const applyValidationErrors = (errors) => {
+    clearValidationErrors();
+    errors.forEach(({ field, message: errorText }, index) => {
+      const target = validationTarget(field.name);
+      const message = form.querySelector(`[data-consultation-error="${field.name}"]`);
+      if (!target || !message) return;
+      target.setAttribute("aria-invalid", "true");
+      updateDescriptionToken(target, field.errorId, true);
+      message.textContent = errorText;
+      message.hidden = false;
+      if (index === 0) {
+        message.setAttribute("role", "alert");
+        message.setAttribute("aria-atomic", "true");
+      }
+    });
+
+    const firstTarget = errors.length ? validationTarget(errors[0].field.name) : null;
+    if (firstTarget && firstTarget.offsetParent !== null) firstTarget.focus();
+  };
+
+  const clearResolvedValidationError = (name) => {
+    const field = validationFields.find((item) => item.name === name);
+    if (!field) return;
+    const message = form.querySelector(`[data-consultation-error="${name}"]`);
+    if (!message || message.hidden || validationMessage(field)) return;
+    clearValidationError(field);
+  };
+
   const getFocusable = () => Array.from(
     dialog.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
   ).filter((item) => !item.hidden && item.getAttribute("aria-hidden") !== "true" && item.offsetParent !== null);
@@ -227,6 +312,7 @@
     }
     dialog.classList.remove("is-state-switching", "is-state-transitioning");
     form.reset();
+    clearValidationErrors();
     form.hidden = false;
     setModalState("consultation");
     privacyDetails.hidden = true;
@@ -294,8 +380,12 @@
   });
 
   form.addEventListener("change", (event) => {
-    if (event.target.name !== "consultation_type") return;
-    updateConsultationTypeCopy(event.target.value);
+    if (event.target.name === "consultation_type") updateConsultationTypeCopy(event.target.value);
+    clearResolvedValidationError(event.target.name);
+  });
+
+  form.addEventListener("input", (event) => {
+    clearResolvedValidationError(event.target.name);
   });
 
   const transitionToSuccess = () => {
@@ -324,10 +414,13 @@
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (stateTransitionTimer !== null) return;
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    const isConstraintValid = form.checkValidity();
+    const validationErrors = collectValidationErrors();
+    if (!isConstraintValid || validationErrors.length) {
+      applyValidationErrors(validationErrors);
       return;
     }
+    clearValidationErrors();
     transitionToSuccess();
   });
 

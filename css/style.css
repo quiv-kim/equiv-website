@@ -3802,6 +3802,22 @@ button {
   box-shadow: var(--form-control-focus-shadow);
 }
 
+.consultation-modal__field input[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.consultation-modal__error {
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-error);
+  font-size: var(--type-caption);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+.consultation-modal__error[hidden] {
+  display: none;
+}
+
 .consultation-modal__types {
   min-width: 0;
   padding: 0;
@@ -3858,6 +3874,10 @@ button {
   outline-offset: 2px;
 }
 
+.consultation-modal__types input[aria-invalid="true"] + span {
+  border-color: var(--color-error);
+}
+
 .consultation-modal__privacy {
   border-top: 1px solid var(--color-line);
   border-bottom: 1px solid var(--color-line);
@@ -3887,6 +3907,11 @@ button {
   flex: 0 0 auto;
   margin: calc(var(--space-2xs) / 4) 0 0;
   accent-color: var(--color-gold);
+}
+
+.consultation-modal__privacy-row input[aria-invalid="true"] {
+  outline: 1px solid var(--color-error);
+  outline-offset: 2px;
 }
 
 .consultation-modal__privacy-row b {
