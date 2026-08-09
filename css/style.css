@@ -2108,6 +2108,18 @@ button {
   width: fit-content;
 }
 
+.diagnostic-card--valuation .btn-secondary {
+  color: var(--color-primary);
+  background: transparent;
+  border-color: var(--color-border-emphasis);
+}
+
+.diagnostic-card--valuation .btn-secondary:hover {
+  color: var(--color-primary);
+  background: var(--color-surface-muted);
+  border-color: var(--color-primary);
+}
+
 .diagnostic-card__notice {
   max-width: none;
   margin: 0;
