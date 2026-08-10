@@ -3751,6 +3751,25 @@ button {
   letter-spacing: 0.1em;
 }
 
+.consultation-modal__header--success .consultation-modal__success-copy {
+  max-width: var(--content-width-sm);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.consultation-modal__header--success .consultation-modal__success-copy > p {
+  margin: var(--space-md) 0 0;
+}
+
+.consultation-modal__header--success .consultation-modal__success-copy h2 {
+  padding-right: 0;
+}
+
+.consultation-modal__header--success .consultation-modal__success-copy p span {
+  display: block;
+  text-align: center;
+}
+
 .consultation-modal__header .section-kicker {
   margin-bottom: var(--space-xs);
 }

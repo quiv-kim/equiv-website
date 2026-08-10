@@ -54,9 +54,11 @@
             <span class="equiv-logo-divider"></span>
             <span class="equiv-logo-wordmark">EQUIV</span>
           </div>
-          <p class="section-kicker">SUCCESS</p>
-          <h2 id="consultation-success-title">상담 신청 완료</h2>
-          <p id="consultation-success-description"><span class="consultation-modal__header-trust"><b>CONFIDENTIAL</b>상담 내용은 비밀유지 원칙에 따라<br>안전하게 관리됩니다.<br>필요한 경우 비밀유지계약(NDA)을<br>체결하여 상담을 진행합니다.</span></p>
+          <div class="consultation-modal__success-copy">
+            <p class="section-kicker">SUCCESS</p>
+            <h2 id="consultation-success-title">상담 신청 완료</h2>
+            <p id="consultation-success-description"><span class="consultation-modal__header-trust"><b>CONFIDENTIAL</b>상담 내용은 비밀유지 원칙에 따라<br>안전하게 관리됩니다.<br>필요한 경우 비밀유지계약(NDA)을<br>체결하여 상담을 진행합니다.</span></p>
+          </div>
         </header>
 
         <div class="consultation-modal__body" data-consultation-content>
