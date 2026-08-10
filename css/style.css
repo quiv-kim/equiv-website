@@ -4307,6 +4307,7 @@ button {
 
 .footer-brand .equiv-logo-wordmark {
   font-size: var(--type-h3);
+  letter-spacing: var(--component-header-wordmark-tracking);
 }
 
 .site-footer p {
