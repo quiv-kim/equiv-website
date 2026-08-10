@@ -4234,6 +4234,10 @@ button {
   line-height: 1.8;
 }
 
+.consultation-modal__success > p.consultation-modal__success-message {
+  margin-bottom: var(--space-lg);
+}
+
 .consultation-modal__success > p + p:not(.consultation-modal__static-notice) {
   margin-top: var(--space-md);
 }

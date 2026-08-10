@@ -56,7 +56,7 @@
           </div>
           <p class="section-kicker">SUCCESS</p>
           <h2 id="consultation-success-title">상담 신청 완료</h2>
-          <p id="consultation-success-description"><strong>상담 신청이 정상적으로 접수되었습니다.</strong><span class="consultation-modal__header-trust"><b>CONFIDENTIAL</b>상담 내용은 비밀유지 원칙에 따라<br>안전하게 관리됩니다.<br>필요한 경우 비밀유지계약(NDA)을<br>체결하여 상담을 진행합니다.</span></p>
+          <p id="consultation-success-description"><span class="consultation-modal__header-trust"><b>CONFIDENTIAL</b>상담 내용은 비밀유지 원칙에 따라<br>안전하게 관리됩니다.<br>필요한 경우 비밀유지계약(NDA)을<br>체결하여 상담을 진행합니다.</span></p>
         </header>
 
         <div class="consultation-modal__body" data-consultation-content>
@@ -140,9 +140,7 @@
         </div>
 
         <div class="consultation-modal__success" tabindex="-1" aria-live="polite" data-consultation-success hidden>
-          <div class="consultation-modal__success-icon" aria-hidden="true">
-            <svg class="icon icon--lg" viewBox="0 0 24 24" focusable="false"><path d="m7.5 12.4 3 3 6.5-7"></path></svg>
-          </div>
+          <p class="consultation-modal__success-message">상담 신청이 정상적으로 접수되었습니다.</p>
           <button class="btn btn-primary" type="button" data-consultation-confirm>확인</button>
         </div>
       </section>
