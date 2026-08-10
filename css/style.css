@@ -4141,7 +4141,7 @@ button {
 }
 
 .consultation-modal__success {
-  min-height: 490px;
+  min-height: 0;
   padding: var(--space-2xl) var(--space-2xl);
   text-align: center;
   outline: none;
