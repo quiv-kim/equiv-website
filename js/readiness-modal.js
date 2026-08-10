@@ -101,15 +101,25 @@
 
   const focusFirstReadinessItem = () => {
     if (!readinessModal) return;
-    const primaryItem = readinessModal.querySelector(
-      "[data-readiness-answer], .readiness-modal-cta .btn"
-    );
+    const primaryItem = readinessModal.querySelector("[data-readiness-answer]");
     if (primaryItem) {
       primaryItem.focus();
       return;
     }
     const focusableItems = getFocusableItems();
     if (focusableItems.length) focusableItems[0].focus();
+  };
+
+  const resetReadinessScroll = () => {
+    const dialog = readinessModal?.querySelector(".readiness-modal__dialog");
+    if (dialog) dialog.scrollTop = 0;
+  };
+
+  const focusReadinessResult = () => {
+    const resultHeading = readinessSteps?.querySelector(".readiness-result h3");
+    if (!resultHeading) return;
+    resultHeading.setAttribute("tabindex", "-1");
+    resultHeading.focus({ preventScroll: true });
   };
 
   const getReadinessLevel = () => {
@@ -147,7 +157,7 @@
         <p class="readiness-result__eyebrow">Deal Readiness</p>
         <p class="readiness-result__stars" aria-hidden="true">${result.stars}</p>
         <p class="readiness-result__status">${result.status}</p>
-        <h3>${result.title}</h3>
+        <h3 tabindex="-1">${result.title}</h3>
         <p>${result.body}</p>
         <p class="readiness-result__brand">입력 결과는<br>현재 준비 상태를 파악하기 위한 참고자료입니다.<br><br>거래 목적과 재무·사업 자료를 검토하면<br>다음 준비 과제를 구체화할 수 있습니다.</p>
         <div class="readiness-next">
@@ -173,6 +183,7 @@
     readinessModal.classList.add("is-open");
     readinessModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
+    resetReadinessScroll();
     focusFirstReadinessItem();
   };
 
@@ -202,10 +213,12 @@
     readinessIndex += 1;
     if (readinessIndex >= readinessQuestions.length) {
       renderReadinessResult();
+      resetReadinessScroll();
+      focusReadinessResult();
     } else {
       renderReadinessQuestion();
+      focusFirstReadinessItem();
     }
-    focusFirstReadinessItem();
   });
 
   readinessModal.addEventListener("keydown", (event) => {
