@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://equiv.co.kr/sitemap.xml
