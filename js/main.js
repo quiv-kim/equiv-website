@@ -29,24 +29,28 @@
 
   if (window.EQUIVMotion.prefersReduced()) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
-    return;
-  }
-
-  if (!("IntersectionObserver" in window)) {
+  } else if (!("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
-    return;
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
   }
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.16 }
-  );
-
-  revealItems.forEach((item) => revealObserver.observe(item));
+  if (!document.querySelector('script[data-consultation-submit]')) {
+    const script = document.createElement("script");
+    script.src = "js/consultation-submit.js?v=20260924-1";
+    script.defer = true;
+    script.dataset.consultationSubmit = "true";
+    document.head.appendChild(script);
+  }
 })();
