@@ -48,7 +48,7 @@
 
   if (!document.querySelector('script[data-consultation-submit]')) {
     const script = document.createElement("script");
-    script.src = "js/consultation-submit.js?v=20260924-1";
+    script.src = "js/consultation-submit.js?v=20260925-1";
     script.defer = true;
     script.dataset.consultationSubmit = "true";
     document.head.appendChild(script);
