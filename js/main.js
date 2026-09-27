@@ -13,6 +13,43 @@
       parseMotionTime(getComputedStyle(document.documentElement).getPropertyValue(token), fallback),
   });
 
+  const applyBrandIdentity = () => {
+    const brandName = "EQUIV M&A";
+
+    document.querySelectorAll(".equiv-logo-wordmark, .brand-label").forEach((element) => {
+      element.textContent = brandName;
+    });
+
+    document.querySelectorAll("a.brand").forEach((element) => {
+      const currentLabel = element.getAttribute("aria-label") || "";
+      if (/EQUIV/i.test(currentLabel)) {
+        element.setAttribute("aria-label", currentLabel.replace(/EQUIV(?: M&A)?/gi, brandName));
+      }
+    });
+
+    document.querySelectorAll(".site-nav a[href$='about.html'], .footer-sitemap a[href$='about.html']").forEach((element) => {
+      if (/EQUIV/.test(element.textContent)) element.textContent = `${brandName} 소개`;
+    });
+
+    document.querySelectorAll(".footer-copyright").forEach((element) => {
+      element.innerHTML = element.innerHTML.replace(/© 2026 EQUIV(?: M&amp;A| M&A)?\./, `© 2026 ${brandName}.`);
+    });
+
+    if (document.title.includes("EQUIV") && !document.title.includes(brandName)) {
+      document.title = document.title.replace(/EQUIV(?! M&A)/g, brandName);
+    }
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute(
+        "content",
+        description.getAttribute("content").replace(/EQUIV(?! M&A)/g, brandName)
+      );
+    }
+  };
+
+  applyBrandIdentity();
+
   const revealItems = document.querySelectorAll("[data-reveal]");
   const revealGroups = document.querySelectorAll(
     ".principle-grid, .service-grid, .insight-grid, .expertise-card-grid, .about-flow, .process-timeline, .faq-list"
