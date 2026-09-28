@@ -48,7 +48,30 @@
     }
   };
 
+  const enhanceInsights = () => {
+    document.querySelectorAll("#insights-dropdown ul").forEach((list) => {
+      if (list.querySelector('a[href="insights.html"]')) return;
+      const item = document.createElement("li");
+      item.innerHTML = '<a href="insights.html">전체 인사이트</a>';
+      list.prepend(item);
+    });
+
+    const homeInsights = document.querySelector(".insights-preview .container");
+    if (homeInsights && document.body.id === "top" && !homeInsights.querySelector(".insights-all-action")) {
+      const action = document.createElement("div");
+      action.className = "insights-all-action";
+      action.style.marginTop = "32px";
+      action.innerHTML = '<a class="btn btn-ghost" href="insights.html">인사이트 전체보기</a>';
+      homeInsights.appendChild(action);
+    }
+
+    document.querySelectorAll('.footer-sitemap a[href="index.html#insights"], .footer-sitemap a[href="#insights"]').forEach((link) => {
+      link.href = "insights.html";
+    });
+  };
+
   applyBrandIdentity();
+  enhanceInsights();
 
   const revealItems = document.querySelectorAll("[data-reveal]");
   const revealGroups = document.querySelectorAll(
